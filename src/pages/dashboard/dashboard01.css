@@ -1,0 +1,11 @@
+.main{
+
+    
+    display: flex;
+    margin: 0;
+}
+.main .container{
+
+    background-color: black;
+    flex: 5;  
+}

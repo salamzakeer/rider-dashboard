@@ -1,0 +1,60 @@
+.sidebar{
+position: absolute;
+margin: 0;
+top: 0px;
+left: 0px;
+width: 323px;
+height: 1088px;
+background-color: aqua;
+box-shadow: 5px 5px 55px #0000000D;
+}
+.sidebar .menubtn{
+    margin-top: 40px;
+    margin-left: 37px;
+}
+.sidebar .dash{
+    top: 103px;
+left: 0px;
+width: 323px;
+height: 72px;
+background: #5016BF 0% 0% no-repeat padding-box;
+opacity: 0.68;
+}
+
+.sidebar .dash p{
+    /* Layout Properties */
+top: 25px;
+left: 35px;
+width: 90px;
+height: 23px;
+position: relative  ;
+/* UI Properties */
+text-align: left;
+font: normal normal medium 16px/25px Poppins;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+}
+
+
+.sidebar .nav ul{
+    list-style: none;
+    padding-left: 0;
+}
+.sidebar .nav li{
+    margin-left: 37px;
+    margin-top: 43px;
+    font: normal normal normal 16px/25px Poppins;
+letter-spacing: 0px;
+color: #9B9B9B;
+}
+
+.sidebar .settings{
+    position: relative;
+    margin-left: 49px;
+    top: 331px;
+    bottom: 87px;
+    font: normal normal normal 16px/25px Poppins;
+letter-spacing: 0px;
+color: #9B9B9B;
+}
