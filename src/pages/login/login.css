@@ -25,12 +25,19 @@
 }
 
 .login-card .input{
-    width: 658px;
+    width: 613px;
     height: 88px;
     margin-top: 17px;
+    border: 0.5px solid #AFAFAF;
     border-radius: 44px;
-    font: normal normal normal 30px/46px Poppins;
+    
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 0px;
     color: #AFAFAF;
+    padding-left: 44px;
+
 }
   
 .login-card .submit {

@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
-import "./dashboard01.css"
+import "./dashboard02.css"
 
-function Dashboard01(){
+function Dashboard02(){
     return(
         <div className="main">
         <div>
@@ -13,12 +13,13 @@ function Dashboard01(){
        <Navbar />
 
        {/* ========== form ==========*/}
-       <div className="newFile">
+       <div className="newFile2">
             <h1>new file</h1>
             <form action="submit"> 
-                <input type="text" className="input2" placeholder="Upload file"/>
-                <input type="password" className="input3" placeholder="Add Column"/>
-                <button type="submit" className="submit2">Submit</button>
+                <input type="text" className="input4" placeholder="Riders.xl"/>
+                <input type="text" className="input5" placeholder="Payment"/>
+                <input type="password" className="input6" placeholder="Add Column"/>
+                <button type="submit" className="submit3">Submit</button>
             </form>
         </div>
         {/* ========== form ==========*/}
@@ -30,4 +31,4 @@ function Dashboard01(){
 
 
 }
-export default Dashboard01;
+export default Dashboard02;

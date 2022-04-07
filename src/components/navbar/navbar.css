@@ -1,5 +1,51 @@
-.mainNav{
-    top: 0;
-    left: 0;
-    background-color: brown;
+.mainNav{ 
+    display: flex;
+}
+
+.mainNav .title{
+top: 23px;
+left: 32px;
+width: 235px;
+height: 57px;
+/* UI Properties */
+opacity: 1;
+position: relative;
+}
+.mainNav .title h1{
+font: normal normal bold 41px;
+letter-spacing: 0px;
+color: #000000;
+margin: 0;
+}
+.mainNav .profile{
+    position: relative;
+    display: flex;
+    left: 1088px;
+    top: 22px;
+    
+}
+.mainNav .profile .profilePic{
+    position: relative;
+    top: 0px;
+    width: 60px;
+height: 60px;
+}
+.mainNav .profile .subTitle{
+    position: relative;
+    top: 12px;
+    margin-left: 22px;
+}
+.mainNav .profile .subTitle h2{
+    font: normal normal medium 17px;
+    color: #000000;
+    margin: 0;
+}
+.mainNav .profile .drop img{
+    position: relative;
+    margin-left: 33px;
+    top: 22px;
+    width: 17px;
+    height: 17px;
+    
+
 }

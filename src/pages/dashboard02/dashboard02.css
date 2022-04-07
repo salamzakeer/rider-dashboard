@@ -12,17 +12,17 @@ body{
     height: 1080px;
 }
 
-.newFile{
+.newFile2{
     position: absolute;
     top: 292px;
     bottom: 0;
     left: 456px;
     right: 0;
     width: 664px;
-    height: 532px;
+    height: 555px;
 }
 
-.newFile h1{
+.newFile2 h1{
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
@@ -33,12 +33,12 @@ body{
     color: #5016BF;
 }
 
-.newFile form{
+.newFile2 form{
     position: relative;
     margin-top: 74px;
 }
 
-.newFile .input2{
+.newFile2 .input4{
     width: 574px;
     height: 88px;
     margin-top: 17px;
@@ -55,7 +55,7 @@ body{
 
     background: url("../../assets/upload.png") center right 43px no-repeat; 
 }
-.newFile .input3{
+.newFile2 .input5{
     width: 574px;
     height: 88px;
     margin-top: 17px;
@@ -68,16 +68,29 @@ body{
     letter-spacing: 0px;
     color: #AFAFAF;
     padding-left: 44px;
-    padding-right: 43px;
+
+    background: url("../../assets/pay.png") center right 43px no-repeat; 
+}
+
+.newFile2 .input6{
+    width: 574px;
+    height: 88px;
+    margin-top: 17px;
+    border: 0.5px solid #AFAFAF;
+    border-radius: 44px;
+    
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #AFAFAF;
+    padding-left: 44px;
 
     background: url("../../assets/add.png") center right 43px no-repeat; 
 }
-.newFile form img{
-    position: absolute;
 
-}
   
-.newFile .submit2 {
+.newFile2 .submit3 {
     width: 664px;
     height: 88px;
     margin-top: 35px;
