@@ -7,12 +7,12 @@ function Login(){
         
         <div className="login-card">
             <h1>Login</h1>
-            <form action="submit">
+            <form action="/maindashboard">
                 <input type="text" className="input" placeholder="Email"/>
 
                 <input type="password" className="input" placeholder="Password"/>
                 
-                <button type="#" className="login-submit">Login</button>
+                <button type="#" className="login-submit" >Login</button>
             </form>
             <div className="reset">
             <a href="#">Forgot Password?</a>

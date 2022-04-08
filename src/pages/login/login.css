@@ -69,17 +69,36 @@
 @media only screen and (max-width: 768px) {
    
     .login-card{
-        width: 90%;
+        width: 85%;
         vertical-align: middle; /*Vertically centered*/
         
     }
     .login-card form{
         width: 100%;
+        margin-top: 50px;
     }
     .login-card .input {
         box-sizing: border-box;
         width: 100%;
+        font: normal 25px Poppins;
+        height: 70px;
+        border-radius: 35px;
     } 
 
+    .login-card .login-submit{
+        box-sizing: border-box;
+        width: 100%;
+        font: normal 600 25px Poppins;
+        height: 70px;
+        border-radius: 35px;
+    }
+
+    .login-card .reset{
+        font: normal 25px Poppins;
+    }
+
+    .login-card{
+        height: fit-content;
+    }
   
   }
