@@ -24,8 +24,8 @@ margin: 0;
     position:absolute;
     display: flex;
 
-align-items: center;
-justify-content: center;
+    align-items: center;
+    justify-content: center;
     right: 0;
     float: right;
     padding-right: 52px;

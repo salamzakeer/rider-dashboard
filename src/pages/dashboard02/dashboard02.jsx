@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState} from "react";
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
+
+
+import UploadIcon from '../../assets/upload.png'
+import AddIcon from '../../assets/add.png'
+import RemoveIcon from '../../assets/remove.png'
+
 import "./dashboard02.css"
 
-function Dashboard02() {
+ function Dashboard02() {
+
+    const [visible, add]=useState(false);
+
     return (
         <div className="main">
             <div>
@@ -16,11 +25,26 @@ function Dashboard02() {
                 <div className="newFile2">
                     <h1>New file</h1>
                     <form action="submit">
-                        <input type="text" className="input4" placeholder="Riders.xl" />
+
+                        <div className="input-div">
+                        <input type="text" className="input-div-input" placeholder="Riders.xl" />
+                        <img src={UploadIcon} alt="" className="input-div-botton" />
+                        </div>
+
+                        <div className="input-div">
+                        <input type="text" className="input-div-input" placeholder="Add Column" />
+                        <img src={AddIcon} alt="" className="input-div-botton" onClick={() => add(true)} />
+                        </div>
                         
-                        <input type="text" className="input5" placeholder="Payment" />
-                        <input type="password" className="input6" placeholder="Add Column" />
-                        <button type="submit" className="submit3">Submit</button>
+                        { visible &&
+                        <div className="input-div">
+                        <input type="text" className="input-div-input" placeholder="Payment" />
+                        <img src={RemoveIcon} alt="" className="input-div-botton" onClick={() => add(false)} />
+                        </div>}
+                        
+   
+
+                        <button type="submit" className="submit3">Submit</button> 
                     </form>
                 </div>
                 {/* ========== form ==========*/}
