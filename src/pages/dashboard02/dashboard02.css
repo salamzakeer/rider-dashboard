@@ -118,6 +118,7 @@ body{
     }
     .newFile2 form{
         width: 100%;
+        margin-top: 50px;
     }
     .newFile2 form .input-div {
         box-sizing: border-box;
@@ -127,7 +128,20 @@ body{
         box-sizing: border-box;
         width: 100%;
     } 
-
+    .newFile2 form .submit3 {
+        height: 70px;
+        font-size: normal 600 25px Poppins;
+        font: normal normal 600 25px Poppins;
+    }
+    .newFile2 form .input-div-input{
+            height: 70px;
+            border-radius: 35px;
+            font: normal 25px Poppins;
+        }
+        .newFile2{
+            top: 25%;
+            width: 80%;
+        }
   
   }
   @media only screen and (max-width: 510px){
@@ -159,6 +173,7 @@ body{
         border-radius: 35px;
         font: normal 25px Poppins;
     }
+    
     
 
   }
