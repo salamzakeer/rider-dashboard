@@ -7,7 +7,7 @@ function Sidebar(){
         <div className="sidebar">
 
             <div className="menubtn">
-            <img src={MenuPic} alt="Menu" />
+                <img src={MenuPic} alt="Menu" />
             </div>
 
             <div className="dash"> <p>Dashboard</p></div>

@@ -1,5 +1,8 @@
 .mainNav{ 
     display: flex;
+    top: 1.2%;
+    left: 83.2%;
+    width: 100%;
 }
 
 .mainNav .title{
@@ -20,6 +23,9 @@ margin: 0;
 .mainNav .profile{
     position: relative;
     display: flex;
+
+align-items: center;
+justify-content: center;
     left: 1088px;
     top: 22px;
     
@@ -32,18 +38,19 @@ height: 60px;
 }
 .mainNav .profile .subTitle{
     position: relative;
-    top: 12px;
+    
     margin-left: 22px;
 }
 .mainNav .profile .subTitle h2{
-    font: normal normal medium 17px;
+    font-weight: normal medium;
+    font-size: 17px;
     color: #000000;
     margin: 0;
 }
 .mainNav .profile .drop img{
     position: relative;
     margin-left: 33px;
-    top: 22px;
+    
     width: 17px;
     height: 17px;
     
