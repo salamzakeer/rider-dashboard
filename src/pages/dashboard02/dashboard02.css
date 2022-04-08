@@ -59,6 +59,7 @@ body{
 
 
 
+
 .newFile2 form .input5{
     width: 100%;
     height: 88px;
@@ -73,7 +74,7 @@ body{
     color: #AFAFAF;
     padding-left: 44px;
 
-    background: url("../../assets/pay.png") center right 43px no-repeat; 
+    background: url("../../assets/remove.png") center right 43px no-repeat; 
 }
 
 .newFile2 form .input6{
