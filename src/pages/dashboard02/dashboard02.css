@@ -38,7 +38,7 @@ body{
     margin-top: 74px;
 }
 
-.newFile2 .input4{
+.newFile2 form .input4{
     width: 574px;
     height: 88px;
     margin-top: 17px;
@@ -55,7 +55,10 @@ body{
 
     background: url("../../assets/upload.png") center right 43px no-repeat; 
 }
-.newFile2 .input5{
+
+
+
+.newFile2 form .input5{
     width: 574px;
     height: 88px;
     margin-top: 17px;
@@ -71,7 +74,7 @@ body{
     background: url("../../assets/pay.png") center right 43px no-repeat; 
 }
 
-.newFile2 .input6{
+.newFile2 form .input6{
     width: 574px;
     height: 88px;
     margin-top: 17px;
@@ -88,7 +91,7 @@ body{
 }
 
   
-.newFile2 .submit3 {
+.newFile2 form .submit3 {
     width: 664px;
     height: 88px;
     margin-top: 35px;

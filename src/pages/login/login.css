@@ -8,6 +8,7 @@
     margin: auto;
     width: 664px;
     height: 532px;
+    text-align: center; 
 }
 
 .login-card h1{
@@ -33,7 +34,7 @@
     margin-top: 17px;
     border: 0.5px solid #AFAFAF;
     border-radius: 44px;
-    
+    box-sizing: border-box;
     font: normal 30px Poppins;
     letter-spacing: 0px;
     color: #AFAFAF;
@@ -70,7 +71,7 @@
     .login-card{
         width: 90%;
         vertical-align: middle; /*Vertically centered*/
-        text-align: center; /* Horizontally centered */
+        
     }
     .login-card form{
         width: 100%;

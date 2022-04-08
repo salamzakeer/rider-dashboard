@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./login.css"
 
 function Login(){
@@ -8,7 +9,9 @@ function Login(){
             <h1>Login</h1>
             <form action="submit">
                 <input type="text" className="input" placeholder="Email"/>
+
                 <input type="password" className="input" placeholder="Password"/>
+                
                 <button type="#" className="login-submit">Login</button>
             </form>
             <div className="reset">
