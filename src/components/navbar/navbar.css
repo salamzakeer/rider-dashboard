@@ -1,58 +1,61 @@
 .mainNav{ 
     display: flex;
-    top: 1.2%;
-    left: 83.2%;
-    width: 100%;
+    top: 2.13%;
+
+    width: 83.8%;
+    position: relative;
 }
 
 .mainNav .title{
-top: 23px;
+box-sizing: border-box;
 left: 32px;
 width: 235px;
 height: 57px;
-/* UI Properties */
 opacity: 1;
 position: relative;
 }
 .mainNav .title h1{
-font: normal normal bold 41px;
-letter-spacing: 0px;
+font: normal bold 41px Poppins;
 color: #000000;
 margin: 0;
 }
 .mainNav .profile{
+    box-sizing: border-box;
     position: relative;
     display: flex;
 
 align-items: center;
 justify-content: center;
-    left: 1088px;
-    top: 22px;
+    left: 85.5%;
+    float: right;
+    padding-right: 52px;
+    
     
 }
 .mainNav .profile .profilePic{
+    box-sizing: border-box;
+    vertical-align: text-top;
     position: relative;
     top: 0px;
     width: 60px;
-height: 60px;
+    height: 60px;
 }
 .mainNav .profile .subTitle{
+    box-sizing: border-box;
     position: relative;
-    
     margin-left: 22px;
 }
 .mainNav .profile .subTitle h2{
+    box-sizing: border-box;
     font-weight: normal medium;
     font-size: 17px;
     color: #000000;
     margin: 0;
 }
 .mainNav .profile .drop img{
+    box-sizing: border-box; 
     position: relative;
     margin-left: 33px;
-    
     width: 17px;
     height: 17px;
-    
-
 }
