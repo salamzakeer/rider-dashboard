@@ -15,9 +15,9 @@ import "./dashboard02.css"
 
     return (
         <div className="main">
-            <div>
+            {/* <div>
                 <Sidebar />
-            </div>
+            </div> */}
             <div className="container">
                 <Navbar />
 

@@ -1,27 +1,36 @@
-.sidebar{
-position: absolute;
-flex: 1;
-margin: 0;
-top: 0px;
-left: 0px;
-width: 16.8%;
-height: 1088px;
-box-shadow: 5px 5px 55px #0000000D;
-}
-.sidebar .menubtn{
-    margin-top: 40px;
-    margin-left: 37px;
-}
-.sidebar .dash{
-    top: 103px;
+.navigation {
+    position: relative;
+    margin: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 5px 5px 55px #0000000D;
+
+    }
+
+/* .sidebar .menubtn {
+    top: 3.7%;
+    left: 37px;
+    position: relative;
+    margin-bottom: 3.6%;
+} */
+ /* .menubtn {
+    margin-left: 2rem;
+    font-size: 2rem;
+    background: none;
+  } */
+ .dash {
+    top: 3.6%;
     left: 0px;
     width: 100%;
     height: 72px;
     background: #5016BF 0% 0% no-repeat padding-box;
     opacity: 0.68;
+    position: relative;
 }
 
-.sidebar .dash p{
+ .dash p{
     
     top: 25px;
     left: 35px;
@@ -30,32 +39,82 @@ box-shadow: 5px 5px 55px #0000000D;
     position: relative;
     
     text-align: left;
-    font: normal medium 16px Poppins;
+    font: normal normal 500 16px/25px Poppins;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
 }
 
-
-.sidebar .nav ul{
+/* .nav {
+    margin-top: 0px;
+    position: relative;
+    top: 3.9%;
+   } */
+   .nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 850ms; 
+    margin: 0;
+    top: 0px;
+    width: 16.8%;
+    box-shadow: 5px 5px 55px #0000000D;
+  }
+  .nav-menu.active{
+    box-shadow: 5px 5px 55px #0000000D;
+    left: 0;
+    transition: 350ms;
+  }
+   /* .nav > .nav-links:nth-child(1) {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: none;
+   } */
+   /* .nav .nav-menu-button{
+       display: none;
+   }  */ 
+   .nav .nav-links {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
 }
-.sidebar .nav li{
+
+
+  .menu-bars {
+        margin-left: 2rem;
+        font-size: 2rem;
+        background: none;
+      }
+
+.menubtn{
+    position: relative;
+    background-color: #060b26;
+    height: 80px;
+    justify-content: start;
+    align-items: center;
+}
+
+/* .nav-menu-button{
+    width: 100%;
+} */
+.navigation > .nav-links:nth-child(1) {
+    margin-top: 0px;
+    margin-bottom: 0px;
+   }
+    .navigation li {
     margin-left: 37px;
-    margin-top: 43px;
-    font: normal normal normal 16px;
+    margin-top: 19.5%;
+    font: normal normal 400 16px Poppins;
     letter-spacing: 0px;
     color: #9B9B9B;
 }
 
-.sidebar .settings{
+ .settings {
     position: relative;
     margin-left: 49px;
-    top: 331px;
-    bottom: 87px;
     font: normal normal normal 16px/25px Poppins;
     letter-spacing: 0px;
     color: #9B9B9B;
+    bottom: 8%;
+    top: 20%;
 }
-

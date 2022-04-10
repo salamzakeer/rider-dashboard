@@ -5,13 +5,12 @@ body{
     display: flex;
 }
 
-.main .container{
-    position: relative;
+.main .container {
+    position: absolute;
     height: 1080px;
-    left: 16.7%;
+    /*! left: 16.7%; */
     width: 83.8%;
 }
-
 .newFile2{
     position: absolute;
     top: 0;
@@ -99,10 +98,25 @@ body{
 
 
 @media only screen and (max-width: 1120px){
+
     .sidebar{
         visibility: hidden;
-        
     }
+    .sidebar .menubtn{
+        visibility: visible;
+    }
+    .main .mainNav{
+        top: 1.4%;
+        width: 94%;
+        left: 6%;
+    }
+
+    .mainNav .title h1 {
+        font: normal bold 30px Poppins;
+        color: #000000;
+        margin: 0;
+    }
+
    .main .container{
         left: 0;
         width: 100%;
@@ -144,16 +158,51 @@ body{
         }
   
   }
-  @media only screen and (max-width: 510px){
+  @media only screen and (max-width: 800px){
+    /* .nav > ul:nth-child(1) {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        display: block;
+       } */
+       .sidebar .nav .nav-menu-button{
+        display: block;
+    } 
+    
+    .sidebar .menubtn {
+        left: 20px;
+    }
+    .main .mainNav {
+        top: 1.6%;
+        width: 88%;
+        left: 11%;   
+      }
+
+    .mainNav .title { 
+        left: 20px;
+        }
     .mainNav .title h1{
-        font-size: 28px;
+        font-size: 25px;
+    }
+
+    .mainNav .profile{
+        padding-right: 30px;
+    }
+
+    .mainNav .profile .profilePic{
+        width: fit-content;
+        height: fit-content;
     }
     .mainNav .profile .drop img{
         margin-left: 15px;
     }
+    .profilePic > img:nth-child(1) {
+        width: 45px;
+        }
+    
     .mainNav .profile .subTitle{
         display: none;
     }
+
     .newFile2{
         top: 20%;
         width: 80%;

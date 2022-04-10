@@ -1,14 +1,14 @@
 import React from "react";
 import Navbar from "../../components/navbar/navbar";
-import Sidebar from "../../components/sidebar/sidebar";
+// import Sidebar from "../../components/sidebar/sidebar";
 import "./dashboard01.css"
 
 function Dashboard01(){
     return(
         <div className="main">
-        <div>
+        {/* <div>
         <Sidebar />
-        </div>   
+        </div>    */}
         <div className="container">
        <Navbar />
 

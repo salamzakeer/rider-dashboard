@@ -1,11 +1,16 @@
 import "./navbar.css"
 import ProfilePic from '../../assets/Mask Group 5.png'
 import DownPic from '../../assets/down-filled-triangular-arrow.png'
-
+import Sidebar from "../../components/sidebar/sidebar";
 function Navbar(){
+
+
     return(
+        
         <div className="mainNav">
-            
+            <div>
+        <Sidebar />
+        </div>   
             <div className="title">
                 <h1>Dashboard</h1>
             </div>

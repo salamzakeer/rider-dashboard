@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    height: 100%;
 }
 .main{  
     display: flex;
@@ -7,9 +8,8 @@ body{
 
 .main .container{
     position: relative;
-    /* flex: 5;   */
     left: 323px;
-    height: 1080px;
+
 }
 
 .newFile{

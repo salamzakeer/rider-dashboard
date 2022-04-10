@@ -9,7 +9,7 @@
 .mainNav .title{
 box-sizing: border-box;
 left: 32px;
-width: 235px;
+width: fit-content;
 height: 57px;
 opacity: 1;
 position: relative;
