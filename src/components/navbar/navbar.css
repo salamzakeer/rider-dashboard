@@ -1,11 +1,11 @@
 .mainNav{ 
     display: flex;
     top: 2.13%;
-
     width: 100%;
     position: relative;
 }
 
+/* =====Title=== */
 .mainNav .title{
 box-sizing: border-box;
 left: 32px;
@@ -19,19 +19,20 @@ font: normal bold 41px Poppins;
 color: #000000;
 margin: 0;
 }
+
+
+/* =====profile=== */
 .mainNav .profile{
     box-sizing: border-box;
     position:absolute;
     display: flex;
-
     align-items: center;
     justify-content: center;
     right: 0;
     float: right;
-    padding-right: 52px;
-    
-    
+    padding-right: 52px;   
 }
+/* profile image */
 .mainNav .profile .profilePic{
     box-sizing: border-box;
     vertical-align: text-top;
@@ -52,6 +53,7 @@ margin: 0;
     color: #000000;
     margin: 0;
 }
+/* profile drop down button */
 .mainNav .profile .drop img{
     box-sizing: border-box; 
     position: relative;

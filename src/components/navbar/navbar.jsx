@@ -9,7 +9,7 @@ function Navbar(){
         
         <div className="mainNav">
             <div>
-        <Sidebar />
+        
         </div>   
             <div className="title">
                 <h1>Dashboard</h1>

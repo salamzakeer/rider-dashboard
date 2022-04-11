@@ -1,16 +1,20 @@
 body{
     margin: 0;
 }
-.main{  
+.main{ 
+    position: absolute;
     display: flex;
+    width: 100%;
 }
 
 .main .container {
-    position: absolute;
+    position: relative;
     height: 1080px;
-    /*! left: 16.7%; */
-    width: 83.8%;
+    width: 100%;
 }
+
+/* ==========form=========== */
+
 .newFile2{
     position: absolute;
     top: 0;
@@ -93,24 +97,19 @@ body{
 }
 
 
-
-
-
+/* ============================================ */
 
 @media only screen and (max-width: 1120px){
 
-    .sidebar{
-        visibility: hidden;
-    }
-    .sidebar .menubtn{
-        visibility: visible;
-    }
     .main .mainNav{
-        top: 1.4%;
+        top: 3%;
         width: 94%;
-        left: 6%;
+        left: 3%;
     }
 
+    .mainNav .profile{
+        padding-right: 20px;
+    }
     .mainNav .title h1 {
         font: normal bold 30px Poppins;
         color: #000000;
@@ -151,37 +150,33 @@ body{
             height: 70px;
             border-radius: 35px;
             font: normal 25px Poppins;
-        }
-        .newFile2{
+     }
+    .newFile2{
             top: 25%;
             width: 80%;
         }
   
   }
+
+  /* =========================================== */
+
   @media only screen and (max-width: 800px){
-    /* .nav > ul:nth-child(1) {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        display: block;
-       } */
-       .sidebar .nav .nav-menu-button{
-        display: block;
-    } 
-    
-    .sidebar .menubtn {
-        left: 20px;
+
+    .slider .navigation{
+        z-index: 9;
     }
+
     .main .mainNav {
-        top: 1.6%;
-        width: 88%;
-        left: 11%;   
+        top: 3.4%;
+        width: 97%;
+        left: 3%;   
       }
 
     .mainNav .title { 
-        left: 20px;
+        left: 0;
         }
     .mainNav .title h1{
-        font-size: 25px;
+        font-size: 20px;
     }
 
     .mainNav .profile{
@@ -214,13 +209,18 @@ body{
     .newFile2 form .input-div-input{
         height: 70px;
         border-radius: 35px;
-        font: normal 25px Poppins;
+        font: normal 21px Poppins;
+        padding-right: 22px;
+        padding-left: 25px;
     }
+    .newFile2 form  .input-div-botton {
+        padding-right: 22px;   
+      }
 
     .newFile2 form .submit3{
         height: 70px;
         border-radius: 35px;
-        font: normal 25px Poppins;
+        font: normal 21px Poppins;
     }
     
     

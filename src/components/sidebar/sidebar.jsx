@@ -24,13 +24,7 @@ function Sidebar() {
 
 
             <div className={slider ? 'nav-menu active' : 'nav'}>
-                {/* 
-                <div className='nav-menu-button' onClick={showSidebar}>
-              <Link to='#' className='menu-bars'>
-              <img src={Close} alt="Menu"/>
-              </Link>
-
-            </div> */}
+                
 
                 <div className="dash"> <p>Dashboard</p></div>
 

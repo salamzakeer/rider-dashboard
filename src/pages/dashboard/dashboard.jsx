@@ -7,7 +7,7 @@ import UploadIcon from '../../assets/upload.png'
 import AddIcon from '../../assets/add.png'
 import RemoveIcon from '../../assets/remove.png'
 
-import "./dashboard02.css"
+import "./dashboard.css"
 
 function Dashboard02() {
 
@@ -15,11 +15,12 @@ function Dashboard02() {
 
     return (
         <div className="main">
-            {/* <div>
+            <div className="slider">
                 <Sidebar />
-            </div> */}
-            <Navbar />
+            </div>
+            
             <div className="container">
+            <Navbar />
 
                 {/* ========== form ==========*/}
                 <div className="newFile2">
