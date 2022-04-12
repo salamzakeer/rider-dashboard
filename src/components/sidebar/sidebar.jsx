@@ -29,9 +29,9 @@ function Sidebar() {
                 <div className="dash"> <p>Dashboard</p></div>
 
                 <ul className="nav-links">
-                    <li><span>sidebar option</span></li>
-                    <li><span>sidebar option</span></li>
-                    <li><span>sidebar option</span></li>
+                    <li><span>Home</span></li>
+                    <li><span>Riders Information's</span></li>
+                    <li><span>Users option</span></li>
                     <li><span>sidebar option</span></li>
                     <li><span>sidebar option</span></li>
                     <li><span>sidebar option</span></li>

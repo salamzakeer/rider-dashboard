@@ -9,7 +9,7 @@ import RemoveIcon from '../../assets/remove.png'
 
 import "./dashboard.css"
 
-function Dashboard02() {
+function Dashboard() {
 
     const [visible, add] = useState(false);
 
@@ -57,4 +57,4 @@ function Dashboard02() {
 
 
 }
-export default Dashboard02;
+export default Dashboard;
