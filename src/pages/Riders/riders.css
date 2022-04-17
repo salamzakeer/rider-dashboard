@@ -51,6 +51,15 @@ margin: 0;
     width: 327px;
     height: 89px;
 }
+.Deletebtn{
+    width: 177px;
+height: 63px;
+background: #C0392B;
+border-radius: 44px;
+border: none;
+color: #FFFFFF;
+font: normal 600 30px Poppins;
+}
 /* =======table============ */
 
 

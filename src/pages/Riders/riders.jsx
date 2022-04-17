@@ -11,8 +11,9 @@ import Paper from '@mui/material/Paper';
 
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
-// import AddUserPopup from "../../components/adduser/adduser";
-import "./dashboard.css"
+import AddRider from '../../components/Modal/AddRiderPopup'
+
+import "./riders.css"
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -21,45 +22,55 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color: theme.palette.common.white,
     fontSize: 30,
     fontFamily: 'Poppins',
-    fontWeight: 400,
-    fontStyle: "normal"
+    fontWeight: 600,
+    fontStyle: "normal",
+    border: 0
     
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 30,
+    fontFamily: 'Poppins',  
+    color: '#707070',
+    textAlign : 'left',
+    fontWeight: 400,
+    fontStyle: "normal"
+    
+
   },
 
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
+    // backgroundColor: theme.palette.action.hover,
     
   },
   // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
+   '&:frist-child td, &:frist-child th': {
+    border: 2,
   },
 }));
 
-function createData(ID, Name, Email, Password, Action) {
-  return { ID, Name, Email, Password, Action };
+function createData(ID, Name, Email, Password) {
+  return { ID, Name, Email, Password};
 }
 
 const rows = [
-  createData('RD001', 'Banna Andrian', 'Bannaandrian@gmail.com', "24aa456", 4.0),
-  createData('RD002', 'Elver Andries', 'Elverandries@gmail.com', "34aa456", 4.3),
-  createData('RD003', 'Andria Elvera',  'Andriaelvera@gmail.com', "24aa456", 6.0),
-  createData('RD004', 'Bangaly Andriana',  'Bangalyandriana@gmail.com', "64aa456", 4.3),
-  createData('RD005', 'Andris Banta',  'Andrisbanta@gmail.com', "44aa456", 3.9),
+  createData('RD001', 'Banna Andrian', 'Bannaandrian@gmail.com', "24aa456"),
+  createData('RD002', 'Elver Andries', 'Elverandries@gmail.com', "34aa456"),
+  createData('RD003', 'Andria Elvera',  'Andriaelvera@gmail.com', "24aa456"),
+  createData('RD004', 'Bangaly Andriana',  'Bangalyandriana@gmail.com', "64aa456"),
+  createData('RD005', 'Andris Banta',  'Andrisbanta@gmail.com', "44aa456"),
 ];
 
 
-function riders() {
-    // const [visible, add] = useState(false);
+function Riders() {
+    
+  const [openModel, setOpenModel] = useState(false);
 
     return (
         <div className="main">
+          {openModel && <AddRider closeModel={setOpenModel} />}
             <div className="slider">
                 <Sidebar />
             </div>
@@ -73,7 +84,9 @@ function riders() {
 
                     <div className="tableHead">
                     <h1>Riders Information's</h1>
-                    <button type="#" className="login-submit" >Add New Rider </button>
+                    <button type="#" className="login-submit" onClick={() => {
+                      setOpenModel(true);}}>
+                        Add New Rider </button>
                     {/* <AddUserPopup trigger={true}/> */}
                     
                     </div>
@@ -81,7 +94,7 @@ function riders() {
                 <div className="mainTable">
                 <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
+        <TableHead >
           <TableRow>
             <StyledTableCell>ID</StyledTableCell>
             <StyledTableCell >Name</StyledTableCell>
@@ -99,7 +112,7 @@ function riders() {
               <StyledTableCell >{row.Name}</StyledTableCell>
               <StyledTableCell >{row.Email}</StyledTableCell>
               <StyledTableCell >{row.Password}</StyledTableCell>
-              <StyledTableCell >{row.Action}</StyledTableCell>
+              <StyledTableCell ><button className="Deletebtn">delete</button></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
@@ -110,7 +123,7 @@ function riders() {
                 {/* ========== Table ==========*/}
 
             </div>
-            
+            {openModel && <AddRider closeModel={setOpenModel} />}
         </div>
 
     )
@@ -118,4 +131,4 @@ function riders() {
 
 }
 
-export default riders;
+export default Riders;

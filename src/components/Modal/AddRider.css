@@ -1,33 +1,58 @@
+.card-background{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    top: 0px;
+    opacity: 1;
+     backdrop-filter: blur(20px);
+  
 
-.login-card{
+}
+
+.card-background .Addrider-card{
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
-    width: 664px;
-    height: 532px;
+    width: 38.75%;
+    height: 67.7%;
     text-align: center; 
+    padding: 40px;
+    border-radius: 44px;
+    background-color: #FFFFFF;
+}
+.card-background .Addrider-card .card-head{
+    display: flex;
+    align-items: center;
 }
 
-.login-card h1{
+.card-background .Addrider-card h1{
     position: relative;
+    margin-bottom: 0px;
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 83px;
+    /* width: 83px; */
     height: 43px;
     font: normal normal bold 30px Poppins;
     color: #5016BF;
 }
+.card-background .Addrider-card img{
+    height: 24px;
+    width: 24px;
+}
 
-.login-card form{
+.card-background .Addrider-card form{
     margin-top: 74px;
     position: relative;
 }
 
-.login-card .input{
+.card-background .Addrider-card .input{
     position: relative;
     width: 100%;
     height: 88px;
@@ -42,7 +67,7 @@
 
 }
   
-.login-card .login-submit {
+.card-background .Addrider-card .login-submit {
     position: relative;
     width: 100%;
     height: 88px;
@@ -55,7 +80,7 @@
 }
 
 
-.login-card .reset{
+.card-background .Addrider-card .reset{
     position: relative;
     text-decoration: underline;
     font: normal 30px Poppins;
@@ -68,16 +93,16 @@
 
 @media only screen and (max-width: 768px) {
    
-    .login-card{
+    .card-background .Addrider-card{
         width: 85%;
         vertical-align: middle; /*Vertically centered*/
         
     }
-    .login-card form{
+    .card-background .Addrider-card form{
         width: 100%;
         margin-top: 50px;
     }
-    .login-card .input {
+    .card-background .Addrider-card .input {
         box-sizing: border-box;
         width: 100%;
         font: normal 25px Poppins;
@@ -85,7 +110,7 @@
         border-radius: 35px;
     } 
 
-    .login-card .login-submit{
+    .card-background .Addrider-card .login-submit{
         box-sizing: border-box;
         width: 100%;
         font: normal 600 25px Poppins;
@@ -93,11 +118,11 @@
         border-radius: 35px;
     }
 
-    .login-card .reset{
+    .card-background .Addrider-card .reset{
         font: normal 25px Poppins;
     }
 
-    .login-card{
+    .card-background .Addrider-card{
         height: fit-content;
     }
   
