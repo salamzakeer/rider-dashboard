@@ -9,9 +9,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import ProfilePic from '../../assets/Mask Group 5.png'
+
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
-import AddRider from '../../components/Modal/AddRiderPopup'
+import AddRider from '../../components/Modal/AddRiderPopup';
+
 
 import "./riders.css"
 
@@ -90,6 +93,7 @@ function Riders() {
                     {/* <AddUserPopup trigger={true}/> */}
                     
                     </div>
+
                      {/* ========== Table ==========*/}
                 <div className="mainTable">
                 <TableContainer component={Paper}>
@@ -97,6 +101,7 @@ function Riders() {
         <TableHead >
           <TableRow>
             <StyledTableCell>ID</StyledTableCell>
+            <StyledTableCell>Image</StyledTableCell>
             <StyledTableCell >Name</StyledTableCell>
             <StyledTableCell >Email</StyledTableCell>
             <StyledTableCell >Password</StyledTableCell>
@@ -109,6 +114,7 @@ function Riders() {
               <StyledTableCell component="th" scope="row">
                 {row.ID}
               </StyledTableCell>
+              <StyledTableCell ><img src={ProfilePic} alt="" /></StyledTableCell>
               <StyledTableCell >{row.Name}</StyledTableCell>
               <StyledTableCell >{row.Email}</StyledTableCell>
               <StyledTableCell >{row.Password}</StyledTableCell>

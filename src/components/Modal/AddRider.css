@@ -7,9 +7,8 @@
     text-align: center;
     top: 0px;
     opacity: 1;
-     backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
   
-
 }
 
 .card-background .Addrider-card{
@@ -20,10 +19,13 @@
     right: 0;
     margin: auto;
     width: 38.75%;
-    height: 67.7%;
+    height: fit-content;
     text-align: center; 
     padding: 40px;
     border-radius: 44px;
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: #e6e6e6;
     background-color: #FFFFFF;
 }
 .card-background .Addrider-card .card-head{
@@ -80,16 +82,47 @@
 }
 
 
-.card-background .Addrider-card .reset{
-    position: relative;
-    text-decoration: underline;
-    font: normal 30px Poppins;
-    letter-spacing: 0px;
-    color: #5016BF;
-    margin-top: 39px;
+.card-background .Addrider-card .upload-pic{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-top: 34px;
+
+}
+.card-background .Addrider-card .upload-pic .uploadTxt{
+    margin-top: 6.5px;
+margin-bottom: 0px;
 }
 
-/* Mobile responsive */
+
+/* .card-background .Addrider-card .upload-pic .uploadBtn::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+.card-background .Addrider-card .upload-pic .uploadBtn{
+    font-size: 20px;
+    
+} */
+/* #custom-button {
+    padding: 10px;
+    color: white;
+    background-color: #009578;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #custom-button:hover {
+    background-color: #00b28f;
+  }
+  
+  #custom-text {
+    margin-left: 10px;
+    font-family: sans-serif;
+    color: #aaa;
+  } */
+  
+
 
 @media only screen and (max-width: 768px) {
    

@@ -8,7 +8,7 @@ function Login() {
 
         <div className="login-card">
             <h1>Login</h1>
-            <form action="/maindashboard">
+            <form action="/dashboard">
                 <input type="text" className="input" placeholder="Email" />
 
                 <input type="password" className="input" placeholder="Password" />
