@@ -36,11 +36,7 @@ body{
     justify-content: center;
   	align-items: center;
 }
-.main .container .tableHead h1{
-    /* font: normal bold 41px Poppins;
-color: #5016BF;
-margin: 0; */
-}
+
 .main .container .tableHead button{
     background: #5016BF;
     border-radius: 44px;

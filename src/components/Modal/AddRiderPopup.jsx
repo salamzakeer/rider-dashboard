@@ -28,7 +28,7 @@ function AddRiderPopup({closeModel}) {
                     <h2 className="uploadTxt">Rider Profile Picture</h2>
                     
                     
-                    <FileUploader placeholder="Upload" type="file" id="upload"/>
+                    <FileUploader placeholder="Upload" type="file" id="upload" className="uploadbtn"/>
                     
 
 

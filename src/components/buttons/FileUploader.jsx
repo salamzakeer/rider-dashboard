@@ -17,18 +17,19 @@ export default function FileUploader(props) {
         htmlFor={props.id}
         // style={{ height: "50px", paddingTop: "49px", margin: "40px 10px 40px" }}
       >
-        <div
+        <div className = "uploadbtn"
           style={{
-            width: "157px",
-            height: "49px",
+            // width: "157px",
+            // height: "49px",
             border: "2px solid #501ABF",
             opacity: "0.5",
             display: "flex",
             alignItems: "center",
             borderRadius: "44px",
             justifyContent: "center",
-            font: "normal 600 21px Poppins",
+            // font: "normal 600 21px Poppins",
             color: "#501ABF"
+            
           }}
           variant="contained"
           component="span"

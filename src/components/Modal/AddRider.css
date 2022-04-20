@@ -122,11 +122,11 @@ margin-bottom: 0px;
     color: #aaa;
   } */
   
-  @media only screen and (max-width: 570px) {
-    .card-background .Addrider-card .upload-pic .uploadTxt {
-        font-size: 20px;
-    }
-  }
+  .card-background .Addrider-card .upload-pic .uploadbtn{
+    width: 157px;
+    height: 49px;
+    font: normal 600 21px Poppins;
+}
 
 @media only screen and (max-width: 768px) {
    
@@ -163,4 +163,37 @@ margin-bottom: 0px;
         height: fit-content;
     }
   
+  }
+  @media only screen and (max-width: 570px) {
+    .card-background .Addrider-card .upload-pic .uploadTxt {
+        font-size: 15px;
+    }
+    .card-background .Addrider-card .upload-pic .uploadbtn{
+        width: 120px;
+        height: 30px;
+        font: normal 600 16px Poppins;
+    }
+    .card-background .Addrider-card .upload-pic {
+        padding: 10px;
+    }
+    .card-background .Addrider-card h1 {
+        height: 20px;
+        font: normal normal bold 25px Poppins;
+    }
+    .card-background .Addrider-card .input {
+        font: normal 20px Poppins;
+        height: 60px;
+    }
+    .card-background .Addrider-card .login-submit{
+        font: normal 20px Poppins;
+        height: 60px;
+        margin-top: 15px;
+    }
+    .card-background {
+        backdrop-filter: blur(20px);
+    }
+    .card-background .Addrider-card {
+        width: 78%;
+       
+    }
   }

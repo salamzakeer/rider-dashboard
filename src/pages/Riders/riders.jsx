@@ -120,11 +120,12 @@ function Riders() {
     
   const [openModel, setOpenModel] = useState(false);
 
+
     return (
         <div className="main">
           {openModel && <AddRider closeModel={setOpenModel} />}
             <div className="slider">
-                <Sidebar />
+            <Sidebar/>}
             </div>
             
             <div className="container">
@@ -141,7 +142,7 @@ function Riders() {
                   <Typography variant="h1">Riders Information's</Typography>
               </ThemeProvider>
                     <button type="#" className="login-submit" onClick={() => {
-                      setOpenModel(true);}}>
+                      setOpenModel(true)}}>
                         Add New Rider </button>
                     {/* <AddUserPopup trigger={true}/> */}
                     
