@@ -12,10 +12,10 @@ export default function FileUploader(props) {
   });
   
   return (
-    <div style={{ position: "relative", display: "block ruby" }}>
+    <div style={{ position: "relative", height: "50px", display: "block ruby" }}>
       <label
         htmlFor={props.id}
-        style={{ height: "50px", paddingTop: "49px", margin: "40px 10px 40px" }}
+        // style={{ height: "50px", paddingTop: "49px", margin: "40px 10px 40px" }}
       >
         <div
           style={{

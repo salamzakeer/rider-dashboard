@@ -37,9 +37,9 @@ body{
   	align-items: center;
 }
 .main .container .tableHead h1{
-    font: normal bold 41px Poppins;
+    /* font: normal bold 41px Poppins;
 color: #5016BF;
-margin: 0;
+margin: 0; */
 }
 .main .container .tableHead button{
     background: #5016BF;
@@ -215,7 +215,25 @@ font: normal 600 30px Poppins;
 
   /* =========================================== */
 
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 850px){
+
+    
+/* Inline #115 | http://localhost:3002/riders */
+
+.main .container .tablebox {
+    /* top: 15%; */
+    top: 8%;
+  }
+  
+  .main .container .tableHead button {
+    /* font: normal 600 30px Poppins; */
+    /* width: 327px; */
+    /* height: 89px; */
+    font: normal 600 18px Poppins;
+    width: 170px;
+    height: 50px;
+  }
+  
 
     .slider .navigation{
         z-index: 9;
@@ -223,7 +241,7 @@ font: normal 600 30px Poppins;
 
     .main .mainNav {
         top: 3.4%;
-        width: 97%;
+        width: 88%;
         left: 3%;   
       }
 
@@ -277,7 +295,56 @@ font: normal 600 30px Poppins;
         border-radius: 35px;
         font: normal 21px Poppins;
     }
+    .main .container .tablebox {
+        /* padding-left: 68px; */
+        padding-left: 30px;
+      }
+      
+      .main .container .tableHead {
+        /* padding-left: 75px; */
+        /* padding-right: 75px; */
+        padding-left: 25px;
+        padding-right: 25px;
+      }
     
     
+
+  }
+  @media only screen and (max-width: 400px) {
+    .main .mainNav {
+        width: 80%;
+     
+      }
+    .main .container .tableHead {
+        /* padding-left: 25px; */
+        /* padding-right: 25px; */
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .main .container .tablebox {
+        /* padding-left: 30px; */
+        padding-left: 15px;
+      }
+      .main .container .tableHead {
+        /* display: flex; */
+        display: block;
+        text-align: center;
+      }
+      .main .container .tablebox {
+        /* top: 8%; */
+        top: 6%;
+      }
+      .main .container .tableHead button {
+        margin-top: 10px;
+      }
+      .main .container .tablebox .mainTable {
+        /* padding-top: 50px; */
+        padding-top: 30px;
+      }
+      .tableimg{
+          height: 40px;
+          width: 40px;
+      }
+
 
   }

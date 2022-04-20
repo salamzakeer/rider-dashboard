@@ -18,7 +18,7 @@ function AddRiderPopup({closeModel}) {
             <img src={CancelBtn} alt="" onClick={() => closeModel(false)}/>
             </div>
 
-            <form action="/maindashboard">
+            <form action="/dashboard">
                 <input type="text" className="input" placeholder="Name" />
                 <input type="text" className="input" placeholder="Email" />
                 <input type="password" className="input" placeholder="Password" />
