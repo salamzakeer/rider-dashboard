@@ -191,6 +191,8 @@ margin-bottom: 0px;
     }
     .card-background {
         backdrop-filter: blur(20px);
+        background: rgba(0, 0, 0, 0.5);
+        background-attachment: fixed;
     }
     .card-background .Addrider-card {
         width: 78%;

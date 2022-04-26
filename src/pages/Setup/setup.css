@@ -1,0 +1,34 @@
+.setuphead{
+    display: flex;
+    justify-content: center;
+  	align-items: center;
+    padding-left: 32px;
+padding-right: 32px;
+margin-top: 38px;
+  }
+  .btnaddnew{
+position: relative;
+margin-left: auto;
+width: 222px;
+height: 69px;
+border: 1px solid #501ABF;
+border-radius: 44px;
+opacity: 1;
+background-color: #ffffff;
+
+  }
+ .subhead{
+   color: #501ABF;
+ }
+
+ .btntext{
+  color: #501ABF;
+    padding-right: 0px;
+
+   
+ }
+ .policy{
+   margin-left: 32px;
+   margin-right: 52px;
+   margin-top: 20px;
+ }

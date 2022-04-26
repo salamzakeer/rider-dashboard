@@ -1,6 +1,7 @@
 import Login from "./pages/login/login";
 import Dashboard from "./pages/dashboard/dashboard";
-import Riders from "./pages/Riders/riders";
+import Rider from "./pages/Riders/rider";
+import Setup from "./pages/Setup/PolicyS";
 
 
 import {
@@ -14,8 +15,14 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" index element={<Login />}></Route>
+
       <Route path="/dashboard" element={<Dashboard />}></Route> 
-      <Route path="/riders" element={<Riders />}></Route> 
+
+      
+      <Route path="/rider" element={<Rider />}></Route>
+
+      <Route path="/setup" element={<Setup />}></Route>
+
     </Routes>
   </BrowserRouter>
   );

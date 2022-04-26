@@ -1,0 +1,97 @@
+import React from 'react'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+
+import "./setupnav.css"
+
+
+import Down from '../../assets/down.png'
+
+const theme = createTheme();
+
+theme.typography.h3 = {
+
+  typography: {
+    
+    fontFamily: [
+      'Poppins'
+    ].join(','),
+  },
+
+    fontSize: '1.8rem',
+    fontWeight: 400,
+    fontStyle: 'normal',
+    
+    '@media (max-width:850px)': {
+      fontSize: '1.5rem',
+    },
+    '@media (max-width:400px)': {
+      fontSize: '1rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '1.8rem',
+    },
+
+};
+theme.typography.h1 = {
+
+  typography: {
+    fontFamily: [
+      'Poppins'
+    ].join(','),
+  },
+
+    fontSize: '2.5rem',
+    color: '#5016BF',
+    '@media (max-width:800px)': {
+      fontSize: '1.5rem',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '2.4rem',
+    },
+
+};
+
+
+
+
+
+function setupNav() {
+
+
+  return (
+    <div className="setupnav">
+{/*       
+        <Typography variant="body" className="principle">Principal</Typography>
+        <Typography variant="body" className="company">Company</Typography>
+        <Typography variant="body" className="Maintain" style={{color: "#5016BF"}} >Maintenance</Typography>
+        <img src={Down} className="downbtn" alt="" />
+
+          <div className="popup">
+            <div className="items">
+              <div className="sp"><Typography variant="body" >Security Policy</Typography><br />
+              </div>
+              <div className="dp"><Typography variant="body" >Data Policy</Typography>
+              </div>
+            </div>
+          </div> */}
+          <div className="navbar">
+  <a href="#home"> <Typography variant="body" >Principal</Typography></a>
+  <a href="#news"><Typography variant="body" >Company</Typography></a>
+  <div className="dropdown">
+    <button className="dropbtn"><Typography variant="body" className="Maintain" style={{color: "#5016BF"}} >Maintenance</Typography>
+      <i className="fa fa-caret-down"></i>
+    </button>
+    <div className="dropdown-content">
+      <a href="#"><Typography variant="body" >Security Policy</Typography></a>
+      <a href="#"><Typography variant="body" >Data Policy</Typography></a>
+    
+    </div>
+  </div> 
+</div>
+
+    </div>
+  )
+}
+
+export default setupNav
