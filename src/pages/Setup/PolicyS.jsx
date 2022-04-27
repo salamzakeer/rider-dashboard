@@ -82,9 +82,9 @@ function Setup() {
                 <ThemeProvider theme={theme}>
                 <Typography variant="h3" className="subhead">Security Policy</Typography>
                 </ThemeProvider>
-                <button className="btnaddnew" >
-                <Typography variant="body"  onClick={() => {
-                      setOpenModel(true)}}>Update policy</Typography></button>
+                <button className="btnaddnew"  onClick={() => {
+                      setOpenModel(true)}} >
+                <Typography variant="body" >Update policy</Typography></button>
                 {/* <AddUserPopup trigger={true}/> */} 
                 </div>
 
