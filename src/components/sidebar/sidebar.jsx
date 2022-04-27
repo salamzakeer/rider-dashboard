@@ -36,9 +36,7 @@ const path = location.pathname
                 <Link to="/dashboard" style={{ textDecoration: 'none' }}>
                     <li className={`nav-option ${path === "/dashboard" ? "active":"" }`} ><span>Dashboard</span></li>
                 </Link>
-                    <li className="nav-option"><span>Home</span></li>
-                        <li className="nav-option"><span>Home</span></li>
-
+                   
                     <Link to="/rider" style={{ textDecoration: 'none' }}>
                     <li  className={`nav-option ${path === "/rider" ? "active":"" }`} ><span>Riders Information's</span></li>
                     </Link>
@@ -47,14 +45,13 @@ const path = location.pathname
                         <li className={`nav-option ${path === "/telecaller" ? "active":"" }`} to="/telecaller"><span>Telecallers Information's</span></li>
                     </Link>
                         
-                        <li className="nav-option"><span>sidebar option</span></li>
-                        <li className="nav-option"><span>sidebar option</span></li>
+                    
 
                     <Link to="/setup" style={{ textDecoration: 'none' }}>   
                     <li className={`nav-option ${path === "/setup" ? "active":"" }`}><span>Setup</span></li>
                     </Link>
                     
-                        <li className="nav-option"><span>sidebar option</span></li>
+                     
                 </ul>
 
 
