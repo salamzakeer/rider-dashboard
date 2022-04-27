@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
 import SetupNav from "../../components/setupNav/setupNav";
+import Updatepolicy from '../../components/Modal/updatePolicy';
 
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -57,19 +58,19 @@ theme.typography.h1 = {
 
 
 
-function setup() {
-    // const [openModel, setOpenModel] = useState(false);
+function Setup() {
+  const [openModel, setOpenModel] = useState(false);
   return (
     <div className="main">
           
             <div className="slider">
-            <Sidebar/>}
+            <Sidebar/>
             </div>
             
             <div className="container">
               
               <div className="navigationbar">
-                <Navbar />
+                <Navbar name="Security policy"/>
                 </div>
                
                 <SetupNav />
@@ -82,7 +83,8 @@ function setup() {
                 <Typography variant="h3" className="subhead">Security Policy</Typography>
                 </ThemeProvider>
                 <button className="btnaddnew" >
-                <Typography variant="body" className="btntext">Update policy</Typography></button>
+                <Typography variant="body"  onClick={() => {
+                      setOpenModel(true)}}>Update policy</Typography></button>
                 {/* <AddUserPopup trigger={true}/> */} 
                 </div>
 
@@ -107,9 +109,12 @@ function setup() {
                
 
             </div>
+
+            {openModel && <Updatepolicy closeModel={setOpenModel} />}
+
     </div>
 
   )
 }
 
-export default setup
+export default Setup

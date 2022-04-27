@@ -2,6 +2,8 @@ import React from 'react'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
+import { Link } from 'react-router-dom';
+
 import "./setupnav.css"
 
 
@@ -76,15 +78,15 @@ function setupNav() {
             </div>
           </div> */}
           <div className="navbar">
-  <a href="#home"> <Typography variant="body" >Principal</Typography></a>
-  <a href="#news"><Typography variant="body" >Company</Typography></a>
+  <a href="#"> <Typography variant="body" >Principal</Typography></a>
+  <a href="#"><Typography variant="body" >Company</Typography></a>
   <div className="dropdown">
     <button className="dropbtn"><Typography variant="body" className="Maintain" style={{color: "#5016BF"}} >Maintenance</Typography>
       <i className="fa fa-caret-down"></i>
     </button>
     <div className="dropdown-content">
-      <a href="#"><Typography variant="body" >Security Policy</Typography></a>
-      <a href="#"><Typography variant="body" >Data Policy</Typography></a>
+    <Link to="/setup/securitypolicy" style={{ textDecoration: 'none' }}> <Typography variant="body" >Security Policy</Typography></Link>
+    <Link to="/setup/datapolicy" style={{ textDecoration: 'none' }}><Typography variant="body" >Data Policy</Typography></Link>
     
     </div>
   </div> 

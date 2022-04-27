@@ -69,7 +69,7 @@ function setup() {
             <div className="container">
               
               <div className="navigationbar">
-                <Navbar />
+                <Navbar name="Data Policy"/>
                 </div>
                
                 <SetupNav />

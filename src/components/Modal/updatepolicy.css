@@ -11,7 +11,8 @@
   
 }
 
-.card-background .updatepolicy-card{
+
+.card-background .Addrider-card{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -28,12 +29,12 @@
     border-color: #e6e6e6;
     background-color: #FFFFFF;
 }
-.card-background .updatepolicy-card .card-head{
+.card-background .Addrider-card .card-head{
     display: flex;
     align-items: center;
 }
 
-.card-background .updatepolicy-card h1{
+.card-background .Addrider-card h1{
     position: relative;
     margin-bottom: 0px;
     margin-top: 0;
@@ -44,20 +45,20 @@
     font: normal normal bold 30px Poppins;
     color: #5016BF;
 }
-.card-background .updatepolicy-card img{
+.card-background .Addrider-card img{
     height: 24px;
     width: 24px;
 }
 
-.card-background .updatepolicy-card form{
+.card-background .Addrider-card form{
     margin-top: 74px;
     position: relative;
 }
 
-.card-background .updatepolicy-card .input{
+.card-background .Addrider-card .input{
     position: relative;
     width: 100%;
-    height: 470px;
+    height: 88px;
     margin-top: 17px;
     border: 0.5px solid #AFAFAF;
     border-radius: 44px;
@@ -69,7 +70,7 @@
 
 }
   
-.card-background .updatepolicy-card .login-submit {
+.card-background .Addrider-card .login-submit {
     position: relative;
     width: 100%;
     height: 88px;
@@ -82,7 +83,7 @@
 }
 
 
-.card-background .updatepolicy-card .upload-pic{
+.card-background .Addrider-card .upload-pic{
     display: flex;
     justify-content: space-between;
     padding-right: 40px;
@@ -90,16 +91,16 @@
     margin-top: 34px;
 
 }
-.card-background .updatepolicy-card .upload-pic .uploadTxt{
+.card-background .Addrider-card .upload-pic .uploadTxt{
     margin-top: 6.5px;
 margin-bottom: 0px;
 }
 
 
-/* .card-background .updatepolicy-card .upload-pic .uploadBtn::-webkit-file-upload-button {
+/* .card-background .Addrider-card .upload-pic .uploadBtn::-webkit-file-upload-button {
     visibility: hidden;
   }
-.card-background .updatepolicy-card .upload-pic .uploadBtn{
+.card-background .Addrider-card .upload-pic .uploadBtn{
     font-size: 20px;
     
 } */
@@ -122,7 +123,7 @@ margin-bottom: 0px;
     color: #aaa;
   } */
   
-  .card-background .updatepolicy-card .upload-pic .uploadbtn{
+  .card-background .Addrider-card .upload-pic .uploadbtn{
     width: 157px;
     height: 49px;
     font: normal 600 21px Poppins;
@@ -130,34 +131,25 @@ margin-bottom: 0px;
 
 @media only screen and (max-width: 768px) {
    
-    .card-background .updatepolicy-card{
+    .card-background .Addrider-card{
         width: 85%;
         vertical-align: middle; /*Vertically centered*/
         
     }
-    .card-background .updatepolicy-card form{
+    .card-background .Addrider-card form{
         width: 100%;
         margin-top: 50px;
     }
-    .card-background .updatepolicy-card .input {
-        box-sizing: border-box;
-        width: 100%;
-        font: normal 25px Poppins;
-        height: 70px;
-        border-radius: 35px;
-    } 
-    .card-background .updatepolicy-card input .input {
+    .card-background .Addrider-card .input {
         box-sizing: border-box;
         width: 100%;
         font: normal 25px Poppins;
         height: 140px;
         border-radius: 35px;
-        border-style: none;
     } 
-  
 
 
-    .card-background .updatepolicy-card .login-submit{
+    .card-background .Addrider-card .login-submit{
         box-sizing: border-box;
         width: 100%;
         font: normal 600 25px Poppins;
@@ -165,36 +157,36 @@ margin-bottom: 0px;
         border-radius: 35px;
     }
 
-    .card-background .updatepolicy-card .reset{
+    .card-background .Addrider-card .reset{
         font: normal 25px Poppins;
     }
 
-    .card-background .updatepolicy-card{
+    .card-background .Addrider-card{
         height: fit-content;
     }
   
   }
   @media only screen and (max-width: 570px) {
-    .card-background .updatepolicy-card .upload-pic .uploadTxt {
+    .card-background .Addrider-card .upload-pic .uploadTxt {
         font-size: 15px;
     }
-    .card-background .updatepolicy-card .upload-pic .uploadbtn{
+    .card-background .Addrider-card .upload-pic .uploadbtn{
         width: 120px;
         height: 30px;
         font: normal 600 16px Poppins;
     }
-    .card-background .updatepolicy-card .upload-pic {
+    .card-background .Addrider-card .upload-pic {
         padding: 10px;
     }
-    .card-background .updatepolicy-card h1 {
+    .card-background .Addrider-card h1 {
         height: 20px;
         font: normal normal bold 25px Poppins;
     }
-    .card-background .updatepolicy-card .input {
+    .card-background .Addrider-card .input {
         font: normal 20px Poppins;
         height: 60px;
     }
-    .card-background .updatepolicy-card .login-submit{
+    .card-background .Addrider-card .login-submit{
         font: normal 20px Poppins;
         height: 60px;
         margin-top: 15px;
@@ -204,7 +196,7 @@ margin-bottom: 0px;
         background: rgba(0, 0, 0, 0.5);
         background-attachment: fixed;
     }
-    .card-background .updatepolicy-card {
+    .card-background .Addrider-card {
         width: 78%;
        
     }

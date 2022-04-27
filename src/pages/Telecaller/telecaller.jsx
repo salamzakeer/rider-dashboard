@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Sidebar from "../../components/sidebar/sidebar";
 import Navbar from "../../components/navbar/navbar";
-import AddRider from '../../components/Modal/AddRiderPopup';
+import Updatepolicy from '../../components/Modal/updatePolicy';
 
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -10,7 +10,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ProfilePic from '../../assets/Mask Group 5.png'
 import DeleteBtn from '../../assets/delete.png'
 
-import "./rider.css"
+import "./telecaller.css"
 
 
 const theme = createTheme();
@@ -69,27 +69,27 @@ const rows = [
   createData('001','RD005', 'Andris Banta',  'Andrisbanta@gmail.com'),
 ];
 
-function Newrider() {
+function Telecaller() {
   const [openModel, setOpenModel] = useState(false);
 
   return (
     <div className="main">
       <div className="slider">
-        <Sidebar />
+        <Sidebar active="awwe"  />
       </div>
       <div className="container">
-        <Navbar name="Riders"/>
-        <div className="tableHead2">
+        <Navbar name="Telecaller"/>
+        <div className="tableHead3">
                   
 
                   <ThemeProvider theme={theme}>
-                <div className="headclass"><Typography variant="h3" className="subhead">Riders Information's</Typography></div>
+                <Typography variant="h3" className="subhead">Telecaller's Information's</Typography>
             </ThemeProvider>
                   <button className="btnaddnew" onClick={() => {
                       setOpenModel(true)}} >
-                  <Typography variant="body" className="btntext">Add New Rider </Typography></button>
+                  <Typography variant="body" className="btntext">Add New Telecaller </Typography></button>
                   </div>
-        <div className="rider-table" >
+        <div className="rider-table2" >
 
           <table>
           
@@ -121,9 +121,9 @@ function Newrider() {
         </div>
 
       </div>
-      {openModel && <AddRider closeModel={setOpenModel} />}
+      {openModel && <Updatepolicy closeModel={setOpenModel} />}
     </div>
   )
 }
 
-export default Newrider
+export default Telecaller
