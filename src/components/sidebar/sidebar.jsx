@@ -33,7 +33,9 @@ const path = location.pathname
                 {/* <div className="dash"> <p>Dashboard</p></div> */}
 
                 <ul className="nav-links">
-                    <li className="nav-option" to="/dashboard"><span>Dashboard</span></li>
+                <Link to="/dashboard" style={{ textDecoration: 'none' }}>
+                    <li className={`nav-option ${path === "/dashboard" ? "active":"" }`} ><span>Dashboard</span></li>
+                </Link>
                     <li className="nav-option"><span>Home</span></li>
                         <li className="nav-option"><span>Home</span></li>
 
