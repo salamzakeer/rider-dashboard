@@ -1,0 +1,230 @@
+body{
+    margin: 0;
+}
+.main{ 
+    position: absolute;
+    display: flex;
+    width: 100%;
+}
+
+.main .container {
+    position: relative;
+    height: 1080px;
+    width: 100%;
+}
+
+/* ==========form=========== */
+
+.newpolicy{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 664px;
+    height: 532px;
+    text-align: center; 
+}
+
+.newpolicy h1{
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 140px; */
+    height: 43px;
+    font-size: 30px;
+    font-weight: normal bold;
+    color: #5016BF;
+}
+
+.newpolicy form{
+    position: relative;
+    margin-top: 74px;
+}
+
+
+
+.newpolicy form .input-div {
+    position: relative;
+    width: 100%;
+    margin-top: 17px;
+    margin-bottom: 17px;
+  }
+  .newpolicy form  .input-div-input {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 44px;
+    padding-left: 44px;
+    padding-right: 43px;
+    padding-top: 23px;
+    line-height: 1;
+    box-sizing: border-box;
+    outline: none;
+    letter-spacing: 0px;
+    color: #AFAFAF;
+    text-align: left;
+    font: normal 30px Poppins;
+
+    resize: none;
+  }
+
+  .newpolicy form  .input-div-botton {
+    position: absolute;
+    right: 3px; 
+    bottom: 3px;
+    border: 0;
+    margin: 0;
+    padding-right: 44px;
+    border-radius: 100px;
+    z-index: 2;
+    top: 17.33%;
+
+  }
+
+
+
+  
+.newpolicy form .submit3 {
+    width: 664px;
+    height: 88px;
+    margin-top: 35px;
+    background: #5016BF 0% 0% no-repeat padding-box;
+    border-radius: 44px;
+    font-size: 30px;
+    font: normal 600 30px Poppins;
+    color: #FFFFFF;
+    border: none;
+}
+
+
+/* ============================================ */
+
+@media only screen and (max-width: 1120px){
+
+    .main .mainNav{
+        top: 3%;
+        width: 94%;
+        left: 3%;
+    }
+
+    .mainNav .profile{
+        padding-right: 20px;
+    }
+    .mainNav .title h1 {
+        font: normal bold 30px Poppins;
+        color: #000000;
+        margin: 0;
+    }
+
+   .main .container{
+        left: 0;
+        width: 100%;
+   }
+    .newpolicy{
+        left: 50%;
+        width: 70%;
+        height: fit-content;
+        top: 40%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        
+    }
+    .newpolicy form{
+        width: 100%;
+        margin-top: 50px;
+    }
+    .newpolicy form .input-div {
+        box-sizing: border-box;
+        width: 100%;
+    } 
+    .newpolicy form .submit3 {
+        box-sizing: border-box;
+        width: 100%;
+    } 
+    .newpolicy form .submit3 {
+        height: 70px;
+        font-size: normal 600 25px Poppins;
+        font: normal normal 600 25px Poppins;
+    }
+    .newpolicy form .input-div-input{
+            height: 70px;
+            border-radius: 35px;
+            font: normal 25px Poppins;
+     }
+    .newpolicy{
+            top: 25%;
+            width: 80%;
+        }
+  
+  }
+
+  /* =========================================== */
+
+  @media only screen and (max-width: 800px){
+
+    .slider .navigation{
+        z-index: 9;
+    }
+
+    .main .mainNav {
+        top: 3.4%;
+        width: 97%;
+        left: 3%;   
+      }
+
+    .mainNav .title { 
+        left: 0;
+        }
+    .mainNav .title h1{
+        font-size: 20px;
+    }
+
+    .mainNav .profile{
+        padding-right: 30px;
+    }
+
+    .mainNav .profile .profilePic{
+        width: fit-content;
+        height: fit-content;
+    }
+    .mainNav .profile .drop img{
+        margin-left: 15px;
+    }
+    .profilePic > img:nth-child(1) {
+        width: 45px;
+        }
+    
+    .mainNav .profile .subTitle{
+        display: none;
+    }
+
+    .newpolicy{
+        top: 20%;
+        width: 80%;
+    }
+
+    .newpolicy form{
+        margin-top: 50px;
+    }
+    .newpolicy form .input-div-input{
+        height: 70px;
+        border-radius: 35px;
+        font: normal 21px Poppins;
+        padding-right: 22px;
+        padding-left: 25px;
+    }
+    .newpolicy form  .input-div-botton {
+        padding-right: 22px;   
+      }
+
+    .newpolicy form .submit3{
+        height: 70px;
+        border-radius: 35px;
+        font: normal 21px Poppins;
+    }
+    
+    
+
+  }
