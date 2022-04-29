@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './updatepolicy.css'
+
+import ChangePassword from '../../components/Modal/userprofile/changePassword';
 
 import CancelBtn from '../../assets/cancel.png'
 
 import FileUploader from '../../components/buttons/FileUploader';
 
 function UpdatePolicy({closeModel}) {
+  const [openModel, setOpenModel] = useState(false);
 
+  const handleOnClick = async() => {
+     
+     await closeModel(false);
+     setOpenModel(true);
+  }
 
   return (
       
@@ -19,11 +27,12 @@ function UpdatePolicy({closeModel}) {
             <img src={CancelBtn} alt="" onClick={() => closeModel(false)}/>
             </div>
 
-            <form action="/dashboard">
+           <div className="form-card">
                 <textarea type="text" className="input" placeholder="Policy" />
-                <button type="#" className="login-submit" >update</button>
-            </form>
+                <button type="#" className="login-submit"  onClick = {handleOnClick}>update</button>
+           </div>
         </div>
+        {openModel ? <ChangePassword closeModel={setOpenModel} />:console.log("pressed")}
     </div>
     
   )

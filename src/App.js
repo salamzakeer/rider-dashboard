@@ -6,6 +6,7 @@ import Setup from "./pages/Setup/PolicyS";
 import SecuirtyP from "./pages/Setup/PolicyS";
 import DataP from "./pages/Setup/PolicyD";
 import NewP from "./pages/Setup/fristPolicy";
+import UserProfile from "./pages/userProfile/userprofile";
 
 
 import {
@@ -31,6 +32,8 @@ function App() {
       <Route path="/setup/securitypolicy" element={<SecuirtyP />}></Route>
       <Route path="/setup/datapolicy" element={<DataP />}></Route>
       <Route path="/setup/newpolicy" element={<NewP />}></Route>
+
+      <Route path="/userprofile" element={<UserProfile />}></Route>
       
 
       
