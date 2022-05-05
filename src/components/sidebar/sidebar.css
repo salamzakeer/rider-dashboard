@@ -129,3 +129,9 @@
 .nav .settings{
     display: none;
 }
+
+@media only screen and (max-width: 768px){
+.navigation .nav-menu.active .settings {
+    top: 150px;
+}
+}
