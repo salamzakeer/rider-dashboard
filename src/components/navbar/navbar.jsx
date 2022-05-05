@@ -3,7 +3,7 @@ import ProfilePic from '../../assets/Mask Group 5.png'
 import DownPic from '../../assets/down-filled-triangular-arrow.png'
 import Sidebar from "../../components/sidebar/sidebar";
 import MenuPic from '../../assets/menu.png'
-
+import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 function Navbar(props){
@@ -27,11 +27,15 @@ function Navbar(props){
             <div className="profile">
 
                 <div className="profilePic">
+                    <Link style={{textDecoration: 'none'}} to="/userprofile" >
                     <img src={ProfilePic} alt="profile picture" />
+                    </Link>
                 </div>
 
                 <div className="subTitle">
+                <Link style={{textDecoration: 'none'}} to="/userprofile" >
                     <h2>name</h2>
+                </Link>
                 </div>
 
                 <div className="drop">
