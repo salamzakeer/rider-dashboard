@@ -11,7 +11,7 @@ function ConfirmChange({closeModel}) {
  <div className="Addrider-card">
 
         <div className="card-head"> 
-        <h1>Add New Rider</h1>
+        <h1>Password Changed</h1>
         <img src={CancelBtn} alt="" onClick={() => {closeModel(true); setOpenModel(true)}}/>
         </div>
         <div className="context"><p>Your password has been changed successfully</p></div>
