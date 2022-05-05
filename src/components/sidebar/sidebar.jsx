@@ -46,10 +46,15 @@ const path = location.pathname
                     </Link>
                         
                     
+                    <Link to="/userprofile" style={{ textDecoration: 'none' }}>   
+                    <li className={`nav-option ${path === "/userprofile" ? "active":"" }`}><span>User Profile</span></li>
+                    </Link>
 
                     <Link to="/setup" style={{ textDecoration: 'none' }}>   
                     <li className={`nav-option ${path === "/setup" ? "active":"" }`}><span>Setup</span></li>
                     </Link>
+
+                   
                     
                      
                 </ul>
