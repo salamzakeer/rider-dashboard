@@ -1,26 +1,80 @@
-import React from "react";
 
+import React, { useState } from 'react';
+import axios from 'axios';
 import "./login.css"
 
 
 function Login() {
+    
+  const  [email, setEmail] = useState("")
+  const  [password, setPassword] = useState("")
+
+   console.log({email,password})
+  const handleEmail = (e)=>{
+      setEmail(e.target.value)
+
+  }
+  const handlePassword = (e)=>{
+      setPassword(e.target.value)
+}
+const handleApi = ()=>{
+    console.log({email,password})
+    const json =  {
+        email: email,
+        password: password
+        
+    };
+    axios.post('https://dcaapi.moodfor.codes/rider/login', json)
+    .then(result=>{
+        // console.log(result)
+        // if(result.errorMessage == false){
+        console.log(result)
+        alert("success")
+        window.location = "/dashboard"       
+    // }else{
+    //     console.log("logged error")
+    // }
+
+
+    })
+    .catch(error=>{
+        console.log(error)
+        alert("fail")
+        console.log("not ok")
+    })
+    
+
+}
+
     return (
 
         <div className="login-card">
             <h1>Login</h1>
-            <form action="/dashboard">
-                <input type="text" className="input" placeholder="Email" />
+            <div className="frm">
+                <input type="text" className="input" placeholder="Email" value={email} onChange={handleEmail}/>
 
-                <input type="password" className="input" placeholder="Password" />
+                <input type="password" className="input" placeholder="Password"  value={password} onChange={handlePassword}/>
 
-                <button type="#" className="login-submit" >Login</button>
-            </form>
+                <button className="login-submit" onClick={handleApi} >Login</button>
+                </div>
             <div className="reset">
                 <a href="#">Forgot Password?</a>
-            </div>
+            </div>  
 
 
         </div>
     )
+    
 }
+// const useFormInput = initialValue => {
+//     const [value, setValue] = useState(initialValue);
+  
+//     const handleChange = e => {
+//       setValue(e.target.value);
+//     }
+//     return {
+//       value,
+//       onChange: handleChange
+//     }
+//   }
 export default Login

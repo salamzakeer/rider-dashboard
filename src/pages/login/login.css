@@ -22,7 +22,7 @@
     color: #5016BF;
 }
 
-.login-card form{
+.login-card .frm{
     margin-top: 74px;
     position: relative;
 }
@@ -73,7 +73,7 @@
         vertical-align: middle; /*Vertically centered*/
         
     }
-    .login-card form{
+    .login-card .frm{
         width: 100%;
         margin-top: 50px;
     }
