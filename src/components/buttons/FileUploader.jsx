@@ -1,23 +1,23 @@
-import React, { useRef } from "react";
-import Button from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
+import React from "react";
+// import Button from "@mui/material/Button";
+// import { styled } from "@mui/material/styles";
 export default function FileUploader(props) {
 
-  const fileInput = useRef(null);
-  const Input = styled("input")({
-    // display: "none",
-    background: "red",
-    height: "70px",
-    paddingTop: "22px",
-  });
-  
+  // const fileInput = useRef(null);
+  // const Input = styled("input")({
+  //   // display: "none",
+  //   background: "red",
+  //   height: "70px",
+  //   paddingTop: "22px",
+  // });
+
   return (
     <div style={{ position: "relative", height: "50px", display: "block ruby" }}>
       <label
         htmlFor={props.id}
-        // style={{ height: "50px", paddingTop: "49px", margin: "40px 10px 40px" }}
+      // style={{ height: "50px", paddingTop: "49px", margin: "40px 10px 40px" }}
       >
-        <div className = "uploadbtn"
+        <div className="uploadbtn"
           style={{
             // width: "157px",
             // height: "49px",
@@ -29,7 +29,7 @@ export default function FileUploader(props) {
             justifyContent: "center",
             // font: "normal 600 21px Poppins",
             color: "#501ABF"
-            
+
           }}
           variant="contained"
           component="span"

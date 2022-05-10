@@ -5,38 +5,38 @@ import ChangePassword from '../../components/Modal/userprofile/changePassword';
 
 import CancelBtn from '../../assets/cancel.png'
 
-import FileUploader from '../../components/buttons/FileUploader';
+// import FileUploader from '../../components/buttons/FileUploader';
 
-function UpdatePolicy({closeModel}) {
+function UpdatePolicy({ closeModel }) {
   const [openModel, setOpenModel] = useState(false);
 
-  const handleOnClick = async() => {
-     
-     await closeModel(false);
-     setOpenModel(true);
+  const handleOnClick = async () => {
+
+    await closeModel(false);
+    setOpenModel(true);
   }
 
   return (
-      
+
     <div className="card-background">
 
-        <div className="updatepolicy-card">
+      <div className="updatepolicy-card">
 
-            <div className="card-head"> 
-            <h1>Update policy</h1>
-            <img src={CancelBtn} alt="" onClick={() => closeModel(false)}/>
-            </div>
-
-           <div className="form-card">
-                <textarea type="text" className="input" placeholder="Policy" />
-                <button type="#" className="login-submit"  onClick = {handleOnClick}>update</button>
-           </div>
+        <div className="card-head">
+          <h1>Update policy</h1>
+          <img src={CancelBtn} alt="" onClick={() => closeModel(false)} />
         </div>
-        {openModel ? <ChangePassword closeModel={setOpenModel} />:console.log("pressed")}
+
+        <div className="form-card">
+          <textarea type="text" className="input" placeholder="Policy" />
+          <button type="#" className="login-submit" onClick={handleOnClick}>update</button>
+        </div>
+      </div>
+      {openModel ? <ChangePassword closeModel={setOpenModel} /> : console.log("pressed")}
     </div>
-    
+
   )
-  
+
 }
 
 export default UpdatePolicy

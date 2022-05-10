@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
 
 
-import UploadIcon from '../../assets/upload.png'
+// import UploadIcon from '../../assets/upload.png'
 import AddIcon from '../../assets/add.png'
 import RemoveIcon from '../../assets/remove.png'
 
@@ -18,16 +18,16 @@ function FristPolicy() {
             <div className="slider">
                 <Sidebar />
             </div>
-            
+
             <div className="container">
-            <Navbar />
+                <Navbar />
 
                 {/* ========== form ==========*/}
                 <div className="newpolicy">
                     <h1>Add Policy</h1>
                     <form action="submit">
 
-                
+
 
                         <div className="input-div">
                             <textarea type="text" className="input-div-input" placeholder="Security Policy" />

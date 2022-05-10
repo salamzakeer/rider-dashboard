@@ -1,18 +1,18 @@
 import "./navbar.css"
 import ProfilePic from '../../assets/Mask Group 5.png'
 import DownPic from '../../assets/down-filled-triangular-arrow.png'
-import Sidebar from "../../components/sidebar/sidebar";
-import MenuPic from '../../assets/menu.png'
+// import Sidebar from "../../components/sidebar/sidebar";
+// import MenuPic from '../../assets/menu.png'
 import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
-function Navbar(props){
+function Navbar(props) {
 
 
-    return(
-        
+    return (
+
         <div className="mainNav">
-            
+
             {/* <div className="close-menubtn">
                 <Link to='#' className='menu-bars'>
                     <img src={MenuPic} alt="Menu" onClick={showSidebar} />
@@ -27,15 +27,15 @@ function Navbar(props){
             <div className="profile">
 
                 <div className="profilePic">
-                    <Link style={{textDecoration: 'none'}} to="/userprofile" >
-                    <img src={ProfilePic} alt="profile picture" />
+                    <Link style={{ textDecoration: 'none' }} to="/userprofile" >
+                        <img src={ProfilePic} alt="userprofile" />
                     </Link>
                 </div>
 
                 <div className="subTitle">
-                <Link style={{textDecoration: 'none'}} to="/userprofile" >
-                    <h2>name</h2>
-                </Link>
+                    <Link style={{ textDecoration: 'none' }} to="/userprofile" >
+                        <h2>name</h2>
+                    </Link>
                 </div>
 
                 <div className="drop">

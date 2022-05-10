@@ -3,9 +3,9 @@ import "./sidebar.css";
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuPic from '../../assets/menu.png'
-import Close from '../../assets/close.png'
-import { useLocation, useParams } from 'react-router-dom';
-import type { Location, Params } from 'react-router-dom';
+// import Close from '../../assets/close.png'
+import { useLocation } from 'react-router-dom';
+// import type { Location, Params } from 'react-router-dom';
 function Sidebar(props) {
     const location = useLocation();  
       console.log(location.pathname)

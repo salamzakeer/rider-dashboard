@@ -2,73 +2,75 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./login.css"
+import { Link } from 'react-router-dom';
 
 
 function Login() {
-    
-  const  [email, setEmail] = useState("")
-  const  [password, setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-   console.log({email,password})
-  const handleEmail = (e)=>{
-      setEmail(e.target.value)
+    console.log({ email, password })
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
 
-  }
-  const handlePassword = (e)=>{
-      setPassword(e.target.value)
-}
-const handleApi = ()=>{
-    console.log({email,password})
-    const json =  {
-        email: email,
-        password: password
-        
-    };
-    axios.post('https://dcaapi.moodfor.codes/rider/login', json)
-    .then(result=>{
-        // console.log(result)
-        // if(result.errorMessage == false){
-        console.log(result)
-        alert("success")
-        window.location = "/dashboard"       
-    // }else{
-    //     console.log("logged error")
-    // }
+    }
+    const handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
+    const handleApi = () => {
+        console.log({ email, password })
+        const json = {
+            email: email,
+            password: password
+
+        };
+        axios.post('https://dcaapi.moodfor.codes/rider/login', json)
+            .then(result => {
+                // console.log(result)
+                // if(result.errorMessage == false){
+                console.log(result)
+                alert("success")
+                window.location = "/dashboard"
+                // }else{
+                //     console.log("logged error")
+                // }
 
 
-    })
-    .catch(error=>{
-        console.log(error)
-        alert("fail")
-        console.log("not ok")
-    })
-    
+            })
+            .catch(error => {
+                console.log(error)
+                alert("fail")
+                console.log("not ok")
+            })
 
-}
+
+    }
 
     return (
 
         <div className="login-card">
             <h1>Login</h1>
             <div className="frm">
-                <input type="text" className="input" placeholder="Email" value={email} onChange={handleEmail}/>
+                <input type="text" className="input" placeholder="Email" value={email} onChange={handleEmail} />
 
-                <input type="password" className="input" placeholder="Password"  value={password} onChange={handlePassword}/>
+                <input type="password" className="input" placeholder="Password" value={password} onChange={handlePassword} />
 
                 <button className="login-submit" onClick={handleApi} >Login</button>
-                </div>
+            </div>
             <div className="reset">
-                <a href="#">Forgot Password?</a>
-            </div>  
+                <Link to="" >
+                    Forgot Password?
+                </Link>
+            </div>
 
 
         </div>
     )
-    
+
 }
 // const useFormInput = initialValue => {
 //     const [value, setValue] = useState(initialValue);
-  
+
 //     const handleChange = e => {
 //       setValue(e.target.value);
 //     }
