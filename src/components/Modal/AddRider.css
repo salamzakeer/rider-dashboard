@@ -49,7 +49,7 @@
     width: 24px;
 }
 
-.card-background .updatepolicy-card form{
+.card-background .updatepolicy-card .frm{
     margin-top: 74px;
     position: relative;
 }
@@ -135,7 +135,7 @@ margin-bottom: 0px;
         vertical-align: middle; /*Vertically centered*/
         
     }
-    .card-background .updatepolicy-card form{
+    .card-background .updatepolicy-card .frm{
         width: 100%;
         margin-top: 50px;
     }
