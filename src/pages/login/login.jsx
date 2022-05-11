@@ -9,6 +9,12 @@ function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
+    //save user in local
+    const saveTokenLocalStorage = (tokenDetails)=>{
+        localStorage.setItem('userInfor', JSON.stringify(tokenDetails))
+    }
+
+    //====================
     console.log({ email, password })
     const handleEmail = (e) => {
         setEmail(e.target.value)
@@ -26,14 +32,11 @@ function Login() {
         };
         axios.post('https://dcaapi.moodfor.codes/rider/login', json)
             .then(result => {
-                // console.log(result)
-                // if(result.errorMessage == false){
+                
+                saveTokenLocalStorage(result.data);
                 console.log(result)
                 alert("success")
                 window.location = "/dashboard"
-                // }else{
-                //     console.log("logged error")
-                // }
 
 
             })

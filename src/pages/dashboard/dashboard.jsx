@@ -86,7 +86,8 @@ function Dashboard() {
                    
 {JSON.stringify(form)}
                             {
-                        form.map((item,index)=><div className="row" key={`item-${index}`}>
+                        form.map((item,index)=> (
+                        <div className="row" key={`item-${index}`}>
 
                             <div className="input-div">
                             <input 
@@ -101,11 +102,13 @@ function Dashboard() {
                             <img src={RemoveIcon} 
                             alt="" 
                             className="input-div-botton" 
+                            name="btn"
                             onClick={(e)=>handleRemoveFeild(e,index)} 
                             />
                             </div>
 
-                        </div>)
+                        </div>
+                        ))
                     }
 
 
