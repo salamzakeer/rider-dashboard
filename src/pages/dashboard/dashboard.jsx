@@ -11,51 +11,28 @@ import "./dashboard.css"
 
 function Dashboard() {
 
-   //manage dynamic input form
-   const [form, setForm] = useState([]);
+    const [formValues, setFormValues] = useState([])
 
-    const handleAddFeild=(e)=>{
-        e.preventDefault();
-        const inputState = {
-            Platform: ""
-        };
+    let handleChange = (i, e) => {
+        let newFormValues = [...formValues];
+        newFormValues[i][e.target.name] = e.target.value;
+        setFormValues(newFormValues);
+      }
     
-    //Set previous State
-    setForm((prev) => [...prev, inputState]);
+    let addFormFields = () => {
+        setFormValues([...formValues, { name: ""}])
+      }
     
-    };
-
-    const onChange=(index,event)=>{
-        
+    let removeFormFields = (i) => {
+        let newFormValues = [...formValues];
+        newFormValues.splice(i, 1);
+        setFormValues(newFormValues)
+    }
+    
+    let handleSubmit = (event) => {
         event.preventDefault();
-        event.persist();
-
-         setForm(prev=>{
-
-            return prev.map((item,i)=>{
-                
-                if(i==index){
-                    return item;
-                }
-
-                return{
-                    ...item,
-                    [event.target.name]: event.target.value,
-                }
-            })
-        })
-
+        alert(JSON.stringify(formValues));
     }
-    //remove feild
-    const handleRemoveFeild =(e, index)=>{
-
-        e.preventDefault();
-
-        setForm((prev) => prev.filter((item) => item !== prev[index]));
-    }
-
-
-    
 
     return (
         <div className="main">
@@ -70,7 +47,7 @@ function Dashboard() {
                 <div className="newFile2">
                     <h1>New file</h1>
                
-                    <form action="submit">
+                    <form onSubmit={handleSubmit}>
 
                         <div className="input-div">
                             <input type="text" className="input-div-input" placeholder="Riders.xl" />
@@ -80,36 +57,27 @@ function Dashboard() {
                         <div className="input-div">
                             <input type="text" className="input-div-input" placeholder="Add Column" />
                             {/* <img src={AddIcon} alt="" className="input-div-botton" onClick={() => add(true)} /> */}
-                            <img src={AddIcon} alt="" className="input-div-botton" onClick={handleAddFeild} />
+                            <img src={AddIcon} alt="" className="input-div-botton" onClick={() => addFormFields()} />
                         </div>
 
+
+                        {formValues.map((element, index) => (
+            <div className="form-inline" key={index}>
+
+            <div className="input-div">
+              <input type="text" className="input-div-input"  name="name" value={element.name || ""} onChange={e => handleChange(index, e)} />
+              <img src={RemoveIcon} alt="" className="input-div-botton" onClick={() => removeFormFields(index)} />
+             </div>
+              {/* {
+                index ? 
+                <img src={RemoveIcon} alt="" className="input-div-botton" onClick={() => removeFormFields(index)} />
+                 
+                : null
+              } */}
+            </div>
+          ))}
                    
-{JSON.stringify(form)}
-                            {
-                        form.map((item,index)=> (
-                        <div className="row" key={`item-${index}`}>
 
-                            <div className="input-div">
-                            <input 
-                            type="text" 
-                            className="input-div-input"
-                            placeholder="Add Column" 
-                            name="Platform"
-                            value={item.Platform}
-                            onChange={(e)=>onChange(index,e)}
-                             />
-
-                            <img src={RemoveIcon} 
-                            alt="" 
-                            className="input-div-botton" 
-                            name="btn"
-                            onClick={(e)=>handleRemoveFeild(e,index)} 
-                            />
-                            </div>
-
-                        </div>
-                        ))
-                    }
 
 
                         <button type="submit" className="submit3">Submit</button>
