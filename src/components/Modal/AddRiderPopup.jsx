@@ -8,12 +8,12 @@ import FileUploader from '../../components/buttons/FileUploader';
 
 function AddRiderPopup({ closeModel }) {
 
-    const [name, setName] = useState("")
+    const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const handleName = (e) => {
-        setName(e.target.value)
+        setFullName(e.target.value)
     }
     const handleEmail = (e) => {
         setEmail(e.target.value)
@@ -23,9 +23,9 @@ function AddRiderPopup({ closeModel }) {
     }
 
     const handleApi = () => {
-        console.log({ email, password })
+        console.log({ fullName, email, password })
         const json = {
-            fullName: name,
+            fullName: fullName,
             email: email,
             password: password
 
@@ -63,7 +63,7 @@ function AddRiderPopup({ closeModel }) {
                 </div>
 
                 <div className="frm">
-                    <input type="text" className="input" placeholder="Name" value={name} onChange={handleName} />
+                    <input type="text" className="input" placeholder="Name" value={fullName} onChange={handleName} />
                     <input type="text" className="input" placeholder="Email" value={email} onChange={handleEmail} />
                     <input type="password" className="input" placeholder="Password" />
                     <input type="password" className="input" placeholder="Confirm Password" value={password} onChange={handlePassword} />

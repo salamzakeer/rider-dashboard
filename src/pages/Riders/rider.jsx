@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
 
 import Sidebar from "../../components/sidebar/sidebar";
 import Navbar from "../../components/navbar/navbar";
 import AddRider from '../../components/Modal/AddRiderPopup';
 
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
 import ProfilePic from '../../assets/Mask Group 5.png'
 import DeleteBtn from '../../assets/delete.png'
+
 
 import "./rider.css"
 
@@ -61,6 +62,31 @@ function createData(I, ID, Name, Email) {
   return { I, ID, Name, Email };
 }
 
+// ===================================================================
+// const handleApi = () => {
+
+//   axios.get('https://dcaapi.moodfor.codes/rider/register')
+//       .then(result => {
+//           // console.log(result)
+//           // if(result.errorMessage == false){
+//           console.log("working")
+//           // }else{
+//           //     console.log("logged error")
+//           // }
+
+
+//       })
+//       .catch(error => {
+//           console.log(error)
+//           alert("fail")
+//           // console.log("not ok")
+//       })
+
+// }
+
+
+
+// ====================================================================
 const rows = [
   createData('001', 'RD001', 'Banna Andrian', 'Bannaandrian@gmail.com'),
   createData('001', 'RD002', 'Elver Andries', 'Elverandries@gmail.com'),
@@ -71,6 +97,28 @@ const rows = [
 
 function Newrider() {
   const [openModel, setOpenModel] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+      axios.get('https://dcaapi.moodfor.codes/rider')
+      .then(result => {
+          // console.log(result)
+          // if(result.errorMessage == false){
+          console.log("working")
+          // }else{
+          //     console.log("logged error")
+          // }
+
+
+      })
+      .catch(error => {
+          console.log(error)
+          alert("fail")
+          // console.log("not ok")
+      })
+  })
+  
+
 
   return (
     <div className="main">
@@ -104,7 +152,8 @@ function Newrider() {
               <th><Typography variant="body">Email</Typography> </th>
               <th><Typography variant="body"></Typography> </th>
             </tr>
-            {rows.map((row, i) => (
+
+            {/* {data.map((row, i) => (
               <tr key={i}>
                 <td><Typography variant="body">{row.I}</Typography></td>
                 <td><Typography variant="body">{row.ID}</Typography></td>
@@ -114,7 +163,18 @@ function Newrider() {
 
                 <td><img src={DeleteBtn} className="delete" alt="" /></td>
               </tr>
-            ))}
+            ))} */}
+            
+              {data.map(data =>(
+                <tr>
+                <td><Typography variant="body">{data.id}</Typography></td>
+                <td><Typography variant="body">{data.id}</Typography></td>
+                <td><Typography variant="body">{data.id}</Typography></td>
+                <td><Typography variant="body">{data.id}</Typography></td>
+                <td><Typography variant="body">{data.id}</Typography></td>
+                </tr>
+              ))}
+            
 
 
           </table>

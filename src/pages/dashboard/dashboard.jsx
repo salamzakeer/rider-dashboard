@@ -11,7 +11,53 @@ import "./dashboard.css"
 
 function Dashboard() {
 
-    const [visible, add] = useState(false);
+   //manage dynamic input form
+   const [form, setForm] = useState([]);
+
+    const handleAddFeild=(e)=>{
+        e.preventDefault();
+        const inputState = {
+            Platform: "",
+            username: ""
+        };
+    
+    //Set previous State
+    setForm((prev) => [...prev, inputState]);
+    
+    
+    };
+
+    const onChange=(index,event)=>{
+        
+
+        event.preventDefault();
+
+        setForm(prev=>{
+
+            prev.map((item,i)=>{
+                
+                if(i==index){
+                    return item;
+                }
+
+                return{
+                    ...item,
+                    [event.target.name]: event.target.value,
+                }
+            })
+        })
+
+    }
+    //remove feild
+    const handleRemoveFeild =(e, index)=>{
+
+        e.preventDefault();
+
+        setForm((prev) => prev.filter((item) => item !== prev[index]));
+    }
+
+
+    
 
     return (
         <div className="main">
@@ -25,6 +71,7 @@ function Dashboard() {
                 {/* ========== form ==========*/}
                 <div className="newFile2">
                     <h1>New file</h1>
+               
                     <form action="submit">
 
                         <div className="input-div">
@@ -34,15 +81,34 @@ function Dashboard() {
 
                         <div className="input-div">
                             <input type="text" className="input-div-input" placeholder="Add Column" />
-                            <img src={AddIcon} alt="" className="input-div-botton" onClick={() => add(true)} />
+                            {/* <img src={AddIcon} alt="" className="input-div-botton" onClick={() => add(true)} /> */}
+                            <img src={AddIcon} alt="" className="input-div-botton" onClick={handleAddFeild} />
                         </div>
 
-                        {visible &&
-                            <div className="input-div">
-                                <input type="text" className="input-div-input" placeholder="Payment" />
-                                <img src={RemoveIcon} alt="" className="input-div-botton" onClick={() => add(false)} />
-                            </div>}
+                   
 
+                            {
+                        form.map((item,index)=><div className="row" key={`item-${index}`}>
+
+                            <div className="input-div">
+                            <input 
+                            type="text" 
+                            className="input-div-input"
+                            placeholder="Add Column" 
+                            name="Platform"
+                            value={item.Platform}
+                            onChange={(e)=>onChange(index,e)}
+                             />
+
+                            <img src={RemoveIcon} 
+                            alt="" 
+                            className="input-div-botton" 
+                            onClick={(e)=>handleRemoveFeild(e,index)} 
+                            />
+                            </div>
+
+                        </div>)
+                    }
 
 
                         <button type="submit" className="submit3">Submit</button>
