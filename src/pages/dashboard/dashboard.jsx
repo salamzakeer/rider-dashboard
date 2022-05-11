@@ -17,24 +17,22 @@ function Dashboard() {
     const handleAddFeild=(e)=>{
         e.preventDefault();
         const inputState = {
-            Platform: "",
-            username: ""
+            Platform: ""
         };
     
     //Set previous State
     setForm((prev) => [...prev, inputState]);
     
-    
     };
 
     const onChange=(index,event)=>{
         
-
         event.preventDefault();
+        event.persist();
 
-        setForm(prev=>{
+         setForm(prev=>{
 
-            prev.map((item,i)=>{
+            return prev.map((item,i)=>{
                 
                 if(i==index){
                     return item;
@@ -86,7 +84,7 @@ function Dashboard() {
                         </div>
 
                    
-
+{JSON.stringify(form)}
                             {
                         form.map((item,index)=><div className="row" key={`item-${index}`}>
 
