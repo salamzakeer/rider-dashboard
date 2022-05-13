@@ -11,6 +11,20 @@ import "./dashboard.css"
 
 function Dashboard() {
 
+    //upload file
+    const [file, setFile] = React.useState("");
+
+   
+    // Handles file upload event and updates state
+    function handleUpload(event) {
+      setFile(event.target.files[0]);
+        console.log(event.target.files)
+      // Add code here to upload file to server
+      // ...
+    }
+
+    //end-upload file
+
     const [formValues, setFormValues] = useState([])
 
     let handleChange = (i, e) => {
@@ -49,12 +63,15 @@ function Dashboard() {
                
                     <form onSubmit={handleSubmit}>
 
-                        <div className="input-div">
-                            <input type="text" className="input-div-input" placeholder="Riders.xl" />
-                            <img src={UploadIcon} alt="" className="input-div-botton" />
-                        </div>
+                        <div className="input-div" dataText="Select your file">
+                        <input type="file" className="input-div-3"onChange={handleUpload} />
+                        {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
+                            <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly"/>
+                            <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
+                        </div> 
 
                         <div className="input-div">
+
                             <input type="text" className="input-div-input" placeholder="Add Column" />
                             {/* <img src={AddIcon} alt="" className="input-div-botton" onClick={() => add(true)} /> */}
                             <img src={AddIcon} alt="" className="input-div-botton" onClick={() => addFormFields()} />
@@ -68,12 +85,7 @@ function Dashboard() {
               <input type="text" className="input-div-input"  name="name" value={element.name || ""} onChange={e => handleChange(index, e)} />
               <img src={RemoveIcon} alt="" className="input-div-botton" onClick={() => removeFormFields(index)} />
              </div>
-              {/* {
-                index ? 
-                <img src={RemoveIcon} alt="" className="input-div-botton" onClick={() => removeFormFields(index)} />
-                 
-                : null
-              } */}
+
             </div>
           ))}
                    
