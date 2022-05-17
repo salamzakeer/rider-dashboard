@@ -1,17 +1,20 @@
 
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../axios';
 import "./login.css"
 import { Link } from 'react-router-dom';
-
+import { useToasts } from 'react-toast-notifications';
 
 function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    // add toster hook
+    const { addToast } = useToasts();
 
     //save user in local
-    const saveTokenLocalStorage = (tokenDetails)=>{
+    const saveTokenLocalStorage = (tokenDetails) => {
         localStorage.setItem('userInfor', JSON.stringify(tokenDetails))
+        localStorage.setItem('auth', JSON.stringify(tokenDetails))
     }
 
     //====================
@@ -30,20 +33,19 @@ function Login() {
             password: password
 
         };
-        axios.post('https://dcaapi.moodfor.codes/rider/login', json)
+        axios.post('rider/login', json)
             .then(result => {
-                
                 saveTokenLocalStorage(result.data);
-                console.log(result)
-                alert("success")
+                addToast("Successfully Login", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
+                // console.log(result)
                 window.location = "/dashboard"
 
 
             })
             .catch(error => {
-                console.log(error)
-                alert("fail")
-                console.log("not ok")
+                // console.log(error)
+                addToast("username or password is incorrcet", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
+                // console.log("not ok")
             })
 
 

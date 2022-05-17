@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import axios from 'axios';
+import axios from '../../axios';
 
 import Sidebar from "../../components/sidebar/sidebar";
 import Navbar from "../../components/navbar/navbar";
@@ -100,24 +100,17 @@ function Newrider() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-      axios.get('https://dcaapi.moodfor.codes/rider')
-      .then(result => {
-          // console.log(result)
-          // if(result.errorMessage == false){
-          console.log("working")
-          // }else{
-          //     console.log("logged error")
-          // }
-
+    axios.get('/rider')
+      .then(res => {
+        setData(res.data)
+        console.log("working", res.data)
 
       })
       .catch(error => {
-          console.log(error)
-          alert("fail")
-          // console.log("not ok")
+        console.log(error)
       })
-  })
-  
+  }, [])
+
 
 
   return (
@@ -164,17 +157,32 @@ function Newrider() {
                 <td><img src={DeleteBtn} className="delete" alt="" /></td>
               </tr>
             ))} */}
-            
-              {data.map(data =>(
-                <tr>
+
+            {data && data.length > 0 && data.map(data => (
+              <tr>
                 <td><Typography variant="body">{data.id}</Typography></td>
                 <td><Typography variant="body">{data.id}</Typography></td>
-                <td><Typography variant="body">{data.id}</Typography></td>
-                <td><Typography variant="body">{data.id}</Typography></td>
-                <td><Typography variant="body">{data.id}</Typography></td>
-                </tr>
-              ))}
-            
+                <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
+
+                {/* <td><Typography variant="body">{data.id}</Typography></td> */}
+                <td><Typography variant="body">{data.fullName}</Typography></td>
+                <td><Typography variant="body">{data.email}</Typography></td>
+              </tr>
+            ))}
+            {
+              data.length === 0
+              && <tr style={{ borderCollapse: 'collapse' }}>
+                {/* <td><Typography variant="body" ></Typography></td>
+
+                <td><Typography variant="body" ></Typography></td>
+                <td><Typography variant="body" ></Typography></td> */}
+                {/* <td colspan="4"><Typography variant="body" >No data</Typography></td> */}
+                <td style={{
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }} colspan="6"><Typography variant="body" >No data</Typography></td>
+              </tr>}
+
 
 
           </table>

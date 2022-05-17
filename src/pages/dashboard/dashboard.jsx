@@ -6,7 +6,7 @@ import Sidebar from "../../components/sidebar/sidebar";
 import makeAnimated from "react-select/animated";
 import MySelect from "../../components/select/select";
 import { components } from "react-select";
-import { ToastProvider, useToasts } from 'react-toast-notifications';
+import { useToasts } from 'react-toast-notifications';
 
 import UploadIcon from '../../assets/upload.png'
 import AddIcon from '../../assets/add.png'
