@@ -35,11 +35,45 @@ const MultiValue = (props) => (
     </components.MultiValue>
 );
 
+
 const colourOptions = [
-    { value: "SEWACC", label: "SEWACC", color: "#00B8D9" },
-    { value: "OWNER_NAME", label: "OWNER NAME", color: "#0052CC" },
-    { value: "PROP_ADD", label: "PROP ADD", color: "#5243AA" },
-    { value: "CURRENT_CLASS", label: "CURRENT CLASS", color: "#FF5630" },
+    { value: "DCAFiletype", label: "DCAFiletype", color: "#00B8D9" },
+    { value: "DCAName", label: "DCAName", color: "#0052CC" },
+    { value: "State", label: "State", color: "#5243AA" },
+    { value: "Costcode", label: "Costcode", color: "#FF5630" },
+
+    { value: "UO", label: "UO", color: "#00B8D9" },
+    { value: "LAName", label: "LAName", color: "#00B8D9" },
+    { value: "billno", label: "billno", color: "#00B8D9" },
+    { value: "SAN", label: "SAN", color: "#00B8D9" },
+    { value: "Owner1", label: "Owner1", color: "#00B8D9" },
+    { value: "Owner2", label: "Owner2", color: "#00B8D9" },
+    { value: "Owner1NRIC", label: "Owner1NRIC", color: "#00B8D9" },
+    { value: "Owner2NRIC", label: "Owner2NRIC", color: "#00B8D9" },
+    { value: "PropAddr1", label: "PropAddr1", color: "#00B8D9" },
+    { value: "PropAddr2", label: "PropAddr2", color: "#00B8D9" },
+    { value: "PropAddr3", label: "PropAddr3", color: "#00B8D9" },
+    { value: "PropAddr4", label: "PropAddr4", color: "#00B8D9" },
+    { value: "Roadname", label: "Roadname", color: "#00B8D9" },
+    { value: "Taman", label: "Taman", color: "#00B8D9" },
+    { value: "PostCode", label: "PostCode", color: "#00B8D9" },
+    { value: "Suburb", label: "Suburb", color: "#00B8D9" },
+    { value: "MailName1", label: "MailName1", color: "#00B8D9" },
+    { value: "MailName2", label: "MailName2", color: "#00B8D9" },
+    { value: "MailAdd1", label: "MailAdd1", color: "#00B8D9" },
+    { value: "MailAdd2", label: "MailAdd2", color: "#00B8D9" },
+    { value: "MailAdd3", label: "MailAdd3", color: "#00B8D9" },
+    { value: "MailAdd4", label: "MailAdd4", color: "#00B8D9" },
+    { value: "Class", label: "Class", color: "#00B8D9" },
+    { value: "Range", label: "Range", color: "#00B8D9" },
+    { value: "Arrears", label: "Arrears", color: "#00B8D9" },
+    { value: "CurrentBalance", label: "CurrentBalance", color: "#00B8D9" },
+    { value: "Balance_at_05_03_2022", label: "Balance_at_05_03_2022", color: "#00B8D9" },
+    { value: "AdministrationFee", label: "AdministrationFee", color: "#00B8D9" },
+    { value: "LODFee", label: "LODFee", color: "#00B8D9" },
+    { value: "TotalPayableAmount", label: "TotalPayableAmount", color: "#00B8D9" },
+    { value: "BATCH", label: "BATCH", color: "#00B8D9" },
+
 ];
 const animatedComponents = makeAnimated();
 function Dashboard() {

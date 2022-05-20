@@ -8,7 +8,7 @@ const colourStyles = {
     backgroundColor: "white",
     borderRadius: "100px",
     width: "100% !important",
-    height: " 88px !important",
+    minHeight: "88px !important",
     border: "1px solid #ccc !important",
   }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {

@@ -11,3 +11,28 @@ export default function FileUploader(props) {
     </div>
   );
 }
+// DCAFiletype,
+// DCAName,
+// State
+// ,Costcode
+// ,UO,LAName,
+// billno,
+// SAN,
+// Owner1
+// ,Owner2
+// , Owner1NRIC,
+//  Owner2NRIC,
+// PropAddr1,
+// PropAddr2,
+// PropAddr3,
+// PropAddr4,
+// Roadname,
+// Taman,
+// PostCode,
+// Suburb,
+// MailName1,
+// MailName2,
+
+// MailAdd1,MailAdd2,MailAdd3,MailAdd4,Class,Range,
+// Arrears, CurrentBalance, Balance_at_05_03_2022, 
+// AdministrationFee, LODFee, TotalPayableAmount, BATCH
