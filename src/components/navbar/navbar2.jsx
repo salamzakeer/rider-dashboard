@@ -5,16 +5,16 @@ import Sidebar from "../../components/sidebar/sidebar";
 
 import MenuPic from '../../assets/menu.png'
 
-function Navbar2(){
+function Navbar2() {
 
     const [slidbtn, setslidebtn] = useState(false);
-    return(
-        
+    return (
+
         <div className="mainNav">
             <div>
-        
-        </div>   
-        <div className="slidbtn">
+
+            </div>
+            <div className="slidbtn">
                 <Link to='#' className='menu-bars'>
                     <img src={MenuPic} alt="Menu" onClick={showSidebar} />
                 </Link>

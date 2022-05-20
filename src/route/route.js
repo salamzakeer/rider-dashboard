@@ -1,5 +1,9 @@
 import Login from "../pages/login/login";
 import Dashboard from "../pages/dashboard/dashboard";
+import CallManager from "../pages/callManager/callmanager";
+import ExtendSearch from "../pages/extendSearch/index";
+import ImportManager from "../pages/importManager/importManger";
+import AssignData from "../pages/importManager/assignData/assignData";
 import Rider from "../pages/Riders/rider";
 import Telecaller from "../pages/Telecaller/telecaller";
 import Setup from "../pages/Setup/PolicyS";
@@ -11,7 +15,7 @@ import UserProfile from "../pages/userProfile/userprofile";
 export const publicRoutes = [
   {
     path: "/",
-    component: Login,
+    component: Dashboard,
     exact: true,
   },
 
@@ -21,8 +25,30 @@ export const publicRoutes = [
     exact: true,
   },
   {
+    path: "/call-manager",
+    component: CallManager,
+    exact: true,
+  },
+  // call-manager
+  {
+    path: "/extend-search",
+    component: ExtendSearch,
+    exact: true,
+  },
+  {
     path: "/dashboard",
     component: Dashboard,
+    exact: true,
+  },
+
+  {
+    path: "/import-data",
+    component: ImportManager,
+    exact: true,
+  },
+  {
+    path: "/assign-data",
+    component: AssignData,
     exact: true,
   },
   {

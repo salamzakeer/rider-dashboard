@@ -78,10 +78,10 @@ function setupNav() {
             </div>
           </div> */}
       <div className="navbar">
-        <Link>
+        <Link to='#' >
           <Typography variant="body" >Principal</Typography>
         </Link>
-        <Link>
+        <Link to='#' >
           <Typography variant="body" >Company</Typography>
         </Link>
         <div className="dropdown">

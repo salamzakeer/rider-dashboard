@@ -7,13 +7,12 @@ import makeAnimated from "react-select/animated";
 import MySelect from "../../components/select/select";
 import { components } from "react-select";
 import { useToasts } from 'react-toast-notifications';
-import Typography from '@mui/material/Typography';
 
 import UploadIcon from '../../assets/upload.png'
 import AddIcon from '../../assets/add.png'
 import RemoveIcon from '../../assets/remove.png'
 import axios from '../../axios'
-import "./dashboard.css"
+import "./importManger.css"
 
 const Option = (props) => {
     return (
@@ -90,7 +89,6 @@ function Dashboard() {
         event.preventDefault();
         // alert(JSON.stringify(formValues));
 
-        console.log(optionSelected)
         var array = [];
         optionSelected.map((item) => {
 
@@ -110,7 +108,6 @@ function Dashboard() {
             .then(
                 (res) => {
                     var id = res.id;
-                    console.log(id, "iiiiiiiiiiiiiiiid");
                     // setProgress("");
                     addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
 
@@ -119,7 +116,6 @@ function Dashboard() {
             .catch((error) => {
                 addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
 
-                console.log("There was an error!", error);
                 // sendNotification({ msg: "There was an error!", variant: "error" });
             });
     }
@@ -137,11 +133,51 @@ function Dashboard() {
                     <Navbar />
 
                     {/* ========== form ==========*/}
-                    <div style={{ margin: "100px" }}>
+                    <div className="newFile2">
+                        <h1>New file</h1>
+
+                        <form onSubmit={handleSubmit}>
+
+                            <div className="input-div" dataText="Select your file">
+                                <input type="file" className="input-div-3" onChange={handleUpload} />
+                                {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
+                                <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly" />
+                                <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
+                            </div>
+                            <MySelect
+                                options={colourOptions}
+                                isMulti
+                                closeMenuOnSelect={false}
+                                hideSelectedOptions={false}
+                                components={{ Option, MultiValue, animatedComponents }}
+                                onChange={selecHandleChange}
+                                allowSelectAll={true}
+                                value={optionSelected}
+                            />
+                            {/* <div className="input-div">
+
+                            <input type="text" className="input-div-input" placeholder="Add Column" />
+                            <img src={AddIcon} alt="" className="input-div-botton" onClick={() => addFormFields()} />
+                        </div> */}
+                            {/* <img src={AddIcon} alt="" className="input-div-botton" onClick={() => add(true)} /> */}
+
+
+                            {/* {formValues.map((element, index) => (
+                            <div className="form-inline" key={index}>
+
+                                <div className="input-div">
+                                    <input type="text" className="input-div-input" name="name" value={element.name || ""} onChange={e => handleChange(index, e)} />
+                                    <img src={RemoveIcon} alt="" className="input-div-botton" onClick={() => removeFormFields(index)} />
+                                </div>
+
+                            </div>
+                        ))}
+ */}
 
 
 
-                        <Typography variant="h2" >WELCOME TO DASHBOARD</Typography>
+                            <button type="submit" className="submit3">Submit</button>
+                        </form>
                     </div>
                     {/* ========== form ==========*/}
 

@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import 'react-toastify/dist/ReactToastify.css'; // import first
 import { ToastContainer, toast } from 'react-toastify'; // then this
-import Navbar from "../../components/navbar/navbar";
-import Sidebar from "../../components/sidebar/sidebar";
+import Navbar from "../../../components/navbar/navbar";
+import Sidebar from "../../../components/sidebar/sidebar";
 import makeAnimated from "react-select/animated";
-import MySelect from "../../components/select/select";
+import MySelect from "../../../components/select/select";
 import { components } from "react-select";
 import { useToasts } from 'react-toast-notifications';
-import Typography from '@mui/material/Typography';
 
-import UploadIcon from '../../assets/upload.png'
-import AddIcon from '../../assets/add.png'
-import RemoveIcon from '../../assets/remove.png'
-import axios from '../../axios'
-import "./dashboard.css"
+import UploadIcon from '../../../assets/upload.png'
+import AddIcon from '../../../assets/add.png'
+import RemoveIcon from '../../../assets/remove.png'
+import axios from '../../../axios'
+import "./importManger.css"
+import Selects from "../../../components/select/selects";
 
 const Option = (props) => {
     return (
@@ -90,7 +90,6 @@ function Dashboard() {
         event.preventDefault();
         // alert(JSON.stringify(formValues));
 
-        console.log(optionSelected)
         var array = [];
         optionSelected.map((item) => {
 
@@ -102,28 +101,17 @@ function Dashboard() {
             // detailIndex
             .post(`/vacants`, data, {
                 headers: { "Content-Type": "multipart/form-data" },
-                //   onUploadProgress: (data) => {
-                //     //Set the progress value to show the progress bar
-                //     // setProgress(Math.round((100 * data.loaded) / data.total));
-                //   },
             })
             .then(
                 (res) => {
                     var id = res.id;
-                    console.log(id, "iiiiiiiiiiiiiiiid");
-                    // setProgress("");
                     addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
-
                 }
             )
             .catch((error) => {
                 addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
-
-                console.log("There was an error!", error);
-                // sendNotification({ msg: "There was an error!", variant: "error" });
             });
     }
-    const notify = () => toast("Wow so easy !");
 
     return (
         <>
@@ -137,11 +125,54 @@ function Dashboard() {
                     <Navbar />
 
                     {/* ========== form ==========*/}
-                    <div style={{ margin: "100px" }}>
+                    <div className="newFile2  form">
+                        <h1>Assign Data</h1>
 
+                        <form onSubmit={handleSubmit}>
 
+                            <select class="form-select" aria-label="Default select example" >
+                                <option selected>Task Info</option>
+                                <option>Task 01 Tdb</option>
+                                <option>Task 02</option>
 
-                        <Typography variant="h2" >WELCOME TO DASHBOARD</Typography>
+                            </select>
+
+                            <div className="input-div">
+                                <input type="text" className="input-div-input" placeholder="Task Type" />
+                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                            </div>
+                            <div className="input-div">
+                                <input type="text" className="input-div-input" placeholder="Date" />
+                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                            </div>
+                            <select class="form-select" aria-label="Default select example" >
+                                <option selected>Staff info</option>
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                            </select>
+
+                            <br />
+                            <hr />
+                            <br />
+                            <br />
+                            <select class="form-select" aria-label="Default select example" >
+                                <option selected>Select</option>
+                                <option>Task 01 Tdb</option>
+                                <option>Task 02</option>
+
+                            </select>
+
+                            <div className="input-div">
+                                <input type="text" className="input-div-input" placeholder="From" />
+                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                            </div>
+                            <div className="input-div">
+                                <input type="text" className="input-div-input" placeholder="To" />
+                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                            </div>
+                            <button type="submit" className="submit3">Submit</button>
+                        </form>
                     </div>
                     {/* ========== form ==========*/}
 

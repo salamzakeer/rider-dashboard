@@ -6,14 +6,24 @@ import MenuPic from '../../assets/menu.png'
 // import Close from '../../assets/close.png'
 import { useLocation } from 'react-router-dom';
 // import type { Location, Params } from 'react-router-dom';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import People from '@mui/icons-material/People';
+import PermMedia from '@mui/icons-material/PermMedia';
+import Dns from '@mui/icons-material/Dns';
+import Public from '@mui/icons-material/Public';
+import Box from '@mui/material/Box';
+
 function Sidebar(props) {
-    const location = useLocation();  
-      console.log(location.pathname)
+    const location = useLocation();
+    console.log(location.pathname)
     const [slider, setSidebar] = useState(false);
-const path = location.pathname
+    const path = location.pathname
     const showSidebar = () => setSidebar(!slider);
-    
-   
+
+    const [open, setOpen] = React.useState(false);
+
 
     return (
 
@@ -24,35 +34,53 @@ const path = location.pathname
                     <img src={MenuPic} alt="Menu" onClick={showSidebar} />
                 </Link>
             </div>
-{/* {props.active } */}
+            {/* {props.active } */}
 
 
             <div className={slider ? 'nav-menu active' : 'nav'}>
-                
+
 
                 {/* <div className="dash"> <p>Dashboard</p></div> */}
 
                 <ul className="nav-links">
-                <Link to="/dashboard" style={{ textDecoration: 'none' }}>
-                    <li className={`nav-option ${path === "/dashboard" ? "active":"" }`} ><span>Dashboard</span></li>
-                </Link>
-                   
+                    <Link to="/dashboard" style={{ textDecoration: 'none' }}>
+                        <li className={`nav-option ${path === "/dashboard" ? "active" : ""}`} ><span>Dashboard</span></li>
+                    </Link>
+                    <Link to="/extend-search" style={{ textDecoration: 'none' }}>
+                        <li className={`nav-option ${path === "/extend-search" ? "active" : ""}`} ><span>Extend Search</span></li>
+                    </Link>
+                    <Link to="/call-manager" style={{ textDecoration: 'none' }}>
+                        <li className={`nav-option ${path === "/call-manager" ? "active" : ""}`} ><span>Call Manager</span></li>
+                    </Link>
+                    {/* extend-search */}
+                    <Link to="" style={{ textDecoration: 'none' }} onClick={() => setOpen(!open)}  >
+                        <li className={`nav-option ${(path === "/import-data" || path === "/assign-data") ? "active" : ""}`} ><span>Import Manager</span></li>
+                    </Link>
+                    {open &&
+                        <>
+                            <Link to="/import-data" style={{ textDecoration: 'none', }}  >
+                                <li className={`nav-option ${path === "/import-data" ? "s-active" : ""}`} ><span style={{ paddingLeft: "20px" }}>Import Data</span></li>
+                            </Link>
+                            <Link to="/assign-data" style={{ textDecoration: 'none' }}>
+                                <li className={`nav-option ${path === "/assign-data" ? "s-active" : ""}`} ><span style={{ paddingLeft: "20px" }}>Assign Data</span></li>
+                            </Link></>
+                    }
                     <Link to="/rider" style={{ textDecoration: 'none' }}>
-                    <li  className={`nav-option ${path === "/rider" ? "active":"" }`} ><span>Riders Information's</span></li>
+                        <li className={`nav-option ${path === "/rider" ? "active" : ""}`} ><span>Riders Information's</span></li>
                     </Link>
 
-                    <Link to="/telecaller" style={{ textDecoration: 'none' }}>   
-                        <li className={`nav-option ${path === "/telecaller" ? "active":"" }`} to="/telecaller"><span>Telecallers Information's</span></li>
-                    </Link>
-                        
-                    
-                    <Link to="/setup" style={{ textDecoration: 'none' }}>   
-                    <li className={`nav-option ${path === "/setup" ? "active":"" }`}><span>Setup</span></li>
+                    <Link to="/telecaller" style={{ textDecoration: 'none' }}>
+                        <li className={`nav-option ${path === "/telecaller" ? "active" : ""}`} to="/telecaller"><span>Telecallers Information's</span></li>
                     </Link>
 
-                   
-                    
-                     
+
+                    <Link to="/setup" style={{ textDecoration: 'none' }}>
+                        <li className={`nav-option ${path === "/setup" ? "active" : ""}`}><span>Setup</span></li>
+                    </Link>
+
+
+
+
                 </ul>
 
 
