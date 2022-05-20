@@ -6,7 +6,7 @@ const colourStyles = {
   control: (styles) => ({
     ...styles,
     backgroundColor: "white",
-    borderRadius: "100px",
+    borderRadius: "50px !important",
     width: "100% !important",
     minHeight: "88px !important",
     border: "1px solid #ccc !important",
