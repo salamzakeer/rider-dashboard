@@ -115,7 +115,7 @@ function Dashboard() {
     const [Option, setOption] = useState("")
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(name)
+        console.log(name, 'name', value, 'value')
         setOption(
             value
         );
@@ -139,13 +139,12 @@ function Dashboard() {
 
                             <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} value={"Option"}>
                                 <option selected>Task Info</option>
-                                <option name='LND' >LND</option>
-                                <option name='VACAT' >VACAT</option>
+                                <option name='LND' value='LND' >11-LND-(DEC-12)</option>
+                                <option name='VACAT' value='VACAT' >11-VACAT-(JUN-12)</option>
 
                             </select>
 
                             <div className="input-div">
-                                {/* {Option} */}
                                 <input type="text" className="input-div-input" placeholder="Task Type" value={Option == 'LND' ? "LND" : (Option === "VACAT" ? "VACAT" : "")} />
                                 {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                             </div>
@@ -158,6 +157,9 @@ function Dashboard() {
                                 <option>Mustard</option>
                                 <option>Ketchup</option>
                                 <option>Relish</option>
+                                <option>Ravi</option>
+                                <option>Raja</option>
+                                <option>Venkad</option>
                             </select>
 
                             <br />
@@ -165,9 +167,11 @@ function Dashboard() {
                             <br />
                             <br />
                             <select class="form-select" aria-label="Default select example" >
-                                <option selected>Select</option>
-                                <option>Task 01 Tdb</option>
-                                <option>Task 02</option>
+                                <option selected>Select Type Of Task Assign</option>
+                                <option>New</option>
+                                <option>Replace</option>
+                                <option>Re Assign(Task Completed)</option>
+                                <option>Un Assign</option>
 
                             </select>
 
