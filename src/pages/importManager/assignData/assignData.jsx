@@ -112,7 +112,14 @@ function Dashboard() {
                 addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
             });
     }
-
+    const [Option, setOption] = useState("")
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        console.log(name)
+        setOption(
+            value
+        );
+    };
     return (
         <>
 
@@ -130,19 +137,20 @@ function Dashboard() {
 
                         <form onSubmit={handleSubmit}>
 
-                            <select class="form-select" aria-label="Default select example" >
+                            <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} value={"Option"}>
                                 <option selected>Task Info</option>
-                                <option>Task 01 Tdb</option>
-                                <option>Task 02</option>
+                                <option name='LND' >LND</option>
+                                <option name='VACAT' >VACAT</option>
 
                             </select>
 
                             <div className="input-div">
-                                <input type="text" className="input-div-input" placeholder="Task Type" />
+                                {/* {Option} */}
+                                <input type="text" className="input-div-input" placeholder="Task Type" value={Option == 'LND' ? "LND" : (Option === "VACAT" ? "VACAT" : "")} />
                                 {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                             </div>
                             <div className="input-div">
-                                <input type="text" className="input-div-input" placeholder="Date" />
+                                <input type="text" className="input-div-input" placeholder="Date" value={Option == 'LND' ? "2022-12-12" : (Option === "VACAT" ? "2022-6-12" : "")} />
                                 {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                             </div>
                             <select class="form-select" aria-label="Default select example" >
