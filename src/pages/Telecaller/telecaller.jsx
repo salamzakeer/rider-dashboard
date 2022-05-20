@@ -9,6 +9,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import ProfilePic from '../../assets/Mask Group 5.png'
 import DeleteBtn from '../../assets/delete.png'
+import AddRider from '../../components/Modal/AddRiderPopup';
 
 import "./telecaller.css"
 
@@ -122,7 +123,7 @@ function Telecaller() {
         </div>
 
       </div>
-      {openModel && <Updatepolicy closeModel={setOpenModel} />}
+      {openModel && <AddRider closeModel={setOpenModel} />}
     </div>
   )
 }

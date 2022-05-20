@@ -5,12 +5,14 @@ import './AddRider.css'
 import CancelBtn from '../../assets/cancel.png'
 
 import FileUploader from '../../components/buttons/FileUploader';
+import { useToasts } from 'react-toast-notifications';
 
 function AddRiderPopup({ closeModel }) {
 
     const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const { addToast } = useToasts();
 
     const handleName = (e) => {
         setFullName(e.target.value)
@@ -35,8 +37,9 @@ function AddRiderPopup({ closeModel }) {
                 // console.log(result)
                 // if(result.errorMessage == false){
                 console.log(result)
-                alert("success")
-                window.location = "/dashboard"
+                addToast("Successfully Login", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
+                closeModel(false)
+                // window.location = "/dashboard"
                 // }else{
                 //     console.log("logged error")
                 // }
@@ -45,7 +48,7 @@ function AddRiderPopup({ closeModel }) {
             })
             .catch(error => {
                 console.log(error)
-                alert("fail")
+                addToast("username or password is incorrcet", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
                 // console.log("not ok")
             })
 
