@@ -9,7 +9,7 @@ import AddRider from "../../../components/Modal/AddRiderPopup";
 import ProfilePic from "../../../assets/Mask Group 5.png";
 import DeleteBtn from "../../../assets/delete.png";
 
-import "./style.css";
+import "./style.module.css";
 
 const theme = createTheme();
 

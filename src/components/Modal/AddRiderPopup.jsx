@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AddRider.css'
-
+import CloseIcon from '@mui/icons-material/Close';
 import CancelBtn from '../../assets/cancel.png'
 
 import FileUploader from '../../components/buttons/FileUploader';
@@ -60,9 +60,13 @@ function AddRiderPopup({ closeModel }) {
 
             <div className="Addrider-card">
 
-                <div className="card-head">
+                <div className="card-head" style={{ display: 'block' }} >
+                    {/* <i class="fa fa-times" aria-hidden="true"></i> */}
+                    <div class="icon-div" onClick={() => closeModel(false)}>
+                        <CloseIcon style={{ color: "#501ABF" }} />
+                    </div>
                     <h1>Add New Rider</h1>
-                    <img src={CancelBtn} alt="" onClick={() => closeModel(false)} />
+                    {/* 0  0 0 auto */}
                 </div>
 
                 <div className="frm">

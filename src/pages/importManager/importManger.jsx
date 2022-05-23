@@ -13,6 +13,7 @@ import AddIcon from '../../assets/add.png'
 import RemoveIcon from '../../assets/remove.png'
 import axios from '../../axios'
 import "./importManger.css"
+import Layout from "../../components/layout/Navbar";
 
 const Option = (props) => {
     return (
@@ -156,47 +157,37 @@ function Dashboard() {
     const notify = () => toast("Wow so easy !");
 
     return (
-        <>
+        <Layout >
 
-            <div className="main">
-                <div className="slider">
-                    <Sidebar />
-                </div>
+            <div className="newFile2">
+                <h1>New file</h1>
+                <form onSubmit={handleSubmit}>
 
-                <div className="container">
-                    <Navbar />
-
-                    {/* ========== form ==========*/}
-                    <div className="newFile2">
-                        <h1>New file</h1>
-
-                        <form onSubmit={handleSubmit}>
-
-                            <div className="input-div" dataText="Select your file">
-                                <input type="file" className="input-div-3" onChange={handleUpload} />
-                                {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
-                                <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly" />
-                                <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
-                            </div>
-                            <MySelect
-                                options={colourOptions}
-                                isMulti
-                                closeMenuOnSelect={false}
-                                hideSelectedOptions={false}
-                                components={{ Option, MultiValue, animatedComponents }}
-                                onChange={selecHandleChange}
-                                allowSelectAll={true}
-                                value={optionSelected}
-                            />
-                            {/* <div className="input-div">
+                    <div className="input-div" dataText="Select your file">
+                        <input type="file" className="input-div-3" onChange={handleUpload} />
+                        {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
+                        <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly" />
+                        <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
+                    </div>
+                    <MySelect
+                        options={colourOptions}
+                        isMulti
+                        closeMenuOnSelect={false}
+                        hideSelectedOptions={false}
+                        components={{ Option, MultiValue, animatedComponents }}
+                        onChange={selecHandleChange}
+                        allowSelectAll={true}
+                        value={optionSelected}
+                    />
+                    {/* <div className="input-div">
 
                             <input type="text" className="input-div-input" placeholder="Add Column" />
                             <img src={AddIcon} alt="" className="input-div-botton" onClick={() => addFormFields()} />
                         </div> */}
-                            {/* <img src={AddIcon} alt="" className="input-div-botton" onClick={() => add(true)} /> */}
+                    {/* <img src={AddIcon} alt="" className="input-div-botton" onClick={() => add(true)} /> */}
 
 
-                            {/* {formValues.map((element, index) => (
+                    {/* {formValues.map((element, index) => (
                             <div className="form-inline" key={index}>
 
                                 <div className="input-div">
@@ -210,14 +201,10 @@ function Dashboard() {
 
 
 
-                            <button type="submit" className="submit3">Submit</button>
-                        </form>
-                    </div>
-                    {/* ========== form ==========*/}
-
-                </div>
+                    <button type="submit" className="submit3">Submit</button>
+                </form>
             </div>
-        </>
+        </Layout>
 
     )
 

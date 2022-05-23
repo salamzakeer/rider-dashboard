@@ -1,4 +1,4 @@
-import "./navbar.css"
+import "./navbar.module.css"
 import ProfilePic from '../../assets/Mask Group 5.png'
 import DownPic from '../../assets/down-filled-triangular-arrow.png'
 // import Sidebar from "../../components/sidebar/sidebar";

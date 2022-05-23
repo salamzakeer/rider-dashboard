@@ -11,7 +11,8 @@ import ProfilePic from '../../assets/Mask Group 5.png'
 import DeleteBtn from '../../assets/delete.png'
 import AddRider from '../../components/Modal/AddRiderPopup';
 
-import "./telecaller.css"
+// import "./telecaller.css"
+import Layout from "../../components/layout/Navbar";
 
 
 const theme = createTheme();
@@ -74,58 +75,55 @@ function Telecaller() {
   const [openModel, setOpenModel] = useState(false);
 
   return (
-    <div className="main">
-      <div className="slider">
-        <Sidebar active="awwe" />
+    <Layout title="Telecaller" >
+      <div className="rider-head-details">
+        <div className="rider-info" >Riders Information's</div>
+        <button className="button-cus" onClick={() => {
+          setOpenModel(true)
+        }} >Add New Rider</button>
       </div>
-      <div className="container">
-        <Navbar name="Telecaller" />
-        <div className="tableHead3">
 
 
-          <ThemeProvider theme={theme}>
-            <Typography variant="h3" className="subhead">Telecaller's Information's</Typography>
-          </ThemeProvider>
-          <button className="btnaddnew" onClick={() => {
-            setOpenModel(true)
-          }} >
-            <Typography variant="body" className="btntext">Add New Telecaller </Typography></button>
-        </div>
-        <div className="rider-table2" >
+      <div style={{
+        overflowX: "auto",
+        marginTop: "2rem"
+      }}
+      >
 
-          <table>
+        <table style={{
+          width: "100%", borderCollapse: 'collapse',
+          borderSpacing: 0,
+        }}>
 
 
 
-            <tr>
-              <th ><Typography variant="body">#</Typography> </th>
-              <th>   <Typography variant="body">ID</Typography> </th>
-              <th><Typography variant="body">Image</Typography> </th>
-              <th><Typography variant="body">Name</Typography> </th>
-              <th><Typography variant="body">Email</Typography> </th>
-              <th><Typography variant="body"></Typography> </th>
+          <tr>
+            <th ><Typography variant="body">#</Typography> </th>
+            <th>   <Typography variant="body">ID</Typography> </th>
+            <th><Typography variant="body">Image</Typography> </th>
+            <th><Typography variant="body">Name</Typography> </th>
+            <th><Typography variant="body">Email</Typography> </th>
+            <th><Typography variant="body">Delete</Typography> </th>
+          </tr>
+          {rows.map((row, i) => (
+            <tr key={i} >
+              <td><Typography variant="body">{row.I}</Typography></td>
+              <td><Typography variant="body">{row.ID}</Typography></td>
+              <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
+              <td><Typography variant="body">{row.Name}</Typography></td>
+              <td><Typography variant="body">{row.Email}</Typography></td>
+
+              <td><img src={DeleteBtn} className="delete" alt="" /></td>
             </tr>
-            {rows.map((row, i) => (
-              <tr key={i} >
-                <td><Typography variant="body">{row.I}</Typography></td>
-                <td><Typography variant="body">{row.ID}</Typography></td>
-                <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
-                <td><Typography variant="body">{row.Name}</Typography></td>
-                <td><Typography variant="body">{row.Email}</Typography></td>
-
-                <td><img src={DeleteBtn} className="delete" alt="" /></td>
-              </tr>
-            ))}
+          ))}
 
 
-          </table>
-
-        </div>
+        </table>
 
       </div>
+
       {openModel && <AddRider closeModel={setOpenModel} />}
-    </div>
-  )
+    </Layout >)
 }
 
 export default Telecaller

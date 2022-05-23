@@ -23,31 +23,7 @@
     
    
 }
-.navigation .nav-menu.active .nav-links .nav-option {
-    padding-left: 40px;
-    width: auto;
-    height: 72px;
-    align-items: center;
-    display: flex;
-    color: #9B9B9B;
-    margin: 2px 0px;
-}
-.nav-option:hover{
-    /* opacity: 0.5; */
-    background-color: #5016BFAA !important;
-    color: #fff !important;
-    font-weight: 600;
-}
-.navigation .nav-menu.active .nav-links .nav-option.active{
-    color: #FFFFFF;
-    background: #5016BF 0% 0% no-repeat padding-box;
 
-    width: 100%;
-    padding-left: 40px;
-    height: 72px;
-    align-items: center;
-    display: flex;
-}
 .s-active{
  opacity: 0.6 !important;   
  color: #FFFFFF;

@@ -260,3 +260,11 @@ body{
     
 
   }
+  
+.active {
+    background-color: #fff !important; 
+  }
+  .actives {
+    background-color: #fff !important; 
+  }
+  

@@ -1,19 +1,11 @@
 import React, { useState } from "react";
 import 'react-toastify/dist/ReactToastify.css'; // import first
-import { ToastContainer, toast } from 'react-toastify'; // then this
-import Navbar from "../../../components/navbar/navbar";
-import Sidebar from "../../../components/sidebar/sidebar";
 import makeAnimated from "react-select/animated";
-import MySelect from "../../../components/select/select";
 import { components } from "react-select";
 import { useToasts } from 'react-toast-notifications';
-
-import UploadIcon from '../../../assets/upload.png'
-import AddIcon from '../../../assets/add.png'
-import RemoveIcon from '../../../assets/remove.png'
 import axios from '../../../axios'
 import "./importManger.css"
-import Selects from "../../../components/select/selects";
+import Layout from "../../../components/layout/Navbar"
 
 const Option = (props) => {
     return (
@@ -121,76 +113,65 @@ function Dashboard() {
         );
     };
     return (
-        <>
+        <Layout title="Assign Data" >
 
-            <div className="main">
-                <div className="slider">
-                    <Sidebar />
-                </div>
+            {/* ========== form ==========*/}
+            <div className="newFile2  form">
+                <h1>Assign Data</h1>
 
-                <div className="container">
-                    <Navbar />
+                <form onSubmit={handleSubmit}>
 
-                    {/* ========== form ==========*/}
-                    <div className="newFile2  form">
-                        <h1>Assign Data</h1>
+                    <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} value={"Option"}>
+                        <option selected>Task Info</option>
+                        <option name='LND' value='LND' >11-LND-(DEC-12)</option>
+                        <option name='VACAT' value='VACAT' >11-VACAT-(JUN-12)</option>
 
-                        <form onSubmit={handleSubmit}>
+                    </select>
 
-                            <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} value={"Option"}>
-                                <option selected>Task Info</option>
-                                <option name='LND' value='LND' >11-LND-(DEC-12)</option>
-                                <option name='VACAT' value='VACAT' >11-VACAT-(JUN-12)</option>
-
-                            </select>
-
-                            <div className="input-div">
-                                <input type="text" className="input-div-input" placeholder="Task Type" value={Option == 'LND' ? "LND" : (Option === "VACAT" ? "VACAT" : "")} />
-                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
-                            </div>
-                            <div className="input-div">
-                                <input type="text" className="input-div-input" placeholder="Date" value={Option == 'LND' ? "2022-12-12" : (Option === "VACAT" ? "2022-6-12" : "")} />
-                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
-                            </div>
-                            <select class="form-select" aria-label="Default select example" >
-                                <option selected>Staff info</option>
-                                <option>Mustard</option>
-                                <option>Ketchup</option>
-                                <option>Relish</option>
-                                <option>Ravi</option>
-                                <option>Raja</option>
-                                <option>Venkad</option>
-                            </select>
-
-                            <br />
-                            <hr />
-                            <br />
-                            <br />
-                            <select class="form-select" aria-label="Default select example" >
-                                <option selected>Select Type Of Task Assign</option>
-                                <option>New</option>
-                                <option>Replace</option>
-                                <option>Re Assign(Task Completed)</option>
-                                <option>Un Assign</option>
-
-                            </select>
-
-                            <div className="input-div">
-                                <input type="text" className="input-div-input" placeholder="From" />
-                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
-                            </div>
-                            <div className="input-div">
-                                <input type="text" className="input-div-input" placeholder="To" />
-                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
-                            </div>
-                            <button type="submit" className="submit3">Submit</button>
-                        </form>
+                    <div className="input-div">
+                        <input type="text" className="input-div-input" placeholder="Task Type" value={Option == 'LND' ? "LND" : (Option === "VACAT" ? "VACAT" : "")} />
+                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
-                    {/* ========== form ==========*/}
+                    <div className="input-div">
+                        <input type="text" className="input-div-input" placeholder="Date" value={Option == 'LND' ? "2022-12-12" : (Option === "VACAT" ? "2022-6-12" : "")} />
+                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                    </div>
+                    <select class="form-select" aria-label="Default select example" >
+                        <option selected>Staff info</option>
+                        <option>Mustard</option>
+                        <option>Ketchup</option>
+                        <option>Relish</option>
+                        <option>Ravi</option>
+                        <option>Raja</option>
+                        <option>Venkad</option>
+                    </select>
 
-                </div>
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <select class="form-select" aria-label="Default select example" >
+                        <option selected>Select Type Of Task Assign</option>
+                        <option>New</option>
+                        <option>Replace</option>
+                        <option>Re Assign(Task Completed)</option>
+                        <option>Un Assign</option>
+
+                    </select>
+
+                    <div className="input-div">
+                        <input type="text" className="input-div-input" placeholder="From" />
+                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                    </div>
+                    <div className="input-div">
+                        <input type="text" className="input-div-input" placeholder="To" />
+                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                    </div>
+                    <button type="submit" className="submit3">Submit</button>
+                </form>
             </div>
-        </>
+            {/* ========== form ==========*/}
+        </Layout>
 
     )
 

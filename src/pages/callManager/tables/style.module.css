@@ -169,3 +169,6 @@ background-color: #ffffff;
 }
  
 }
+.active {
+  background-color: #fff !important; 
+}

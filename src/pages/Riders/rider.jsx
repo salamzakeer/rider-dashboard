@@ -9,6 +9,7 @@ import AddRider from '../../components/Modal/AddRiderPopup';
 
 import ProfilePic from '../../assets/Mask Group 5.png'
 import DeleteBtn from '../../assets/delete.png'
+import Layout from "../../components/layout/Navbar";
 
 
 import "./rider.css"
@@ -114,39 +115,31 @@ function Newrider() {
 
 
   return (
-    <div className="main">
-      <div className="slider">
-        <Sidebar />
-      </div>
-      <div className="container">
-        <Navbar name="Riders" />
-        <div className="tableHead2">
+    <Layout title="Rider" >
 
 
-          <ThemeProvider theme={theme}>
-            <div className="headclass"><Typography variant="h3" className="subhead">Riders Information's</Typography></div>
-          </ThemeProvider>
-          <button className="btnaddnew" onClick={() => {
+      <div className="rider-table" >
+        <div className="rider-head-details">
+          <div className="rider-info" >Riders Information's</div>
+          <button className="button-cus" onClick={() => {
             setOpenModel(true)
-          }} >
-            <Typography variant="body" className="btntext">Add New Rider </Typography></button>
+          }} >Add New Rider</button>
         </div>
-        <div className="rider-table" >
+        <table>
 
-          <table>
+          <br />
+          <br />
 
+          <tr>
+            <th ><Typography variant="body">#</Typography> </th>
+            <th>   <Typography variant="body">ID</Typography> </th>
+            <th><Typography variant="body">Image</Typography> </th>
+            <th><Typography variant="body">Name</Typography> </th>
+            <th><Typography variant="body">Email</Typography> </th>
+            <th><Typography variant="body"></Typography> </th>
+          </tr>
 
-
-            <tr>
-              <th ><Typography variant="body">#</Typography> </th>
-              <th>   <Typography variant="body">ID</Typography> </th>
-              <th><Typography variant="body">Image</Typography> </th>
-              <th><Typography variant="body">Name</Typography> </th>
-              <th><Typography variant="body">Email</Typography> </th>
-              <th><Typography variant="body"></Typography> </th>
-            </tr>
-
-            {/* {data.map((row, i) => (
+          {/* {data.map((row, i) => (
               <tr key={i}>
                 <td><Typography variant="body">{row.I}</Typography></td>
                 <td><Typography variant="body">{row.ID}</Typography></td>
@@ -158,40 +151,41 @@ function Newrider() {
               </tr>
             ))} */}
 
-            {data && data.length > 0 && data.map(data => (
-              <tr>
-                <td><Typography variant="body">{data.id}</Typography></td>
-                <td><Typography variant="body">{data.id}</Typography></td>
-                <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
+          {data && data.length > 0 && data.map(data => (
+            <tr>
+              <td><Typography variant="body">{data.id}</Typography></td>
+              <td><Typography variant="body">{data.id}</Typography></td>
+              <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
 
-                {/* <td><Typography variant="body">{data.id}</Typography></td> */}
-                <td><Typography variant="body">{data.fullName}</Typography></td>
-                <td><Typography variant="body">{data.email}</Typography></td>
-              </tr>
-            ))}
-            {
-              data.length === 0
-              && <tr style={{ borderCollapse: 'collapse' }}>
-                {/* <td><Typography variant="body" ></Typography></td>
+              {/* <td><Typography variant="body">{data.id}</Typography></td> */}
+              <td><Typography variant="body">{data.fullName}</Typography></td>
+              <td><Typography variant="body">{data.email}</Typography></td>
+            </tr>
+          ))}
+          {
+            data.length === 0
+            && <tr style={{ borderCollapse: 'collapse' }}>
+              {/* <td><Typography variant="body" ></Typography></td>
 
                 <td><Typography variant="body" ></Typography></td>
                 <td><Typography variant="body" ></Typography></td> */}
-                {/* <td colspan="4"><Typography variant="body" >No data</Typography></td> */}
-                <td style={{
-                  textAlign: "center",
-                  verticalAlign: "middle",
-                }} colspan="6"><Typography variant="body" >No data</Typography></td>
-              </tr>}
+              {/* <td colspan="4"><Typography variant="body" >No data</Typography></td> */}
+              <td style={{
+                textAlign: "center",
+                verticalAlign: "middle",
+              }} colspan="6"><Typography variant="body" >No data</Typography></td>
+            </tr>}
 
 
 
-          </table>
-
-        </div>
+        </table>
 
       </div>
+
+
       {openModel && <AddRider closeModel={setOpenModel} />}
-    </div>
+    </Layout >
+
   )
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './updatepolicy.css'
+import CloseIcon from '@mui/icons-material/Close';
 
 import ChangePassword from '../../components/Modal/userprofile/changePassword';
 
@@ -24,7 +25,9 @@ function UpdatePolicy({ closeModel }) {
 
         <div className="card-head">
           <h1>Update policy</h1>
-          <img src={CancelBtn} alt="" onClick={() => closeModel(false)} />
+          <div class="icon-div" onClick={() => closeModel(false)}  >
+            <CloseIcon style={{ color: "#501ABF" }} />
+          </div>
         </div>
 
         <div className="form-card">

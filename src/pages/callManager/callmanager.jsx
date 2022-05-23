@@ -9,7 +9,8 @@ import DetailView from "./tables/details";
 import SiteView from "./tables/siteview";
 import CallDetails from "./tables/callDetails";
 import Instruction from "./tables/instruction";
-import "./callManager.css";
+// import "./callManager.css";
+import Layout from "../../components/layout/Navbar";
 
 const Option = (props) => {
     return (
@@ -80,120 +81,109 @@ function Dashboard() {
     };
 
     return (
-        <>
-            <div className="main">
-                <div className="slider">
-                    <Sidebar />
-                </div>
-
-                <div className="container">
-                    <Navbar />
-
-                    {/* ========== form ==========*/}
-                    <div style={{ margin: "100px" }}>
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button
-                                    class="nav-link active"
-                                    id="pills-home-tab"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#pills-home"
-                                    type="button"
-                                    role="tab"
-                                    aria-controls="pills-home"
-                                    aria-selected="true"
-                                >
-                                    Details View
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button
-                                    class="nav-link"
-                                    id="pills-profile-tab"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#pills-profile"
-                                    type="button"
-                                    role="tab"
-                                    aria-controls="pills-profile"
-                                    aria-selected="false"
-                                >
-                                    Site Visit Details
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button
-                                    class="nav-link"
-                                    id="pills-contact-tab"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#pills-contact"
-                                    type="button"
-                                    role="tab"
-                                    aria-controls="pills-contact"
-                                    aria-selected="false"
-                                >
-                                    Call Details
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button
-                                    class="nav-link"
-                                    id="pills-instruction-tab"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#pills-instruction"
-                                    type="button"
-                                    role="tab"
-                                    aria-controls="pills-contact"
-                                    aria-selected="false"
-                                >
-                                    Instruction
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="pills-tabContent">
-                            <div
-                                class="tab-pane fade show active"
-                                id="pills-home"
-                                role="tabpanel"
-                                aria-labelledby="pills-home-tab"
-                                style={{ margin: "-66px 0px 0px -33px" }}
-                            >
-                                <DetailView />
-                            </div>
-                            <div
-                                class="tab-pane fade"
-                                id="pills-profile"
-                                role="tabpanel"
-                                aria-labelledby="pills-profile-tab"
-                                style={{ margin: "-66px 0px 0px -33px" }}
-
-                            >
-                                <SiteView />
-                            </div>
-                            <div
-                                class="tab-pane fade"
-                                id="pills-contact"
-                                role="tabpanel"
-                                aria-labelledby="pills-contact-tab"
-                                style={{ margin: "-66px 0px 0px -33px" }}
-
-                            >
-                                <CallDetails />
-                            </div>
-                            <div
-                                class="tab-pane fade"
-                                id="pills-instruction"
-                                role="tabpanel"
-                                aria-labelledby="pills-instruction-tab"
-                                style={{ padding: "0px 40px " }}
-                            >
-                                <Instruction />
-                            </div>
-                        </div>
+        <Layout title="Call Manager" >
+            <div style={{ margin: "100px" }}>
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="nav-link active"
+                            id="pills-home-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#pills-home"
+                            type="button"
+                            role="tab"
+                            aria-controls="pills-home"
+                            aria-selected="true"
+                        >
+                            Details View
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="nav-link"
+                            id="pills-profile-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#pills-profile"
+                            type="button"
+                            role="tab"
+                            aria-controls="pills-profile"
+                            aria-selected="false"
+                        >
+                            Site Visit Details
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="nav-link"
+                            id="pills-contact-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#pills-contact"
+                            type="button"
+                            role="tab"
+                            aria-controls="pills-contact"
+                            aria-selected="false"
+                        >
+                            Call Details
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="nav-link"
+                            id="pills-instruction-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#pills-instruction"
+                            type="button"
+                            role="tab"
+                            aria-controls="pills-contact"
+                            aria-selected="false"
+                        >
+                            Instruction
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div
+                        class="tab-pane fade show active"
+                        id="pills-home"
+                        role="tabpanel"
+                        aria-labelledby="pills-home-tab"
+                        style={{ margin: "-66px 0px 0px -33px" }}
+                    >
+                        <DetailView />
                     </div>
-                    {/* ========== form ==========*/}
+                    <div
+                        class="tab-pane fade"
+                        id="pills-profile"
+                        role="tabpanel"
+                        aria-labelledby="pills-profile-tab"
+                        style={{ margin: "-66px 0px 0px -33px" }}
+
+                    >
+                        <SiteView />
+                    </div>
+                    <div
+                        class="tab-pane fade"
+                        id="pills-contact"
+                        role="tabpanel"
+                        aria-labelledby="pills-contact-tab"
+                        style={{ margin: "-66px 0px 0px -33px" }}
+
+                    >
+                        <CallDetails />
+                    </div>
+                    <div
+                        class="tab-pane fade"
+                        id="pills-instruction"
+                        role="tabpanel"
+                        aria-labelledby="pills-instruction-tab"
+                        style={{ padding: "0px 40px " }}
+                    >
+                        <Instruction />
+                    </div>
                 </div>
             </div>
-        </>
+        </Layout>
+
     );
 }
 export default Dashboard;
