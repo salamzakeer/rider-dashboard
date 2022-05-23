@@ -15,13 +15,31 @@ margin-top: 88px;
   position: relative;
   padding-right: 52px;
 }
-table {
+.table-view{
+  overflow-x: auto;
+    max-width: 1400px;
+    margin: 2rem auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .table-view{
+      width: calc(1vw *90);
+  }}
+
+  .rider-table-head table {
     border-width: 0px;
     border-spacing: 0;
     width: 100%;
   }
-.instruction >p> span{
+  .rider-table-head > th {
+   background-color: #501ABF;
+  }
+  .instruction{
+    background-color: #501ABF !important;
+  }
+.instruction > p > span{
   font-weight: 700;
+  color: red;
 }
 .headclass{
   left: 32px;

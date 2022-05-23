@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
+import "./style.css";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-import Sidebar from "../../../components/sidebar/sidebar";
-import Navbar from "../../../components/navbar/navbar";
-import AddRider from "../../../components/Modal/AddRiderPopup";
-
-import ProfilePic from "../../../assets/Mask Group 5.png";
-import DeleteBtn from "../../../assets/delete.png";
-
-import "./style.module.css";
 
 const theme = createTheme();
 
@@ -196,41 +188,70 @@ const data = [
     Sum: "",
   },
 ];
+const paraLeft = {
+  textAlign: "left",
+  fontWeight: "600",
+};
+const paraRight = {
+  textAlign: "left",
+  // fontWeight: "600",
+};
 function Newrider() {
   const [openModel, setOpenModel] = useState(false);
   // const [data, setData] = useState([]);
 
   return (
-    <div className="rider-table table table-bordered border-primary">
-      <table className="rider-table-head ">
+    // <div className="table table-bordered border-primary">
+    <div className="table-view ">
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          borderSpacing: 0,
+        }}
+        className="table-border"
+      >
         {data.map((row, i) => (
           <tr key={i}>
             <td>
-              <p variant="body">{row.id}</p>
+              <p style={paraLeft} variant="body">
+                {row.id}
+              </p>
             </td>
             <td>
               <p variant="body">{row.IdNo}</p>
             </td>
             <td>
-              <p variant="body">{row.C}</p>
+              <p style={paraLeft} variant="body">
+                {row.C}
+              </p>
             </td>
             <td>
-              <p variant="body">{row.CNo}</p>
+              <p style={paraRight} variant="body">
+                {row.CNo}
+              </p>
             </td>
 
             <td>
-              <p variant="body">{row.Arrears}</p>
+              <p style={paraLeft} variant="body">
+                {row.Arrears}
+              </p>
             </td>
             <td>
-              <p variant="body">{row.ArrearsNo}</p>
+              <p style={paraRight} variant="body">
+                {row.ArrearsNo}
+              </p>
             </td>
             <td>
-              <p variant="body">{row.Sum}</p>
+              <p style={paraRight} variant="body">
+                {row.Sum}
+              </p>
             </td>
           </tr>
         ))}
       </table>
     </div>
+    // </div>
   );
 }
 

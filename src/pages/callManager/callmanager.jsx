@@ -11,6 +11,8 @@ import CallDetails from "./tables/callDetails";
 import Instruction from "./tables/instruction";
 // import "./callManager.css";
 import Layout from "../../components/layout/Navbar";
+import Selects from "../../components/select/selects";
+
 
 const Option = (props) => {
     return (
@@ -60,10 +62,17 @@ function Dashboard() {
         // ...
     }
 
+    const optionInput = [{ id: "Details View", name: "Details View" }, { id: "Details View", name: "Details View" },
+    { id: "Details View", name: "Details View" }, { id: "Details View", name: "Details View" },]
     //end-upload file
+    const [SelectInput, setSelectInput] = useState("Details")
 
     const [formValues, setFormValues] = useState([]);
-
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        console.log(name, value)
+        setSelectInput(value);
+    };
     let handleChange = (i, e) => {
         let newFormValues = [...formValues];
         newFormValues[i][e.target.name] = e.target.value;
@@ -79,107 +88,24 @@ function Dashboard() {
         newFormValues.splice(i, 1);
         setFormValues(newFormValues);
     };
-
     return (
         <Layout title="Call Manager" >
-            <div style={{ margin: "100px" }}>
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button
-                            class="nav-link active"
-                            id="pills-home-tab"
-                            data-bs-toggle="pill"
-                            data-bs-target="#pills-home"
-                            type="button"
-                            role="tab"
-                            aria-controls="pills-home"
-                            aria-selected="true"
-                        >
-                            Details View
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button
-                            class="nav-link"
-                            id="pills-profile-tab"
-                            data-bs-toggle="pill"
-                            data-bs-target="#pills-profile"
-                            type="button"
-                            role="tab"
-                            aria-controls="pills-profile"
-                            aria-selected="false"
-                        >
-                            Site Visit Details
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button
-                            class="nav-link"
-                            id="pills-contact-tab"
-                            data-bs-toggle="pill"
-                            data-bs-target="#pills-contact"
-                            type="button"
-                            role="tab"
-                            aria-controls="pills-contact"
-                            aria-selected="false"
-                        >
-                            Call Details
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button
-                            class="nav-link"
-                            id="pills-instruction-tab"
-                            data-bs-toggle="pill"
-                            data-bs-target="#pills-instruction"
-                            type="button"
-                            role="tab"
-                            aria-controls="pills-contact"
-                            aria-selected="false"
-                        >
-                            Instruction
-                        </button>
-                    </li>
-                </ul>
+
+            <div style={{ margin: "2rem" }} >
+                <div style={{ width: "400px", margin: '0 0 2rem auto', height: "6rem" }} >
+                    <select style={{ width: "400px", height: "100%", color: "#501ABF", border: "1px solid #501ABF" }} class="form-select" aria-label="Default select example" name="" onChange={handleInputChange}>
+                        <option name='Details' value='Details' >Details Veiw</option>
+                        <option name='Site' value='Site' >Site View Details</option>
+                        <option name='Call' value='Call' >Call Details</option>
+                        <option name='Instruction' value='Instruction' >Instruction</option>
+                    </select>
+                </div>
                 <div class="tab-content" id="pills-tabContent">
-                    <div
-                        class="tab-pane fade show active"
-                        id="pills-home"
-                        role="tabpanel"
-                        aria-labelledby="pills-home-tab"
-                        style={{ margin: "-66px 0px 0px -33px" }}
-                    >
-                        <DetailView />
-                    </div>
-                    <div
-                        class="tab-pane fade"
-                        id="pills-profile"
-                        role="tabpanel"
-                        aria-labelledby="pills-profile-tab"
-                        style={{ margin: "-66px 0px 0px -33px" }}
+                    {SelectInput === "Details" && <DetailView />}
+                    {SelectInput === "Site" && <SiteView />}
+                    {SelectInput === "Call" && <CallDetails />}
+                    {SelectInput === "Instruction" && <Instruction />}
 
-                    >
-                        <SiteView />
-                    </div>
-                    <div
-                        class="tab-pane fade"
-                        id="pills-contact"
-                        role="tabpanel"
-                        aria-labelledby="pills-contact-tab"
-                        style={{ margin: "-66px 0px 0px -33px" }}
-
-                    >
-                        <CallDetails />
-                    </div>
-                    <div
-                        class="tab-pane fade"
-                        id="pills-instruction"
-                        role="tabpanel"
-                        aria-labelledby="pills-instruction-tab"
-                        style={{ padding: "0px 40px " }}
-                    >
-                        <Instruction />
-                    </div>
                 </div>
             </div>
         </Layout>

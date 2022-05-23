@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./style.css";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -8,8 +9,6 @@ import AddRider from "../../../components/Modal/AddRiderPopup";
 
 import ProfilePic from "../../../assets/Mask Group 5.png";
 import DeleteBtn from "../../../assets/delete.png";
-
-import "./style.module.css";
 
 const theme = createTheme();
 
@@ -51,33 +50,38 @@ function Newrider() {
   const [openModel, setOpenModel] = useState(false);
   // const [data, setData] = useState([]);
 
+  const spans = {
+    fontWeight: "600",
+  };
   return (
     <div className="instruction">
-     
       <p>
         Dear Owner1, <span style={{ fontWeight: "600" }}>Abu bin Bakar</span>
       </p>
       <p>
-        I am calling from on behalf <span> (DCA Name) (PIN SDN BHD )</span> with
-        regards to your outstanding payment for <span>(Principal) (IWK)</span>
+        I am calling from on behalf{" "}
+        <span style={spans}> (DCA Name) (PIN SDN BHD )</span> with regards to
+        your outstanding payment for{" "}
+        <span style={spans}>(Principal) (IWK)</span>
         Before we proceed, I would like to do some verification ,
       </p>
       <p>
-        Owner1: <span>Abu bin Bakar</span>
+        Owner1: <span style={spans}>Abu bin Bakar</span>
       </p>
       <p>
         Address:
-        <span>
+        <span style={spans}>
           Add1,Add2,Add3, Add4: ( C-01-05,DESAJAYA VILLA, JALAN DESA JAYA
           2,SEREMBAN)
         </span>
       </p>
       <p>
-        Account Number : <span> 101010101</span>
+        Account Number : <span style={spans}> 101010101</span>
       </p>
       <p>
-        You have the following ,<span> (Arrears) (RM1000.00))</span> could you
-        please make the payment as soon as possible.
+        You have the following ,
+        <span style={spans}> (Arrears) (RM1000.00)</span> could you please make
+        the payment as soon as possible.
       </p>
     </div>
   );

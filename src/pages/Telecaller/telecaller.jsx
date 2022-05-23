@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Dialog from '@mui/material/Dialog';
 
 import Sidebar from "../../components/sidebar/sidebar";
 import Navbar from "../../components/navbar/navbar";
@@ -11,7 +12,7 @@ import ProfilePic from '../../assets/Mask Group 5.png'
 import DeleteBtn from '../../assets/delete.png'
 import AddRider from '../../components/Modal/AddRiderPopup';
 
-// import "./telecaller.css"
+import "./telecaller.css"
 import Layout from "../../components/layout/Navbar";
 
 
@@ -88,6 +89,7 @@ function Telecaller() {
         overflowX: "auto",
         marginTop: "2rem"
       }}
+        className="table-telecaller"
       >
 
         <table style={{
@@ -123,6 +125,10 @@ function Telecaller() {
       </div>
 
       {openModel && <AddRider closeModel={setOpenModel} />}
+      {/* <Dialog
+        open={'true'}
+        // onClose={handleClose}
+      >saddsdsdsdsdsdsdsdsdsdsdssdsd</Dialog> */}
     </Layout >)
 }
 

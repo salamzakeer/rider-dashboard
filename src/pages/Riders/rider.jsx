@@ -118,28 +118,33 @@ function Newrider() {
     <Layout title="Rider" >
 
 
-      <div className="rider-table" >
+      <div className="rider-tble" >
         <div className="rider-head-details">
           <div className="rider-info" >Riders Information's</div>
           <button className="button-cus" onClick={() => {
             setOpenModel(true)
           }} >Add New Rider</button>
         </div>
-        <table>
+        <div className="table-rider" className="table-telecaller"
+        >
+          <table style={{
+            width: "100%", borderCollapse: 'collapse',
+            borderSpacing: 0,
+          }}>
 
-          <br />
-          <br />
+            <br />
+            <br />
 
-          <tr>
-            <th ><Typography variant="body">#</Typography> </th>
-            <th>   <Typography variant="body">ID</Typography> </th>
-            <th><Typography variant="body">Image</Typography> </th>
-            <th><Typography variant="body">Name</Typography> </th>
-            <th><Typography variant="body">Email</Typography> </th>
-            <th><Typography variant="body"></Typography> </th>
-          </tr>
+            <tr>
+              <th ><Typography variant="body">#</Typography> </th>
+              <th>   <Typography variant="body">ID</Typography> </th>
+              <th><Typography variant="body">Image</Typography> </th>
+              <th><Typography variant="body">Name</Typography> </th>
+              <th><Typography variant="body">Email</Typography> </th>
+              <th><Typography variant="body">Detele</Typography> </th>
+            </tr>
 
-          {/* {data.map((row, i) => (
+            {/* {data.map((row, i) => (
               <tr key={i}>
                 <td><Typography variant="body">{row.I}</Typography></td>
                 <td><Typography variant="body">{row.ID}</Typography></td>
@@ -151,35 +156,37 @@ function Newrider() {
               </tr>
             ))} */}
 
-          {data && data.length > 0 && data.map(data => (
-            <tr>
-              <td><Typography variant="body">{data.id}</Typography></td>
-              <td><Typography variant="body">{data.id}</Typography></td>
-              <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
+            {data && data.length > 0 && data.map(data => (
+              <tr>
+                <td><Typography variant="body">{data.id}</Typography></td>
+                <td><Typography variant="body">{data.id}</Typography></td>
+                <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
 
-              {/* <td><Typography variant="body">{data.id}</Typography></td> */}
-              <td><Typography variant="body">{data.fullName}</Typography></td>
-              <td><Typography variant="body">{data.email}</Typography></td>
-            </tr>
-          ))}
-          {
-            data.length === 0
-            && <tr style={{ borderCollapse: 'collapse' }}>
-              {/* <td><Typography variant="body" ></Typography></td>
+                {/* <td><Typography variant="body">{data.id}</Typography></td> */}
+                <td><Typography variant="body">{data.fullName}</Typography></td>
+                <td><Typography variant="body">{data.email}</Typography></td>
+                <td><img src={DeleteBtn} className="delete" alt="" /></td>
+
+              </tr>
+            ))}
+            {
+              data.length === 0
+              && <tr style={{ borderCollapse: 'collapse' }}>
+                {/* <td><Typography variant="body" ></Typography></td>
 
                 <td><Typography variant="body" ></Typography></td>
                 <td><Typography variant="body" ></Typography></td> */}
-              {/* <td colspan="4"><Typography variant="body" >No data</Typography></td> */}
-              <td style={{
-                textAlign: "center",
-                verticalAlign: "middle",
-              }} colspan="6"><Typography variant="body" >No data</Typography></td>
-            </tr>}
+                {/* <td colspan="4"><Typography variant="body" >No data</Typography></td> */}
+                <td style={{
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }} colspan="6"><Typography variant="body" >No data</Typography></td>
+              </tr>}
 
 
 
-        </table>
-
+          </table>
+        </div>
       </div>
 
 
