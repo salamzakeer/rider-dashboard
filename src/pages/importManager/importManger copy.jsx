@@ -82,16 +82,29 @@ function Dashboard() {
 
     //upload file
     const [file, setFile] = React.useState("");
+    const [fileLnd, setFileLnd] = React.useState("");
     const [optionSelected, setOptionSelected] = React.useState(null);
-    const [optionSelectedOr, setOptionSelectedOr] = React.useState(null);
+    const [optionSelectedLnd, setOptionSelectedLnd] = React.useState(null);
 
     const selecHandleChange = (selected) => {
         setOptionSelected(selected)
 
     };
+    const selecHandleChangeLnd = (selected) => {
+        setOptionSelectedLnd(selected)
+
+    };
     // Handles file upload event and updates state
     const data = new FormData();
+    const dataLnd = new FormData();
 
+    function handleUploadLnd(event) {
+        setFileLnd(event.target.files[0]);
+
+        // Add code here to upload file to server
+        // ...
+
+    }
     function handleUpload(event) {
         setFile(event.target.files[0]);
 
@@ -122,70 +135,102 @@ function Dashboard() {
     }
 
     let handleSubmit = (event) => {
-        console.log("form submit", optionSelectedOr);
-        if (optionSelectedOr != "" && optionSelectedOr != "Type") {
-            console.log("form submit2", optionSelectedOr);
+        event.preventDefault();
+        // alert(JSON.stringify(formValues));
 
-            event.preventDefault();
-            // alert(JSON.stringify(formValues));
+        var array = [];
+        var arrayLnd = [];
 
-            var array = [];
-            optionSelected.map((item) => {
+        optionSelected.map((item) => {
+            array.push(item.value)
+        })
+        optionSelected.map((item) => {
+            arrayLnd.push(item.value)
+        })
+        data.append("data", file);
+        data.append("columns", `"${array}"`);
 
-                array.push(item.value)
+        dataLnd.append("data", fileLnd);
+        dataLnd.append("columns", `"${arrayLnd}"`);
+
+
+        // detailIndex
+        // axios.all([
+        //     axios.post(`/vacants`, data, { headers: { "Content-Type": "multipart/form-data" } }),
+        //     axios.post(`/lnds`, dataLnd, { headers: { "Content-Type": "multipart/form-data" } }),
+        // ])
+        //     .then(axios.spread((data1, data2) => {
+        //         // output of req.
+        //         alert(1)
+        //         addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
+        //         console.log('data1', data1, 'data2', data2)
+        //     }))
+        axios
+            .post(`/vacants`, dataLnd, {
+                headers: { "Content-Type": "multipart/form-data" },
+                //   onUploadProgress: (data) => {
+                //     //Set the progress value to show the progress bar
+                //     // setProgress(Math.round((100 * data.loaded) / data.total));
+                //   },
             })
-            data.append("data", file);
-            data.append("columns", `"${array}"`);
+            .then(
+                (res) => {
+                    var id = res.id;
+                    addToast("vacant Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
+
+                    // setProgress("");
+
+                }
+            )
+            .catch((error) => {
+                alert(2)
+                console.log("error")
+                addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
+
+                // sendNotification({ msg: "There was an error!", variant: "error" });
+            });
             axios
-                // detailIndex
-                .post(`/${optionSelectedOr}`, data, {
-                    headers: { "Content-Type": "multipart/form-data" },
-                    //   onUploadProgress: (data) => {
-                    //     //Set the progress value to show the progress bar
-                    //     // setProgress(Math.round((100 * data.loaded) / data.total));
-                    //   },
-                })
-                .then(
-                    (res) => {
-                        var id = res.id;
-                        // setProgress("");
-                        addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
+            .post(`/lnd`, data, {
+                headers: { "Content-Type": "multipart/form-data" },
+                //   onUploadProgress: (data) => {
+                //     //Set the progress value to show the progress bar
+                //     // setProgress(Math.round((100 * data.loaded) / data.total));
+                //   },
+            })
+            .then(
+                (res) => {
+                    var id = res.id;
+                    // setProgress("");
+                    addToast("lnd Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
 
-                    }
-                )
-                .catch((error) => {
-                    addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
+                }
+            )
+            .catch((error) => {
+                alert(2)
+                console.log("error")
+                addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
 
-                    // sendNotification({ msg: "There was an error!", variant: "error" });
-                });
-        }
+                // sendNotification({ msg: "There was an error!", variant: "error" });
+            });
     }
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        console.log(name, 'name', value, 'value')
-        setOptionSelectedOr(
-            value
-        );
-    };
+    const notify = () => toast("Wow so easy !");
+
     return (
         <Layout >
 
             <div className="newFile2">
                 <h1>New file</h1>
                 <form onSubmit={handleSubmit}>
-                    <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} required="required" >
-                        <option name='' value='' selected>Type</option>
-                        <option name='lnds' value='lnds' >LND</option>
-                        <option name='vacants' value='vacants' >VACANTS</option>
-
-                    </select>
 
                     <div className="input-div" dataText="Select your file">
                         <input type="file" className="input-div-3" onChange={handleUpload} />
                         {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
-                        <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly" />
-                        <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
+                        <input type="text" className="input-div-input" placeholder={file.name || "Upload Vacant File"} readonly="readonly"
+                            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                        <img type="file" src={UploadIcon} alt="" className="input-div-botton"
+                            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
                     </div>
+
                     <MySelect
                         options={colourOptions}
                         isMulti
@@ -195,10 +240,31 @@ function Dashboard() {
                         onChange={selecHandleChange}
                         allowSelectAll={true}
                         value={optionSelected}
+                        label="lnd"
                     />
-
-
-
+                    <br />
+                    <br />
+                    <hr />
+                    <br />
+                    <br />
+                    <div className="input-div" dataText="Select your file">
+                        <input type="file" className="input-div-3" onChange={handleUploadLnd} />
+                        {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
+                        <input type="text" className="input-div-input" placeholder={fileLnd.name || "Upload LND File"} readonly="readonly" />
+                        <img type="file" src={UploadIcon} alt="" className="input-div-botton"
+                            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                    </div>
+                    <MySelect
+                        options={colourOptions}
+                        isMulti
+                        closeMenuOnSelect={false}
+                        hideSelectedOptions={true}
+                        components={{ Option, MultiValue, animatedComponents }}
+                        onChange={selecHandleChangeLnd}
+                        allowSelectAll={true}
+                        value={optionSelectedLnd}
+                        label="lnd"
+                    />
                     <button type="submit" className="submit3">Submit</button>
                 </form>
             </div>

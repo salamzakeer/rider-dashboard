@@ -196,17 +196,17 @@ function Newrider() {
       </div>
 
 
-      {/* {openModel && <AddRider closeModel={setOpenModel} />} */}
-      <Dialog
+      {openModel && <AddRider closeModel={setOpenModel} />}
+      {/* <Dialog
         open={openModel}
         closeModel={modelClose}
         keepMounted
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        sdsd
-        {/* <AddRider closeModel={modelClose} open={openModel} /> */}
-      </Dialog>
+        sdsd */}
+      {/* <AddRider closeModel={modelClose} open={openModel} /> */}
+      {/* </Dialog> */}
     </Layout >
 
   )

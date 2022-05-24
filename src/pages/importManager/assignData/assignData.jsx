@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css'; // import first
 import makeAnimated from "react-select/animated";
 import { components } from "react-select";
@@ -40,7 +40,21 @@ function Dashboard() {
 
     //upload file
     const [file, setFile] = React.useState("");
+    const [Form, setForm] = React.useState("");
+    const [To, setTo] = React.useState("");
+    const [RiderId, setRiderId] = React.useState("");
     const [optionSelected, setOptionSelected] = React.useState(null);
+    const [RiderData, setRiderData] = useState([])
+    useEffect(() => {
+        axios.get('/rider')
+            .then((res) => {
+                console.log(res.data, 'data')
+                setRiderData(res.data)
+            })
+            .catch((err => {
+                console.log(err, 'error')
+            }))
+    }, [])
 
     const selecHandleChange = (selected) => {
         setOptionSelected(selected)
@@ -81,18 +95,24 @@ function Dashboard() {
     let handleSubmit = (event) => {
         event.preventDefault();
         // alert(JSON.stringify(formValues));
+        console.log(Option, Form, To);
+        const jsonData = {
+            "type": Option,
+            "dataFrom": Form,
+            "dataTo": To,
+            "riderId": RiderId
+        }
+        // var array = [];
+        // optionSelected.map((item) => {
 
-        var array = [];
-        optionSelected.map((item) => {
-
-            array.push(item.value)
-        })
-        data.append("data", file);
-        data.append("columns", `"${array}"`);
+        //     array.push(item.value)
+        // })
+        // data.append("data", file);
+        // data.append("columns", `"${array}"`);
         axios
             // detailIndex
-            .post(`/vacants`, data, {
-                headers: { "Content-Type": "multipart/form-data" },
+            .post(`/riderdata`, jsonData, {
+                headers: { "Content-Type": "application/json" },
             })
             .then(
                 (res) => {
@@ -105,6 +125,13 @@ function Dashboard() {
             });
     }
     const [Option, setOption] = useState("")
+    const handleStaffChange = (e) => {
+        const { name, value } = e.target;
+        console.log(name, 'name', value, 'value')
+        setRiderId(
+            value
+        );
+    };
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         console.log(name, 'name', value, 'value')
@@ -118,16 +145,12 @@ function Dashboard() {
             {/* ========== form ==========*/}
             <div className="newFile2  form">
                 <h1>Assign Data</h1>
-
                 <form onSubmit={handleSubmit}>
-
                     <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} value={"Option"}>
                         <option selected>Task Info</option>
                         <option name='LND' value='LND' >11-LND-(DEC-12)</option>
                         <option name='VACAT' value='VACAT' >11-VACAT-(JUN-12)</option>
-
                     </select>
-
                     <div className="input-div">
                         <input type="text" className="input-div-input" placeholder="Task Type" value={Option == 'LND' ? "LND" : (Option === "VACAT" ? "VACAT" : "")} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
@@ -136,14 +159,14 @@ function Dashboard() {
                         <input type="text" className="input-div-input" placeholder="Date" value={Option == 'LND' ? "2022-12-12" : (Option === "VACAT" ? "2022-6-12" : "")} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
-                    <select class="form-select" aria-label="Default select example" >
+                    <select class="form-select" aria-label="Default select example" onChange={handleStaffChange}>
                         <option selected>Staff info</option>
-                        <option>Mustard</option>
-                        <option>Ketchup</option>
-                        <option>Relish</option>
-                        <option>Ravi</option>
-                        <option>Raja</option>
-                        <option>Venkad</option>
+                        {
+                            RiderData && RiderData.length > 0 && RiderData.map((item) => (
+                                <option name={item.id} value={item.id} >{item.fullName}</option>
+                            ))
+                        }
+
                     </select>
 
                     <br />
@@ -152,6 +175,7 @@ function Dashboard() {
                     <br />
                     <select class="form-select" aria-label="Default select example" >
                         <option selected>Select Type Of Task Assign</option>
+
                         <option>New</option>
                         <option>Replace</option>
                         <option>Re Assign(Task Completed)</option>
@@ -160,11 +184,11 @@ function Dashboard() {
                     </select>
 
                     <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="From" />
+                        <input type="text" className="input-div-input" placeholder="From" value={Form} onChange={(e) => setForm(e.target.value)} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
                     <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="To" />
+                        <input type="text" className="input-div-input" placeholder="To" value={To} onChange={(e) => setTo(e.target.value)} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
                     <button type="submit" className="submit3">Submit</button>
