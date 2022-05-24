@@ -42,34 +42,7 @@ function createData(I, ID, Name, Email) {
   return { I, ID, Name, Email };
 }
 
-const rows = [
-  createData("001", "RD001", "Banna Andrian", "Bannaandrian@gmail.com"),
-  createData("001", "RD002", "Elver Andries", "Elverandries@gmail.com"),
-  createData("001", "RD003", "Andria Elvera", "Andriaelvera@gmail.com"),
-  createData("001", "RD004", "Bangaly Andriana", "Bangalyandriana@gmail.com"),
-  createData("001", "RD005", "Andris Banta", "Andrisbanta@gmail.com"),
-];
 const data = [
-  {
-    id: "ID",
-    IdNo: "001",
-    C: "IS Name Correct",
-    CNo: "Yes",
-
-    Arrears: "Arrears",
-    ArrearsNo: "RM1000.00",
-    Sum: "",
-  },
-  {
-    id: "Account Number",
-    IdNo: "1000100",
-    C: "Nationality(m/f)",
-    CNo: "M",
-    // I: "Current balance",
-    Arrears: "Current balance",
-    ArrearsNo: "RM1000.00",
-    Sum: "",
-  },
   {
     id: "Bill No",
     IdNo: "X1010001",
@@ -196,21 +169,95 @@ const paraRight = {
   textAlign: "left",
   // fontWeight: "600",
 };
-function Newrider() {
+function DetailView(Details) {
+  const { SelectUserObject } = Details;
+
   const [openModel, setOpenModel] = useState(false);
   // const [data, setData] = useState([]);
 
   return (
     // <div className="table table-bordered border-primary">
-    <div className="table-view ">
+    <div className=" table table-view ">
       <table
         style={{
           width: "100%",
           borderCollapse: "collapse",
           borderSpacing: 0,
+          // border: "1px solid black",
         }}
         className="table-border"
       >
+        {/* id */}
+        <tr>
+          <td>
+            <p style={paraLeft} variant="body">
+              ID
+            </p>
+          </td>
+          <td>
+            <p variant="body">{SelectUserObject.id}</p>
+          </td>
+          <td>
+            <p style={paraLeft} variant="body">
+              IS Name Correct
+            </p>
+          </td>
+          <td>
+            <p style={paraRight} variant="body">
+              yes
+            </p>
+          </td>
+
+          <td>
+            <p style={paraLeft} variant="body">
+              Arrears
+            </p>
+          </td>
+          <td>
+            <p style={paraRight} variant="body">
+              {SelectUserObject.arrears || "arrears"}
+            </p>
+          </td>
+          <td>
+            <p style={paraRight} variant="body"></p>
+          </td>
+        </tr>
+        {/* account number */}
+        <tr>
+          <td>
+            <p style={paraLeft} variant="body">
+              Account Number
+            </p>
+          </td>
+          <td>
+            <p variant="body">{SelectUserObject.accountNo || "accountNo"}</p>
+          </td>
+          <td>
+            <p style={paraLeft} variant="body">
+              Nationality(m/f)
+            </p>
+          </td>
+          <td>
+            <p style={paraRight} variant="body">
+              yes
+            </p>
+          </td>
+
+          <td>
+            <p style={paraLeft} variant="body">
+              Current balance
+            </p>
+          </td>
+          <td>
+            <p style={paraRight} variant="body">
+              props
+              {/* // Current balance */}
+            </p>
+          </td>
+          <td>
+            <p style={paraRight} variant="body"></p>
+          </td>
+        </tr>
         {data.map((row, i) => (
           <tr key={i}>
             <td>
@@ -255,4 +302,4 @@ function Newrider() {
   );
 }
 
-export default Newrider;
+export default DetailView;

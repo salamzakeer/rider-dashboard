@@ -46,9 +46,11 @@ theme.typography.h1 = {
   },
 };
 
-function Newrider() {
+function Instruction(Instruction) {
+  const { SelectUserObject } = Instruction;
   const [openModel, setOpenModel] = useState(false);
   // const [data, setData] = useState([]);
+  console.log(SelectUserObject);
 
   const spans = {
     fontWeight: "600",
@@ -56,35 +58,34 @@ function Newrider() {
   return (
     <div className="instruction">
       <p>
-        Dear Owner1, <span style={{ fontWeight: "600" }}>Abu bin Bakar</span>
+        Dear Owner1,{" "}
+        <span style={{ fontWeight: "600" }}>{SelectUserObject.debtor}</span>
       </p>
       <p>
         I am calling from on behalf{" "}
-        <span style={spans}> (DCA Name) (PIN SDN BHD )</span> with regards to
+        <span style={spans}> {SelectUserObject.dcaName} </span> with regards to
         your outstanding payment for{" "}
         <span style={spans}>(Principal) (IWK)</span>
         Before we proceed, I would like to do some verification ,
       </p>
       <p>
-        Owner1: <span style={spans}>Abu bin Bakar</span>
+        Owner1: <span style={spans}>{SelectUserObject.debtor}</span>
       </p>
       <p>
         Address:
-        <span style={spans}>
-          Add1,Add2,Add3, Add4: ( C-01-05,DESAJAYA VILLA, JALAN DESA JAYA
-          2,SEREMBAN)
-        </span>
+        <span style={spans}>{SelectUserObject.address}</span>
       </p>
       <p>
-        Account Number : <span style={spans}> 101010101</span>
+        Account Number :{" "}
+        <span style={spans}> {SelectUserObject.accountNo}</span>
       </p>
       <p>
         You have the following ,
-        <span style={spans}> (Arrears) (RM1000.00)</span> could you please make
-        the payment as soon as possible.
+        <span style={spans}>{SelectUserObject.arrears}</span> could you please
+        make the payment as soon as possible.
       </p>
     </div>
   );
 }
 
-export default Newrider;
+export default Instruction;
