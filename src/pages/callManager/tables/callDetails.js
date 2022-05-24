@@ -80,26 +80,26 @@ function Newrider() {
   // const [data, setData] = useState([]);
 
   return (
-    <div className="rider-table table table-bordered border-primary">
+    <div className="rider-table  table-bordered border-primary">
       <table className="rider-table-head ">
         <tr style={{ backgroundColor: "#501ABF" }}>
-          <th className="table-head">
+          <th className="">
             <Typography variant="body">Telecaller</Typography>{" "}
           </th>
-          <th className="table-head">
+          <th>
             {" "}
             <Typography variant="body">Date</Typography>{" "}
           </th>
-          <th className="table-head">
+          <th>
             <Typography variant="body">Duration</Typography>{" "}
           </th>
-          <th className="table-head">
+          <th>
             <Typography variant="body">Status</Typography>{" "}
           </th>
-          <th className="table-head">
+          <th>
             <Typography variant="body">Remark</Typography>{" "}
           </th>
-          <th className="table-head">
+          <th>
             <Typography variant="body">Outstanding</Typography>{" "}
           </th>
         </tr>

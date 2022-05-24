@@ -13,6 +13,7 @@ import Layout from "../../components/layout/Navbar";
 
 
 import "./rider.css"
+import Dialog from '@mui/material/Dialog';
 
 
 const theme = createTheme();
@@ -99,6 +100,11 @@ const rows = [
 function Newrider() {
   const [openModel, setOpenModel] = useState(false);
   const [data, setData] = useState([]);
+
+  const modelClose = () => {
+    console.log("close model")
+    setOpenModel(false)
+  }
 
   useEffect(() => {
     axios.get('/rider')
@@ -190,7 +196,17 @@ function Newrider() {
       </div>
 
 
-      {openModel && <AddRider closeModel={setOpenModel} />}
+      {/* {openModel && <AddRider closeModel={setOpenModel} />} */}
+      <Dialog
+        open={openModel}
+        closeModel={modelClose}
+        keepMounted
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        sdsd
+        {/* <AddRider closeModel={modelClose} open={openModel} /> */}
+      </Dialog>
     </Layout >
 
   )

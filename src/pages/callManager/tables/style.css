@@ -35,11 +35,11 @@ margin-top: 88px;
    background-color: #501ABF;
   }
   .instruction{
-    background-color: #501ABF !important;
+    background-color: #fff !important;
   }
 .instruction > p > span{
   font-weight: 700;
-  color: red;
+  color: #000;
 }
 .headclass{
   left: 32px;

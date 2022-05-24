@@ -7,9 +7,6 @@ import {
 } from "@material-ui/core";
 import CloseIcon from "@mui/icons-material/Close";
 
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
 const useStyles = makeStyles(() =>
   createStyles({
     Dialog: {
@@ -117,56 +114,25 @@ const useStyles = makeStyles(() =>
 );
 
 export default function DialogComponenet(props) {
-  const { open,handleClose, children, title } = props;
+  const { handleClose, children, title } = props;
   const classes = useStyles();
   // const [year, setYear] = React.useState("");
   // const handleChange = (event) => {
   //   setYear(event.target.value);
   // };
   return (
-    <Dialog
-      open={open}
-      onClose={handleClose}
-      classes={{ paper: classes.DialogRoot }}
-    >
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <DialogTitle
-          sx={{
-            // margin: "0 important",
-            padding: "0 important",
-            color: "#3C9061",
-            fontSize: "40px",
-            margin: "0 auto",
-          }}
-        >
-          Week 1
-        </DialogTitle>
-        <DialogContent sx={{ margin: "0 important", padding: "0 important" }}>
-          <DialogContentText>
-            {/* To subscribe to this website, please enter your email address
-          here. We will send updates occasionally. */}
-          </DialogContentText>
-
-          <DialogContentText
-            sx={{
-              opacity: "1",
-              paddingTop: "20px",
-              textTransform: "capitalize",
-              fontWeight: 600,
-              color: "#000000",
-              fontSize: "20px",
-            }}
-          >
-            Week 1 Data Was Created Successfully!
-          </DialogContentText>
-        </DialogContent>
-      </form>
-    </Dialog>
+    <div className={classes.Dialog}>
+      <div className={classes.CloseDiv}>
+        <div className={classes.Close} onClick={handleClose}>
+          <CloseIcon />
+        </div>
+      </div>
+      <div className={classes.Heading}>{title}</div>{" "}
+      <DialogContent className={classes.DialogContent}>
+        <DialogContentText id="alert-dialog-slide-description">
+          {children}
+        </DialogContentText>
+      </DialogContent>
+    </div>
   );
 }
