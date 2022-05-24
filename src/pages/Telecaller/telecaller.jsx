@@ -125,10 +125,7 @@ function Telecaller() {
       </div>
 
       {openModel && <AddRider closeModel={setOpenModel} />}
-      {/* <Dialog
-        open={'true'}
-        // onClose={handleClose}
-      >saddsdsdsdsdsdsdsdsdsdsdssdsd</Dialog> */}
+      
     </Layout >)
 }
 

@@ -15,6 +15,8 @@ import Layout from "../../components/layout/Navbar";
 import "./rider.css"
 import Dialog from '@mui/material/Dialog';
 
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 const theme = createTheme();
 
@@ -99,6 +101,7 @@ const rows = [
 
 function Newrider() {
   const [openModel, setOpenModel] = useState(false);
+  const [Loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
   const modelClose = () => {
@@ -111,10 +114,12 @@ function Newrider() {
       .then(res => {
         setData(res.data)
         console.log("working", res.data)
+        setLoading(true)
 
       })
       .catch(error => {
         console.log(error)
+        setLoading(true)
       })
   }, [])
 
@@ -131,7 +136,7 @@ function Newrider() {
             setOpenModel(true)
           }} >Add New Rider</button>
         </div>
-        <div className="table-rider" className="table-telecaller"
+        <div className="table-rider"
         >
           <table style={{
             width: "100%", borderCollapse: 'collapse',
@@ -150,17 +155,21 @@ function Newrider() {
               <th><Typography variant="body">Detele</Typography> </th>
             </tr>
 
-            {/* {data.map((row, i) => (
-              <tr key={i}>
-                <td><Typography variant="body">{row.I}</Typography></td>
-                <td><Typography variant="body">{row.ID}</Typography></td>
-                <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
-                <td><Typography variant="body">{row.Name}</Typography></td>
-                <td><Typography variant="body">{row.Email}</Typography></td>
 
-                <td><img src={DeleteBtn} className="delete" alt="" /></td>
-              </tr>
-            ))} */}
+            {
+              !Loading
+              && <tr style={{ borderCollapse: 'collapse', padding: "0px !important" }}>
+
+                <td style={{
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                  padding: "0px !important"
+                }} colspan="6">
+                  <Box sx={{ width: '100%' }}>
+                    <LinearProgress />
+                  </Box>
+                </td>
+              </tr>}
 
             {data && data.length > 0 && data.map(data => (
               <tr>
@@ -176,18 +185,15 @@ function Newrider() {
               </tr>
             ))}
             {
-              data.length === 0
+              data.length === 0 && Loading
               && <tr style={{ borderCollapse: 'collapse' }}>
-                {/* <td><Typography variant="body" ></Typography></td>
 
-                <td><Typography variant="body" ></Typography></td>
-                <td><Typography variant="body" ></Typography></td> */}
-                {/* <td colspan="4"><Typography variant="body" >No data</Typography></td> */}
                 <td style={{
                   textAlign: "center",
                   verticalAlign: "middle",
                 }} colspan="6"><Typography variant="body" >No data</Typography></td>
               </tr>}
+
 
 
 
