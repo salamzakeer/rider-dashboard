@@ -250,7 +250,7 @@ function DetailView(Details) {
           </td>
           <td>
             <p style={paraRight} variant="body">
-              props
+              RM 2000.00
               {/* // Current balance */}
             </p>
           </td>
