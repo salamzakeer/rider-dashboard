@@ -53,6 +53,12 @@ const rows = [
 const paraLeft = {
   textAlign: "left",
   fontWeight: "600",
+  backgroundColor: "#5016BF",
+  color: "#fff",
+  paddingLeft: "10px",
+};
+const paraProps = {
+  backgroundColor: "#CCCC",
 };
 const paraRight = {
   textAlign: "left",
@@ -88,7 +94,7 @@ function Newrider(Details) {
       IdNo: "X1010001",
       C: "Owner's Tel No 1",
       CNo: "032232322",
-      Arrears: "Status Droupdown",
+      Arrears: "Status",
       ArrearsNo: "New",
       Sum: "",
     },
@@ -99,7 +105,7 @@ function Newrider(Details) {
       CNo: "032232322",
       Arrears: "",
       ArrearsNo: "PTP",
-      Sum: "If ptf must display date when",
+      Sum: "",
     },
     {
       id: "Owner 1",
@@ -201,6 +207,9 @@ function Newrider(Details) {
       Sum: "",
     },
   ];
+  const tr = {
+    border: "2px solid #fafafa",
+  };
   return (
     // <div className="table table-bordered border-primary">
     <div className="table-view ">
@@ -209,41 +218,39 @@ function Newrider(Details) {
           width: "100%",
           borderCollapse: "collapse",
           borderSpacing: 0,
+          background: "#fff",
+          // border: "1px solid red",
         }}
-        className="table-border"
+        className="table-bordered table-dark"
       >
         {data.map((row, i) => (
-          <tr key={i}>
-            <td>
+          <tr key={i} style={tr}>
+            <td style={paraLeft}>
               <p style={paraLeft} variant="body">
                 {row.id}
               </p>
             </td>
-            <td>
+            <td style={paraProps}>
               <p variant="body">{row.IdNo}</p>
             </td>
-            <td>
+            <td style={paraLeft}>
               <p style={paraLeft} variant="body">
                 {row.C}
               </p>
             </td>
-            <td>
-              <p style={paraRight} variant="body">
-                {row.CNo}
-              </p>
+            <td style={paraProps}>
+              <p variant="body">{row.CNo}</p>
             </td>
 
-            <td>
+            <td style={paraLeft}>
               <p style={paraLeft} variant="body">
                 {row.Arrears}
               </p>
             </td>
-            <td>
-              <p style={paraRight} variant="body">
-                {row.ArrearsNo}
-              </p>
+            <td style={paraProps}>
+              <p variant="body">{row.ArrearsNo}</p>
             </td>
-            <td>
+            <td style={paraProps}>
               <p style={paraRight} variant="body">
                 {row.Sum}
               </p>

@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import Dialog from '@mui/material/Dialog';
-
-import Sidebar from "../../components/sidebar/sidebar";
-import Navbar from "../../components/navbar/navbar";
-import Updatepolicy from '../../components/Modal/updatePolicy';
+// import Dialog from '@mui/material/Dialog';
 
 import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 
 import ProfilePic from '../../assets/Mask Group 5.png'
 import DeleteBtn from '../../assets/delete.png'
@@ -17,11 +13,9 @@ import Layout from "../../components/layout/Navbar";
 
 
 const theme = createTheme();
-
 theme.typography.h3 = {
 
   typography: {
-
     fontFamily: [
       'Poppins'
     ].join(','),
@@ -125,7 +119,7 @@ function Telecaller() {
       </div>
 
       {openModel && <AddRider closeModel={setOpenModel} />}
-      
+
     </Layout >)
 }
 

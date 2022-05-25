@@ -148,8 +148,8 @@ function Dashboard() {
                 <form onSubmit={handleSubmit}>
                     <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} value={"Option"}>
                         <option selected>Task Info</option>
-                        <option name='LND' value='LND' >11-LND-(DEC-12)</option>
-                        <option name='VACAT' value='VACAT' >11-VACAT-(JUN-12)</option>
+                        <option name='LND' value='LND' >LND</option>
+                        <option name='VACAT' value='VACAT' >VACAT</option>
                     </select>
                     <div className="input-div">
                         <input type="text" className="input-div-input" placeholder="Task Type" value={Option == 'LND' ? "LND" : (Option === "VACAT" ? "VACAT" : "")} />

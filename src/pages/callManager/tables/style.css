@@ -20,7 +20,18 @@ margin-top: 88px;
     max-width: 1400px;
     margin: 2rem auto;
 }
+.table-view table, th, td{
+  border: 1px solid white;
+  border-collapse: collapse;
+}
 
+.instruction{
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: #ccc;
+}
 @media only screen and (max-width: 800px) {
   .table-view{
       width: calc(1vw *90);

@@ -171,7 +171,7 @@ function Dashboard() {
         <Layout >
 
             <div className="newFile2">
-                <h1>New file</h1>
+                <h1>Importing .XL File</h1>
                 <form onSubmit={handleSubmit}>
                     <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} required="required" >
                         <option name='' value='' selected>Type</option>

@@ -6,12 +6,14 @@ import { Link } from "react-router-dom";
 export default function SideNavigation(props) {
   const location = useLocation();
   const path = location.pathname;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   return (
     <ul className="nav-links">
       {/* {path} */}
       <Link to="/dashboard" style={{ textDecoration: "none" }}>
-        <li className={`left-heading ${path === "/dashboard" ? "actived" : ""}`}>
+        <li
+          className={`left-heading ${path === "/dashboard" ? "actived" : ""}`}
+        >
           <span>Dashboard</span>
         </li>
       </Link>
@@ -26,7 +28,9 @@ export default function SideNavigation(props) {
       </Link>
       <Link to="/call-manager" style={{ textDecoration: "none" }}>
         <li
-          className={`left-heading ${path === "/call-manager" ? "actived" : ""}`}
+          className={`left-heading ${
+            path === "/call-manager" ? "actived" : ""
+          }`}
         >
           <span>Call Manager</span>
         </li>

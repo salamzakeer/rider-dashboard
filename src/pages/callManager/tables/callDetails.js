@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-import Sidebar from "../../../components/sidebar/sidebar";
-import Navbar from "../../../components/navbar/navbar";
-import AddRider from "../../../components/Modal/AddRiderPopup";
-
-import ProfilePic from "../../../assets/Mask Group 5.png";
-import DeleteBtn from "../../../assets/delete.png";
+import { createTheme } from "@mui/material/styles";
+// import AddRider from "../../../components/Modal/AddRiderPopup";
+// import ProfilePic from "../../../assets/Mask Group 5.png";
+// import DeleteBtn from "../../../assets/delete.png";
 
 import "./style.css";
 // callManager.module.css
@@ -46,17 +42,7 @@ theme.typography.h1 = {
     fontSize: "2.4rem",
   },
 };
-function createData(I, ID, Name, Email) {
-  return { I, ID, Name, Email };
-}
 
-const rows = [
-  createData("001", "RD001", "Banna Andrian", "Bannaandrian@gmail.com"),
-  createData("001", "RD002", "Elver Andries", "Elverandries@gmail.com"),
-  createData("001", "RD003", "Andria Elvera", "Andriaelvera@gmail.com"),
-  createData("001", "RD004", "Bangaly Andriana", "Bangalyandriana@gmail.com"),
-  createData("001", "RD005", "Andris Banta", "Andrisbanta@gmail.com"),
-];
 const data = [
   {
     tele: "sheila",
@@ -74,15 +60,70 @@ const data = [
     remark: "Refuse to pay",
     outstanding: "RM200",
   },
+  {
+    tele: "sheila",
+    date: "19/02/2022",
+    duration: "5min",
+    Status: "PTP",
+    remark: "nice Client",
+    outstanding: "RM220",
+  },
+  {
+    tele: "Devi",
+    date: "28/02/2022",
+    duration: "3min",
+    Status: "RTP",
+    remark: "Refuse to pay",
+    outstanding: "RM200",
+  },
+  {
+    tele: "sheila",
+    date: "19/02/2022",
+    duration: "5min",
+    Status: "PTP",
+    remark: "nice Client",
+    outstanding: "RM220",
+  },
+  {
+    tele: "Devi",
+    date: "28/02/2022",
+    duration: "3min",
+    Status: "RTP",
+    remark: "Refuse to pay",
+    outstanding: "RM200",
+  },
+  {
+    tele: "sheila",
+    date: "19/02/2022",
+    duration: "5min",
+    Status: "PTP",
+    remark: "nice Client",
+    outstanding: "RM220",
+  },
+  {
+    tele: "Devi",
+    date: "28/02/2022",
+    duration: "3min",
+    Status: "RTP",
+    remark: "Refuse to pay",
+    outstanding: "RM200",
+  },
 ];
+const paraLeft = {
+  textAlign: "left",
+  fontWeight: "600",
+  backgroundColor: "#5016BF",
+  color: "#fff",
+  paddingLeft: "10px",
+};
 function Newrider() {
-  const [openModel, setOpenModel] = useState(false);
+  // const [openModel, setOpenModel] = useState(false);
   // const [data, setData] = useState([]);
 
   return (
-    <div className="rider-table  table-bordered border-primary">
+    <div className="rider-table table-bordered border-primary">
       <table className="rider-table-head ">
-        <tr style={{ backgroundColor: "#501ABF" }}>
+        <tr style={paraLeft}>
           <th className="">
             <Typography variant="body">Telecaller</Typography>{" "}
           </th>
@@ -104,7 +145,10 @@ function Newrider() {
           </th>
         </tr>
         {data.map((row, i) => (
-          <tr key={i}>
+          <tr
+            key={i}
+            style={{ backgroundColor: "#cccc", border: "1px solid #fff" }}
+          >
             <td>
               <p variant="body">{row.tele}</p>
             </td>

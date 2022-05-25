@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AddRider.css'
 import CloseIcon from '@mui/icons-material/Close';
-import CancelBtn from '../../assets/cancel.png'
+// import CancelBtn from '../../assets/cancel.png'
 
 import FileUploader from '../../components/buttons/FileUploader';
 import { useToasts } from 'react-toast-notifications';
@@ -30,7 +30,6 @@ function AddRiderPopup({ closeModel }) {
             fullName: fullName,
             email: email,
             password: password
-
         };
         axios.post('https://dcaapi.moodfor.codes/rider/register', json)
             .then(result => {

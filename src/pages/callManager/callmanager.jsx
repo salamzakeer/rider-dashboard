@@ -178,8 +178,8 @@ function Dashboard() {
                 {
                     GetId != "" &&
                     <>
-                        <div style={{ width: "400px", margin: '0 0 2rem auto', height: "6rem" }} >
-                            <select style={{ width: "400px", height: "100%", color: "#501ABF", border: "1px solid #501ABF" }} class="form-select" aria-label="Default select example" name="" onChange={handleInputChange}>
+                        <div style={{ width: "400px", margin: '0 0 2rem auto', height: "4rem" }} >
+                            <select style={{ width: "370px", height: "100%", color: "#501ABF", border: "1px solid #501ABF" }} class="form-select" aria-label="Default select example" name="" onChange={handleInputChange}>
                                 <option name='Details' value='Details' >Details Veiw</option>
                                 <option name='Site' value='Site' >Site View Details</option>
                                 <option name='Call' value='Call' >Call Details</option>
