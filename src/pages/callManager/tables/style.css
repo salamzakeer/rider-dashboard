@@ -64,7 +64,7 @@ position: relative;
     padding: 0.5rem 0.4rem !important;
     color: #000;
     text-align: center !important;
-
+    height:60px;
     
   }
   th{
@@ -75,9 +75,9 @@ position: relative;
   }
   th, td {
     text-align: left;
-    line-height: 54px;
-    padding-left:50px;
-    padding-Right:50px;
+    /* line-height: 54px; */
+    /* padding-left:50px; */
+    /* padding-Right:50px; */
   }
   td {
     padding-top: 30px;

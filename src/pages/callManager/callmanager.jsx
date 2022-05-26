@@ -139,31 +139,28 @@ function Dashboard() {
                     width: "100%", borderCollapse: 'collapse',
                     borderSpacing: 0,
                 }}>
-
-
-
                     <tr>
                         <th style={{ textAlign: "left" }} >   <Typography variant="body">ID</Typography> </th>
-                        <th><Typography variant="body">Account Number</Typography> </th>
-                        <th><Typography variant="body">Debtor Name</Typography> </th>
-                        <th><Typography variant="body">Address</Typography> </th>
-                        <th><Typography variant="body">Job Id</Typography> </th>
-                        <th><Typography variant="body">Status</Typography> </th>
-                        <th><Typography variant="body">Arrears</Typography> </th>
-                        <th><Typography variant="body">Range</Typography> </th>
-                        <th><Typography variant="body">DCA Name</Typography> </th>
+                        <th><span variant="body">Account Number</span> </th>
+                        <th><span variant="body">Debtor Name</span> </th>
+                        <th><span variant="body">Address</span> </th>
+                        <th><span variant="body">Job Id</span> </th>
+                        <th><span variant="body">Status</span> </th>
+                        <th><span variant="body">Arrears</span> </th>
+                        <th><span variant="body">Range</span> </th>
+                        <th><span variant="body">DCA Name</span> </th>
                     </tr>
                     {rows && rows.map((row, i) => (
                         <tr key={i} onClick={() => findUser(row)} >
-                            <td><Typography variant="body">{row.id}</Typography></td>
-                            <td><Typography variant="body">{row.accountNo}</Typography></td>
-                            <td><Typography variant="body">{row.debtor}</Typography></td>
-                            <td><Typography variant="body">{row.address}</Typography></td>
-                            <td><Typography variant="body">{row.jobId}</Typography></td>
-                            <td><Typography variant="body">{row.status}</Typography></td>
-                            <td><Typography variant="body">{row.arrears}</Typography></td>
-                            <td><Typography variant="body">{row.range}</Typography></td>
-                            <td><Typography variant="body">{row.dcaName}</Typography></td>
+                            <td><span variant="body">{row.id}</span></td>
+                            <td><span variant="body">{row.accountNo}</span></td>
+                            <td><span variant="body">{row.debtor}</span></td>
+                            <td><span variant="body">{row.address}</span></td>
+                            <td><span variant="body">{row.jobId}</span></td>
+                            <td><span variant="body">{row.status}</span></td>
+                            <td><span variant="body">{row.arrears}</span></td>
+                            <td><span variant="body">{row.range}</span></td>
+                            <td><span variant="body">{row.dcaName}</span></td>
 
                         </tr>
                     ))}

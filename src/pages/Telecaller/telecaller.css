@@ -29,9 +29,9 @@ table {
   }
   th, td {
     text-align: left;
-    line-height: 54px;
-    padding-left:50px;
-    padding-Right:50px;
+    line-height: 20px;
+    /* padding-left:50px; */
+    /* padding-Right:50px/; */
   }
   td {
     padding-top: 30px;

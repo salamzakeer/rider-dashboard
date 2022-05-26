@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function SideNavigation(props) {
   const location = useLocation();
   const path = location.pathname;
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   return (
     <ul className="nav-links">
       {/* {path} */}

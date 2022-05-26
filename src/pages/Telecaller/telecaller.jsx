@@ -102,7 +102,7 @@ function Telecaller() {
             <th><Typography variant="body">Delete</Typography> </th>
           </tr>
           {rows.map((row, i) => (
-            <tr key={i} >
+            <tr key={i} style={{ margin: "1rem 0rem" }} >
               <td><Typography variant="body">{row.I}</Typography></td>
               <td><Typography variant="body">{row.ID}</Typography></td>
               <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
