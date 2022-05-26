@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Spreadsheet from "react-spreadsheet";
 import CsvDownloader from 'react-csv-downloader';
 import axios from '../../axios';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const useStyles = makeStyles(
     () =>
@@ -20,11 +21,14 @@ const useStyles = makeStyles(
             },
             btn: {
                 backgroundColor: "#5016BF",
-                height: "3rem",
+                height: "3.3rem",
                 border: "1px solid #ccc",
                 color: "#fff",
                 borderRadius: "24px",
                 width: "150px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
             }
         }),
     { withTheme: true }
@@ -382,39 +386,40 @@ function Dashboard() {
             <div className={style.dataTable} >
                 <Typography variant="h5" > LND DATA</Typography>
 
-                {
-                    Loading &&
-                    <CsvDownloader filename="myfile"
-                        extension=".csv"
-                        // image setup
-                        // columns={columns}
-                        // datas={datas}
-                        // orginal
-                        columns={LndCsvDataHeader}
-                        datas={data}
-                        text="DOWNLOAD"
-                        suffix
-                    >
-                        <button className={style.btn} > Download</button>
-                    </CsvDownloader>
-                }
+                {/* {
+                    Loading && */}
+                <CsvDownloader filename="myfile"
+                    extension=".csv"
+                    // image setup
+                    // columns={columns}
+                    // datas={datas}
+                    // orginal
+                    columns={LndCsvDataHeader}
+                    datas={data}
+                    text="DOWNLOAD"
+                    suffix
+                >
+                    <button className={style.btn} > {Loading ? 'Download' : <CircularProgress color="inherit" />}
+                    </button>
+                </CsvDownloader>
+                {/* } */}
             </div>
 
             <br />
             <div className={style.dataTable} >
 
                 <Typography variant="h5" > VACANT DATA</Typography>
-                {LoadingVacant &&
-                    <CsvDownloader filename="myfile"
-                        extension=".csv"
-                        columns={dataVacantArray}
-                        datas={dataVacant}
-                        text="DOWNLOAD"
-                        suffix
-                    >
-                        <button className={style.btn}>Download</button>
-                    </CsvDownloader>
-                }
+                {/* {LoadingVacant && */}
+                <CsvDownloader filename="myfile"
+                    extension=".csv"
+                    columns={dataVacantArray}
+                    datas={dataVacant}
+                    text="DOWNLOAD"
+                    suffix
+                >
+                    <button className={style.btn}>{LoadingVacant ? 'Download' : <CircularProgress color="inherit" />}</button>
+                </CsvDownloader>
+                {/* } */}
             </div>
         </Layout>
     )
