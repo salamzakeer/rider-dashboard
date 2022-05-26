@@ -280,7 +280,7 @@ color: #000000;
 .s-active{
   background-color: #5016BF9B !important  ;
   color: #fff;
-  width: 275px;
+  /* width: 275px; */
 }
 .nav-option:hover{
   /* opacity: 0.5; */

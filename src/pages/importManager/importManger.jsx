@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import 'react-toastify/dist/ReactToastify.css'; // import first
-import { ToastContainer, toast } from 'react-toastify'; // then this
-import Navbar from "../../components/navbar/navbar";
-import Sidebar from "../../components/sidebar/sidebar";
 import makeAnimated from "react-select/animated";
 import MySelect from "../../components/select/select";
 import { components } from "react-select";
 import { useToasts } from 'react-toast-notifications';
 
 import UploadIcon from '../../assets/upload.png'
-import AddIcon from '../../assets/add.png'
-import RemoveIcon from '../../assets/remove.png'
 import axios from '../../axios'
 import "./importManger.css"
 import Layout from "../../components/layout/Navbar";
@@ -37,12 +32,11 @@ const MultiValue = (props) => (
 );
 
 
-const colourOptions = [
+const LndArrayOptions = [
     { value: "DCAFiletype", label: "DCAFiletype", color: "#00B8D9" },
     { value: "DCAName", label: "DCAName", color: "#0052CC" },
     { value: "State", label: "State", color: "#5243AA" },
     { value: "Costcode", label: "Costcode", color: "#FF5630" },
-
     { value: "UO", label: "UO", color: "#00B8D9" },
     { value: "LAName", label: "LAName", color: "#00B8D9" },
     { value: "billno", label: "billno", color: "#00B8D9" },
@@ -76,6 +70,13 @@ const colourOptions = [
     { value: "BATCH", label: "BATCH", color: "#00B8D9" },
 
 ];
+
+const VacantsArrayOptions = [
+    { value: "SEWACC", label: "SEWACC", color: "#00B8D9" },
+    { value: "OWNER_NAME", label: "OWNER NAME", color: "#0052CC" },
+    { value: "PROP_ADD", label: "PROP ADD", color: "#5243AA" },
+    { value: "CURRENT_CLASS", label: "CURRENT CLASS", color: "#FF5630" },
+];
 const animatedComponents = makeAnimated();
 function Dashboard() {
     const { addToast } = useToasts();
@@ -102,36 +103,19 @@ function Dashboard() {
 
     //end-upload file
 
-    const [formValues, setFormValues] = useState([])
 
-    let handleChange = (i, e) => {
-        let newFormValues = [...formValues];
-        newFormValues[i][e.target.name] = e.target.value;
-        setFormValues(newFormValues);
 
-    }
 
-    let addFormFields = () => {
-        setFormValues([...formValues, { name: "" }])
-    }
-
-    let removeFormFields = (i) => {
-        let newFormValues = [...formValues];
-        newFormValues.splice(i, 1);
-        setFormValues(newFormValues)
-    }
 
     let handleSubmit = (event) => {
         console.log("form submit", optionSelectedOr);
-        if (optionSelectedOr != "" && optionSelectedOr != "Type") {
+        if (optionSelectedOr !== "" && optionSelectedOr !== "Type") {
             console.log("form submit2", optionSelectedOr);
 
             event.preventDefault();
-            // alert(JSON.stringify(formValues));
 
             var array = [];
             optionSelected.map((item) => {
-
                 array.push(item.value)
             })
             data.append("data", file);
@@ -147,7 +131,7 @@ function Dashboard() {
                 })
                 .then(
                     (res) => {
-                        var id = res.id;
+                        // var id = res.id;
                         // setProgress("");
                         addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
 
@@ -186,8 +170,8 @@ function Dashboard() {
                         <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly" />
                         <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
                     </div>
-                    <MySelect
-                        options={colourOptions}
+                    {optionSelectedOr === "lnds" && <MySelect
+                        options={LndArrayOptions}
                         isMulti
                         closeMenuOnSelect={false}
                         hideSelectedOptions={false}
@@ -195,7 +179,19 @@ function Dashboard() {
                         onChange={selecHandleChange}
                         allowSelectAll={true}
                         value={optionSelected}
-                    />
+                    />}
+                    {optionSelectedOr === "vacants" &&
+                        < MySelect
+                            options={VacantsArrayOptions}
+                            isMulti
+                            closeMenuOnSelect={false}
+                            hideSelectedOptions={false}
+                            components={{ Option, MultiValue, animatedComponents }}
+                            onChange={selecHandleChange}
+                            allowSelectAll={true}
+                            value={optionSelected}
+                        />
+                    }
 
 
 

@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import "react-toastify/dist/ReactToastify.css"; // import first
-import Navbar from "../../components/navbar/navbar";
-import Sidebar from "../../components/sidebar/sidebar";
-import makeAnimated from "react-select/animated";
-import { components } from "react-select";
 import { useToasts } from "react-toast-notifications";
 import DetailView from "./tables/details";
 import SiteView from "./tables/siteview";
@@ -11,58 +7,14 @@ import CallDetails from "./tables/callDetails";
 import Instruction from "./tables/instruction";
 // import "./callManager.css";
 import Layout from "../../components/layout/Navbar";
-import Selects from "../../components/select/selects";
 import { Typography } from "@mui/material";
 
-
-const Option = (props) => {
-    return (
-        <div>
-            <components.Option {...props}>
-                <input
-                    type="checkbox"
-                    checked={props.isSelected}
-                    onChange={() => null}
-                />{" "}
-                <label>{props.label}</label>
-            </components.Option>
-        </div>
-    );
-};
-
-const MultiValue = (props) => (
-    <components.MultiValue {...props}>
-        <span>{props.data.label}</span>
-    </components.MultiValue>
-);
-
-const colourOptions = [
-    { value: "SEWACC", label: "SEWACC", color: "#00B8D9" },
-    { value: "OWNER_NAME", label: "OWNER NAME", color: "#0052CC" },
-    { value: "PROP_ADD", label: "PROP ADD", color: "#5243AA" },
-    { value: "CURRENT_CLASS", label: "CURRENT CLASS", color: "#FF5630" },
-];
-const animatedComponents = makeAnimated();
 function Dashboard() {
-    const { addToast } = useToasts();
-
-    //upload file
-    const [file, setFile] = React.useState("");
-    const [optionSelected, setOptionSelected] = React.useState(null);
-
-    const selecHandleChange = (selected) => {
-        setOptionSelected(selected);
-    };
     // Handles file upload event and updates state
     const data = new FormData();
     const [GetId, setGetId] = useState("")
     const [SelectUserObject, setSelectUserObject] = useState(null)
-    function handleUpload(event) {
-        setFile(event.target.files[0]);
-
-        // Add code here to upload file to server
-        // ...
-    }
+  
 
     const optionInput = [{ id: "Details View", name: "Details View" }, { id: "Details View", name: "Details View" },
     { id: "Details View", name: "Details View" }, { id: "Details View", name: "Details View" },]

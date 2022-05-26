@@ -35,6 +35,13 @@ export default function SideNavigation(props) {
           <span>Call Manager</span>
         </li>
       </Link>
+      <Link to="/export-data" style={{ textDecoration: "none" }}>
+        <li
+          className={`left-heading ${path === "/export-data" ? "actived" : ""}`}
+        >
+          <span>Export Data</span>
+        </li>
+      </Link>
       {/* extend-search */}
       <Link
         to=""

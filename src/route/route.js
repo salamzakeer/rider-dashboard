@@ -1,5 +1,6 @@
 import Login from "../pages/login/login";
 import Dashboard from "../pages/dashboard/dashboard";
+import Export from "../pages/exportData/exportData";
 import CallManager from "../pages/callManager/callmanager";
 import ExtendSearch from "../pages/extendSearch/index";
 import ImportManager from "../pages/importManager/importManger";
@@ -19,6 +20,11 @@ export const publicRoutes = [
     exact: true,
   },
 
+  {
+    path: "/export-data",
+    component: Export,
+    exact: true,
+  },
   {
     path: "/login",
     component: Login,
