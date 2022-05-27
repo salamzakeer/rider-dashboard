@@ -1,13 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-import Sidebar from "../../../components/sidebar/sidebar";
-import Navbar from "../../../components/navbar/navbar";
-import AddRider from "../../../components/Modal/AddRiderPopup";
-
-import ProfilePic from "../../../assets/Mask Group 5.png";
-import DeleteBtn from "../../../assets/delete.png";
+import React from "react";
+import { createTheme } from "@mui/material/styles";
 
 import "./style.css";
 
@@ -46,17 +38,6 @@ theme.typography.h1 = {
     fontSize: "2.4rem",
   },
 };
-function createData(I, ID, Name, Email) {
-  return { I, ID, Name, Email };
-}
-
-const rows = [
-  createData("001", "RD001", "Banna Andrian", "Bannaandrian@gmail.com"),
-  createData("001", "RD002", "Elver Andries", "Elverandries@gmail.com"),
-  createData("001", "RD003", "Andria Elvera", "Andriaelvera@gmail.com"),
-  createData("001", "RD004", "Bangaly Andriana", "Bangalyandriana@gmail.com"),
-  createData("001", "RD005", "Andris Banta", "Andrisbanta@gmail.com"),
-];
 const data = [
   {
     date: "23/02/2020",
@@ -112,18 +93,19 @@ const paraLeft = {
   paddingLeft: "10px",
   border: "1px solid #fff",
 };
-const paraRight = {
-  textAlign: "left !important",
-  fontWeight: "600",
-  backgroundColor: "#5016BF",
-  color: "#fff",
-  paddingLeft: "3rem !important",
-};
+
+// const paraRight = {
+//   textAlign: "left !important",
+//   fontWeight: "600",
+//   backgroundColor: "#5016BF",
+//   color: "#fff",
+//   paddingLeft: "3rem !important",
+// };
 const paraProps = {
   backgroundColor: "#CCCC",
 };
 function Newrider() {
-  const [openModel, setOpenModel] = useState(false);
+  // const [openModel, setOpenModel] = useState(false);
   // const [data, setData] = useState([]);
 
   return (

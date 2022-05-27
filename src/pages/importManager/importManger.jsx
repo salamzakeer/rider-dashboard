@@ -163,7 +163,6 @@ function Dashboard() {
                         <option name='vacants' value='vacants' >VACANTS</option>
 
                     </select>
-
                     <div className="input-div" dataText="Select your file">
                         <input type="file" className="input-div-3" onChange={handleUpload} />
                         {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}

@@ -1,46 +1,22 @@
 import React, { useState } from "react";
 import "react-toastify/dist/ReactToastify.css"; // import first
-import { useToasts } from "react-toast-notifications";
+// import { useToasts } from "react-toast-notifications";
 import DetailView from "./tables/details";
 import SiteView from "./tables/siteview";
 import CallDetails from "./tables/callDetails";
 import Instruction from "./tables/instruction";
-// import "./callManager.css";
 import Layout from "../../components/layout/Navbar";
 import { Typography } from "@mui/material";
 
-function Dashboard() {
-    // Handles file upload event and updates state
-    const data = new FormData();
+function CallManager() {
+
     const [GetId, setGetId] = useState("")
     const [SelectUserObject, setSelectUserObject] = useState(null)
-  
-
-    const optionInput = [{ id: "Details View", name: "Details View" }, { id: "Details View", name: "Details View" },
-    { id: "Details View", name: "Details View" }, { id: "Details View", name: "Details View" },]
-    //end-upload file
     const [SelectInput, setSelectInput] = useState("Details")
 
-    const [formValues, setFormValues] = useState([]);
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        console.log(name, value)
+        const { value } = e.target;
         setSelectInput(value);
-    };
-    let handleChange = (i, e) => {
-        let newFormValues = [...formValues];
-        newFormValues[i][e.target.name] = e.target.value;
-        setFormValues(newFormValues);
-    };
-
-    let addFormFields = () => {
-        setFormValues([...formValues, { name: "" }]);
-    };
-
-    let removeFormFields = (i) => {
-        let newFormValues = [...formValues];
-        newFormValues.splice(i, 1);
-        setFormValues(newFormValues);
     };
     const rows = [{
         id: "001",
@@ -125,7 +101,7 @@ function Dashboard() {
 
             <div style={{ margin: "2rem" }} >
                 {
-                    GetId != "" &&
+                    GetId !== "" &&
                     <>
                         <div style={{ width: "400px", margin: '0 0 2rem auto', height: "4rem" }} >
                             <select style={{ width: "370px", height: "100%", color: "#501ABF", border: "1px solid #501ABF" }} class="form-select" aria-label="Default select example" name="" onChange={handleInputChange}>
@@ -152,4 +128,4 @@ function Dashboard() {
 
     );
 }
-export default Dashboard;
+export default CallManager;

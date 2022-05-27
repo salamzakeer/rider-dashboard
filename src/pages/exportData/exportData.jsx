@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core"
 import { createStyles } from "@material-ui/core"
 import React, { useState, useEffect } from "react"
 import Typography from '@mui/material/Typography';
-import Spreadsheet from "react-spreadsheet";
+// import Spreadsheet from "react-spreadsheet";
 import CsvDownloader from 'react-csv-downloader';
 import axios from '../../axios';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -314,15 +314,15 @@ const dataVacantArray = [
     },
 
 ]
-const datas = [{
-    first: 'foo',
-    second: 'bar',
-    image: `=IMAGE("[https://dcaapi.moodfor.codes/images/image_lnd_1653538679063.png]")`
-}, {
-    first: 'foobar',
-    second: 'fooasasbar',
-    image: `=HYPERLINK("[https://dcaapi.moodfor.codes/images/image_lnd_1653538679063.png]")`
-}];
+// const datas = [{
+//     first: 'foo',
+//     second: 'bar',
+//     image: `=IMAGE("[https://dcaapi.moodfor.codes/images/image_lnd_1653538679063.png]")`
+// }, {
+//     first: 'foobar',
+//     second: 'fooasasbar',
+//     image: `=HYPERLINK("[https://dcaapi.moodfor.codes/images/image_lnd_1653538679063.png]")`
+// }];
 function Dashboard() {
     const style = useStyles()
     const [Loading, setLoading] = useState(false);
@@ -336,7 +336,7 @@ function Dashboard() {
         // console.log(axios.defaults.baseURL)
         axios.get('/lnds')
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 let dataFilterImage = [];
                 dataFilterImage = res.data;
                 if (dataFilterImage.length > 0) {
@@ -346,8 +346,7 @@ function Dashboard() {
                         }
                     })
                     setData(dataFilterImage)
-                    console.log("working", dataFilterImage)
-
+                    // console.log("working", dataFilterImage)
                     setLoading(true)
                 }
 
@@ -359,7 +358,7 @@ function Dashboard() {
             })
         axios.get('/vacants')
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 let dataFilterImage = [];
                 dataFilterImage = res.data;
                 if (dataFilterImage.length > 0) {
@@ -369,14 +368,14 @@ function Dashboard() {
                         }
                     })
                     setDataVacant(dataFilterImage)
-                    console.log("working", dataFilterImage)
+                    // console.log("working", dataFilterImage)
 
                     setLoadingVacant(true)
                 }
 
             })
             .catch(error => {
-                console.log(error)
+                // console.log(error)
                 setLoadingVacant(true)
             })
     }, [])

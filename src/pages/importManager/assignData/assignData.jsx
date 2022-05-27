@@ -1,54 +1,23 @@
 import React, { useEffect, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css'; // import first
-import makeAnimated from "react-select/animated";
-import { components } from "react-select";
 import { useToasts } from 'react-toast-notifications';
 import axios from '../../../axios'
 import "./importManger.css"
 import Layout from "../../../components/layout/Navbar"
 
-const Option = (props) => {
-    return (
-        <div>
-            <components.Option {...props}>
-                <input
-                    type="checkbox"
-                    checked={props.isSelected}
-                    onChange={() => null}
-                />{" "}
-                <label>{props.label}</label>
-            </components.Option>
-        </div>
-    );
-};
 
-const MultiValue = (props) => (
-    <components.MultiValue {...props}>
-        <span>{props.data.label}</span>
-    </components.MultiValue>
-);
-
-const colourOptions = [
-    { value: "SEWACC", label: "SEWACC", color: "#00B8D9" },
-    { value: "OWNER_NAME", label: "OWNER NAME", color: "#0052CC" },
-    { value: "PROP_ADD", label: "PROP ADD", color: "#5243AA" },
-    { value: "CURRENT_CLASS", label: "CURRENT CLASS", color: "#FF5630" },
-];
-const animatedComponents = makeAnimated();
 function Dashboard() {
     const { addToast } = useToasts();
 
     //upload file
-    const [file, setFile] = React.useState("");
     const [Form, setForm] = React.useState("");
     const [To, setTo] = React.useState("");
     const [RiderId, setRiderId] = React.useState("");
-    const [optionSelected, setOptionSelected] = React.useState(null);
     const [RiderData, setRiderData] = useState([])
     useEffect(() => {
         axios.get('/rider')
             .then((res) => {
-                console.log(res.data, 'data')
+                // console.log(res.data, 'data')
                 setRiderData(res.data)
             })
             .catch((err => {
@@ -56,46 +25,16 @@ function Dashboard() {
             }))
     }, [])
 
-    const selecHandleChange = (selected) => {
-        setOptionSelected(selected)
 
-    };
     // Handles file upload event and updates state
-    const data = new FormData();
-
-    function handleUpload(event) {
-        setFile(event.target.files[0]);
-
-        // Add code here to upload file to server
-        // ...
-
-    }
 
     //end-upload file
 
-    const [formValues, setFormValues] = useState([])
-
-    let handleChange = (i, e) => {
-        let newFormValues = [...formValues];
-        newFormValues[i][e.target.name] = e.target.value;
-        setFormValues(newFormValues);
-
-    }
-
-    let addFormFields = () => {
-        setFormValues([...formValues, { name: "" }])
-    }
-
-    let removeFormFields = (i) => {
-        let newFormValues = [...formValues];
-        newFormValues.splice(i, 1);
-        setFormValues(newFormValues)
-    }
 
     let handleSubmit = (event) => {
         event.preventDefault();
         // alert(JSON.stringify(formValues));
-        console.log(Option, Form, To);
+        // console.log(Option, Form, To);
         const jsonData = {
             "type": Option,
             "dataFrom": Form,
@@ -116,7 +55,6 @@ function Dashboard() {
             })
             .then(
                 (res) => {
-                    var id = res.id;
                     addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
                 }
             )
@@ -126,22 +64,19 @@ function Dashboard() {
     }
     const [Option, setOption] = useState("")
     const handleStaffChange = (e) => {
-        const { name, value } = e.target;
-        console.log(name, 'name', value, 'value')
+        const { value } = e.target;
         setRiderId(
             value
         );
     };
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        console.log(name, 'name', value, 'value')
+        const { value } = e.target;
         setOption(
             value
         );
     };
     return (
         <Layout title="Assign Data" >
-
             {/* ========== form ==========*/}
             <div className="newFile2  form">
                 <h1>Assign Data</h1>

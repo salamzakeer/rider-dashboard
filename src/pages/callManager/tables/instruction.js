@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./style.css";
-import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
-import Sidebar from "../../../components/sidebar/sidebar";
-import Navbar from "../../../components/navbar/navbar";
-import AddRider from "../../../components/Modal/AddRiderPopup";
-
-import ProfilePic from "../../../assets/Mask Group 5.png";
-import DeleteBtn from "../../../assets/delete.png";
 
 const theme = createTheme();
 
@@ -48,9 +41,8 @@ theme.typography.h1 = {
 
 function Instruction(Instruction) {
   const { SelectUserObject } = Instruction;
-  const [openModel, setOpenModel] = useState(false);
   // const [data, setData] = useState([]);
-  console.log(SelectUserObject);
+  // console.log(SelectUserObject);
 
   const spans = {
     fontWeight: "600",

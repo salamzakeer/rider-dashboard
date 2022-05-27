@@ -128,7 +128,6 @@ function Newrider() {
             <Typography variant="body">Telecaller</Typography>{" "}
           </th>
           <th>
-            {" "}
             <Typography variant="body">Date</Typography>{" "}
           </th>
           <th>
