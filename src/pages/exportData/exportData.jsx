@@ -342,11 +342,11 @@ function Dashboard() {
                 if (dataFilterImage.length > 0) {
                     dataFilterImage.map((item, i) => {
                         if (item.image) {
-                            dataFilterImage[i]["image"] = '=HYPERLINK("[' + axios.defaults.baseURL + "/" + item.image + ']")';
+                            dataFilterImage[i]["image"] = '=HYPERLINK("' + axios.defaults.baseURL + "/" + item.image + '")';
                         }
                     })
                     setData(dataFilterImage)
-                    // console.log("working", dataFilterImage)
+                    console.log("working", dataFilterImage)
                     setLoading(true)
                 }
 
@@ -364,7 +364,7 @@ function Dashboard() {
                 if (dataFilterImage.length > 0) {
                     dataFilterImage.map((item, i) => {
                         if (item.image) {
-                            dataFilterImage[i]["image"] = '=HYPERLINK("[' + axios.defaults.baseURL + "/" + item.image + ']")';
+                            dataFilterImage[i]["image"] = '=HYPERLINK("' + axios.defaults.baseURL + "/" + item.image + '")';
                         }
                     })
                     setDataVacant(dataFilterImage)
