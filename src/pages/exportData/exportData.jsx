@@ -346,7 +346,7 @@ function Dashboard() {
                         }
                     })
                     setData(dataFilterImage)
-                    console.log("working", dataFilterImage)
+                    // console.log("working", dataFilterImage)
                     setLoading(true)
                 }
 
