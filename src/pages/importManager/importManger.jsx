@@ -85,7 +85,8 @@ function Dashboard() {
     const [file, setFile] = React.useState("");
     const [optionSelected, setOptionSelected] = React.useState(null);
     const [optionSelectedOr, setOptionSelectedOr] = React.useState(null);
-
+    const [JobType, setJobType] = React.useState(null);
+    // 
     const selecHandleChange = (selected) => {
         setOptionSelected(selected)
 
@@ -119,6 +120,7 @@ function Dashboard() {
                 array.push(item.value)
             })
             data.append("data", file);
+            data.append("jobType", JobType);
             data.append("columns", `"${array}"`);
             axios
                 // detailIndex
@@ -145,8 +147,8 @@ function Dashboard() {
         }
     }
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        console.log(name, 'name', value, 'value')
+        const { value } = e.target;
+        // console.log(name, 'name', value, 'value')
         setOptionSelectedOr(
             value
         );
@@ -179,6 +181,10 @@ function Dashboard() {
                         allowSelectAll={true}
                         value={optionSelected}
                     />}
+                    <div className="input-div">
+                        <input type="text" className="input-div-input" placeholder="Job Type" value={JobType} required onChange={(e) => setJobType(e.target.value)} />
+                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                    </div>
                     {optionSelectedOr === "vacants" &&
                         < MySelect
                             options={VacantsArrayOptions}

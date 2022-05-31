@@ -368,7 +368,7 @@ function Dashboard() {
                         }
                     })
                     setDataVacant(dataFilterImage)
-                    // console.log("working", dataFilterImage)
+                    console.log("vacant", dataFilterImage)
 
                     setLoadingVacant(true)
                 }
