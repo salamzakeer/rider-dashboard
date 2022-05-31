@@ -171,6 +171,10 @@ function Dashboard() {
                         <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly" />
                         <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
                     </div>
+                    <div className="input-div">
+                        <input type="text" className="input-div-input" placeholder="Job Type" value={JobType} required onChange={(e) => setJobType(e.target.value)} />
+                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                    </div>
                     {optionSelectedOr === "lnds" && <MySelect
                         options={LndArrayOptions}
                         isMulti
@@ -181,10 +185,7 @@ function Dashboard() {
                         allowSelectAll={true}
                         value={optionSelected}
                     />}
-                    <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="Job Type" value={JobType} required onChange={(e) => setJobType(e.target.value)} />
-                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
-                    </div>
+                   
                     {optionSelectedOr === "vacants" &&
                         < MySelect
                             options={VacantsArrayOptions}
