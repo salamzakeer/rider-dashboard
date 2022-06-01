@@ -87,11 +87,11 @@ function Dashboard() {
                         <option name='VACAT' value='VACAT' >VACAT</option>
                     </select>
                     <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="Task Type" value={Option == 'LND' ? "LND" : (Option === "VACAT" ? "VACAT" : "")} />
+                        <input type="text" className="input-div-input" placeholder="Task Type" value={Option === 'LND' ? "LND" : (Option === "VACAT" ? "VACAT" : "")} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
                     <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="Date" value={Option == 'LND' ? "2022-12-12" : (Option === "VACAT" ? "2022-6-12" : "")} />
+                        <input type="text" className="input-div-input" placeholder="Date" value={Option === 'LND' ? "2022-12-12" : (Option === "VACAT" ? "2022-6-12" : "")} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
                     <select class="form-select" aria-label="Default select example" onChange={handleStaffChange}>

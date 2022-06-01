@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import ChangePassword from '../../components/Modal/userprofile/changePassword';
 
-import CancelBtn from '../../assets/cancel.png'
+// import CancelBtn from '../../assets/cancel.png'
 
 // import FileUploader from '../../components/buttons/FileUploader';
 

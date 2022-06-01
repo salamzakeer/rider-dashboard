@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { ToastProvider } from "react-toast-notifications";
-
 import { AuthProvider } from "./state/Auth";
 import reducer, { initialState } from "./state/Authreducer";
 

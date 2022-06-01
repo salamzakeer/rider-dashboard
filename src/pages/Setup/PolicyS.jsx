@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-
-import Navbar from "../../components/navbar/navbar";
-import Sidebar from "../../components/sidebar/sidebar";
 import SetupNav from "../../components/setupNav/setupNav";
 import Updatepolicy from '../../components/Modal/updatePolicy';
 

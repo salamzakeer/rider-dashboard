@@ -5,15 +5,6 @@ import { Link } from 'react-router-dom';
 import MenuPic from '../../assets/menu.png'
 // import Close from '../../assets/close.png'
 import { useLocation } from 'react-router-dom';
-// import type { Location, Params } from 'react-router-dom';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-import People from '@mui/icons-material/People';
-import PermMedia from '@mui/icons-material/PermMedia';
-import Dns from '@mui/icons-material/Dns';
-import Public from '@mui/icons-material/Public';
-import Box from '@mui/material/Box';
 
 function Sidebar(props) {
     const location = useLocation();

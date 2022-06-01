@@ -12,7 +12,7 @@ const colourStyles = {
     border: "1px solid #ccc !important",
   }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    const color = "red";
+    // const color = "red";
     return {
       ...styles,
       backgroundColor: isDisabled ? "#fff" : "#ffff",

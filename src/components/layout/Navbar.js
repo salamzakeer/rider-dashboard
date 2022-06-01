@@ -7,7 +7,7 @@ import SideNavigation from "./sideLink";
 import { Link } from "react-router-dom";
 
 import ProfilePic from "../../assets/Mask Group 5.png";
-import DownPic from "../../assets/down-filled-triangular-arrow.png";
+// import DownPic from "../../assets/down-filled-triangular-arrow.png";
 
 class Layout extends React.Component {
   constructor(props) {

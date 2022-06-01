@@ -340,11 +340,10 @@ function Dashboard() {
                 let dataFilterImage = [];
                 dataFilterImage = res.data;
                 if (dataFilterImage.length > 0) {
-                    dataFilterImage.map((item, i) => {
-                        if (item.image) {
-                            dataFilterImage[i]["image"] = '=HYPERLINK("' + axios.defaults.baseURL + "/lnd/" + item.image + '")';
-                        }
-                    })
+                    dataFilterImage.map((item, i) => (
+                        item.image ?
+                            dataFilterImage[i]["image"] = '=HYPERLINK("' + axios.defaults.baseURL + "/lnd/" + item.image + '")' : ""
+                    ))
                     setData(dataFilterImage)
                     // console.log("working", dataFilterImage)
                     setLoading(true)
@@ -362,11 +361,10 @@ function Dashboard() {
                 let dataFilterImage = [];
                 dataFilterImage = res.data;
                 if (dataFilterImage.length > 0) {
-                    dataFilterImage.map((item, i) => {
-                        if (item.image) {
-                            dataFilterImage[i]["image"] = '=HYPERLINK("' + axios.defaults.baseURL + "/vacant/" + item.image + '")';
-                        }
-                    })
+                    dataFilterImage.map((item, i) => (
+                        item.image ? dataFilterImage[i]["image"] = '=HYPERLINK("' + axios.defaults.baseURL + "/vacant/" + item.image + '")' : ""
+
+                    ))
                     setDataVacant(dataFilterImage)
                     console.log("vacant", dataFilterImage)
 
@@ -387,8 +385,8 @@ function Dashboard() {
 
                 {/* {
                     Loading && */}
-                <CsvDownloader filename="myfile"
-                    extension=".csv"
+                <CsvDownloader filename="LND"
+                    extension=".xlsx"
                     // image setup
                     // columns={columns}
                     // datas={datas}
@@ -409,7 +407,7 @@ function Dashboard() {
 
                 <Typography variant="h5" > VACANT DATA</Typography>
                 {/* {LoadingVacant && */}
-                <CsvDownloader filename="myfile"
+                <CsvDownloader filename="VACANT"
                     extension=".csv"
                     columns={dataVacantArray}
                     datas={dataVacant}

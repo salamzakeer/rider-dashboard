@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./navbar.css";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function SideNavigation(props) {
   const location = useLocation();
   const path = location.pathname;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   return (
     <ul className="nav-links">
       {/* {path} */}

@@ -4,12 +4,12 @@ import makeAnimated from "react-select/animated";
 import MySelect from "../../components/select/select";
 import { components } from "react-select";
 import { useToasts } from 'react-toast-notifications';
-
+import Datapicker from '../../components/customCore/datapicker'
 import UploadIcon from '../../assets/upload.png'
 import axios from '../../axios'
 import "./importManger.css"
 import Layout from "../../components/layout/Navbar";
-
+import moment from 'moment'
 const Option = (props) => {
     return (
         <div>
@@ -86,6 +86,8 @@ function Dashboard() {
     const [optionSelected, setOptionSelected] = React.useState(null);
     const [optionSelectedOr, setOptionSelectedOr] = React.useState(null);
     const [JobType, setJobType] = React.useState(null);
+    const [DueDate, setDueDate] = React.useState(new Date("02/22/2021"));
+    const [CurrentDate, setCurrentDate] = React.useState(new Date("02/22/2021"));
     // 
     const selecHandleChange = (selected) => {
         setOptionSelected(selected)
@@ -109,6 +111,8 @@ function Dashboard() {
 
 
     let handleSubmit = (event) => {
+        console.log("======================")
+        event.preventDefault()
         console.log("form submit", optionSelectedOr);
         if (optionSelectedOr !== "" && optionSelectedOr !== "Type") {
             console.log("form submit2", optionSelectedOr);
@@ -116,12 +120,14 @@ function Dashboard() {
             event.preventDefault();
 
             var array = [];
-            optionSelected.map((item) => {
+            optionSelected.map((item) => (
                 array.push(item.value)
-            })
+            ))
             data.append("data", file);
+            data.append("dueDate", moment(DueDate).format("YYYY-MM-DD"));
+            data.append("createdDate", moment(CurrentDate).format("YYYY-MM-DD"));
             data.append("jobType", JobType);
-            data.append("columns", `"${array}"`);
+            data.append("columns", `${array}`);
             axios
                 // detailIndex
                 .post(`/${optionSelectedOr}`, data, {
@@ -135,11 +141,15 @@ function Dashboard() {
                     (res) => {
                         // var id = res.id;
                         // setProgress("");
+                        console.log("res.data")
+                        console.log(res)
+                        console.log(res)
                         addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
 
                     }
                 )
                 .catch((error) => {
+                    console.log(error)
                     addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
 
                     // sendNotification({ msg: "There was an error!", variant: "error" });
@@ -147,12 +157,16 @@ function Dashboard() {
         }
     }
     const handleInputChange = (e) => {
+
         const { value } = e.target;
         // console.log(name, 'name', value, 'value')
         setOptionSelectedOr(
             value
         );
     };
+    // console.log('hi')
+    // console.log(moment(DueDate).format("DD-MM-YYYY"));
+
     return (
         <Layout >
 
@@ -185,7 +199,7 @@ function Dashboard() {
                         allowSelectAll={true}
                         value={optionSelected}
                     />}
-                   
+
                     {optionSelectedOr === "vacants" &&
                         < MySelect
                             options={VacantsArrayOptions}
@@ -198,9 +212,20 @@ function Dashboard() {
                             value={optionSelected}
                         />
                     }
-
-
-
+                    <Datapicker
+                        name="duedate"
+                        value={DueDate}
+                        label="Due Date"
+                        onChange={(e) => setDueDate(e)}
+                        required
+                    />
+                    <Datapicker
+                        name="currentdate"
+                        value={CurrentDate}
+                        label="Current Date"
+                        onChange={(e) => setCurrentDate(e)}
+                        required
+                    />
                     <button type="submit" className="submit3">Submit</button>
                 </form>
             </div>

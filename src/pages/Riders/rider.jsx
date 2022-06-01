@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import axios from '../../axios';
-
-import Sidebar from "../../components/sidebar/sidebar";
-import Navbar from "../../components/navbar/navbar";
 import AddRider from '../../components/Modal/AddRiderPopup';
 
 import ProfilePic from '../../assets/Mask Group 5.png'
 import DeleteBtn from '../../assets/delete.png'
 import Layout from "../../components/layout/Navbar";
-
-
 import "./rider.css"
-import Dialog from '@mui/material/Dialog';
-
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 
@@ -62,9 +55,6 @@ theme.typography.h1 = {
   },
 
 };
-function createData(I, ID, Name, Email) {
-  return { I, ID, Name, Email };
-}
 
 // ===================================================================
 // const handleApi = () => {
@@ -91,23 +81,14 @@ function createData(I, ID, Name, Email) {
 
 
 // ====================================================================
-const rows = [
-  createData('001', 'RD001', 'Banna Andrian', 'Bannaandrian@gmail.com'),
-  createData('001', 'RD002', 'Elver Andries', 'Elverandries@gmail.com'),
-  createData('001', 'RD003', 'Andria Elvera', 'Andriaelvera@gmail.com'),
-  createData('001', 'RD004', 'Bangaly Andriana', 'Bangalyandriana@gmail.com'),
-  createData('001', 'RD005', 'Andris Banta', 'Andrisbanta@gmail.com'),
-];
+
 
 function Newrider() {
   const [openModel, setOpenModel] = useState(false);
   const [Loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  const modelClose = () => {
-    console.log("close model")
-    setOpenModel(false)
-  }
+
 
   useEffect(() => {
     axios.get('/rider')
