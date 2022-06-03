@@ -327,14 +327,19 @@ function Dashboard() {
     const style = useStyles()
     const [Loading, setLoading] = useState(false);
     const [LoadingVacant, setLoadingVacant] = useState(false);
+    const [LoadingHighrises, setLoadingHighrises] = useState(false);
+    const [LoadingCommercials, setLoadingCommercials] = useState(false);
     const [data, setData] = useState([]);
     const [dataVacant, setDataVacant] = useState([]);
-
+    const [dataHighrises, setDataHighrises] = useState([]);
+    const [dataCommercials, setDataCommercials] = useState([]);
+    // highrises/export
+    // commercials/export
 
 
     useEffect(() => {
         // console.log(axios.defaults.baseURL)
-        axios.get('/lnds')
+        axios.get('/lnds/export')
             .then(res => {
                 // console.log(res.data)
                 let dataFilterImage = [];
@@ -371,8 +376,6 @@ function Dashboard() {
                             multiImage.map((item, i) => {
                                 multiImage[i] = '=HYPERLINK("' + axios.defaults.baseURL + "/vacant/" + item + '")'
                             })
-                            console.log("multiImage", multiImage)
-                            // if (item.image) {
                             dataFilterImage[i]["image"] = multiImage
                         }
                     })
@@ -384,8 +387,71 @@ function Dashboard() {
 
             })
             .catch(error => {
-                console.log("error")
+                // console.log("error")
                 setLoadingVacant(true)
+            })
+        // highrises
+        axios.get('/highrises/export')
+            .then(res => {
+                console.log(res.data, "highrises")
+
+                let dataFilterImage = [];
+                dataFilterImage = res.data;
+                // console.log(res.data)
+                if (dataFilterImage.length >= 0) {
+                    dataFilterImage.map((item, i) => {
+                        // console.log(item.multiImage);
+                        if (item.multiImage) {
+                            var multiImage = item.multiImage
+                            multiImage = multiImage.split(",");
+
+                            multiImage.map((item, i) => {
+                                multiImage[i] = '=HYPERLINK("' + axios.defaults.baseURL + "/vacant/" + item + '")'
+                            })
+                            dataFilterImage[i]["image"] = multiImage
+                        }
+                    })
+                    setDataHighrises(dataFilterImage)
+                    // console.log("vacant", dataFilterImage)
+
+                    setLoadingHighrises(true)
+                }
+
+            })
+            .catch(error => {
+                // console.log("error")
+                setLoadingHighrises(true)
+            })
+        // commercials
+        axios.get('/commercials/export')
+            .then(res => {
+                // console.log(res.data)
+                let dataFilterImage = [];
+                dataFilterImage = res.data;
+                console.log(res.data, "commercial")
+                if (dataFilterImage.length >= 0) {
+                    dataFilterImage.map((item, i) => {
+                        // console.log(item.multiImage);
+                        if (item.multiImage) {
+                            var multiImage = item.multiImage
+                            multiImage = multiImage.split(",");
+
+                            multiImage.map((item, i) => {
+                                multiImage[i] = '=HYPERLINK("' + axios.defaults.baseURL + "/vacant/" + item + '")'
+                            })
+                            dataFilterImage[i]["image"] = multiImage
+                        }
+                    })
+                    setDataCommercials(dataFilterImage)
+                    // console.log("vacant", dataFilterImage)
+
+                    setLoadingCommercials(true)
+                }
+
+            })
+            .catch(error => {
+                console.log("error")
+                setLoadingCommercials(true)
             })
     }, [])
 
@@ -393,15 +459,8 @@ function Dashboard() {
         <Layout title="Export">
             <div className={style.dataTable} >
                 <Typography variant="h5" > LND DATA</Typography>
-
-                {/* {
-                    Loading && */}
                 <CsvDownloader filename="LND"
                     extension=".csv"
-                    // image setup
-                    // columns={columns}
-                    // datas={datas}
-                    // orginal
                     columns={LndCsvDataHeader}
                     datas={data}
                     text="DOWNLOAD"
@@ -415,9 +474,7 @@ function Dashboard() {
 
             <br />
             <div className={style.dataTable} >
-                {/* {JSON.stringify(LoadingVacant)} */}
                 <Typography variant="h5" > VACANT DATA</Typography>
-                {/* {LoadingVacant && */}
                 <CsvDownloader filename="VACANT"
                     extension=".csv"
                     columns={dataVacantArray}
@@ -426,6 +483,34 @@ function Dashboard() {
                     suffix
                 >
                     <button className={style.btn}>{LoadingVacant ? 'Download' : <CircularProgress color="inherit" />}</button>
+                </CsvDownloader>
+                {/* } */}
+            </div>
+            <br />
+            <div className={style.dataTable} >
+                <Typography variant="h5" >  COMMERCIAL </Typography>
+                <CsvDownloader filename="COMMERCIAL"
+                    extension=".csv"
+                    columns={LndCsvDataHeader}
+                    datas={dataCommercials}
+                    text="DOWNLOAD"
+                    suffix
+                >
+                    <button className={style.btn}>{LoadingCommercials ? 'Download' : <CircularProgress color="inherit" />}</button>
+                </CsvDownloader>
+                {/* } */}
+            </div>
+            <br />
+            <div className={style.dataTable} >
+                <Typography variant="h5" >   HIGHRISES </Typography>
+                <CsvDownloader filename="HIGHRISES"
+                    extension=".csv"
+                    columns={LndCsvDataHeader}
+                    datas={dataHighrises}
+                    text="DOWNLOAD"
+                    suffix
+                >
+                    <button className={style.btn}>{LoadingHighrises ? 'Download' : <CircularProgress color="inherit" />}</button>
                 </CsvDownloader>
                 {/* } */}
             </div>

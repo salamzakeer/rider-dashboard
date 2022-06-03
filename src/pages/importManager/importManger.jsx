@@ -177,7 +177,9 @@ function Dashboard() {
                         <option name='' value='' selected>Type</option>
                         <option name='lnds' value='lnds' >LANDED</option>
                         <option name='vacants' value='vacants' >VACANTS</option>
-
+                        {/* lnds same data to comercial and highrises  */}
+                        <option name='commercials' value='commercials' >COMMERCIAL</option>
+                        <option name='highrises' value='highrises' >HIGHRISES</option>
                     </select>
                     <div className="input-div" dataText="Select your file">
                         <input type="file" className="input-div-3" onChange={handleUpload} />
@@ -189,16 +191,18 @@ function Dashboard() {
                         <input type="text" className="input-div-input" placeholder="Job Type" value={JobType} required onChange={(e) => setJobType(e.target.value)} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
-                    {optionSelectedOr === "lnds" && <MySelect
-                        options={LndArrayOptions}
-                        isMulti
-                        closeMenuOnSelect={false}
-                        hideSelectedOptions={false}
-                        components={{ Option, MultiValue, animatedComponents }}
-                        onChange={selecHandleChange}
-                        allowSelectAll={true}
-                        value={optionSelected}
-                    />}
+                    {/* {optionSelectedOr} */}
+                    {(optionSelectedOr === "lnds" || optionSelectedOr === "commercials" ||
+                        optionSelectedOr === "highrises") && <MySelect
+                            options={LndArrayOptions}
+                            isMulti
+                            closeMenuOnSelect={false}
+                            hideSelectedOptions={false}
+                            components={{ Option, MultiValue, animatedComponents }}
+                            onChange={selecHandleChange}
+                            allowSelectAll={true}
+                            value={optionSelected}
+                        />}
 
                     {optionSelectedOr === "vacants" &&
                         < MySelect
