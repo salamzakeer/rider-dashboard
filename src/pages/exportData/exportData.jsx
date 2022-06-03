@@ -355,16 +355,27 @@ function Dashboard() {
                 console.log(error)
                 setLoading(true)
             })
-        axios.get('/vacants')
+        axios.get('/vacants/export')
             .then(res => {
                 // console.log(res.data)
                 let dataFilterImage = [];
                 dataFilterImage = res.data;
+                console.log(res.data)
                 if (dataFilterImage.length >= 0) {
-                    dataFilterImage.map((item, i) => (
-                        item.image ? dataFilterImage[i]["image"] = '=HYPERLINK("' + axios.defaults.baseURL + "/vacant/" + item.image + '")' : ""
+                    dataFilterImage.map((item, i) => {
+                        // console.log(item.multiImage);
+                        if (item.multiImage) {
+                            var multiImage = item.multiImage
+                            multiImage = multiImage.split(",");
 
-                    ))
+                            multiImage.map((item, i) => {
+                                multiImage[i] = '=HYPERLINK("' + axios.defaults.baseURL + "/vacant/" + item + '")'
+                            })
+                            console.log("multiImage", multiImage)
+                            // if (item.image) {
+                            dataFilterImage[i]["image"] = multiImage
+                        }
+                    })
                     setDataVacant(dataFilterImage)
                     console.log("vacant", dataFilterImage)
 
@@ -386,7 +397,7 @@ function Dashboard() {
                 {/* {
                     Loading && */}
                 <CsvDownloader filename="LND"
-                    extension=".xlsx"
+                    extension=".csv"
                     // image setup
                     // columns={columns}
                     // datas={datas}

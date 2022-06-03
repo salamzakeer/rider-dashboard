@@ -175,7 +175,7 @@ function Dashboard() {
                 <form onSubmit={handleSubmit}>
                     <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} required="required" >
                         <option name='' value='' selected>Type</option>
-                        <option name='lnds' value='lnds' >LND</option>
+                        <option name='lnds' value='lnds' >LANDED</option>
                         <option name='vacants' value='vacants' >VACANTS</option>
 
                     </select>
