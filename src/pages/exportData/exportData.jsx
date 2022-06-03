@@ -360,7 +360,7 @@ function Dashboard() {
                 // console.log(res.data)
                 let dataFilterImage = [];
                 dataFilterImage = res.data;
-                if (dataFilterImage.length > 0) {
+                if (dataFilterImage.length >= 0) {
                     dataFilterImage.map((item, i) => (
                         item.image ? dataFilterImage[i]["image"] = '=HYPERLINK("' + axios.defaults.baseURL + "/vacant/" + item.image + '")' : ""
 
@@ -373,7 +373,7 @@ function Dashboard() {
 
             })
             .catch(error => {
-                // console.log(error)
+                console.log("error")
                 setLoadingVacant(true)
             })
     }, [])
@@ -404,7 +404,7 @@ function Dashboard() {
 
             <br />
             <div className={style.dataTable} >
-
+                {/* {JSON.stringify(LoadingVacant)} */}
                 <Typography variant="h5" > VACANT DATA</Typography>
                 {/* {LoadingVacant && */}
                 <CsvDownloader filename="VACANT"
