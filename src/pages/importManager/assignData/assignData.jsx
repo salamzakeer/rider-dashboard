@@ -39,7 +39,9 @@ function Dashboard() {
             "type": Option,
             "dataFrom": Form,
             "dataTo": To,
-            "riderId": RiderId
+            "riderId": RiderId,
+            "createdDate": "2021-12-01",
+            "dueDate": "2021-12-01",
         }
         // var array = [];
         // optionSelected.map((item) => {
@@ -83,15 +85,17 @@ function Dashboard() {
                 <form onSubmit={handleSubmit}>
                     <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} value={"Option"}>
                         <option selected>Task Info</option>
-                        <option name='LND' value='LND' >LND</option>
-                        <option name='VACAT' value='VACAT' >VACAT</option>
+                        <option name='LND' value='lnds' >LND</option>
+                        <option name='VACAT' value='vacant' >VACAT</option>
+                        <option name='COMMERCIAL' value='commercial' >COMMERCIAL</option>
+                        <option name='HIGHRISES' value='highrise' >HIGHRISES</option>
                     </select>
                     <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="Task Type" value={Option === 'LND' ? "LND" : (Option === "VACAT" ? "VACAT" : "")} />
+                        <input type="text" className="input-div-input" placeholder="Task Type" value={Option === 'lnds' ? "LND" : (Option === "vacant" ? "VACAT" : (Option === "commercial" ? "COMMERCIAL" : (Option === "highrise" ? "HIGHRISE" : "")))} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
                     <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="Date" value={Option === 'LND' ? "2022-12-12" : (Option === "VACAT" ? "2022-6-12" : "")} />
+                        <input type="text" className="input-div-input" placeholder="Date" value={Option === 'lnds' ? "2022-12-12" : (Option === "vacant" ? "2022-6-12" : Option === 'commercial' ? "2022-12-12" : (Option === "highrise" ? "2022-6-12" : ""))} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
                     <select class="form-select" aria-label="Default select example" onChange={handleStaffChange}>

@@ -12,8 +12,8 @@ function App() {
     //if user
     // console.log("running app effect");
     async function checkUser() {
-      if (localStorage.getItem("auth")) {
-        const data = await localStorage.getItem("auth");
+      if (localStorage.getItem("userInfor")) {
+        const data = await localStorage.getItem("userInfor");
         // console.log(localStorage.getItem("auth"), "/////");
         // setUserDataJson(JSON.parse(localStorage.getItem("auth")));
         setIsUser(true);

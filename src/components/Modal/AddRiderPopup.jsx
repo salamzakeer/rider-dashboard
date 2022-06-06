@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../axios';
+// import axios from 'axios';
 import './AddRider.css'
 import CloseIcon from '@mui/icons-material/Close';
 // import CancelBtn from '../../assets/cancel.png'
@@ -31,13 +32,15 @@ function AddRiderPopup({ closeModel }) {
             email: email,
             password: password
         };
-        axios.post('https://dcaapi.moodfor.codes/rider/register', json)
+        axios.post('/rider/register', json)
             .then(result => {
                 // console.log(result)
                 // if(result.errorMessage == false){
                 console.log(result)
                 addToast("Successfully Login", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
-                closeModel(false)
+                // closeModel(false)
+                window.location.reload(false)
+
                 // window.location = "/dashboard"
                 // }else{
                 //     console.log("logged error")
