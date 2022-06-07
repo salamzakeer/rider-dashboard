@@ -85,13 +85,13 @@ function Dashboard() {
                 <form onSubmit={handleSubmit}>
                     <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} value={"Option"}>
                         <option selected>Task Info</option>
-                        <option name='LND' value='lnds' >LND</option>
-                        <option name='VACAT' value='vacant' >VACAT</option>
+                        <option name='LND' value='lnds' >LANDED</option>
+                        <option name='VACAT' value='vacant' >VACANTS</option>
                         <option name='COMMERCIAL' value='commercial' >COMMERCIAL</option>
                         <option name='HIGHRISES' value='highrise' >HIGHRISES</option>
                     </select>
                     <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="Task Type" value={Option === 'lnds' ? "LND" : (Option === "vacant" ? "VACAT" : (Option === "commercial" ? "COMMERCIAL" : (Option === "highrise" ? "HIGHRISE" : "")))} />
+                        <input type="text" className="input-div-input" placeholder="Task Type" value={Option === 'lnds' ? "LANDED" : (Option === "vacant" ? "VACANTS" : (Option === "commercial" ? "COMMERCIAL" : (Option === "highrise" ? "HIGHRISE" : "")))} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
                     <div className="input-div">

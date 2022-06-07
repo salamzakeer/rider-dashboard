@@ -188,7 +188,7 @@ function Dashboard() {
                         <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
                     </div>
                     <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="Job Type" value={JobType} required onChange={(e) => setJobType(e.target.value)} />
+                        <input type="text" className="input-div-input" placeholder="Job Name" value={JobType} required onChange={(e) => setJobType(e.target.value)} />
                         {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                     </div>
                     {/* {optionSelectedOr} */}
@@ -216,18 +216,19 @@ function Dashboard() {
                             value={optionSelected}
                         />
                     }
-                    <Datapicker
-                        name="duedate"
-                        value={DueDate}
-                        label="Due Date"
-                        onChange={(e) => setDueDate(e)}
-                        required
-                    />
+
                     <Datapicker
                         name="currentdate"
                         value={CurrentDate}
                         label="Current Date"
                         onChange={(e) => setCurrentDate(e)}
+                        required
+                    />
+                    <Datapicker
+                        name="duedate"
+                        value={DueDate}
+                        label="Due Date"
+                        onChange={(e) => setDueDate(e)}
                         required
                     />
                     <button type="submit" className="submit3">Submit</button>
