@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://dcaapi.moodfor.codes",
+  baseURL: "https://dcaapi.moodfor.codes",
 
   withCredentials: false,
   headers: {
