@@ -33,7 +33,7 @@ function Login() {
             password: password
 
         };
-        axios.post('rider/login', json)
+        axios.post('admin/login', json)
             .then(result => {
                 saveTokenLocalStorage(result.data);
                 addToast("Successfully Login", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
