@@ -27,10 +27,13 @@ function AddRiderPopup({ closeModel }) {
 
     const handleApi = () => {
         console.log({ fullName, email, password })
+        const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || ''
+
         const json = {
             fullName: fullName,
             email: email,
-            password: password
+            password: password,
+            adminId: AdminId
         };
         axios.post('/rider/register', json)
             .then(result => {

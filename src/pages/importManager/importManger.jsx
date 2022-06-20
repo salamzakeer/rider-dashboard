@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import 'react-toastify/dist/ReactToastify.css'; // import first
 import makeAnimated from "react-select/animated";
 import MySelect from "../../components/select/select";
@@ -86,8 +86,22 @@ function Dashboard() {
     const [optionSelected, setOptionSelected] = React.useState(null);
     const [optionSelectedOr, setOptionSelectedOr] = React.useState(null);
     const [JobType, setJobType] = React.useState(null);
+    const [Category, setCategory] = React.useState([]);
     const [DueDate, setDueDate] = React.useState(new Date("02/22/2021"));
+    const [ReportDate, setReportDate] = React.useState(new Date("02/22/2021"));
+
     const [CurrentDate, setCurrentDate] = React.useState(new Date("02/22/2021"));
+
+    // useEffect(() => {
+    //     axios.get(`/jobname/${optionSelectedOr}/${AdminId}`)
+    //         .then((res) => {
+    //             console.log(res.data, 'data')
+    //             setCategory(res.data)
+    //         })
+    //         .catch((err => {
+    //             console.log(err, 'error')
+    //         }))
+    // }, [optionSelectedOr])
     // 
     const selecHandleChange = (selected) => {
         setOptionSelected(selected)
@@ -105,9 +119,9 @@ function Dashboard() {
     }
 
     //end-upload file
+    const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || ''
 
-
-
+    console.log(AdminId, "AdminId")
 
 
     let handleSubmit = (event) => {
@@ -126,8 +140,13 @@ function Dashboard() {
             data.append("data", file);
             data.append("dueDate", moment(DueDate).format("YYYY-MM-DD"));
             data.append("createdDate", moment(CurrentDate).format("YYYY-MM-DD"));
-            data.append("jobType", JobType);
+            data.append("reportDate", moment(CurrentDate).format("YYYY-MM-DD"));
+
+            data.append("jobName", JobType);
             data.append("columns", `${array}`);
+            data.append("adminId", AdminId);
+            data.append("category", optionSelectedOr);
+
             axios
                 // detailIndex
                 .post(`/${optionSelectedOr}`, data, {
@@ -181,6 +200,16 @@ function Dashboard() {
                         <option name='commercials' value='commercials' >COMMERCIAL</option>
                         <option name='highrises' value='highrises' >HIGHRISES</option>
                     </select>
+                    {/* Category setting */}
+                    {/* {Category && Category.length < 0 &&
+                        <>
+                            <br />
+                            <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} required="required" >
+                                <option name='' value='' selected>Type</option>
+
+                            </select>
+                        </>
+                    } */}
                     <div className="input-div" dataText="Select your file">
                         <input type="file" className="input-div-3" onChange={handleUpload} />
                         {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
@@ -229,6 +258,13 @@ function Dashboard() {
                         value={DueDate}
                         label="Due Date"
                         onChange={(e) => setDueDate(e)}
+                        required
+                    />
+                    <Datapicker
+                        name="reportdate"
+                        value={ReportDate}
+                        label="Report Date"
+                        onChange={(e) => setReportDate(e)}
                         required
                     />
                     <button type="submit" className="submit3">Submit</button>
