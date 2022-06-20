@@ -125,7 +125,7 @@ function Dashboard() {
                         <option selected>Task Info</option>
                         <option name='LND' value='lnds' >LANDED</option>
                         <option name='VACAT' value='vacants' >VACANTS</option>
-                        <option name='COMMERCIAL' value='commercial' >COMMERCIAL</option>
+                        <option name='COMMERCIAL' value='commercials' >COMMERCIAL</option>
                         <option name='HIGHRISES' value='highrises' >HIGHRISES</option>
                     </select>
                     <br />

@@ -196,7 +196,7 @@ function Dashboard() {
                         <option name='' value='' selected>Type</option>
                         <option name='lnds' value='lnds' >LANDED</option>
                         <option name='vacants' value='vacants' >VACANTS</option>
-                        {/* lnds same data to comercial and highrises  */}
+                        {/* lnds same data to comercial and highrises commercials  */}
                         <option name='commercials' value='commercials' >COMMERCIAL</option>
                         <option name='highrises' value='highrises' >HIGHRISES</option>
                     </select>
