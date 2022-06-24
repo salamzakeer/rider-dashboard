@@ -10,6 +10,8 @@ import axios from '../../axios'
 import "./importManger.css"
 import Layout from "../../components/layout/Navbar";
 import moment from 'moment'
+import { makeStyles } from "@material-ui/core";
+
 const Option = (props) => {
     return (
         <div>
@@ -78,8 +80,34 @@ const VacantsArrayOptions = [
     { value: "CURRENT_CLASS", label: "CURRENT CLASS", color: "#FF5630" },
 ];
 const animatedComponents = makeAnimated();
+const useStyles = makeStyles(theme => (
+    {
+        formMain: {
+            display: "flex",
+            justifyContent: "space-between",
+
+            // backgroundColor: "red",
+            [theme.breakpoints.down('md')]: {
+                // backgroundColor: "green",
+                flexDirection: "column"
+
+            },
+        },
+        label: {
+            paddingLeft: "40px",
+            fontSize: "24px",
+            color: "#00000A",
+            opacity: "0.6",
+            fontWeight: 600,
+        },
+        lnds: {
+            // display: "flex"
+            maxWidth: "500px"
+        }
+    }));
 function Dashboard() {
     const { addToast } = useToasts();
+    const classes = useStyles();
 
     //upload file
     const [file, setFile] = React.useState("");
@@ -192,83 +220,89 @@ function Dashboard() {
             <div className="newFile2">
                 <h1>Importing .XL File</h1>
                 <form onSubmit={handleSubmit}>
-                    <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} required="required" >
-                        <option name='' value='' selected>Type</option>
-                        <option name='lnds' value='lnds' >LANDED</option>
-                        <option name='vacants' value='vacants' >VACANTS</option>
-                        {/* lnds same data to comercial and highrises commercials  */}
-                        <option name='commercials' value='commercials' >COMMERCIAL</option>
-                        <option name='highrises' value='highrises' >HIGHRISES</option>
-                    </select>
-                    {/* Category setting */}
-                    {/* {Category && Category.length < 0 &&
-                        <>
-                            <br />
+                    <div className={classes.formMain} >
+                        <div className={classes.formMainDiv} >
+                            <label className={classes.label}>{"Type"}</label>
                             <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} required="required" >
                                 <option name='' value='' selected>Type</option>
-
+                                <option name='lnds' value='lnds' >LANDED</option>
+                                <option name='vacants' value='vacants' >VACANTS</option>
+                                {/* lnds same data to comercial and highrises commercials  */}
+                                <option name='commercials' value='commercials' >COMMERCIAL</option>
+                                <option name='highrises' value='highrises' >HIGHRISES</option>
                             </select>
-                        </>
-                    } */}
-                    <div className="input-div" dataText="Select your file">
-                        <input type="file" className="input-div-3" onChange={handleUpload} />
-                        {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
-                        <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly" />
-                        <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
-                    </div>
-                    <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="Job Name" value={JobType} required onChange={(e) => setJobType(e.target.value)} />
-                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
-                    </div>
-                    {/* {optionSelectedOr} */}
-                    {(optionSelectedOr === "lnds" || optionSelectedOr === "commercials" ||
-                        optionSelectedOr === "highrises") && <MySelect
-                            options={LndArrayOptions}
-                            isMulti
-                            closeMenuOnSelect={false}
-                            hideSelectedOptions={false}
-                            components={{ Option, MultiValue, animatedComponents }}
-                            onChange={selecHandleChange}
-                            allowSelectAll={true}
-                            value={optionSelected}
-                        />}
+                            <label className={classes.label}>{"Upload File"}</label>
 
-                    {optionSelectedOr === "vacants" &&
-                        < MySelect
-                            options={VacantsArrayOptions}
-                            isMulti
-                            closeMenuOnSelect={false}
-                            hideSelectedOptions={false}
-                            components={{ Option, MultiValue, animatedComponents }}
-                            onChange={selecHandleChange}
-                            allowSelectAll={true}
-                            value={optionSelected}
-                        />
-                    }
+                            <div className="input-div" dataText="Select your file">
+                                <input type="file" className="input-div-3" onChange={handleUpload} />
+                                {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
+                                <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly" />
+                                <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
+                            </div>
+                            <label className={classes.label}>{"Job Name"}</label>
 
-                    <Datapicker
-                        name="currentdate"
-                        value={CurrentDate}
-                        label="Current Date"
-                        onChange={(e) => setCurrentDate(e)}
-                        required
-                    />
-                    <Datapicker
-                        name="duedate"
-                        value={DueDate}
-                        label="Due Date"
-                        onChange={(e) => setDueDate(e)}
-                        required
-                    />
-                    <Datapicker
-                        name="reportdate"
-                        value={ReportDate}
-                        label="Report Date"
-                        onChange={(e) => setReportDate(e)}
-                        required
-                    />
-                    <button type="submit" className="submit3">Submit</button>
-                </form>
+                            <div className="input-div">
+                                <input type="text" className="input-div-input" placeholder="Job Name" value={JobType} required onChange={(e) => setJobType(e.target.value)} />
+                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                            </div>
+                            {/* {optionSelectedOr} */}
+                            <br />
+                            <br />
+                            <div className={classes.lnds}>
+                                {(optionSelectedOr === "lnds" || optionSelectedOr === "commercials" ||
+                                    optionSelectedOr === "highrises") && <MySelect
+                                        options={LndArrayOptions}
+                                        isMulti
+                                        closeMenuOnSelect={false}
+                                        hideSelectedOptions={false}
+                                        components={{ Option, MultiValue, animatedComponents }}
+                                        onChange={selecHandleChange}
+                                        allowSelectAll={true}
+                                        value={optionSelected}
+                                    />}
+
+                                {optionSelectedOr === "vacants" &&
+                                    < MySelect
+                                        options={VacantsArrayOptions}
+                                        isMulti
+                                        closeMenuOnSelect={false}
+                                        hideSelectedOptions={false}
+                                        components={{ Option, MultiValue, animatedComponents }}
+                                        onChange={selecHandleChange}
+                                        allowSelectAll={true}
+                                        value={optionSelected}
+                                    />
+                                }
+                            </div>
+                        </div>
+
+                        <div>
+                            <Datapicker
+                                name="currentdate"
+                                value={CurrentDate}
+                                label="Current Date"
+                                onChange={(e) => setCurrentDate(e)}
+                                required
+                            />
+                            <Datapicker
+                                name="duedate"
+                                value={DueDate}
+                                label="Due Date"
+                                onChange={(e) => setDueDate(e)}
+                                required
+                            />
+                            <Datapicker
+                                name="reportdate"
+                                value={ReportDate}
+                                label="Report Date"
+                                onChange={(e) => setReportDate(e)}
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "center" }} >
+                        <button type="submit" className="submit3">Submit</button>
+                    </div>                </form>
             </div>
         </Layout>
 

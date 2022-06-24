@@ -75,7 +75,7 @@ class Layout extends React.Component {
         </div>
 
         <div id="main">
-          <div className="header">
+          {/* <div className="header">
             <h3
               className={`
               title
@@ -89,14 +89,14 @@ class Layout extends React.Component {
               }
             >
               {this.props.title}
-            </h3>
-            {/* <div className="main-right-profile">
+            </h3> */}
+          {/* <div className="main-right-profile">
               <Avatar sx={{ width: "60px", height: "60px" }}>R</Avatar>
 
               <p className="main-right-profile-name">Name</p>
               <ArrowDropDownIcon sx={{ color: "#5016BF" }} color="#5016BF" />
-            </div> */}
           </div>
+            </div> */}
           <div className="content2">{this.props.children}</div>
         </div>
       </div>

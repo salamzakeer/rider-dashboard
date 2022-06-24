@@ -5,10 +5,36 @@ import axios from '../../../axios'
 import "./importManger.css"
 import Layout from "../../../components/layout/Navbar"
 import moment from "moment";
+import { makeStyles } from "@material-ui/core";
 
+const useStyles = makeStyles(theme => (
+    {
+        formMain: {
+            display: "flex",
+            justifyContent: "space-between",
 
+            // backgroundColor: "red",
+            [theme.breakpoints.down('md')]: {
+                // backgroundColor: "green",
+                flexDirection: "column"
+
+            },
+        },
+        label: {
+            paddingLeft: "40px",
+            fontSize: "24px",
+            color: "#00000A",
+            opacity: "0.6",
+            fontWeight: 600,
+        },
+        lnds: {
+            // display: "flex"
+            maxWidth: "500px"
+        }
+    }));
 function Dashboard() {
     const { addToast } = useToasts();
+    const classes = useStyles();
 
     //upload file
     const [Form, setForm] = React.useState("");
@@ -116,73 +142,84 @@ function Dashboard() {
         // setUserSelectCategoryCDate(Category.find(item => (item.id == e.target.value))) )
     };
     return (
-        <Layout title="Assign Data" >
+        <Layout >
             {/* ========== form ==========*/}
             <div className="newFile2  form">
                 <h1>Assign Data</h1>
                 <form onSubmit={handleSubmit}>
-                    <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} >
-                        <option selected>Task Info</option>
-                        <option name='LND' value='lnds' >LANDED</option>
-                        <option name='VACAT' value='vacants' >VACANTS</option>
-                        <option name='COMMERCIAL' value='commercials' >COMMERCIAL</option>
-                        <option name='HIGHRISES' value='highrises' >HIGHRISES</option>
-                    </select>
-                    <br />
-                    <select class="form-select" aria-label="Default select example" onChange={handleCategoryChange}>
-                        <option selected>Category</option>
-                        {
-                            Category && Category.length > 0 && Category.map((item) => (
-                                <option name={item.createdAt} value={item.id} >{item.jobName}</option>
-                            ))
-                        }
-                    </select>
-                    {/* {JSON.stringify(Category)} */}
-                    <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="Date" value={UserSelectCategoryCDate} />
-                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                    <div className={classes.formMain}>
+                        <div>
+                            <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} >
+                                <option selected>Task Info</option>
+                                <option name='LND' value='lnds' >LANDED</option>
+                                <option name='VACAT' value='vacants' >VACANTS</option>
+                                <option name='COMMERCIAL' value='commercials' >COMMERCIAL</option>
+                                <option name='HIGHRISES' value='highrises' >HIGHRISES</option>
+                            </select>
+                            <br />
+                            <select class="form-select" aria-label="Default select example" onChange={handleCategoryChange}>
+                                <option selected>Category</option>
+                                {
+                                    Category && Category.length > 0 && Category.map((item) => (
+                                        <option name={item.createdAt} value={item.id} >{item.jobName}</option>
+                                    ))
+                                }
+                            </select>
+                            <br />
+                            {/* {JSON.stringify(Category)} */}
+                            <div className="input-div">
+                                <input type="text" className="input-div-input" placeholder="Date" value={UserSelectCategoryCDate} />
+                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                            </div>
+                            <br />
+                            <select class="form-select" aria-label="Default select example" onChange={handleStaffChange}>
+                                <option selected>Staff info</option>
+                                {
+                                    RiderData && RiderData.length > 0 && RiderData.map((item) => (
+                                        <option name={item.id} value={item.id} >{item.fullName}</option>
+                                    ))
+                                }
+
+                            </select>
+
+                        </div>
+                        <br />
+                        <hr />
+                        <br />
+                        <br />
+
+
+
+
+                        <div>
+                            <select class="form-select" aria-label="Default select example" >
+                                <option selected>Select Type Of Task Assign</option>
+                                <option>New</option>
+                                <option>Replace</option>
+                                <option>Re Assign(Task Completed)</option>
+                                <option>Un Assign</option>
+
+                            </select>
+                            <br />
+                            <div className="input-div">
+                                <input type="text" className="input-div-input" placeholder="From" value={Form} onChange={(e) => setForm(e.target.value)} />
+                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                            </div>
+                            <br />
+                            <div className="input-div">
+                                <input type="text" className="input-div-input" placeholder="To" value={To} onChange={(e) => setTo(e.target.value)} />
+                                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                            </div>
+                        </div>
                     </div>
-                    <select class="form-select" aria-label="Default select example" onChange={handleStaffChange}>
-                        <option selected>Staff info</option>
-                        {
-                            RiderData && RiderData.length > 0 && RiderData.map((item) => (
-                                <option name={item.id} value={item.id} >{item.fullName}</option>
-                            ))
-                        }
+                    <div style={{ display: "flex", justifyContent: "center" }}>
 
-                    </select>
-
-                    <br />
-                    <hr />
-                    <br />
-                    <br />
-
-
-
-
-                    {/* <br /> */}
-                    <select class="form-select" aria-label="Default select example" >
-                        <option selected>Select Type Of Task Assign</option>
-                        <option>New</option>
-                        <option>Replace</option>
-                        <option>Re Assign(Task Completed)</option>
-                        <option>Un Assign</option>
-
-                    </select>
-
-                    <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="From" value={Form} onChange={(e) => setForm(e.target.value)} />
-                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
+                        <button type="submit" className="submit3">Submit</button>
                     </div>
-                    <div className="input-div">
-                        <input type="text" className="input-div-input" placeholder="To" value={To} onChange={(e) => setTo(e.target.value)} />
-                        {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
-                    </div>
-                    <button type="submit" className="submit3">Submit</button>
                 </form>
-            </div>
+            </div >
             {/* ========== form ==========*/}
-        </Layout>
+        </Layout >
 
     )
 

@@ -60,7 +60,7 @@ function Dashboard() {
 
     return (
         <Layout title="Dashboard">
-            <Typography variant="h2" >WELCOME TO DASHBOARD</Typography>
+            <Typography style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", margin: "10rem 0 0 0 " }} variant="h2" >WELCOME TO DASHBOARD</Typography>
         </Layout>
     )
 }

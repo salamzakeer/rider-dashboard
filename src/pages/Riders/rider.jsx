@@ -207,10 +207,6 @@ function Newrider() {
                   verticalAlign: "middle",
                 }} colspan="6"><Typography variant="body" >No data</Typography></td>
               </tr>}
-
-
-
-
           </table>
         </div>
       </div>

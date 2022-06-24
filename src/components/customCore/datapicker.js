@@ -8,8 +8,8 @@ const useStyles = makeStyles({
   input: {
     fontFamily: "sans-serif",
     fontSize: "24px",
-    height: "88px",
-    maxWidth: "640px !important",
+    height: "60px",
+    // maxWidth: "640px !important",
     width: "100%",
     color: "#ccc",
     "& .react-date-picker__wrapper": {

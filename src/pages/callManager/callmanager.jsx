@@ -54,8 +54,10 @@ function CallManager() {
         setSelectUserObject(e)
     }
     return (
-        <Layout title="Call Manager" >
-
+        <Layout >
+            <div>
+                <h1>Call Manager</h1>
+            </div>
             <div style={{
                 overflowX: "auto",
                 marginTop: "2rem"

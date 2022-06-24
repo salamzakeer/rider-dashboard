@@ -1,7 +1,7 @@
 .setupnav{
     display: flex;
     position: relative;
-   left: 32px;
+   /* left: 32px; */
     top: 32px;
 
 }
