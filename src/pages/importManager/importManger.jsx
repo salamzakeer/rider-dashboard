@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import 'react-toastify/dist/ReactToastify.css'; // import first
 import makeAnimated from "react-select/animated";
 import MySelect from "../../components/select/select";
@@ -114,7 +114,7 @@ function Dashboard() {
     const [optionSelected, setOptionSelected] = React.useState(null);
     const [optionSelectedOr, setOptionSelectedOr] = React.useState(null);
     const [JobType, setJobType] = React.useState(null);
-    const [Category, setCategory] = React.useState([]);
+    // const [Category, setCategory] = React.useState([]);
     const [DueDate, setDueDate] = React.useState(new Date("02/22/2021"));
     const [ReportDate, setReportDate] = React.useState(new Date("02/22/2021"));
 
