@@ -231,16 +231,20 @@ function Dashboard() {
                                 <option name='commercials' value='commercials' >COMMERCIAL</option>
                                 <option name='highrises' value='highrises' >HIGHRISES</option>
                             </select>
-                            <label className={classes.label}>{"Upload File"}</label>
 
+                            <br />
+
+                            <label className={classes.label}>{"Upload File"}</label>
                             <div className="input-div" dataText="Select your file">
                                 <input type="file" className="input-div-3" onChange={handleUpload} />
                                 {/* <input type="file" onChange={handleUpload} style = {{ display: "none"}}/> */}
                                 <input type="text" className="input-div-input" placeholder={file.name || "Upload File"} readonly="readonly" />
                                 <img type="file" src={UploadIcon} alt="" className="input-div-botton" />
                             </div>
-                            <label className={classes.label}>{"Job Name"}</label>
 
+                            <br />
+
+                            <label className={classes.label}>{"Job Name"}</label>
                             <div className="input-div">
                                 <input type="text" className="input-div-input" placeholder="Job Name" value={JobType} required onChange={(e) => setJobType(e.target.value)} />
                                 {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
@@ -284,6 +288,8 @@ function Dashboard() {
                                 onChange={(e) => setCurrentDate(e)}
                                 required
                             />
+                            <br />
+
                             <Datapicker
                                 name="duedate"
                                 value={DueDate}
@@ -291,6 +297,8 @@ function Dashboard() {
                                 onChange={(e) => setDueDate(e)}
                                 required
                             />
+                            <br />
+
                             <Datapicker
                                 name="reportdate"
                                 value={ReportDate}
