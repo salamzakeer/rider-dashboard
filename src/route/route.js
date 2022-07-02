@@ -1,5 +1,7 @@
 import Login from "../pages/login/login";
 import Dashboard from "../pages/dashboard/dashboard";
+import Calendar from "../pages/calender/calendar";
+
 import Export from "../pages/exportData/exportData";
 import CallManager from "../pages/callManager/callmanager";
 import ExtendSearch from "../pages/extendSearch/index";
@@ -45,6 +47,11 @@ export const publicRoutes = [
   {
     path: "/dashboard",
     component: Dashboard,
+    exact: true,
+  },
+  {
+    path: "/calendar",
+    component: Calendar,
     exact: true,
   },
 
