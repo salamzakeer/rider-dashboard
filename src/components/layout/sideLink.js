@@ -87,6 +87,11 @@ export default function SideNavigation(props) {
           </Link>
         </>
       )}
+      {/* <Link to="/calendar" style={{ textDecoration: "none" }}>
+        <li className={`left-heading ${path === "/calendar" ? "actived" : ""}`}>
+          <span>Calendar</span>
+        </li>
+      </Link> */}
       <Link to="/rider" style={{ textDecoration: "none" }}>
         <li className={`left-heading ${path === "/rider" ? "actived" : ""}`}>
           <span>Riders Information's</span>

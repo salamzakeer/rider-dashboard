@@ -11,6 +11,7 @@ import "./importManger.css"
 import Layout from "../../components/layout/Navbar";
 import moment from 'moment'
 import { makeStyles } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
 
 const Option = (props) => {
     return (
@@ -113,6 +114,8 @@ function Dashboard() {
     const [file, setFile] = React.useState("");
     const [optionSelected, setOptionSelected] = React.useState(null);
     const [optionSelectedOr, setOptionSelectedOr] = React.useState(null);
+    const [Disabled, setDisabled] = React.useState(false);
+    // disabled
     const [JobType, setJobType] = React.useState(null);
     // const [Category, setCategory] = React.useState([]);
     const [DueDate, setDueDate] = React.useState(new Date("02/22/2021"));
@@ -157,6 +160,7 @@ function Dashboard() {
         event.preventDefault()
         console.log("form submit", optionSelectedOr);
         if (optionSelectedOr !== "" && optionSelectedOr !== "Type") {
+            setDisabled(true)
             console.log("form submit2", optionSelectedOr);
 
             event.preventDefault();
@@ -192,12 +196,15 @@ function Dashboard() {
                         console.log(res)
                         console.log(res)
                         addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
+                        setDisabled(false)
+
 
                     }
                 )
                 .catch((error) => {
                     console.log(error)
                     addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
+                    setDisabled(false)
 
                     // sendNotification({ msg: "There was an error!", variant: "error" });
                 });
@@ -309,7 +316,8 @@ function Dashboard() {
                         </div>
                     </div>
                     <div style={{ display: "flex", justifyContent: "center" }} >
-                        <button type="submit" className="submit3">Submit</button>
+                        <button type="submit" className="submit3" disabled={Disabled} > {Disabled ? <CircularProgress style={{ margin: "9px" }} />
+                            : "Submit"} </button>
                     </div>                </form>
             </div>
         </Layout>

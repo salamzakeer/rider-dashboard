@@ -5,7 +5,7 @@ import axios from '../../../axios';
 import AddRider from '../../../components/Modal/AddRiderPopup';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import ProfilePic from '../../../assets/Mask Group 5.png'
+import ProfilePic from '../../../assets/user.png'
 import DeleteBtn from '../../../assets/delete.png'
 import Layout from "../../../components/layout/Navbar";
 import "./rider.css"
@@ -114,6 +114,7 @@ function Newrider() {
 
   const deleteHandle = (e) => {
     let id = e.id
+    console.log(id)
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     };
@@ -123,13 +124,14 @@ function Newrider() {
     // var headers = new Headers();
     // headers.append("Authorization", "Bearer " + token)
     // console.log(headers, "header")
-    axios.delete(`/rider/${id}`, {
+    axios.delete(`/riderdata/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => {
         // setData(res.data)
+        window.location.href = "/assigned-data"
         console.log("working", res.data)
-        setLoading(true)
+        // setLoading(true)
         // window.reload()
 
       })
@@ -172,6 +174,7 @@ function Newrider() {
               <th><Typography variant="body">Jobname</Typography> </th>
               <th><Typography variant="body">From</Typography> </th>
               <th><Typography variant="body">To</Typography> </th>
+              <th><Typography variant="body">Action</Typography> </th>
             </tr>
             {
               !Loading
@@ -190,7 +193,7 @@ function Newrider() {
 
             {data && data.length > 0 && data.map((data, i) => (
               <tr>
-                <td><Typography variant="body">{"i"}</Typography></td>
+                <td><Typography variant="body">{i + 1}</Typography></td>
                 <td><Typography variant="body">{data.fullName}</Typography></td>
                 <td><Typography variant="body">{data.category}</Typography></td>
 

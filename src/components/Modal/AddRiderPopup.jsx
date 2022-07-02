@@ -13,6 +13,7 @@ function AddRiderPopup({ closeModel }) {
     const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [UserPic, setUserPic] = useState("")
     const { addToast } = useToasts();
 
     const handleName = (e) => {
@@ -28,6 +29,12 @@ function AddRiderPopup({ closeModel }) {
     const handleApi = () => {
         console.log({ fullName, email, password })
         const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || ''
+        const data = new FormData();
+        data.append("fullName", fullName);
+        data.append("email", email);
+        data.append("password", password);
+        data.append("adminId", AdminId);
+        data.append("image", UserPic);
 
         const json = {
             fullName: fullName,
@@ -35,7 +42,7 @@ function AddRiderPopup({ closeModel }) {
             password: password,
             adminId: AdminId
         };
-        axios.post('/rider/register', json)
+        axios.post('/rider/register', data)
             .then(result => {
                 // console.log(result)
                 // if(result.errorMessage == false){
@@ -57,6 +64,14 @@ function AddRiderPopup({ closeModel }) {
                 // console.log("not ok")
             })
 
+
+    }
+
+    function handleUpload(event) {
+        setUserPic(event.target.files[0]);
+
+        // Add code here to upload file to server
+        // ...
 
     }
 
@@ -82,12 +97,7 @@ function AddRiderPopup({ closeModel }) {
 
                     <div className="upload-pic">
                         <h2 className="uploadTxt">Rider Profile Picture</h2>
-
-
-                        <FileUploader placeholder="Upload" type="file" id="upload" className="uploadbtn" />
-
-
-
+                        <FileUploader onChange={handleUpload} placeholder={UserPic.name || "Upload"} type="file" id="upload" className="uploadbtn" />
                     </div>
 
                     <button className="login-submit" onClick={handleApi}>Add</button>

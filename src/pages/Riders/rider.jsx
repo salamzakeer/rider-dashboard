@@ -5,7 +5,7 @@ import axios from '../../axios';
 import AddRider from '../../components/Modal/AddRiderPopup';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import ProfilePic from '../../assets/Mask Group 5.png'
+import ProfilePic from '../../assets/user.png'
 import DeleteBtn from '../../assets/delete.png'
 import Layout from "../../components/layout/Navbar";
 import "./rider.css"
@@ -123,7 +123,7 @@ function Newrider() {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => {
-        setData(res.data)
+        // setData(res.data)
         console.log("working", res.data)
         setLoading(true)
         // window.reload()
@@ -186,8 +186,7 @@ function Newrider() {
               <tr>
                 <td><Typography variant="body">{data.id}</Typography></td>
                 <td><Typography variant="body">{data.id}</Typography></td>
-                <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
-
+                <td><Typography variant="body"><img src={data.image ? axios.defaults.baseURL + "/images/" + data.image : ProfilePic} className="tableimg" alt="userpic" /></Typography></td>
                 {/* <td><Typography variant="body">{data.id}</Typography></td> */}
                 <td><Typography variant="body">{data.fullName}</Typography></td>
                 <td><Typography variant="body">{data.email}</Typography></td>

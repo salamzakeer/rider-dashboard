@@ -6,6 +6,7 @@ import "./importManger.css"
 import Layout from "../../../components/layout/Navbar"
 import moment from "moment";
 import { makeStyles } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
 
 const useStyles = makeStyles(theme => (
     {
@@ -46,8 +47,11 @@ function Dashboard() {
     const [UserSelectCategory, setUserSelectCategory] = React.useState("");
     const [UserSelectCategoryCDate, setUserSelectCategoryCDate] = React.useState("");
     const [Option, setOption] = useState("")
+    const [Disabled, setDisabled] = React.useState(false);
+
 
     useEffect(() => {
+
         axios.get('/rider')
             .then((res) => {
                 // console.log(res.data, 'data=============')
@@ -59,12 +63,15 @@ function Dashboard() {
     }, [])
 
     useEffect(() => {
+        setDisabled(true)
         axios.get(`/jobname/${Option}/${AdminId}`)
             .then((res) => {
+                setDisabled(false)
                 // console.log(res.data, 'data')
                 setCategory(res.data)
             })
             .catch((err => {
+                setDisabled(false)
                 setCategory([]);
                 // console.log(err, 'error')
             }))
@@ -75,8 +82,9 @@ function Dashboard() {
 
     //end-upload file
 
-
+    console.log(Option, "Option")
     let handleSubmit = (event) => {
+        setDisabled(true)
         event.preventDefault();
         // alert(JSON.stringify(formValues));
         // console.log(Option, Form, To);
@@ -108,10 +116,13 @@ function Dashboard() {
             .then(
                 (res) => {
                     addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
+                    setDisabled(false)
                 }
             )
             .catch((error) => {
                 addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
+                setDisabled(false)
+
             });
     }
     const handleStaffChange = (e) => {
@@ -213,8 +224,9 @@ function Dashboard() {
                         </div>
                     </div>
                     <div style={{ display: "flex", justifyContent: "center" }}>
-
-                        <button type="submit" className="submit3">Submit</button>
+                        <button type="submit" className="submit3" disabled={Disabled} > {Disabled ? <CircularProgress style={{ margin: "9px" }} />
+                            : "Submit"}
+                        </button>
                     </div>
                 </form>
             </div >
