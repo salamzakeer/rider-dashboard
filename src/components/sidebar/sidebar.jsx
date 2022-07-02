@@ -14,7 +14,7 @@ function Sidebar(props) {
     const showSidebar = () => setSidebar(!slider);
 
     const [open, setOpen] = React.useState(false);
-
+    // console.log("hiii")
 
     return (
 
@@ -41,12 +41,13 @@ function Sidebar(props) {
                         <li className={`nav-option ${path === "/extend-search" ? "active" : ""}`} ><span>Extend Search</span></li>
                     </Link>
                     <Link to="/call-manager" style={{ textDecoration: 'none' }}>
-                        <li className={`nav-option ${path === "/call-manager" ? "active" : ""}`} ><span>Call Manager</span></li>
+                        <li className={`nav-option ${path === "/call-manager" ? "active" : ""}`} ><span>Cazll Manager</span></li>
                     </Link>
                     {/* extend-search */}
                     <Link to="" style={{ textDecoration: 'none' }} onClick={() => setOpen(!open)}  >
                         <li className={`nav-option ${(path === "/import-data" || path === "/assign-data") ? "active" : ""}`} ><span>Import Manager</span></li>
                     </Link>
+
                     {open &&
                         <>
                             <Link to="/import-data" style={{ textDecoration: 'none', }}  >
@@ -54,6 +55,9 @@ function Sidebar(props) {
                             </Link>
                             <Link to="/assign-data" style={{ textDecoration: 'none' }}>
                                 <li className={`nav-option ${path === "/assign-data" ? "s-active" : ""}`} ><span style={{ paddingLeft: "20px" }}>Assign Data</span></li>
+                            </Link>
+                            <Link to="/assigned-data" style={{ textDecoration: 'none' }}>
+                                <li className={`nav-option ${path === "/assigned-data" ? "s-active" : ""}`} ><span style={{ paddingLeft: "20px" }}>Assign Data</span></li>
                             </Link></>
                     }
                     <Link to="/rider" style={{ textDecoration: 'none' }}>

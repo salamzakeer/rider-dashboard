@@ -76,6 +76,15 @@ export default function SideNavigation(props) {
               <span style={{ paddingLeft: "20px" }}>Assign Data</span>
             </li>
           </Link>
+          <Link to="/assigned-data" style={{ textDecoration: "none" }}>
+            <li
+              className={`left-heading ${
+                path === "/assigned-data" ? "s-active" : ""
+              }`}
+            >
+              <span style={{ paddingLeft: "20px" }}>Assigned Data</span>
+            </li>
+          </Link>
         </>
       )}
       <Link to="/rider" style={{ textDecoration: "none" }}>

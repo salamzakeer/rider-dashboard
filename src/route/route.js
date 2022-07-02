@@ -5,6 +5,7 @@ import CallManager from "../pages/callManager/callmanager";
 import ExtendSearch from "../pages/extendSearch/index";
 import ImportManager from "../pages/importManager/importManger";
 import AssignData from "../pages/importManager/assignData/assignData";
+import AssignedData from "../pages/importManager/assignedTable/assignedTable";
 import Rider from "../pages/Riders/rider";
 import Telecaller from "../pages/Telecaller/telecaller";
 import Setup from "../pages/Setup/PolicyS";
@@ -55,6 +56,11 @@ export const publicRoutes = [
   {
     path: "/assign-data",
     component: AssignData,
+    exact: true,
+  },
+  {
+    path: "/assigned-data",
+    component: AssignedData,
     exact: true,
   },
   {
