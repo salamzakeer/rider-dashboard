@@ -72,7 +72,7 @@ function Telecaller() {
   return (
     <Layout title="Telecaller" >
       <div className="rider-head-details">
-        <div className="rider-info" >Riders Information's</div>
+        <div className="rider-info" >Telecaller Information's</div>
         <button className="button-cus" onClick={() => {
           setOpenModel(true)
         }} >Add New Rider</button>
