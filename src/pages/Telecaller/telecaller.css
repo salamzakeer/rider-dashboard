@@ -1,95 +1,79 @@
-.rider-table2{
-    overflow-x:auto;
-    top: 50px;
-    position: relative;
-    margin-left: 32px;
-    margin-right: 52px;
+.rider-table2 {
+  overflow-x: auto;
+  top: 50px;
+  position: relative;
+  margin-left: 32px;
+  margin-right: 52px;
 }
-:root {
-  --landscape-width: 20;
-  --portrait-width: 80vw;
-  --header-height: 6rem;
-  --secs: 0.4s;
-  --bg-left: #ffffff;
-  --bg-right:  #ffffff;
-  --bg-main:  #ffffff;
-  --bg-main-icon:  #5016BF;
 
-} 
 table {
-   
-    width: 100%;
-  }
-  
-  th{
-    background-color: #501ABF;
-    color: #ffffff;
-    font: normal 400 16px Poppins;
-    padding: 0px;
-  }
-  th, td {
-    text-align: left;
-    line-height: 20px;
-    /* padding-left:50px; */
-    /* padding-Right:50px/; */
-  }
-  td {
-    padding-top: 30px;
-  }
+  width: 100%;
+}
 
- 
-  .tableimg{
-    width: 40px;
-    height: 40px;
-  }
-  /* tr:nth-child(even){background-color: #f2f2f2} */
+th {
+  background-color: #501abf;
+  color: #ffffff;
+  font: normal 400 16px Poppins;
+  padding: 0px;
+}
+th,
+td {
+  text-align: left;
+  line-height: 20px;
+  /* padding-left:50px; */
+  /* padding-Right:50px/; */
+}
+td {
+  padding-top: 30px;
+}
 
-  .tableHead3{
-    display: flex;
-    justify-content: center;
-  	align-items: center;
-    margin-top: 88px;
-    margin-left: 32px;
-    margin-right: 52px;
-  }
-  .btnaddnew2{
-position: relative;
-margin-left: auto;
-width: 222px;
-height: 69px;
-border: 1px solid #501ABF;
-border-radius: 44px;
-opacity: 1;
-background-color: #ffffff;
+.tableimg {
+  width: 40px;
+  height: 40px;
+}
+/* tr:nth-child(even){background-color: #f2f2f2} */
 
-  }
- .subhead{
-   color: #501ABF;
- }
+.tableHead3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 88px;
+  margin-left: 32px;
+  margin-right: 52px;
+}
+.btnaddnew2 {
+  position: relative;
+  margin-left: auto;
+  width: 222px;
+  height: 69px;
+  border: 1px solid #501abf;
+  border-radius: 44px;
+  opacity: 1;
+  background-color: #ffffff;
+}
+.subhead {
+  color: #501abf;
+}
 
- .btntext{
-  color: #501ABF;
- }
+.btntext {
+  color: #501abf;
+}
 
- /* =======================================================
+/* =======================================================
  ======================================================= */
-
-
-
 
 /* Inline #11 | http://localhost:3000/setup */
 
-
 /* Inline #5 | http://localhost:3000/setup */
-.table-telecaller{
+.table-telecaller {
   overflow-x: auto;
-    max-width: 1400px;
-    margin: 2rem auto;
+  max-width: 1400px;
+  margin: 2rem auto;
 }
 
 @media only screen and (max-width: 800px) {
-  .table-telecaller{
-      width: calc(1vw *90);
+  .table-telecaller {
+    width: calc(1vw * 90);
   }
   .mainNav .profile {
     padding-right: 20px;
@@ -99,11 +83,9 @@ background-color: #ffffff;
     margin-left: auto;
     width: 120px;
     height: 40px;
-    border: 1px solid #501ABF;
+    border: 1px solid #501abf;
     border-radius: 24px;
     opacity: 1;
     background-color: #ffffff;
-    
-      }
-  
+  }
 }

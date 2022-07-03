@@ -144,14 +144,11 @@ function Newrider() {
 
   return (
     <Layout title="Rider" >
-
-
       <div className="rider-tble" >
         <div className="rider-head-details">
           <div className="rider-info" >Riders Information's</div>
           <button className="button-cus" onClick={() => {
             setOpenModel(true)
-
           }} >
             <Link style={{ textDecoration: "none" }} to='/assign-data' >
               assigning Data</Link>
@@ -169,6 +166,8 @@ function Newrider() {
 
             <tr>
               <th><Typography variant="body">#</Typography> </th>
+              <th><Typography variant="body">Image</Typography> </th>
+
               <th ><Typography variant="body">Fullname</Typography> </th>
               <th>   <Typography variant="body">Category</Typography> </th>
               <th><Typography variant="body">Jobname</Typography> </th>
@@ -194,6 +193,8 @@ function Newrider() {
             {data && data.length > 0 && data.map((data, i) => (
               <tr>
                 <td><Typography variant="body">{i + 1}</Typography></td>
+                <td><Typography variant="body"><img src={data.image ? axios.defaults.baseURL + "/images/" + data.image : ProfilePic} className="tableimg" alt="userpic" /></Typography></td>
+
                 <td><Typography variant="body">{data.fullName}</Typography></td>
                 <td><Typography variant="body">{data.category}</Typography></td>
 

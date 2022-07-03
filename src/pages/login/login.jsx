@@ -18,7 +18,6 @@ function Login() {
     }
 
     //====================
-    console.log({ email, password })
     const handleEmail = (e) => {
         setEmail(e.target.value)
 
@@ -26,8 +25,9 @@ function Login() {
     const handlePassword = (e) => {
         setPassword(e.target.value)
     }
-    const handleApi = () => {
-        console.log({ email, password })
+    const handleApi = (e) => {
+        e.preventDefault();
+
         const json = {
             email: email,
             password: password
@@ -37,15 +37,12 @@ function Login() {
             .then(result => {
                 saveTokenLocalStorage(result.data);
                 addToast("Successfully Login", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
-                // console.log(result)
                 window.location = "/dashboard"
 
 
             })
             .catch(error => {
-                // console.log(error)
                 addToast("username or password is incorrcet", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
-                // console.log("not ok")
             })
 
 
@@ -55,13 +52,14 @@ function Login() {
 
         <div className="login-card">
             <h1>Login</h1>
-            <div className="frm">
-                <input type="text" className="input" placeholder="Email" value={email} onChange={handleEmail} />
+            <form onSubmit={handleApi} className="frm">
 
-                <input type="password" className="input" placeholder="Password" value={password} onChange={handlePassword} />
+                <input type="email" className="input" placeholder="Email" value={email} onChange={handleEmail} required />
 
-                <button className="login-submit" onClick={handleApi} >Login</button>
-            </div>
+                <input type="password" className="input" placeholder="Password" value={password} onChange={handlePassword} required />
+
+                <button className="login-submit" type='submit'>Login</button>
+            </form>
             <div className="reset">
                 <Link to="" >
                     Forgot Password?

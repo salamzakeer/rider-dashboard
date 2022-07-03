@@ -14,7 +14,7 @@ import Setup from "../pages/Setup/PolicyS";
 import SecuirtyP from "../pages/Setup/PolicyS";
 import DataP from "../pages/Setup/PolicyD";
 import NewP from "../pages/Setup/fristPolicy";
-import UserProfile from "../pages/userProfile/userprofile";
+// import UserProfile from "../pages/userProfile/userprofile";
 
 export const publicRoutes = [
   {
@@ -101,11 +101,11 @@ export const publicRoutes = [
     component: NewP,
     exact: true,
   },
-  {
-    path: "/userprofile",
-    component: UserProfile,
-    exact: true,
-  },
+  // {
+  //   path: "/userprofile",
+  //   component: UserProfile,
+  //   exact: true,
+  // },
 
   {
     path: "*",

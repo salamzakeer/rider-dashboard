@@ -7,6 +7,11 @@ export default function SideNavigation(props) {
   const location = useLocation();
   const path = location.pathname;
   const [open, setOpen] = React.useState(true);
+  const Logout = () => {
+    localStorage.removeItem("userInfor");
+    localStorage.removeItem("auth");
+    window.location = "/login";
+  };
   return (
     <ul className="nav-links">
       {/* {path} */}
@@ -17,7 +22,7 @@ export default function SideNavigation(props) {
           <span>Dashboard</span>
         </li>
       </Link>
-      <Link to="/extend-search" style={{ textDecoration: "none" }}>
+      {/* <Link to="/extend-search" style={{ textDecoration: "none" }}>
         <li
           className={`left-heading ${
             path === "/extend-search" ? "actived" : ""
@@ -25,7 +30,7 @@ export default function SideNavigation(props) {
         >
           <span>Extend Search</span>
         </li>
-      </Link>
+      </Link> */}
       <Link to="/call-manager" style={{ textDecoration: "none" }}>
         <li
           className={`left-heading ${
@@ -112,6 +117,11 @@ export default function SideNavigation(props) {
           <span>Setup</span>
         </li>
       </Link>
+      <div onClick={Logout}>
+        <li className={`left-heading`}>
+          <span>Login</span>
+        </li>
+      </div>
     </ul>
   );
 }
