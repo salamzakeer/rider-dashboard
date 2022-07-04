@@ -119,7 +119,7 @@ export default function SideNavigation(props) {
       </Link>
       <div onClick={Logout}>
         <li className={`left-heading`}>
-          <span>Login</span>
+          <span>Logout</span>
         </li>
       </div>
     </ul>
