@@ -1,3 +1,4 @@
+import { Tooltip } from "@mui/material";
 import React from "react";
 // import Button from "@mui/material/Button";
 // import { styled } from "@mui/material/styles";
@@ -28,13 +29,24 @@ export default function FileUploader(props) {
             borderRadius: "44px",
             justifyContent: "center",
             // font: "normal 600 21px Poppins",
-            color: "#501ABF"
+            color: "#501ABF",
+
+            // width: 100px;
+            overflow: "hidden",
+            padding: "2px"
 
           }}
           variant="contained"
           component="span"
         >
-          {props.placeholder}
+          <Tooltip
+            title={props.placeholder}
+            sx={{ margin: "0px" }}
+            // className="main-right-profile-name"
+            arrow
+          >
+            <div> {props.placeholder}</div>
+          </Tooltip>
         </div>
       </label>
       <input
