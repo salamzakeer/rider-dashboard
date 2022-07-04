@@ -5,8 +5,10 @@ import Avatar from "@mui/material/Avatar";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SideNavigation from "./sideLink";
 import { Link } from "react-router-dom";
+// import ProfilePic from "../../user.png";
+import ProfilePic from "../../assets/user.png";
 
-import ProfilePic from "../../assets/Mask Group 5.png";
+// import ProfilePic from "../../assets/Mask Group 5.png";
 import { Tooltip } from "@mui/material";
 // import DownPic from "../../assets/down-filled-triangular-arrow.png";
 
@@ -72,11 +74,15 @@ class Layout extends React.Component {
                 <div className="main-right-profile">
                   <div to="/userprofile">
                     <Avatar
-                      sx={{ width: "60px", height: "60px" }}
-                      src={ProfilePic}
+                      sx={{
+                        width: "60px",
+                        height: "60px",
+                        textTransform: "capitalize",
+                      }}
+                      // src={ProfilePic}
                       alt="user"
                     >
-                      R
+                      {AdminName[0]}
                     </Avatar>
                   </div>
                   {/* <div

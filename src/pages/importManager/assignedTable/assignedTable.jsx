@@ -150,7 +150,7 @@ function Newrider() {
           <button className="button-cus" onClick={() => {
             setOpenModel(true)
           }} >
-            <Link style={{ textDecoration: "none" }} to='/assign-data' >
+            <Link style={{ textDecoration: "none", color: "#501abf" }} to='/assign-data' >
               assigning Data</Link>
           </button>
         </div>
