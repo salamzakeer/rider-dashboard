@@ -12,6 +12,8 @@ function AddRiderPopup({ closeModel }) {
 
     const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
+    const [CPassword, setCPassword] = useState("")
+    const [CPasswordTouch, setCPasswordTouch] = useState(false)
     const [password, setPassword] = useState("")
     const [UserPic, setUserPic] = useState("")
     const { addToast } = useToasts();
@@ -24,6 +26,10 @@ function AddRiderPopup({ closeModel }) {
     }
     const handlePassword = (e) => {
         setPassword(e.target.value)
+    }
+    const handleCPassword = (e) => {
+        setCPasswordTouch(true)
+        setCPassword(e.target.value)
     }
 
     const handleApi = () => {
@@ -92,8 +98,15 @@ function AddRiderPopup({ closeModel }) {
                 <div className="frm">
                     <input type="text" className="input" placeholder="Name" value={fullName} onChange={handleName} />
                     <input type="text" className="input" placeholder="Email" value={email} onChange={handleEmail} />
-                    <input type="password" className="input" placeholder="Password" />
-                    <input type="password" className="input" placeholder="Confirm Password" value={password} onChange={handlePassword} />
+                    <input type="password" className="input" placeholder="Password" value={password} onChange={handlePassword} />
+                    <input type="password" className="input" placeholder="Confirm Password" value={CPassword} onChange={handleCPassword} />
+                    {password !== CPassword && CPasswordTouch && <p style={{
+                        textAlign: "start",
+                        paddingLeft: "44px",
+                        paddingTop: "6px",
+                        color: "red",
+                        opacity: 0.7,
+                    }}>You are entering the wrong password</p>}
 
                     <div className="upload-pic">
                         <h2 className="uploadTxt">Rider Profile Picture</h2>

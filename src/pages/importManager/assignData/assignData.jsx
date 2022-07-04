@@ -115,12 +115,12 @@ function Dashboard() {
             })
             .then(
                 (res) => {
-                    addToast("Data add Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
+                    addToast("Assign Data Successfully", { appearance: 'success', autoDismiss: "true", autoDismissTimeout: 2000 });
                     setDisabled(false)
                 }
             )
             .catch((error) => {
-                addToast("please select correct file", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
+                addToast("please select correct feild", { appearance: 'error', autoDismiss: "true", autoDismissTimeout: 2000 });
                 setDisabled(false)
 
             });

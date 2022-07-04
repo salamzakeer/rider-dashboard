@@ -127,7 +127,7 @@ function Dashboard() {
                 headers: { "Content-Type": "application/json" },
             })
             .then((res) => {
-                addToast("Data add Successfully", {
+                addToast("Leave add Successfully", {
                     appearance: "success",
                     autoDismiss: "true",
                     autoDismissTimeout: 2000,
@@ -135,7 +135,7 @@ function Dashboard() {
                 setDisabled(false);
             })
             .catch((error) => {
-                addToast("please select correct file", {
+                addToast("Please select correct feild", {
                     appearance: "error",
                     autoDismiss: "true",
                     autoDismissTimeout: 2000,
