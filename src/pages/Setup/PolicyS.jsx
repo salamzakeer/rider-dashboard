@@ -72,7 +72,8 @@ function Setup() {
         <button className="btnaddnew" onClick={() => {
           setOpenModel(true)
         }} >
-          <Typography variant="body" >Update policy</Typography></button>
+          <Typography variant="body" >Update policy</Typography>
+        </button>
         {/* <AddUserPopup trigger={true}/> */}
       </div>
 

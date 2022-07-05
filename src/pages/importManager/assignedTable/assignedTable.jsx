@@ -160,10 +160,6 @@ function Newrider() {
             width: "100%", borderCollapse: 'collapse',
             borderSpacing: 0,
           }}>
-
-            <br />
-            <br />
-
             <tr>
               <th><Typography variant="body">#</Typography> </th>
               <th><Typography variant="body">Image</Typography> </th>
@@ -183,7 +179,7 @@ function Newrider() {
                   textAlign: "center",
                   verticalAlign: "middle",
                   padding: "0px !important"
-                }} colspan="6">
+                }} colspan="8">
                   <Box sx={{ width: '100%' }}>
                     <LinearProgress />
                   </Box>
@@ -203,7 +199,7 @@ function Newrider() {
                 <td><Typography variant="body">{data.dataTo}</Typography></td>
                 <td onClick={() => deleteHandle(data)} >
                   {/* <img src={DeleteBtn} className="delete" alt="" /> */}
-                  <DeleteIcon sx={{ color: "red", opacity: "0.8", ": &hover": { opacity: "1" } }} />
+                  <DeleteIcon sx={{ color: "red", opacity: "0.8", ": &hover": { opacity: "1" }, cursor: "pointer" }} />
                 </td>
               </tr>
             ))}

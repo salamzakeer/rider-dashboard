@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     },
     label: {
         paddingLeft: "40px",
-        fontSize: "24px",
+        fontSize: "16px",
         color: "#00000A",
         opacity: "0.6",
         fontWeight: 600,

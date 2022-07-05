@@ -154,8 +154,7 @@ function Newrider() {
             borderSpacing: 0,
           }}>
 
-            <br />
-            <br />
+
 
             <tr>
               <th ><Typography variant="body">#</Typography> </th>
@@ -192,7 +191,7 @@ function Newrider() {
                 <td><Typography variant="body">{data.email}</Typography></td>
                 <td onClick={() => deleteHandle(data)} >
                   {/* <img src={DeleteBtn} className="delete" alt="" /> */}
-                  <DeleteIcon sx={{ color: "red", opacity: "0.8", ": &hover": { opacity: "1" } }} />
+                  <DeleteIcon sx={{ color: "red", opacity: "0.8", ": &hover": { opacity: "1" }, cursor: "pointer" }} />
                 </td>
 
               </tr>

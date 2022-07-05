@@ -102,9 +102,10 @@ body {
   background: #5016bf 0% 0% no-repeat padding-box;
   border-radius: 44px;
   font-size: 30px;
-  font: normal 600 30px Poppins;
+  font: normal 500 30px Poppins;
   color: #ffffff;
   border: none;
+  font-size: 500;
 }
 
 /* ============================================ */
@@ -144,8 +145,9 @@ body {
   }
   .newFile2 form .submit3 {
     height: 70px;
-    font-size: normal 600 25px Poppins;
-    font: normal normal 600 25px Poppins;
+    font-size: normal 500 25px Poppins;
+    font: normal normal 500 25px Poppins;
+    max-width: 400px;
   }
 
   /* .newFile2{

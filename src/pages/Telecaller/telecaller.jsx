@@ -10,6 +10,7 @@ import AddRider from '../../components/Modal/AddRiderPopup';
 
 import "./telecaller.css"
 import Layout from "../../components/layout/Navbar";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const theme = createTheme();
@@ -109,7 +110,10 @@ function Telecaller() {
               <td><Typography variant="body">{row.Name}</Typography></td>
               <td><Typography variant="body">{row.Email}</Typography></td>
 
-              <td><img src={DeleteBtn} className="delete" alt="" /></td>
+              <td>
+
+                <DeleteIcon sx={{ color: "red", opacity: "0.8", ": &hover": { opacity: "1" }, cursor: "pointer" }} />
+              </td>
             </tr>
           ))}
 

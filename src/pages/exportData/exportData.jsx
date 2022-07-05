@@ -31,7 +31,7 @@ const useStyles = makeStyles(
             },
             btn: {
                 backgroundColor: "#5016BF",
-                height: "3.3rem",
+                // height: "3.3rem",
                 border: "1px solid #ccc",
                 color: "#fff",
                 borderRadius: "24px",
@@ -39,6 +39,7 @@ const useStyles = makeStyles(
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                padding: "16px 32px"
             }
         }),
     { withTheme: true }

@@ -163,7 +163,7 @@ td {
     padding-left: 40px;
   }
   .newFile2 form .input-div-botton {
-    padding-right: 22px;
+    padding-right: 46px;
   }
 
   .newFile2 form .submit3 {
@@ -189,10 +189,12 @@ td {
   color: #501abf;
   font-size: 2rem;
 }
+
+
 .button-cus {
   color: #501abf;
-  width: 164px;
-  height: 50px;
+  width: 222px;
+  height: 69px;
   border: 1px solid #501abf;
   border-radius: 44px;
   background-color: #ffffff;
