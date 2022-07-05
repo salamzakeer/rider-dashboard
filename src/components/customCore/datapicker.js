@@ -7,7 +7,7 @@ import { default as DatePick } from "react-date-picker";
 const useStyles = makeStyles({
   input: {
     fontFamily: "sans-serif",
-    fontSize: "24px",
+    fontSize: "16px",
     height: "60px",
     // maxWidth: "640px !important",
     width: "100%",
@@ -36,10 +36,10 @@ const useStyles = makeStyles({
   },
   label: {
     paddingLeft: "40px",
-    fontSize: "24px",
+    fontSize: "16px",
     color: "#00000A",
     opacity: "0.6",
-    fontWeight: 600,
+    // fontWeight: 00,
   },
 });
 

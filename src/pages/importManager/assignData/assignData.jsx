@@ -156,7 +156,7 @@ function Dashboard() {
         <Layout >
             {/* ========== form ==========*/}
             <div className="newFile2  form">
-                <h1>Assign Data</h1>
+            <div className="rider-info" >Assign Data</div>
                 <form onSubmit={handleSubmit}>
                     <div className={classes.formMain}>
                         <div>

@@ -9,15 +9,25 @@ import axios from '../../axios';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const useStyles = makeStyles(
-    () =>
+    (theme) =>
         createStyles({
             dataTable: {
                 display: "flex",
                 maxWidth: "500px",
-                margin: "0 auto",
+                // margin: "0 auto",
                 justifyContent: "space-between",
                 alignItems: "center",
-                flexWrap: "wrap"
+                flexWrap: "wrap",
+            },
+            dataTableMain: {
+                paddingTop: "2rem",
+                paddingLeft: "2rem",
+                [theme.breakpoints.down('sm')]: {
+                    paddingLeft: "1rem",
+                    // backgroundColor: "red",
+                    fontSize: "1rem !important",
+
+                },
             },
             btn: {
                 backgroundColor: "#5016BF",
@@ -458,64 +468,66 @@ function Dashboard() {
     return (
         <Layout title="Export">
             <div>
-                <h1>Export Data</h1>
+                <div className="rider-info" >Export Data</div>
             </div>
-            <div className={style.dataTable} >
-                <Typography variant="h5" > LND DATA</Typography>
-                <CsvDownloader filename="LND"
-                    extension=".csv"
-                    columns={LndCsvDataHeader}
-                    datas={data}
-                    text="DOWNLOAD"
-                    suffix
-                >
-                    <button className={style.btn} > {Loading ? 'Download' : <CircularProgress color="inherit" />}
-                    </button>
-                </CsvDownloader>
-                {/* } */}
-            </div>
+            <div className={style.dataTableMain} >
+                <div className={style.dataTable} >
+                    <Typography variant="h5" > Lnd Data</Typography>
+                    <CsvDownloader filename="LND"
+                        extension=".csv"
+                        columns={LndCsvDataHeader}
+                        datas={data}
+                        text="DOWNLOAD"
+                        suffix
+                    >
+                        <button className={style.btn} > {Loading ? 'Download' : <CircularProgress color="inherit" />}
+                        </button>
+                    </CsvDownloader>
+                    {/* } */}
+                </div>
 
-            <br />
-            <div className={style.dataTable} >
-                <Typography variant="h5" > VACANT DATA</Typography>
-                <CsvDownloader filename="VACANT"
-                    extension=".csv"
-                    columns={dataVacantArray}
-                    datas={dataVacant}
-                    text="DOWNLOAD"
-                    suffix
-                >
-                    <button className={style.btn}>{LoadingVacant ? 'Download' : <CircularProgress color="inherit" />}</button>
-                </CsvDownloader>
-                {/* } */}
-            </div>
-            <br />
-            <div className={style.dataTable} >
-                <Typography variant="h5" >  COMMERCIAL </Typography>
-                <CsvDownloader filename="COMMERCIAL"
-                    extension=".csv"
-                    columns={LndCsvDataHeader}
-                    datas={dataCommercials}
-                    text="DOWNLOAD"
-                    suffix
-                >
-                    <button className={style.btn}>{LoadingCommercials ? 'Download' : <CircularProgress color="inherit" />}</button>
-                </CsvDownloader>
-                {/* } */}
-            </div>
-            <br />
-            <div className={style.dataTable} >
-                <Typography variant="h5" >   HIGHRISES </Typography>
-                <CsvDownloader filename="HIGHRISES"
-                    extension=".csv"
-                    columns={LndCsvDataHeader}
-                    datas={dataHighrises}
-                    text="DOWNLOAD"
-                    suffix
-                >
-                    <button className={style.btn}>{LoadingHighrises ? 'Download' : <CircularProgress color="inherit" />}</button>
-                </CsvDownloader>
-                {/* } */}
+                <br />
+                <div className={style.dataTable} >
+                    <Typography variant="h5" > Vacant Data</Typography>
+                    <CsvDownloader filename="VACANT"
+                        extension=".csv"
+                        columns={dataVacantArray}
+                        datas={dataVacant}
+                        text="DOWNLOAD"
+                        suffix
+                    >
+                        <button className={style.btn}>{LoadingVacant ? 'Download' : <CircularProgress color="inherit" />}</button>
+                    </CsvDownloader>
+                    {/* } */}
+                </div>
+                <br />
+                <div className={style.dataTable} >
+                    <Typography variant="h5" >  Comercial Data </Typography>
+                    <CsvDownloader filename="COMMERCIAL"
+                        extension=".csv"
+                        columns={LndCsvDataHeader}
+                        datas={dataCommercials}
+                        text="DOWNLOAD"
+                        suffix
+                    >
+                        <button className={style.btn}>{LoadingCommercials ? 'Download' : <CircularProgress color="inherit" />}</button>
+                    </CsvDownloader>
+                    {/* } */}
+                </div>
+                <br />
+                <div className={style.dataTable} >
+                    <Typography variant="h5" >   Highrises Data</Typography>
+                    <CsvDownloader filename="HIGHRISES"
+                        extension=".csv"
+                        columns={LndCsvDataHeader}
+                        datas={dataHighrises}
+                        text="DOWNLOAD"
+                        suffix
+                    >
+                        <button className={style.btn}>{LoadingHighrises ? 'Download' : <CircularProgress color="inherit" />}</button>
+                    </CsvDownloader>
+                    {/* } */}
+                </div>
             </div>
         </Layout>
     )

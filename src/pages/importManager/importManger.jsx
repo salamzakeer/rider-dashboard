@@ -96,14 +96,19 @@ const useStyles = makeStyles(theme => (
         },
         label: {
             paddingLeft: "40px",
-            fontSize: "24px",
+            fontSize: "16px",
             color: "#00000A",
             opacity: "0.6",
             fontWeight: 600,
         },
         lnds: {
             // display: "flex"
-            maxWidth: "500px"
+            maxWidth: "500px",
+            [theme.breakpoints.down('md')]: {
+                // backgroundColor: "red",
+                maxWidth: "1500px",
+
+            },
         }
     }));
 function Dashboard() {
@@ -225,7 +230,7 @@ function Dashboard() {
         <Layout >
 
             <div className="newFile2">
-                <h1>Importing .XL File</h1>
+                <div className="rider-info" >Importing .XL File</div>
                 <form onSubmit={handleSubmit}>
                     <div className={classes.formMain} >
                         <div className={classes.formMainDiv} >
@@ -261,7 +266,8 @@ function Dashboard() {
                             <br />
                             <div className={classes.lnds}>
                                 {(optionSelectedOr === "lnds" || optionSelectedOr === "commercials" ||
-                                    optionSelectedOr === "highrises") && <MySelect
+                                    optionSelectedOr === "highrises") &&
+                                    <MySelect
                                         options={LndArrayOptions}
                                         isMulti
                                         closeMenuOnSelect={false}

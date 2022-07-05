@@ -56,7 +56,7 @@ function CallManager() {
     return (
         <Layout >
             <div>
-                <h1>Call Manager</h1>
+                <div className="rider-info" >Call Manager</div>
             </div>
             <div style={{
                 overflowX: "auto",

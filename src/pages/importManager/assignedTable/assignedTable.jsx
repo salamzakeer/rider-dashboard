@@ -146,7 +146,7 @@ function Newrider() {
     <Layout title="Rider" >
       <div className="rider-tble" >
         <div className="rider-head-details">
-          <div className="rider-info" >Riders Information's</div>
+          <div className="rider-info" >Riders's Assign Data</div>
           <button className="button-cus" onClick={() => {
             setOpenModel(true)
           }} >
