@@ -21,7 +21,8 @@ const colourStyles = {
       display: "flex",
       alignItems: "center",
       paddingLeft: "30px",
-      fontSize: "22px",
+      fontSize: "16px",
+      paddingLeft: "10px",
     };
   },
 };
