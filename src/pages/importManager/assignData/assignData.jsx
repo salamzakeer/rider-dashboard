@@ -12,8 +12,9 @@ const useStyles = makeStyles(theme => (
     {
         formMain: {
             display: "flex",
-            justifyContent: "space-between",
-
+            justifyContent: "space-evenly",
+            maxWidth: "800px",
+            margin: "0 auto",
             // backgroundColor: "red",
             [theme.breakpoints.down('md')]: {
                 // backgroundColor: "green",
@@ -23,10 +24,11 @@ const useStyles = makeStyles(theme => (
         },
         label: {
             paddingLeft: "40px",
-            fontSize: "24px",
+            fontSize: "16px",
             color: "#00000A",
             opacity: "0.6",
             fontWeight: 600,
+            paddingBottom: "4px"
         },
         lnds: {
             // display: "flex"
@@ -156,10 +158,11 @@ function Dashboard() {
         <Layout >
             {/* ========== form ==========*/}
             <div className="newFile2  form">
-            <div className="rider-info" >Assign Data</div>
+                <div className="rider-info" >Assign Data</div>
                 <form onSubmit={handleSubmit}>
                     <div className={classes.formMain}>
                         <div>
+                            <label className={classes.label}>Task Infomation</label>
                             <select class="form-select" aria-label="Default select example" name="" onChange={handleInputChange} >
                                 <option selected>Task Info</option>
                                 <option name='LND' value='lnds' >LANDED</option>
@@ -168,6 +171,8 @@ function Dashboard() {
                                 <option name='HIGHRISES' value='highrises' >HIGHRISES</option>
                             </select>
                             <br />
+                            <label className={classes.label}>Category</label>
+
                             <select class="form-select" aria-label="Default select example" onChange={handleCategoryChange}>
                                 <option selected>Category</option>
                                 {
@@ -178,13 +183,16 @@ function Dashboard() {
                             </select>
                             <br />
                             {/* {JSON.stringify(Category)} */}
+                            <label className={classes.label}>Date</label>
                             <div className="input-div">
                                 <input type="text" className="input-div-input" placeholder="Date" value={UserSelectCategoryCDate} />
                                 {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                             </div>
                             <br />
+                            <label className={classes.label}>Staff Name</label>
+
                             <select class="form-select" aria-label="Default select example" onChange={handleStaffChange}>
-                                <option selected>Staff info</option>
+                                <option selected>Staff Name</option>
                                 {
                                     RiderData && RiderData.length > 0 && RiderData.map((item) => (
                                         <option name={item.id} value={item.id} >{item.fullName}</option>
@@ -203,8 +211,10 @@ function Dashboard() {
 
 
                         <div>
+                            <label className={classes.label}> Type Of Task Assign</label>
+
                             <select class="form-select" aria-label="Default select example" >
-                                <option selected>Select Type Of Task Assign</option>
+                                <option selected>Select </option>
                                 <option>New</option>
                                 <option>Replace</option>
                                 <option>Re Assign(Task Completed)</option>
@@ -212,11 +222,15 @@ function Dashboard() {
 
                             </select>
                             <br />
+                            <label className={classes.label}>From</label>
+
                             <div className="input-div">
                                 <input type="text" className="input-div-input" placeholder="From" value={Form} onChange={(e) => setForm(e.target.value)} />
                                 {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
                             </div>
                             <br />
+                            <label className={classes.label}>To</label>
+
                             <div className="input-div">
                                 <input type="text" className="input-div-input" placeholder="To" value={To} onChange={(e) => setTo(e.target.value)} />
                                 {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}

@@ -22,6 +22,7 @@ select {
   border-right: 44px solid transparent;
 }
 select:focus {
-  outline: none;
-  box-shadow: none;
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #ccc !important;
 }

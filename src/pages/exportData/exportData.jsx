@@ -481,7 +481,7 @@ function Dashboard() {
                         text="DOWNLOAD"
                         suffix
                     >
-                        <button className={style.btn} > {Loading ? 'Download' : <CircularProgress color="inherit" />}
+                        <button className={style.btn} > {Loading ? 'Download' : <CircularProgress color="inherit" style={{ width: "24px", height: "24px" }} />}
                         </button>
                     </CsvDownloader>
                     {/* } */}
@@ -497,7 +497,8 @@ function Dashboard() {
                         text="DOWNLOAD"
                         suffix
                     >
-                        <button className={style.btn}>{LoadingVacant ? 'Download' : <CircularProgress color="inherit" />}</button>
+                        <button className={style.btn}>{LoadingVacant ? 'Download' : <CircularProgress color="inherit" style={{ width: "24px", height: "24px" }} />}
+                        </button>
                     </CsvDownloader>
                     {/* } */}
                 </div>
@@ -511,7 +512,7 @@ function Dashboard() {
                         text="DOWNLOAD"
                         suffix
                     >
-                        <button className={style.btn}>{LoadingCommercials ? 'Download' : <CircularProgress color="inherit" />}</button>
+                        <button className={style.btn}>{LoadingCommercials ? 'Download' : <CircularProgress color="inherit" style={{ width: "24px", height: "24px" }} />}                        </button>
                     </CsvDownloader>
                     {/* } */}
                 </div>
@@ -525,7 +526,8 @@ function Dashboard() {
                         text="DOWNLOAD"
                         suffix
                     >
-                        <button className={style.btn}>{LoadingHighrises ? 'Download' : <CircularProgress color="inherit" />}</button>
+                        <button className={style.btn}>{LoadingHighrises ? 'Download' : <CircularProgress color="inherit" style={{ width: "24px", height: "24px" }} />}
+                        </button>
                     </CsvDownloader>
                     {/* } */}
                 </div>

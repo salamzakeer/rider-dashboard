@@ -39,6 +39,8 @@ const useStyles = makeStyles((theme) => ({
         color: "#00000A",
         opacity: "0.6",
         fontWeight: 600,
+        paddingBottom: "4px"
+
     },
     lnds: {
         // display: "flex"

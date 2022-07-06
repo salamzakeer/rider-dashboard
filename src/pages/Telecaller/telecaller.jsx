@@ -11,6 +11,7 @@ import AddRider from '../../components/Modal/AddRiderPopup';
 import "./telecaller.css"
 import Layout from "../../components/layout/Navbar";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Avatar } from "@mui/material";
 
 
 const theme = createTheme();
@@ -104,11 +105,26 @@ function Telecaller() {
           </tr>
           {rows.map((row, i) => (
             <tr key={i} style={{ margin: "1rem 0rem" }} >
-              <td><Typography variant="body">{row.I}</Typography></td>
+              <td ><Typography variant="body">0{i + 1}</Typography></td>
               <td><Typography variant="body">{row.ID}</Typography></td>
-              <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td>
-              <td><Typography variant="body">{row.Name}</Typography></td>
-              <td><Typography variant="body">{row.Email}</Typography></td>
+              <td align="center" >
+                <Avatar
+                  sx={{
+                    width: "40px",
+                    height: "40px",
+                    textTransform: "capitalize",
+                    textAlign: "center",
+                    margin: "0 auto"
+                  }}
+                  // src={ProfilePic}
+                  alt="user"
+                >
+                  {row.Name[0]}
+                </Avatar>
+              </td>
+              {/* <td><Typography variant="body"><img src={ProfilePic} className="tableimg" alt="" /></Typography></td> */}
+              <td style={{ textAlign: "start !important", paddingLeft: "8px" }} ><p style={{ textAlign: "left", margin: "0px", paddingLeft: "8px" }} >{row.Name}</p></td>
+              <td style={{ textAlign: "start !important", paddingLeft: "8px !important" }} ><p style={{ textAlign: "left", margin: "0px", paddingLeft: "8px" }}  >{row.Email}</p></td>
 
               <td>
 

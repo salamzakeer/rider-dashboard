@@ -11,6 +11,7 @@ import Layout from "../../components/layout/Navbar";
 import "./rider.css"
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import { Avatar } from "@mui/material";
 
 const theme = createTheme();
 
@@ -185,10 +186,26 @@ function Newrider() {
               <tr>
                 <td><Typography variant="body">{data.id}</Typography></td>
                 <td><Typography variant="body">{data.id}</Typography></td>
-                <td><Typography variant="body"><img src={data.image ? axios.defaults.baseURL + "/images/" + data.image : ProfilePic} className="tableimg" alt="userpic" /></Typography></td>
+                <td align="center" >
+                  <Avatar
+                    sx={{
+                      width: "40px",
+                      height: "40px",
+                      textTransform: "capitalize",
+                      textAlign: "center",
+                      margin: "0 auto"
+                    }}
+                    src={axios.defaults.baseURL + "/images/" + data.image}
+                    alt="user"
+                  >
+                    {data.fullName[0]}
+                  </Avatar>
+                </td>
+
                 {/* <td><Typography variant="body">{data.id}</Typography></td> */}
-                <td><Typography variant="body">{data.fullName}</Typography></td>
-                <td><Typography variant="body">{data.email}</Typography></td>
+                <td><p style={{ textAlign: "left", margin: "0px", paddingLeft: "16px" }} >{data.fullName}</p></td>
+                {/* style={{ textAlign: "left", margin: "0px", paddingLeft: "8px" }}  */}
+                <td><p style={{ textAlign: "left", margin: "0px", paddingLeft: "16px" }} >{data.email}</p></td>
                 <td onClick={() => deleteHandle(data)} >
                   {/* <img src={DeleteBtn} className="delete" alt="" /> */}
                   <DeleteIcon sx={{ color: "red", opacity: "0.8", ": &hover": { opacity: "1" }, cursor: "pointer" }} />

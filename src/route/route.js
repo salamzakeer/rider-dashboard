@@ -120,6 +120,7 @@ export const AuthenticationRoutes = [
     component: Login,
     exact: true,
   },
+ 
   {
     path: "*",
     component: Login,

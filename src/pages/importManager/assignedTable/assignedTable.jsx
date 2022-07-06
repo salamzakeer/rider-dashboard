@@ -12,6 +12,7 @@ import "./rider.css"
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import { Link } from "react-router-dom";
+import { Avatar } from "@mui/material";
 
 const theme = createTheme();
 
@@ -189,8 +190,21 @@ function Newrider() {
             {data && data.length > 0 && data.map((data, i) => (
               <tr>
                 <td><Typography variant="body">{i + 1}</Typography></td>
-                <td><Typography variant="body"><img src={data.image ? axios.defaults.baseURL + "/images/" + data.image : ProfilePic} className="tableimg" alt="userpic" /></Typography></td>
-
+                <td align="center" >
+                  <Avatar 
+                    sx={{
+                      width: "40px",
+                      height: "40px",
+                      textTransform: "capitalize",
+                      textAlign: "center",
+                      margin: "0 auto"
+                    }}
+                    src={axios.defaults.baseURL + "/images/" + data.image}
+                    alt="user"
+                  >
+                    {data.fullName[0]}
+                  </Avatar>
+                </td>
                 <td><Typography variant="body">{data.fullName}</Typography></td>
                 <td><Typography variant="body">{data.category}</Typography></td>
 
