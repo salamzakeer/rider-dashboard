@@ -12,6 +12,8 @@ import "./rider.css"
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import { Avatar } from "@mui/material";
+import ReactPaginate from 'react-paginate';
+// @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 
 const theme = createTheme();
 
@@ -91,6 +93,17 @@ function Newrider() {
   const [data, setData] = useState([]);
   const Auth = localStorage.getItem("userInfor");
   const message = JSON.parse(Auth)
+  // paggnination
+  const itemsPerPage = 10;
+
+  // We start with an empty list of items.
+  const [currentItems, setCurrentItems] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemOffset, setItemOffset] = useState(0);
+
+
   const token = message.message.token
   console.log(token, "token")
 
@@ -108,6 +121,24 @@ function Newrider() {
         setLoading(true)
       })
   }, [])
+
+
+  useEffect(() => {
+    // Fetch items from another resources.
+    const endOffset = itemOffset + itemsPerPage;
+    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    setCurrentItems(data.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(data.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, data]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % data.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
+
 
   const deleteHandle = (e) => {
     let id = e.id
@@ -182,7 +213,7 @@ function Newrider() {
                 </td>
               </tr>}
 
-            {data && data.length > 0 && data.map(data => (
+            {currentItems && currentItems.length > 0 && currentItems.map(data => (
               <tr>
                 <td><Typography variant="body">{data.id}</Typography></td>
                 <td><Typography variant="body">{data.id}</Typography></td>
@@ -223,6 +254,26 @@ function Newrider() {
                 }} colspan="6"><Typography variant="body" >No data</Typography></td>
               </tr>}
           </table>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageCount={pageCount}
+            previousLabel="< previous"
+            renderOnZeroPageCount={null}
+            pageRangeDisplayed={1}
+            marginPagesDisplayed={1}
+            containerClassName={"pagination justify-content-end"}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"page-item"}
+            previousLinkClassName={"page-link"}
+            nextClassName={"page-item"}
+            nextLinkClassName={"page-link"}
+            breakClassName={"page-item"}
+            breakLinkClassName={"page-link"}
+            activeClassName={"active"}
+          />
         </div>
       </div>
 

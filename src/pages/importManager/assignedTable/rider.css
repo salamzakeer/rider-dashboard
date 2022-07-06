@@ -1,3 +1,15 @@
+/* pagination css */
+.page-item.active .page-link {
+  background-color: #501abf !important;
+}
+.page-link:focus {
+  background-color: #501abf !important;
+  box-shadow: none;
+  color: #fff;
+}
+.page-item.disabled:focus .page-link:focus {
+  background-color: #fff !important;
+}
 .rider-table {
   overflow-x: auto;
   top: 50px;
@@ -27,20 +39,21 @@ table {
   left: 32px;
   position: relative;
 }
-.table-rider{
+.table-rider {
   overflow-x: auto;
-    max-width: 1100px;
-    margin: 2rem auto;
+  max-width: 1100px;
+  margin: 2rem auto;
 }
 
 @media only screen and (max-width: 800px) {
-  .table-rider{
-      width: calc(1vw *90);
-  }}
+  .table-rider {
+    width: calc(1vw * 90);
+  }
+}
 
 th {
   background-color: #501abf;
-  color: #ffffff !important; 
+  color: #ffffff !important;
   font: normal 400 16px Poppins;
   padding: 0px;
 }
@@ -86,10 +99,10 @@ td {
   .tableHead2 {
     /* z-index: 9; */
   }
-  
-.button-cus {
-  margin-top: 1rem;
-}
+
+  .button-cus {
+    margin-top: 1rem;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -183,7 +196,6 @@ td {
     left: 3%;
     margin-left: 0px;
   }
-  
 }
 .rider-info {
   color: #501abf;
@@ -197,9 +209,9 @@ td {
   border-radius: 44px;
   background-color: #ffffff;
 }
-.rider-head-details{
+.rider-head-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
