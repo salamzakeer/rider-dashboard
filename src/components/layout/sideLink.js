@@ -7,6 +7,7 @@ export default function SideNavigation(props) {
   const location = useLocation();
   const path = location.pathname;
   const [open, setOpen] = React.useState(true);
+  const [open2, setOpen2] = React.useState(true);
   const Logout = () => {
     localStorage.removeItem("userInfor");
     localStorage.removeItem("auth");
@@ -72,7 +73,7 @@ export default function SideNavigation(props) {
               <span style={{ paddingLeft: "20px" }}>Import Data</span>
             </li>
           </Link>
-          <Link to="/assign-data" style={{ textDecoration: "none" }}>
+          {/* <Link to="/assign-data" style={{ textDecoration: "none" }}>
             <li
               className={`left-heading ${
                 path === "/assign-data" ? "s-active" : ""
@@ -80,28 +81,62 @@ export default function SideNavigation(props) {
             >
               <span style={{ paddingLeft: "20px" }}>Assign Data</span>
             </li>
-          </Link>
+          </Link> */}
           <Link to="/assigned-data" style={{ textDecoration: "none" }}>
             <li
               className={`left-heading ${
                 path === "/assigned-data" ? "s-active" : ""
               }`}
             >
-              <span style={{ paddingLeft: "20px" }}>Assigned Data</span>
+              <span style={{ paddingLeft: "20px" }}>Assign Data</span>
             </li>
           </Link>
         </>
       )}
-      <Link to="/calendar" style={{ textDecoration: "none" }}>
+      {/* <Link to="/calendar" style={{ textDecoration: "none" }}>
         <li className={`left-heading ${path === "/calendar" ? "actived" : ""}`}>
           <span>Calendar</span>
         </li>
+      </Link> */}
+      <Link
+        to=""
+        style={{ textDecoration: "none" }}
+        onClick={() => setOpen2(!open2)}
+      >
+        <li
+          className={`left-heading ${
+            path === "/import-data" || path === "/assign-data" ? "actived" : ""
+          }`}
+        >
+          <span>Riders</span>
+        </li>
       </Link>
-      <Link to="/rider" style={{ textDecoration: "none" }}>
+      {open2 && (
+        <>
+          <Link to="/rider" style={{ textDecoration: "none" }}>
+            <li
+              className={`left-heading ${path === "/rider" ? "s-active" : ""}`}
+            >
+              <span style={{ paddingLeft: "20px" }}>Rider's Details</span>
+            </li>
+          </Link>
+
+          <Link to="/calendar" style={{ textDecoration: "none" }}>
+            <li
+              className={`left-heading ${
+                path === "/calendar" ? "s-active" : ""
+              }`}
+            >
+              <span style={{ paddingLeft: "20px" }}>Rider Attendance</span>
+            </li>
+          </Link>
+        </>
+      )}
+      {/* <Link to="/rider" style={{ textDecoration: "none" }}>
         <li className={`left-heading ${path === "/rider" ? "actived" : ""}`}>
           <span>Riders Information's</span>
         </li>
-      </Link>
+      </Link> */}
 
       <Link to="/telecaller" style={{ textDecoration: "none" }}>
         <li

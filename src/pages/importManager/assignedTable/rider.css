@@ -215,3 +215,11 @@ td {
   align-items: center;
   flex-wrap: wrap;
 }
+.btn-custom-style {
+  background-color: #501abf;
+  color: #fff;
+  border-radius: 12px;
+}
+.btn-custom-style:hover {
+  color: #fff;
+}
