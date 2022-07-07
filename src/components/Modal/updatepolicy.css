@@ -44,12 +44,12 @@
 .card-background .Addrider-card .input {
   position: relative;
   width: 100%;
-  height: 88px;
+  height: 60px;
   margin-top: 17px;
   border: 0.5px solid #afafaf;
   border-radius: 44px;
   box-sizing: border-box;
-  font: normal 30px Poppins;
+  font: normal 16px Poppins;
   letter-spacing: 0px;
   color: #afafaf;
   padding-left: 44px;
@@ -57,12 +57,12 @@
 
 .card-background .Addrider-card .login-submit {
   position: relative;
-  width: 100%;
-  height: 88px;
+  width: 65%;
+  height: 60px;
   margin-top: 35px;
   background: #5016bf;
   border-radius: 44px;
-  font: normal 600 30px Poppins;
+  font: normal 500 30px Poppins;
   border: none;
   color: #ffffff;
 }
@@ -77,6 +77,7 @@
 .card-background .Addrider-card .upload-pic .uploadTxt {
   margin-top: 6.5px;
   margin-bottom: 0px;
+  font-size: 1.5rem;
 }
 
 /* .card-background .Addrider-card .upload-pic .uploadBtn::-webkit-file-upload-button {
@@ -123,21 +124,21 @@
   .card-background .Addrider-card .input {
     box-sizing: border-box;
     width: 100%;
-    font: normal 25px Poppins;
-    height: 88px;
+    font: normal 16px Poppins;
+    height: 60px;
     border-radius: 35px;
   }
 
   .card-background .Addrider-card .login-submit {
     box-sizing: border-box;
     width: 100%;
-    font: normal 600 25px Poppins;
-    height: 70px;
+    font: normal 500 16px Poppins;
+    height: 60px;
     border-radius: 35px;
   }
 
   .card-background .Addrider-card .reset {
-    font: normal 25px Poppins;
+    font: normal 16px Poppins;
   }
 
   .card-background .Addrider-card {
