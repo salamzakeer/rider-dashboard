@@ -105,7 +105,7 @@ export default function SideNavigation(props) {
       >
         <li
           className={`left-heading ${
-            path === "/import-data" || path === "/assign-data" ? "actived" : ""
+            path === "/rider" || path === "/calendar" ? "actived" : ""
           }`}
         >
           <span>Riders</span>

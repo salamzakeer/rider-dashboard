@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import "./style.css";
 import { createTheme } from "@mui/material/styles";
 
@@ -46,7 +46,7 @@ const paraLeft = {
   paddingLeft: "10px",
 };
 const paraProps = {
-  backgroundColor: "#CCCC",
+  backgroundColor: "#d6eeee",
 };
 const paraRight = {
   textAlign: "left",
@@ -60,7 +60,7 @@ function Newrider(Details) {
     {
       id: "ID",
       IdNo: SelectUserObject.id,
-      C: "IS Name Correct",
+      C: "Is Name Correct",
       CNo: "Yes",
       Arrears: "Arrears",
       ArrearsNo: SelectUserObject.arrears,
@@ -69,10 +69,10 @@ function Newrider(Details) {
     {
       id: "Account Number",
       IdNo: SelectUserObject.accountNo,
-      C: "Nationality(m/f)",
+      C: "Nationality(M/F)",
       CNo: "M",
       // I: "Current balance",
-      Arrears: "Current balance",
+      Arrears: "Current Balance",
       ArrearsNo: SelectUserObject.arrears,
       Sum: "",
     },
@@ -97,7 +97,7 @@ function Newrider(Details) {
     {
       id: "Owner 1",
       IdNo: "Abu bin Basker",
-      C: "Oner's tel no 3",
+      C: "Owner's tel no 3",
       CNo: "",
       Arrears: "",
       ArrearsNo: "Paid",
@@ -142,7 +142,7 @@ function Newrider(Details) {
     {
       id: "Arrears Date",
       IdNo: "1/03/2022",
-      C: "property Usage",
+      C: "Property Usage",
       CNo: "",
       Arrears: "Arrears",
       ArrearsNo: "Others",
@@ -151,7 +151,7 @@ function Newrider(Details) {
     {
       id: "Date of visit",
       IdNo: "1/03/2022",
-      C: "property Usage",
+      C: "Property Usage",
       CNo: "",
       Arrears: "Range",
       ArrearsNo: "Range 5",
@@ -176,7 +176,7 @@ function Newrider(Details) {
       Sum: "",
     },
     {
-      id: "class[D,C,I,G]",
+      id: "Class[D,C,I,G]",
       IdNo: "commercial",
       C: "",
       CNo: "",
