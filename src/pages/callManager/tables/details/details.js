@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "../style.css";
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme();
@@ -194,6 +194,7 @@ function Newrider(Details) {
       Sum: "",
     },
   ];
+
   const tr = {
     border: "2px solid #fafafa",
   };

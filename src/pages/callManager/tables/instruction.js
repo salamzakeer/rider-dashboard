@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 import { createTheme } from "@mui/material/styles";
 
-
 const theme = createTheme();
 
 theme.typography.h3 = {
@@ -50,30 +49,30 @@ function Instruction(Instruction) {
   return (
     <div className="instruction">
       <p>
-        Dear Owner1,{" "}
-        <span style={{ fontWeight: "600" }}>{SelectUserObject.debtor}</span>
+        Dear Owner1,
+        <span style={{ fontWeight: "600" }}>{SelectUserObject.Owner1}</span>
       </p>
       <p>
         I am calling from on behalf{" "}
         <span style={spans}> {SelectUserObject.dcaName} </span> with regards to
         your outstanding payment for{" "}
-        <span style={spans}>(Principal) (IWK)</span>
+        <span style={spans}>{SelectUserObject.Owner1} </span>
         Before we proceed, I would like to do some verification ,
       </p>
       <p>
-        Owner1: <span style={spans}>{SelectUserObject.debtor}</span>
+        Owner1: <span style={spans}>{SelectUserObject.Owner1}</span>
       </p>
       <p>
         Address:
-        <span style={spans}>{SelectUserObject.address}</span>
+        <span style={spans}>{SelectUserObject.MailAdd1}{SelectUserObject.MailAdd2}</span>
       </p>
       <p>
         Account Number :{" "}
-        <span style={spans}> {SelectUserObject.accountNo}</span>
+        <span style={spans}> {SelectUserObject.SAN}</span>
       </p>
       <p>
         You have the following ,
-        <span style={spans}>{SelectUserObject.arrears}</span> could you please
+        <span style={spans}>{SelectUserObject.Arrears}</span> could you please
         make the payment as soon as possible.
       </p>
     </div>

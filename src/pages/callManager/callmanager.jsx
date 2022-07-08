@@ -1,18 +1,39 @@
 import React, { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css"; // import first
 // import { useToasts } from "react-toast-notifications";
-import DetailView from "./tables/details";
+import DetailView from "./tables/details/details";
 import SiteView from "./tables/siteview";
 import CallDetails from "./tables/callDetails";
 import Instruction from "./tables/instruction";
 import Layout from "../../components/layout/Navbar";
 import axios from "../../axios";
 
-import { CircularProgress, Typography } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  LinearProgress,
+  Typography,
+} from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 
 const useStyles = makeStyles((theme) => ({
+  update: {
+    backgroundColor: "#32c232",
+    padding: "6px",
+    borderRadius: "12px",
+    color: "#fff",
+    width: "120px",
+  },
+
+  notupdate: {
+    backgroundColor: "#e21717",
+    padding: "6px",
+    borderRadius: "12px",
+    color: "#fff",
+    width: "120px",
+  },
+
   formMain: {
     display: "flex",
     justifyContent: "space-around",
@@ -97,6 +118,7 @@ function CallManager() {
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
+  const [Loading, setLoading] = useState(false);
 
   const token = JSON.parse(localStorage.getItem("auth")).message.token || "";
 
@@ -196,6 +218,10 @@ function CallManager() {
     setSelectUserObject(e);
   };
   const handleFiltering = () => {
+    // Disabled
+    setLoading(false);
+    setfilterByJobnameAndCategoryData([]);
+    setDisabled(true);
     console.log(Option, UserSelectCategory, "===========");
     // http://dcaapi.moodfor.codes/riderdata/filterByJobnameAndCategory/{category}/{jobName}
     axios
@@ -206,10 +232,13 @@ function CallManager() {
         setDisabled(false);
         console.log(res.data, "datadatadatadatadata");
         setfilterByJobnameAndCategoryData(res.data);
+        setLoading(true);
       })
       .catch((err) => {
         // setDisabled(false);
         setCategory([]);
+        setLoading(true);
+
         // console.log(err, 'error')
       });
   };
@@ -236,9 +265,9 @@ function CallManager() {
             <option name="lnds" value="lnds">
               LANDED
             </option>
-            <option name="vacants" value="vacants">
+            {/* <option name="vacants" value="vacants">
               VACANTS
-            </option>
+            </option> */}
             {/* lnds same data to comercial and highrises commercials  */}
             <option name="commercials" value="commercials">
               COMMERCIAL
@@ -301,59 +330,46 @@ function CallManager() {
               <span variant="body">Account Number</span>{" "}
             </th>
             <th>
+              <span variant="body">DCA Name</span>{" "}
+            </th>
+            <th>
               <span variant="body">Debtor Name</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Address</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Job Id</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Status</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Arrears</span>{" "}
             </th>
             <th>
               <span variant="body">Range</span>{" "}
             </th>
             <th>
-              <span variant="body">DCA Name</span>{" "}
+              <span variant="body">Arrears</span>{" "}
+            </th>
+            <th>
+              <span variant="body">Address</span>{" "}
+            </th>
+            <th>
+              <span variant="body">Status</span>{" "}
             </th>
           </tr>
-          {/* {rows &&
-            rows.map((row, i) => (
-              <tr key={i} onClick={() => findUser(row)}>
-                <td>
-                  <span variant="body">{row.id}</span>
-                </td>
-                <td>
-                  <span variant="body">{row.accountNo}</span>
-                </td>
-                <td>
-                  <span variant="body">{row.debtor}</span>
-                </td>
-                <td>
-                  <span variant="body">{row.address}</span>
-                </td>
-                <td>
-                  <span variant="body">{row.jobId}</span>
-                </td>
-                <td>
-                  <span variant="body">{row.status}</span>
-                </td>
-                <td>
-                  <span variant="body">{row.arrears}</span>
-                </td>
-                <td>
-                  <span variant="body">{row.range}</span>
-                </td>
-                <td>
-                  <span variant="body">{row.dcaName}</span>
-                </td>
-              </tr>
-            ))} */}
+          {!Loading && Disabled && (
+            <tr
+              style={{
+                borderCollapse: "collapse",
+                padding: "0px !important",
+              }}
+            >
+              <td
+                style={{
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                  padding: "0px !important",
+                }}
+                colspan="12"
+              >
+                <Box sx={{ width: "100%" }}>
+                  <LinearProgress />
+                </Box>
+              </td>
+            </tr>
+          )}
+
           {currentItems &&
             currentItems.length > 0 &&
             currentItems.map((data) => (
@@ -365,29 +381,37 @@ function CallManager() {
                   <Typography variant="body">{data.SAN}</Typography>
                 </td>
                 <td>
+                  <Typography variant="body">{data.DCAName}</Typography>
+                </td>
+                <td>
                   <Typography variant="body">{data.Owner1}</Typography>
                 </td>
+
+                {/* <td>
+                  <Typography variant="body">{data.jobName}</Typography>
+                </td> */}
+                <td>
+                  <Typography variant="body">{data.Range}</Typography>
+                </td>
+                <td>
+                  <Typography variant="body">{data.Arrears}</Typography>
+                </td>
+
                 <td>
                   <Typography variant="body">
                     {data.MailAdd1} {data.MailAdd2}
                   </Typography>
                 </td>
-
                 <td>
-                  <Typography variant="body">{data.jobName}</Typography>
-                </td>
-                <td>
-                  <Typography variant="body">{data.status}</Typography>
-                </td>
-                <td>
-                  <Typography variant="body">{data.Arrears}</Typography>
-                </td>
-                <td>
-                  <Typography variant="body">{data.Range}</Typography>
-                </td>
-
-                <td>
-                  <Typography variant="body">{data.DCAName}</Typography>
+                  <div
+                    className={
+                      data.updateStatus === 0
+                        ? classes.notupdate
+                        : classes.update
+                    }
+                  >
+                    {data.updateStatus === 0 ? "Not Updated" : "Updated"}
+                  </div>
                 </td>
 
                 {/* <td><Typography variant="body">{data.id}</Typography></td> */}
