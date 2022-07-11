@@ -18,6 +18,13 @@ import { makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 
 const useStyles = makeStyles((theme) => ({
+  Progress: {
+    margin: "9px",
+    // color: "#501abf !important",
+    // "&:hover": {
+    //   color: "#fff !important",
+    // },
+  },
   update: {
     backgroundColor: "#32c232",
     padding: "6px",
@@ -90,6 +97,12 @@ const useStyles = makeStyles((theme) => ({
       color: "#501abf",
       border: "2px solid #501abf",
       fontWeight: "600",
+      "& span": {
+        color: "#501abf !important",
+      },
+    },
+    "& span": {
+      color: "#fff !important",
     },
   },
 }));
@@ -301,7 +314,11 @@ function CallManager() {
           disabled={Disabled}
         >
           {" "}
-          {Disabled ? <CircularProgress style={{ margin: "9px" }} /> : "Filter"}
+          {Disabled ? (
+            <CircularProgress className={classes.Progress} />
+          ) : (
+            "Filter"
+          )}
         </button>
         {/* <div className={classes.select1}>
           <div className={classes.filter}>Filter</div>

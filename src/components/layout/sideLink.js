@@ -143,7 +143,7 @@ export default function SideNavigation(props) {
           className={`left-heading ${path === "/telecaller" ? "actived" : ""}`}
           to="/telecaller"
         >
-          <span>Telecallers Information's</span>
+          <span>Telecallers </span>
         </li>
       </Link>
 
