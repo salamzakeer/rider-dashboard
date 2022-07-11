@@ -41,6 +41,15 @@ export default function SideNavigation(props) {
           <span>Call Manager</span>
         </li>
       </Link>
+      <Link to="/images" style={{ textDecoration: "none" }}>
+        <li
+          className={`left-heading ${
+            path === "/images" ? "actived" : ""
+          }`}
+        >
+          <span>Images</span>
+        </li>
+      </Link>
       <Link to="/export-data" style={{ textDecoration: "none" }}>
         <li
           className={`left-heading ${path === "/export-data" ? "actived" : ""}`}

@@ -1,7 +1,7 @@
 import Login from "../pages/login/login";
 import Dashboard from "../pages/dashboard/dashboard";
 import Calendar from "../pages/calender/calendar";
-
+import Images from "../pages/images/images";
 import Export from "../pages/exportData/exportData";
 import CallManager from "../pages/callManager/callmanager";
 import ExtendSearch from "../pages/extendSearch/index";
@@ -77,6 +77,12 @@ export const publicRoutes = [
   },
 
   {
+    path: "/images",
+    component: Images,
+    exact: true,
+  },
+
+  {
     path: "/telecaller",
     component: Telecaller,
     exact: true,
@@ -120,7 +126,7 @@ export const AuthenticationRoutes = [
     component: Login,
     exact: true,
   },
- 
+
   {
     path: "*",
     component: Login,

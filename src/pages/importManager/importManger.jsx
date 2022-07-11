@@ -114,6 +114,20 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "1500px",
     },
   },
+  btn: {
+    "&:hover": {
+      color: "#501abf !important",
+
+      "& svg": {
+        color: "#501abf !important",
+      },
+      background: "#fff !important",
+    },
+    "& svg": {
+      color: "#fff !important",
+    },
+    border: "2px solid #501abf !important",
+  },
 }));
 function Dashboard() {
   const { addToast } = useToasts();
@@ -360,7 +374,11 @@ function Dashboard() {
             </div>
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button type="submit" className="submit3" disabled={Disabled}>
+            <button
+              type="submit"
+              className={`submit3  ${classes.btn} `}
+              disabled={Disabled}
+            >
               {" "}
               {Disabled ? (
                 <CircularProgress style={{ margin: "9px" }} />
