@@ -12,7 +12,6 @@ import {
 } from "@mui/material";
 import { Avatar, makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
-import { render } from "@testing-library/react";
 
 const useStyles = makeStyles((theme) => ({
   Avatar: {
@@ -108,9 +107,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 function CallManager() {
   const classes = useStyles();
-  const [GetId, setGetId] = useState("");
-  const [SelectUserObject, setSelectUserObject] = useState(null);
-  const [SelectInput, setSelectInput] = useState("Details");
+
   const [Category, setCategory] = React.useState([]);
   const [UserSelectCategory, setUserSelectCategory] = React.useState("");
   // const [UserSelectCategoryCDate, setUserSelectCategoryCDate] =
@@ -133,8 +130,6 @@ function CallManager() {
   const [itemOffset, setItemOffset] = useState(0);
   const [Loading, setLoading] = useState(false);
 
-  const token = JSON.parse(localStorage.getItem("auth")).message.token || "";
-
   useEffect(() => {
     setDisabled(true);
     axios
@@ -149,7 +144,7 @@ function CallManager() {
         setCategory([]);
         // console.log(err, 'error')
       });
-  }, [Option]);
+  }, [Option, AdminId]);
   const handleInputChanges = (e) => {
     const { value } = e.target;
     setOption(value);
@@ -176,66 +171,16 @@ function CallManager() {
     setItemOffset(newOffset);
   };
   const handleCategoryChange = (e) => {
-    const { value, name } = e.target;
-
-    const date =
-      Category.find((item) => item.id == e.target.value).createdDate || "";
-    // console.log(moment(date).format("YYYY-MM-DD"))
-    setUserSelectCategory(value);
-    // setUserSelectCategoryCDate(moment(date).format("YYYY-MM-DD"));
-    // console.log(
-    //   Category.find((item) => item.id == e.target.value).createdDate || ""
-    // );
-  };
-  const handleInputChange = (e) => {
     const { value } = e.target;
-    setSelectInput(value);
+    setUserSelectCategory(value);
   };
-  const rows = [
-    {
-      id: "001",
-      accountNo: "00011920",
-      debtor: "rushanth",
-      address: "Jaffna",
-      jobId: "2021-ND-NC21-F16-RCF12",
-      status: "new",
-      arrears: "RM 1000.00",
-      range: "Range 01",
-      dcaName: "PIN SDN BHD",
-    },
-    {
-      id: "002",
-      accountNo: "00011920",
-      debtor: "rushanth",
-      address: "Jaffna",
-      jobId: "2021-ND-NC21-F16-RCF12",
-      status: "new",
-      arrears: "RM 1000.00",
-      range: "Range 01",
-      dcaName: "PIN SDN BHD",
-    },
-    {
-      id: "003",
-      accountNo: "00011920",
-      debtor: "rushanth",
-      address: "Jaffna",
-      jobId: "2021-ND-NC21-F16-RCF12",
-      status: "new",
-      arrears: "RM 1000.00",
-      range: "Range 01",
-      dcaName: "PIN SDN BHD",
-    },
-  ];
-  const findUser = (e) => {
-    setGetId(e.id);
-    setSelectUserObject(e);
-  };
+
   const handleFiltering = () => {
     // Disabled
     setLoading(false);
     setfilterByJobnameAndCategoryData([]);
     setDisabled(true);
-    console.log(Option, UserSelectCategory, "===========");
+    // console.log(Option, UserSelectCategory, "===========");
     // http://dcaapi.moodfor.codes/riderdata/filterByJobnameAndCategory/{category}/{jobName}
     axios
       .get(
@@ -243,7 +188,7 @@ function CallManager() {
       )
       .then((res) => {
         setDisabled(false);
-        console.log(res.data, "datadatadatadatadata");
+        // console.log(res.data, "datadatadatadatadata");
         setfilterByJobnameAndCategoryData(res.data);
         setLoading(true);
       })
@@ -428,7 +373,7 @@ function CallManager() {
           {currentItems &&
             currentItems.length > 0 &&
             currentItems.map((data) => (
-              <tr onClick={() => findUser(data)}>
+              <tr>
                 <td>
                   <Typography variant="body">{data.id}</Typography>
                 </td>
@@ -441,42 +386,7 @@ function CallManager() {
                 <td>
                   <Typography variant="body">{data.DCAName}</Typography>
                 </td>
-
-                {/* <td>
-                  <Typography variant="body">{data.jobName}</Typography>
-                </td> */}
-                {/* {data.multiImage &&
-                  data.multiImage.length > 0 &&
-                  () => displayImage(data.multiImage)
-                 } */}
                 <DisplayImage image={data.multiImage} />
-                <td>
-                  <Typography variant="body">{data.Arrears}</Typography>
-                </td>
-
-                {/* <td><Typography variant="body">{data.id}</Typography></td> */}
-                {/* <td>
-                  <p
-                    style={{
-                      textAlign: "left",
-                      margin: "0px",
-                      paddingLeft: "16px",
-                    }}
-                  >
-                    {data.fullName}
-                  </p>
-                </td> */}
-                {/* <td>
-                  <p
-                    style={{
-                      textAlign: "left",
-                      margin: "0px",
-                      paddingLeft: "16px",
-                    }}
-                  >
-                    {data.email}
-                  </p>
-                </td> */}
               </tr>
             ))}
         </table>
