@@ -20,10 +20,8 @@ import ReactPaginate from "react-paginate";
 const useStyles = makeStyles((theme) => ({
   Progress: {
     margin: "9px",
-    // color: "#501abf !important",
-    // "&:hover": {
-    //   color: "#fff !important",
-    // },
+    width: "24px !important",
+    height: "24px !important",
   },
   update: {
     backgroundColor: "#32c232",
@@ -84,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     fontSize: "16px",
     fontFamily: "Poppins",
-    opacity: " 0.8",
+    // opacity: " 0.8",
     borderRadius: "50px",
     [theme.breakpoints.down("md")]: {
       // backgroundColor: "green",
@@ -339,7 +337,13 @@ function CallManager() {
           }}
         >
           <tr>
-            <th style={{ textAlign: "left" }}>
+            <th
+              style={{
+                textAlign: "left",
+                padding: "10px !important",
+                width: "100px",
+              }}
+            >
               {" "}
               <Typography variant="body">ID</Typography>{" "}
             </th>

@@ -21,7 +21,7 @@ const Option = (props) => {
           type="checkbox"
           checked={props.isSelected}
           onChange={() => null}
-        />{" "}
+        />
         <label>{props.label}</label>
       </components.Option>
     </div>
@@ -88,6 +88,11 @@ const VacantsArrayOptions = [
 ];
 const animatedComponents = makeAnimated();
 const useStyles = makeStyles((theme) => ({
+  Progress: {
+    // margin: "9px",
+    width: "24px !important",
+    height: "24px !important",
+  },
   formMain: {
     display: "flex",
     justifyContent: "space-around",
@@ -115,8 +120,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   btn: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "16px !important",
+    fontWeight: "500 !important",
+    width: "300px  !important",
     "&:hover": {
       color: "#501abf !important",
+      fontWeight: "600 !important",
 
       "& svg": {
         color: "#501abf !important",
@@ -379,14 +391,13 @@ function Dashboard() {
               className={`submit3  ${classes.btn} `}
               disabled={Disabled}
             >
-              {" "}
               {Disabled ? (
-                <CircularProgress style={{ margin: "9px" }} />
+                <CircularProgress className={classes.Progress} />
               ) : (
                 "Submit"
-              )}{" "}
+              )}
             </button>
-          </div>{" "}
+          </div>
         </form>
       </div>
     </Layout>

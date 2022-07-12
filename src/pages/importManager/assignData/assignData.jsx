@@ -9,6 +9,11 @@ import { makeStyles } from "@material-ui/core";
 import { CircularProgress } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
+  Progress: {
+    // margin: "9px",
+    width: "24px !important",
+    height: "24px !important",
+  },
   formMain: {
     display: "flex",
     justifyContent: "space-evenly",
@@ -33,6 +38,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "500px",
   },
   btn: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    border: "2px solid #501abf !important",
+    outline: "none",
     "&:hover": {
       color: "#501abf !important",
 
@@ -44,8 +54,6 @@ const useStyles = makeStyles((theme) => ({
     "& svg": {
       color: "#fff !important",
     },
-    border: "2px solid #501abf !important",
-    outline: "none",
   },
 }));
 function Dashboard() {
@@ -294,7 +302,7 @@ function Dashboard() {
             >
               {" "}
               {Disabled ? (
-                <CircularProgress style={{ margin: "9px" }} />
+                <CircularProgress className={classes.Progress} />
               ) : (
                 "Submit"
               )}
