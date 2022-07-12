@@ -58,6 +58,8 @@ const useStyles = makeStyles((theme) => ({
   },
   subDiv: {
     display: "flex",
+    maxWidth: "800px",
+    // margin: "0 auto",
     justifyContent: "space-between",
     [theme.breakpoints.down("md")]: {
       // backgroundColor: "green",
@@ -202,12 +204,31 @@ function CallManager() {
         // console.log(err, 'error')
       });
   };
+  const changeOption = (url) => {
+    console.log(url, "url");
+    if (url == "lnds") {
+      return "lnd";
+    } else if (url == "vacants") {
+      return "vacant";
+    } else if (url == "commercials") {
+      return "commercial";
+    } else if (url == "highrises") {
+      return "highrise";
+    } else {
+      return url;
+    }
+  };
   const onImageClick = (imageurl) => {
-    // console.log(imageurl);
+    console.log(imageurl, Option);
+    var x = changeOption(Option);
+    // console.log(x, "x");
     window.open(imageurl ? `${imageurl}` : `${axios.defaults.baseURL}`);
   };
   const DisplayImage = ({ image }) => {
     var single = [];
+    var x = changeOption(Option);
+    console.log(axios.defaults.baseURL + "/" + x, "xxxx22");
+
     if (image) {
       // console.log(image, "===");
       single = image.split(",");
@@ -235,7 +256,7 @@ function CallManager() {
                 }}
                 className={classes.Avatar}
                 onClick={() =>
-                  onImageClick(axios.defaults.baseURL + "/images/" + item)
+                  onImageClick(axios.defaults.baseURL + "/" + x + "/" + item)
                 }
                 // src={axios.defaults.baseURL + "/images/" + data.image}
                 alt="user"
@@ -272,9 +293,9 @@ function CallManager() {
             <option name="lnds" value="lnds">
               LANDED
             </option>
-            {/* <option name="vacants" value="vacants">
+            <option name="vacants" value="vacants">
               VACANTS
-            </option> */}
+            </option>
             {/* lnds same data to comercial and highrises commercials  */}
             <option name="commercials" value="commercials">
               COMMERCIAL
