@@ -368,10 +368,16 @@ function CallManager() {
               <span variant="body">Owner </span>{" "}
             </th>
             <th>
-              <span variant="body">LA Name</span>{" "}
+              <span variant="body">Account</span>{" "}
             </th>
             <th>
-              <span variant="body">DCAName</span>{" "}
+              <span variant="body">Name</span>{" "}
+            </th>
+            <th>
+              <span variant="body">Number</span>{" "}
+            </th>
+            <th>
+              <span variant="body">Address</span>{" "}
             </th>
             <th>
               <span variant="body">Image</span>{" "}
@@ -410,10 +416,16 @@ function CallManager() {
                   <Typography variant="body">{data.Owner1}</Typography>
                 </td>
                 <td>
-                  <Typography variant="body">{data.LAName}</Typography>
+                  <Typography variant="body">{data.SAN}</Typography>
                 </td>
                 <td>
                   <Typography variant="body">{data.DCAName}</Typography>
+                </td>
+                <td>
+                  <Typography variant="body">
+                    {data.PropAddr1} {data.PropAddr2} {data.PropAddr3}
+                    {data.PropAddr4}
+                  </Typography>
                 </td>
                 <DisplayImage image={data.multiImage} />
               </tr>
