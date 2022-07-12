@@ -206,13 +206,13 @@ function CallManager() {
   };
   const changeOption = (url) => {
     console.log(url, "url");
-    if (url == "lnds") {
+    if (url === "lnds") {
       return "lnd";
-    } else if (url == "vacants") {
+    } else if (url === "vacants") {
       return "vacant";
-    } else if (url == "commercials") {
+    } else if (url === "commercials") {
       return "commercial";
-    } else if (url == "highrises") {
+    } else if (url === "highrises") {
       return "highrise";
     } else {
       return url;
@@ -258,7 +258,7 @@ function CallManager() {
                 onClick={() =>
                   onImageClick(axios.defaults.baseURL + "/" + x + "/" + item)
                 }
-                // src={axios.defaults.baseURL + "/images/" + data.image}
+                src={axios.defaults.baseURL + "/" + x + "/" + item}
                 alt="user"
               >
                 {item[0]}
