@@ -368,14 +368,9 @@ function CallManager() {
               <span variant="body">Owner </span>{" "}
             </th>
             <th>
-              <span variant="body">Account</span>{" "}
+              <span variant="body">Account Number</span>{" "}
             </th>
-            <th>
-              <span variant="body">Name</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Number</span>{" "}
-            </th>
+
             <th>
               <span variant="body">Address</span>{" "}
             </th>
@@ -418,9 +413,7 @@ function CallManager() {
                 <td>
                   <Typography variant="body">{data.SAN}</Typography>
                 </td>
-                <td>
-                  <Typography variant="body">{data.DCAName}</Typography>
-                </td>
+
                 <td>
                   <Typography variant="body">
                     {data.PropAddr1} {data.PropAddr2} {data.PropAddr3}
