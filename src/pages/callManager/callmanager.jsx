@@ -241,7 +241,7 @@ function CallManager() {
     setDisabled(true);
     axios
       .get(
-        `riderdata/filterByJobnameAndCategory/${Option}/${UserSelectCategory}`
+        `riderdata/filterByJobnameAndCategory/${Option}/${UserSelectCategory}/${UpdateValue}`
       )
       .then((res) => {
         setDisabled(false);
@@ -342,13 +342,13 @@ function CallManager() {
             onChange={handleUpdateChanges}
             required="required"
           >
-            <option name="commercials" value="all">
+            <option name="commercials" value="2">
               All
             </option>
-            <option name="" value="update" selected>
+            <option name="" value="1" selected>
               Update
             </option>
-            <option name="lnds" value="unundate">
+            <option name="lnds" value="0">
               Not Update
             </option>
           </select>

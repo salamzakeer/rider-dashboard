@@ -2,6 +2,14 @@ import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import TableTrRow from "./tableTemplate";
+import { Qrcode } from "../../../../api/qrcode";
+import {
+  Status,
+  YesNo,
+  Gender,
+  typeofbusinesstype,
+  propertyusagetype,
+} from "../../../../api/detailsApi";
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
@@ -77,41 +85,6 @@ function Dashboard(Details) {
     e.preventDefault();
     console.log("okoko", values);
   };
-  const YesNo = [
-    {
-      id: "1",
-      name: "yes",
-    },
-    {
-      id: "2",
-      name: "No",
-    },
-  ];
-
-  const Gender = [
-    {
-      id: "1",
-      name: "Male",
-    },
-    {
-      id: "2",
-      name: "Female",
-    },
-  ];
-  const Status = [
-    {
-      id: "1",
-      name: "New",
-    },
-    {
-      id: "2",
-      name: "PTP",
-    },
-    {
-      id: "3",
-      name: "Paid",
-    },
-  ];
 
   return (
     <div className="table-view ">
@@ -319,6 +292,7 @@ function Dashboard(Details) {
             name1="visitDate"
             id1="visitDate"
             key2="Property Type"
+            options2={propertyusagetype}
             value2={values.PropertyUsage1 || ""}
             onChange2={handleInputChange}
             name2="PropertyUsage1"
@@ -390,6 +364,8 @@ function Dashboard(Details) {
             onChange1={handleInputChange}
             name1="DRCode"
             id1="DRCode"
+            options1={Qrcode}
+
             // key2="Name of shop/company"
             // value2={values.nameOfShop}
             // onChange2={handleInputChange}
