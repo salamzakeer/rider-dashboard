@@ -148,7 +148,7 @@ function CallManager() {
   //   React.useState("");
   //   const [Option, setOption] = useState("");
   const [Option, setOption] = useState("");
-  const [UpdateValue, setUpdateValue] = useState("");
+  const [UpdateValue, setUpdateValue] = useState("2");
   // setUpdateValue
   const [AllData, setAllData] = useState([]);
   const [Disabled, setDisabled] = React.useState(false);
@@ -571,16 +571,25 @@ function CallManager() {
             {/* {JSON.stringify(SelectUserObject)} */}
             <div class="tab-content" id="pills-tabContent">
               {SelectInput === "Details" && (
-                <DetailView SelectUserObject={SelectUserObject} />
+                <DetailView
+                  SelectUserObject={SelectUserObject}
+                  Option={Option}
+                />
               )}
               {SelectInput === "Site" && (
-                <SiteView SelectUserObject={SelectUserObject} />
+                <SiteView SelectUserObject={SelectUserObject} Option={Option} />
               )}
               {SelectInput === "Call" && (
-                <CallDetails SelectUserObject={SelectUserObject} />
+                <CallDetails
+                  SelectUserObject={SelectUserObject}
+                  Option={Option}
+                />
               )}
               {SelectInput === "Instruction" && (
-                <Instruction SelectUserObject={SelectUserObject} />
+                <Instruction
+                  SelectUserObject={SelectUserObject}
+                  Option={Option}
+                />
               )}
             </div>
           </>

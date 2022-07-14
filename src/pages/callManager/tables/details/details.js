@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core";
+import { CircularProgress, makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import TableTrRow from "./tableTemplate";
@@ -10,6 +10,9 @@ import {
   typeofbusinesstype,
   propertyusagetype,
 } from "../../../../api/detailsApi";
+import { useToasts } from "react-toast-notifications";
+import axios from "../../../../axios";
+
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
@@ -64,7 +67,9 @@ const useStyles = makeStyles(
 );
 
 function Dashboard(Details) {
-  const { SelectUserObject } = Details;
+  const { SelectUserObject, Option } = Details;
+  const { addToast } = useToasts();
+  const [Disabled, setDisabled] = React.useState(false);
 
   useEffect(() => {
     setValues({});
@@ -82,8 +87,66 @@ function Dashboard(Details) {
   };
   const classes = useStyles();
   const updating = (e) => {
+    setDisabled(true);
+
     e.preventDefault();
-    console.log("okoko", values);
+    const data = new FormData();
+    // data.append(
+    //   "onSchedule",
+    //   JSON.stringify(values.trackType) === "true" ? 1 : 0
+    // );
+    data.append("OwnernameCorrect", values.OwnernameCorrect);
+    data.append("specifyCorrectOwnername", values.specifyCorrectOwnername);
+    data.append("OwnertelNo", values.OwnertelNo);
+    data.append("PropertyUsage", values.PropertyUsage);
+    data.append("PropertyType", values.PropertyType);
+    data.append("DRCode", values.DRCode);
+    data.append("Remarks", values.Remarks);
+    data.append("TenantName", values.TenantName);
+    data.append("TenantTelNo", values.TenantTelNo);
+    data.append("Payment", values.Payment);
+    data.append("status", values.status);
+    data.append("OccupierNationality", values.OccupierNationality);
+    data.append("numberOfVisit", values.numberOfVisit);
+    data.append("updateStatus", values.updateStatus);
+
+    console.log("okoko", Option, values);
+    axios
+      .put("/" + Option + "/" + values.id, data, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+          Accept: "multipart/form-data",
+        },
+      })
+      .then((result) => {
+        console.log(result);
+        addToast("Successfully Updated", {
+          appearance: "success",
+          autoDismiss: "true",
+          autoDismissTimeout: 2000,
+        });
+        setDisabled(false);
+
+        // closeModel(false)
+        // window.location.reload(false);
+
+        // window.location = "/dashboard"
+        // }else{
+        //     console.log("logged error")
+        // }
+      })
+      .catch((error) => {
+        console.log(error);
+        addToast("something went wrong", {
+          appearance: "error",
+          autoDismiss: "true",
+          autoDismissTimeout: 2000,
+        });
+        setDisabled(false);
+
+        // console.log("not ok")
+      });
   };
 
   return (
@@ -379,8 +442,16 @@ function Dashboard(Details) {
             // selecte3
           />{" "}
         </table>
-        <button className={classes.btn} onClick={(e) => updating(e)}>
-          submit
+        <button
+          className={classes.btn}
+          onClick={(e) => updating(e)}
+          disabled={Disabled}
+        >
+          {Disabled ? (
+            <CircularProgress className={classes.Progress} />
+          ) : (
+            "Submit"
+          )}{" "}
         </button>
       </form>
     </div>
