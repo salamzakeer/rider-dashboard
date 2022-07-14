@@ -77,6 +77,42 @@ function Dashboard(Details) {
     e.preventDefault();
     console.log("okoko", values);
   };
+  const YesNo = [
+    {
+      id: "1",
+      name: "yes",
+    },
+    {
+      id: "2",
+      name: "No",
+    },
+  ];
+
+  const Gender = [
+    {
+      id: "1",
+      name: "Male",
+    },
+    {
+      id: "2",
+      name: "Female",
+    },
+  ];
+  const Status = [
+    {
+      id: "1",
+      name: "New",
+    },
+    {
+      id: "2",
+      name: "PTP",
+    },
+    {
+      id: "3",
+      name: "Paid",
+    },
+  ];
+
   return (
     <div className="table-view ">
       <form>
@@ -100,9 +136,10 @@ function Dashboard(Details) {
             onChange2={handleInputChange}
             name2="DCAName"
             id2="DCAName"
+            options2={YesNo}
             key3="Arrears"
             value3={values.Arrears || ""}
-            onChange3={handleInputChange}
+            // onChange3={handleInputChange}
             name3="Arrears"
             id3="Arrears"
           />
@@ -110,14 +147,15 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Account Number"
             value1={values.SAN || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="SAN"
             id1="SAN"
             key2="Nationality"
-            value2={"M"}
+            value2={values.Gender}
             // onChange2={handleInputChange}
             name2="Nationality"
             id2="Nationality"
+            options2={Gender}
             key3="Current Balaance"
             value3={values.CurrentBalance || ""}
             onChange3={handleInputChange}
@@ -128,7 +166,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Bill No"
             value1={values.billno || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="billno"
             id1="billno"
             key2="Owner's Tel No 1"
@@ -141,18 +179,18 @@ function Dashboard(Details) {
             onChange3={handleInputChange}
             name3="MailName2"
             id3="status"
-            selecte3
+            options3={Status}
           />
           {/* 4 */}
           <TableTrRow
             key1="LA Name"
             value1={values.LAName || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="LAName"
             id1="LAName"
             key2="Owner's Tel No 2"
             value2={values.OwnertelNos || ""}
-            onChange2={handleInputChange}
+            // onChange2={handleInputChange}
             name2="OwnertelNos"
             id2="OwnertelNos"
             // key3="Status"
@@ -166,12 +204,12 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Owner 1"
             value1={values.Owner1 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="Owner1"
             id1="Owner1"
             key2="Owner's Tel No 3"
             value2={values.OwnertelNo3 || ""}
-            onChange2={handleInputChange}
+            // onChange2={handleInputChange}
             name2="OwnertelNo3"
             id2="OwnertelNo3"
             // key3="Status"
@@ -185,7 +223,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 1"
             value1={values.PropAddr1 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="PropAddr1"
             id1="PropAddr1"
             key2="Tanant Phone 1"
@@ -204,12 +242,12 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 2"
             value1={values.PropAddr2 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="PropAddr2"
             id1="PropAddr2"
             key2="Tanant Phone 2"
             value2={values.TanantPhone2 || ""}
-            onChange2={handleInputChange}
+            // onChange2={handleInputChange}
             name2="TanantPhone2"
             id2="TanantPhone2"
             // key3="Status"
@@ -223,12 +261,12 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 3"
             value1={values.PropAddr3 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="PropAddr3"
             id1="PropAddr3"
             key2="Tanant Phone 3"
             value2={values.TanantPhone3 || ""}
-            onChange2={handleInputChange}
+            // onChange2={handleInputChange}
             name2="TanantPhone3"
             id2="TanantPhone3"
             // key3="Status"
@@ -241,7 +279,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 4"
             value1={values.PropAddr4 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="PropAddr4"
             id1="PropAddr4"
             // key2="Tanant Phone 3"
@@ -259,7 +297,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Arrears Date"
             value1={values.arrearsDate || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="arrearsDate"
             id1="arrearsDate"
             key2="Property Usage"
@@ -280,7 +318,7 @@ function Dashboard(Details) {
             onChange1={handleInputChange}
             name1="visitDate"
             id1="visitDate"
-            key2="Property Usage"
+            key2="Property Type"
             value2={values.PropertyUsage1 || ""}
             onChange2={handleInputChange}
             name2="PropertyUsage1"
@@ -331,7 +369,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Class[D,C,I,G]"
             value1={values.Class || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="Class"
             id1="Class"
             // key2="Name of shop/company"

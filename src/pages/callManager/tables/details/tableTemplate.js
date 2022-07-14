@@ -41,8 +41,12 @@ function Dashboard(props) {
     onChange3,
     name3,
     id3,
+    options1,
+    options2,
+    options3,
   } = props;
   // console.log(key1, key2, key3);
+
   return (
     <>
       <tr>
@@ -52,6 +56,7 @@ function Dashboard(props) {
           onChange={onChange1}
           name={name1}
           id={id1}
+          options={options1}
         />
         <TableTemplate2
           keys={key2}
@@ -59,13 +64,15 @@ function Dashboard(props) {
           onChange={onChange2}
           name={name2}
           id={id2}
+          options={options2}
         />
         <TableTemplate2
           keys={key3}
           value={value3}
-          onChange={onChange3}
+          // onChange={onChange3}
           name={name3}
           id={id3}
+          options={options3}
         />
       </tr>
     </>

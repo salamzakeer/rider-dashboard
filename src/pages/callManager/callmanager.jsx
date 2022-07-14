@@ -7,7 +7,7 @@ import CallDetails from "./tables/callDetails";
 import Instruction from "./tables/instruction";
 import Layout from "../../components/layout/Navbar";
 import axios from "../../axios";
-
+import SearchIcon from "@mui/icons-material/Search";
 import {
   Box,
   CircularProgress,
@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
+import SearchInput from "../../components/input/searchInput";
 
 const useStyles = makeStyles((theme) => ({
   Progress: {
@@ -53,9 +54,18 @@ const useStyles = makeStyles((theme) => ({
     width: "300px",
     margin: "12px",
   },
+  select3: {
+    width: "200px",
+    margin: "12px",
+    [theme.breakpoints.down("md")]: {
+      width: "300px",
+    },
+  },
+
   subDiv: {
     display: "flex",
     justifyContent: "space-between",
+    maxWidth: "1300px",
     [theme.breakpoints.down("md")]: {
       // backgroundColor: "green",
       flexDirection: "column",
@@ -72,9 +82,8 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "4px",
   },
   filter: {
-    width: "300px",
+    width: "100px",
     margin: "12px",
-
     border: "1px solid #ccc",
     height: "60px",
     display: "flex",
@@ -86,6 +95,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50px",
     [theme.breakpoints.down("md")]: {
       // backgroundColor: "green",
+      width: "300px",
       flexDirection: "column",
     },
     backgroundColor: "#501abf",
@@ -103,10 +113,33 @@ const useStyles = makeStyles((theme) => ({
       color: "#fff !important",
     },
   },
+  mainSearchDiv: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignContent: "center",
+    flexWrap: "wrap",
+    [theme.breakpoints.down("xs")]: {
+      // backgroundColor: "green",
+      width: "100%",
+      flexDirection: "column",
+      // backgroundColor: "red",
+    },
+  },
+  SearchDiv: {
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+    width: "200px",
+    [theme.breakpoints.down("xs")]: {
+      width: "75%",
+    },
+  },
 }));
 function CallManager() {
   const classes = useStyles();
   const [GetId, setGetId] = useState("");
+  const [SearchWord, setSearchWord] = useState("");
+
   const [SelectUserObject, setSelectUserObject] = useState(null);
   const [SelectInput, setSelectInput] = useState("Details");
   const [Category, setCategory] = React.useState([]);
@@ -115,6 +148,9 @@ function CallManager() {
   //   React.useState("");
   //   const [Option, setOption] = useState("");
   const [Option, setOption] = useState("");
+  const [UpdateValue, setUpdateValue] = useState("");
+  // setUpdateValue
+  const [AllData, setAllData] = useState([]);
   const [Disabled, setDisabled] = React.useState(false);
   const [filterByJobnameAndCategorydata, setfilterByJobnameAndCategoryData] =
     useState([]);
@@ -131,7 +167,7 @@ function CallManager() {
   const [itemOffset, setItemOffset] = useState(0);
   const [Loading, setLoading] = useState(false);
 
-  const token = JSON.parse(localStorage.getItem("auth")).message.token || "";
+  // const token = JSON.parse(localStorage.getItem("auth")).message.token || "";
 
   useEffect(() => {
     setDisabled(true);
@@ -147,11 +183,15 @@ function CallManager() {
         setCategory([]);
         // console.log(err, 'error')
       });
-  }, [Option]);
+  }, [Option, AdminId]);
   const handleInputChanges = (e) => {
     const { value } = e.target;
     setOption(value);
     // setUserSelectCategoryCDate(Category.find(item => (item.id == e.target.value))) )
+  };
+  const handleUpdateChanges = (e) => {
+    const { value } = e.target;
+    setUpdateValue(value);
   };
   useEffect(() => {
     // Fetch items from another resources.
@@ -174,10 +214,10 @@ function CallManager() {
     setItemOffset(newOffset);
   };
   const handleCategoryChange = (e) => {
-    const { value, name } = e.target;
+    const { value } = e.target;
 
-    const date =
-      Category.find((item) => item.id == e.target.value).createdDate || "";
+    // const date =
+    //   Category.find((item) => item.id == e.target.value).createdDate || "";
     // console.log(moment(date).format("YYYY-MM-DD"))
     setUserSelectCategory(value);
     // setUserSelectCategoryCDate(moment(date).format("YYYY-MM-DD"));
@@ -189,41 +229,7 @@ function CallManager() {
     const { value } = e.target;
     setSelectInput(value);
   };
-  const rows = [
-    {
-      id: "001",
-      accountNo: "00011920",
-      debtor: "rushanth",
-      address: "Jaffna",
-      jobId: "2021-ND-NC21-F16-RCF12",
-      status: "new",
-      arrears: "RM 1000.00",
-      range: "Range 01",
-      dcaName: "PIN SDN BHD",
-    },
-    {
-      id: "002",
-      accountNo: "00011920",
-      debtor: "rushanth",
-      address: "Jaffna",
-      jobId: "2021-ND-NC21-F16-RCF12",
-      status: "new",
-      arrears: "RM 1000.00",
-      range: "Range 01",
-      dcaName: "PIN SDN BHD",
-    },
-    {
-      id: "003",
-      accountNo: "00011920",
-      debtor: "rushanth",
-      address: "Jaffna",
-      jobId: "2021-ND-NC21-F16-RCF12",
-      status: "new",
-      arrears: "RM 1000.00",
-      range: "Range 01",
-      dcaName: "PIN SDN BHD",
-    },
-  ];
+
   const findUser = (e) => {
     setGetId(e.id);
     setSelectUserObject(e);
@@ -233,8 +239,6 @@ function CallManager() {
     setLoading(false);
     setfilterByJobnameAndCategoryData([]);
     setDisabled(true);
-    console.log(Option, UserSelectCategory, "===========");
-    // http://dcaapi.moodfor.codes/riderdata/filterByJobnameAndCategory/{category}/{jobName}
     axios
       .get(
         `riderdata/filterByJobnameAndCategory/${Option}/${UserSelectCategory}`
@@ -243,20 +247,45 @@ function CallManager() {
         setDisabled(false);
         console.log(res.data, "datadatadatadatadata");
         setfilterByJobnameAndCategoryData(res.data);
+        setAllData(res.data);
+
         setLoading(true);
       })
       .catch((err) => {
-        // setDisabled(false);
+        setDisabled(false);
         setCategory([]);
         setLoading(true);
 
         // console.log(err, 'error')
       });
   };
+  const searchHandle = (e) => {
+    setSearchWord(e.target.value);
+    const searching =
+      AllData.filter(
+        (item) =>
+          String(item.SAN).startsWith(e.target.value) ||
+          String(item.id).startsWith(e.target.value)
+      ) || [];
+    setfilterByJobnameAndCategoryData(searching);
+    console.log(
+      "search",
+      searching
+      // filterByJobnameAndCategoryData,
+    );
+  };
   return (
     <Layout>
-      <div>
+      <div className={classes.mainSearchDiv}>
         <div className="rider-info">Call Manager</div>
+        <div className={classes.SearchDiv}>
+          <SearchInput
+            icon={<SearchIcon />}
+            onChange={(e) => searchHandle(e)}
+            value={SearchWord}
+            placeholder="Search..."
+          />
+        </div>{" "}
       </div>
       <br />
       <div className={classes.subDiv}>
@@ -303,6 +332,25 @@ function CallManager() {
                   {item.jobName}
                 </option>
               ))}
+          </select>
+        </div>
+        <div className={classes.select3}>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            name=""
+            onChange={handleUpdateChanges}
+            required="required"
+          >
+            <option name="commercials" value="all">
+              All
+            </option>
+            <option name="" value="update" selected>
+              Update
+            </option>
+            <option name="lnds" value="unundate">
+              Not Update
+            </option>
           </select>
         </div>
         <button
@@ -484,7 +532,7 @@ function CallManager() {
         />
       </div>
 
-      <div style={{ margin: "2rem" }}>
+      <div>
         {GetId !== "" && (
           <>
             <div

@@ -219,9 +219,6 @@ function CallManager() {
     }
   };
   const onImageClick = (imageurl) => {
-    console.log(imageurl, Option);
-    var x = changeOption(Option);
-    // console.log(x, "x");
     window.open(imageurl ? `${imageurl}` : `${axios.defaults.baseURL}`);
   };
   const DisplayImage = ({ image }) => {
@@ -328,7 +325,6 @@ function CallManager() {
           className={classes.filter}
           disabled={Disabled}
         >
-          {" "}
           {Disabled ? (
             <CircularProgress className={classes.Progress} />
           ) : (
@@ -361,21 +357,20 @@ function CallManager() {
                 width: "100px",
               }}
             >
-              {" "}
-              <Typography variant="body">ID</Typography>{" "}
+              <Typography variant="body">ID</Typography>
             </th>
             <th>
-              <span variant="body">Owner </span>{" "}
+              <span variant="body">Owner </span>
             </th>
             <th>
-              <span variant="body">Account Number</span>{" "}
+              <span variant="body">Account Number</span>
             </th>
 
             <th>
-              <span variant="body">Address</span>{" "}
+              <span variant="body">Address</span>
             </th>
             <th>
-              <span variant="body">Image</span>{" "}
+              <span variant="body">Image</span>
             </th>
           </tr>
           {!Loading && Disabled && (

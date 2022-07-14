@@ -70,10 +70,14 @@ td {
   max-width: 1400px;
   margin: 2rem auto;
 }
-
+@media only screen and (max-width: 1200px) {
+  .table-telecaller {
+    width: calc(1vw * 90) !important;
+  }
+}
 @media only screen and (max-width: 800px) {
   .table-telecaller {
-    width: calc(1vw * 90);
+    width: calc(1vw * 90) !important;
   }
   .mainNav .profile {
     padding-right: 20px;
