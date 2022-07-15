@@ -209,12 +209,7 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
       <div className="rider-tble">
         <div className="rider-head-details">
           <div className="rider-info">Rider Assigned Data</div>
-          <button
-            className="button-cus"
-            onClick={() => {
-              setOpenModel(true);
-            }}
-          >
+          <button className="button-cus">
             <Link
               style={{ textDecoration: "none", color: "#501abf" }}
               to="/assign-data"

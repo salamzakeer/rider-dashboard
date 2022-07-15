@@ -4,9 +4,9 @@
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
+  margin: 1rem auto;
   max-width: 700px;
-  height: fit-content;
+  height: auto;
   text-align: center;
   padding: 40px;
   border-radius: 44px;
@@ -14,6 +14,15 @@
   border-width: 0.1px;
   border-color: #e6e6e6;
   background-color: #ffffff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.frm {
+  width: 70%;
+  margin: 0 auto;
+}
+.Addrider-card::-webkit-scrollbar {
+  display: none;
 }
 .card-background .Addrider-card .card-head {
   display: flex;
@@ -59,7 +68,7 @@
 .card-background .Addrider-card .login-submit {
   position: relative;
   width: 45%;
-  height: 60px;
+  height: 50px;
   margin-top: 35px;
   background: #5016bf;
   border-radius: 44px;
@@ -111,7 +120,7 @@
 .card-background .Addrider-card .upload-pic .uploadbtn {
   width: 157px;
   height: 49px;
-  font: normal 600 21px Poppins;
+  font: normal 600 16px Poppins;
 }
 
 @media only screen and (max-width: 768px) {
@@ -144,8 +153,17 @@
   }
 
   .card-background .Addrider-card {
-    height: fit-content;
+    height: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
+  .frm {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+.Addrider-card::-webkit-scrollbar {
+  display: none;
 }
 @media only screen and (max-width: 570px) {
   .card-background .Addrider-card .upload-pic .uploadTxt {
@@ -164,7 +182,7 @@
     font: normal normal bold 25px Poppins;
   }
   .card-background .Addrider-card .input {
-    font: normal 20px Poppins;
+    font: normal 16px Poppins;
     height: 60px;
   }
   .card-background .Addrider-card .login-submit {

@@ -93,7 +93,7 @@ function Newrider() {
 
   const token = message.message.token;
   // console.log(token, "token");
-
+  console.log("rider data", data);
   useEffect(() => {
     axios
       .get("/rider")
@@ -235,6 +235,15 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                 <Typography variant="body">Email</Typography>{" "}
               </th>
               <th>
+                <Typography variant="body">Position</Typography>{" "}
+              </th>
+              <th>
+                <Typography variant="body">NRIC</Typography>{" "}
+              </th>
+              <th>
+                <Typography variant="body">Status</Typography>{" "}
+              </th>
+              <th>
                 <Typography variant="body">Detele</Typography>{" "}
               </th>
             </tr>
@@ -310,6 +319,43 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                     >
                       {data.email}
                     </p>
+                  </td>
+
+                  <td>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.position}
+                    </p>
+                  </td>
+                  <td>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.NRIC}
+                    </p>
+                  </td>
+                  <td>
+                    <div
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                      className={
+                        data.status === "Active" ? "Ractive" : "Rinactive"
+                      }
+                    >
+                      {data.status ? data.status : "Inactive"}
+                    </div>
                   </td>
                   <td onClick={() => Deleting(data)}>
                     {/* <img src={DeleteBtn} className="delete" alt="" /> */}

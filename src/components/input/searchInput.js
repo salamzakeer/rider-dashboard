@@ -8,8 +8,11 @@ const useStyles = makeStyles(
       i: {
         position: "absolute",
         right: 0,
-        margin: "18px 30px 0px 0px",
+        margin: "15px 20px 0px 0px",
         color: "#501abf",
+        "& svg": {
+          color: "#501abf !important",
+        },
       },
       inputContainer: {
         width: "100%",
@@ -29,11 +32,16 @@ const useStyles = makeStyles(
         padding: "10px 60px 10px 20px",
         fontSize: "1rem",
         fontWeight: 500,
-        borderRadius: "46px",
+        borderRadius: "1rem",
         outline: "none",
         border: "1px solid #ccc",
         height: "55px",
         color: " #ccc",
+
+        "&:focus": {
+          // background: "blue",
+          border: "1px solid #5016bf",
+        },
       },
     }),
   { withTheme: true }
@@ -41,7 +49,7 @@ const useStyles = makeStyles(
 
 function SearchInput(props) {
   const classes = useStyles();
-  const { icon, onChange, value,placeholder } = props;
+  const { icon, onChange, value, placeholder } = props;
   return (
     <div className={classes.inputContainer}>
       <div className={classes.i}>{icon}</div>

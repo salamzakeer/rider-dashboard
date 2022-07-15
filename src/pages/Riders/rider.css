@@ -1,4 +1,26 @@
-
+.Ractive {
+  background-color: #32c232;
+  padding: 6px;
+  border-radius: 12px;
+  color: #fff;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50;
+}
+.Rinactive {
+  background-color: #e21717;
+  padding: 6px;
+  border-radius: 12px;
+  color: #fff;
+  width: 120px;
+  height: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+,
 .inputContainer i {
   position: absolute;
 }

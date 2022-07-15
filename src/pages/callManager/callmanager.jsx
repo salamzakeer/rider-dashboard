@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "react-toastify/dist/ReactToastify.css"; // import first
 // import { useToasts } from "react-toast-notifications";
 import DetailView from "./tables/details/details";
@@ -17,8 +17,16 @@ import {
 import { makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 import SearchInput from "../../components/input/searchInput";
+import { useNavigate } from "react-router-dom";
+
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const useStyles = makeStyles((theme) => ({
+  atag: {
+    display: "block !important",
+    textDecoration: "none !important",
+    color: "inherit !important",
+  },
   Progress: {
     margin: "9px",
     width: "24px !important",
@@ -85,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100px",
     margin: "12px",
     border: "1px solid #ccc",
-    height: "60px",
+    height: "55px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -129,9 +137,23 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignContent: "center",
-    width: "200px",
+    width: "300px",
     [theme.breakpoints.down("xs")]: {
       width: "75%",
+    },
+  },
+  table: {
+    // :hover {
+    // }
+    "& tr": {
+      // backgroundColor: "red !important",
+      "&:hover": {
+        transform: "scale(1.01)",
+        WebkitBoxShadow: "0px 15px 20px -12px rgba(0, 0, 0, 0.75)",
+        MozBoxShadow: "0px 15px 20px -12px rgba(0, 0, 0, 0.75)",
+        boxShadow: "0px 15px 20px -12px rgba(0, 0, 0, 0.75)",
+        cursor: "pointer",
+      },
     },
   },
 }));
@@ -139,6 +161,8 @@ function CallManager() {
   const classes = useStyles();
   const [GetId, setGetId] = useState("");
   const [SearchWord, setSearchWord] = useState("");
+  let navigate = useNavigate();
+  const Details = useRef(null);
 
   const [SelectUserObject, setSelectUserObject] = useState(null);
   const [SelectInput, setSelectInput] = useState("Details");
@@ -233,6 +257,8 @@ function CallManager() {
   const findUser = (e) => {
     setGetId(e.id);
     setSelectUserObject(e);
+    navigate("#details");
+    console.log("=======");
   };
   const handleFiltering = () => {
     // Disabled
@@ -283,11 +309,10 @@ function CallManager() {
             icon={<SearchIcon />}
             onChange={(e) => searchHandle(e)}
             value={SearchWord}
-            placeholder="Search..."
+            placeholder="Search By Account No"
           />
         </div>{" "}
       </div>
-      <br />
       <div className={classes.subDiv}>
         {/* subDiv */}
         <div className={classes.select1}>
@@ -342,10 +367,10 @@ function CallManager() {
             onChange={handleUpdateChanges}
             required="required"
           >
-            <option name="commercials" value="2">
+            <option name="commercials" value="2" selected>
               All
             </option>
-            <option name="" value="1" selected>
+            <option name="" value="1">
               Update
             </option>
             <option name="lnds" value="0">
@@ -366,9 +391,6 @@ function CallManager() {
             "Filter"
           )}
         </button>
-        {/* <div className={classes.select1}>
-          <div className={classes.filter}>Filter</div>
-        </div> */}
       </div>
       <div
         style={{
@@ -383,8 +405,13 @@ function CallManager() {
             borderCollapse: "collapse",
             borderSpacing: 0,
           }}
+          className={classes.table}
         >
-          <tr>
+          <tr
+            style={{
+              pointerEvents: "none",
+            }}
+          >
             <th
               style={{
                 textAlign: "left",
@@ -444,68 +471,55 @@ function CallManager() {
             currentItems.map((data) => (
               <tr onClick={() => findUser(data)}>
                 <td>
-                  <Typography variant="body">{data.id}</Typography>
+                  <a href="#details" className={classes.atag}>
+                    <Typography variant="body">{data.id}</Typography>
+                  </a>
                 </td>
                 <td>
-                  <Typography variant="body">{data.SAN}</Typography>
+                  <a href="#details" className={classes.atag}>
+                    <Typography variant="body">{data.SAN}</Typography>
+                  </a>
                 </td>
                 <td>
-                  <Typography variant="body">{data.DCAName}</Typography>
+                  <a href="#details" className={classes.atag}>
+                    <Typography variant="body">{data.DCAName}</Typography>
+                  </a>
                 </td>
                 <td>
-                  <Typography variant="body">{data.Owner1}</Typography>
-                </td>
-
-                {/* <td>
-                  <Typography variant="body">{data.jobName}</Typography>
-                </td> */}
-                <td>
-                  <Typography variant="body">{data.Range}</Typography>
+                  <a href="#details" className={classes.atag}>
+                    <Typography variant="body">{data.Owner1}</Typography>
+                  </a>
                 </td>
                 <td>
-                  <Typography variant="body">{data.Arrears}</Typography>
-                </td>
-
-                <td>
-                  <Typography variant="body">
-                    {data.MailAdd1} {data.MailAdd2}
-                  </Typography>
+                  <a href="#details" className={classes.atag}>
+                    <Typography variant="body">{data.Range}</Typography>
+                  </a>
                 </td>
                 <td>
-                  <div
-                    className={
-                      data.updateStatus === 0
-                        ? classes.notupdate
-                        : classes.update
-                    }
-                  >
-                    {data.updateStatus === 0 ? "Not Updated" : "Updated"}
-                  </div>
+                  <a href="#details" className={classes.atag}>
+                    <Typography variant="body">{data.Arrears}</Typography>
+                  </a>
                 </td>
-
-                {/* <td><Typography variant="body">{data.id}</Typography></td> */}
-                {/* <td>
-                  <p
-                    style={{
-                      textAlign: "left",
-                      margin: "0px",
-                      paddingLeft: "16px",
-                    }}
-                  >
-                    {data.fullName}
-                  </p>
-                </td> */}
-                {/* <td>
-                  <p
-                    style={{
-                      textAlign: "left",
-                      margin: "0px",
-                      paddingLeft: "16px",
-                    }}
-                  >
-                    {data.email}
-                  </p>
-                </td> */}
+                <td>
+                  <a href="#details" className={classes.atag}>
+                    <Typography variant="body">
+                      {data.MailAdd1} {data.MailAdd2}
+                    </Typography>
+                  </a>
+                </td>
+                <td>
+                  <a href="#details" className={classes.atag}>
+                    <div
+                      className={
+                        data.updateStatus === 0
+                          ? classes.notupdate
+                          : classes.update
+                      }
+                    >
+                      {data.updateStatus === 0 ? "Not Updated" : "Updated"}
+                    </div>
+                  </a>
+                </td>
               </tr>
             ))}
         </table>
@@ -517,7 +531,7 @@ function CallManager() {
           pageCount={pageCount}
           previousLabel="< previous"
           renderOnZeroPageCount={null}
-          pageRangeDisplayed={1}
+          pageRangeDisplayed={3}
           marginPagesDisplayed={3}
           containerClassName={"pagination justify-content-end"}
           pageClassName={"page-item"}
@@ -531,8 +545,7 @@ function CallManager() {
           activeClassName={"active"}
         />
       </div>
-
-      <div>
+      <div id="details">
         {GetId !== "" && (
           <>
             <div
@@ -541,6 +554,7 @@ function CallManager() {
                 margin: "0 0 2rem auto",
                 height: "4rem",
               }}
+              ref={Details}
             >
               <select
                 style={{

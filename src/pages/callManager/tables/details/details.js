@@ -12,6 +12,7 @@ import {
 } from "../../../../api/detailsApi";
 import { useToasts } from "react-toast-notifications";
 import axios from "../../../../axios";
+import moment from "moment";
 
 const useStyles = makeStyles(
   (theme) =>
@@ -350,7 +351,9 @@ function Dashboard(Details) {
           />{" "}
           <TableTrRow
             key1="Date of visit"
-            value1={values.visitDate || ""}
+            // value1={values.visitDate || ""}
+            // iiiiiiiiiiiii
+            value1={moment(values.visitDate).format("YYYY-MM-DD") || ""}
             onChange1={handleInputChange}
             name1="visitDate"
             id1="visitDate"

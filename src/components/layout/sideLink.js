@@ -42,11 +42,7 @@ export default function SideNavigation(props) {
         </li>
       </Link>
       <Link to="/images" style={{ textDecoration: "none" }}>
-        <li
-          className={`left-heading ${
-            path === "/images" ? "actived" : ""
-          }`}
-        >
+        <li className={`left-heading ${path === "/images" ? "actived" : ""}`}>
           <span>Images</span>
         </li>
       </Link>
@@ -117,7 +113,7 @@ export default function SideNavigation(props) {
             path === "/rider" || path === "/calendar" ? "actived" : ""
           }`}
         >
-          <span>Riders</span>
+          <span>Human Resource</span>
         </li>
       </Link>
       {open2 && (
@@ -126,7 +122,14 @@ export default function SideNavigation(props) {
             <li
               className={`left-heading ${path === "/rider" ? "s-active" : ""}`}
             >
-              <span style={{ paddingLeft: "20px" }}>Rider's Details</span>
+              <span style={{ paddingLeft: "20px" }}> Employee Details</span>
+            </li>
+          </Link>
+          <Link to="/telecaller" style={{ textDecoration: "none" }}>
+            <li
+              className={`left-heading ${path === "/telecaller" ? "s-active" : ""}`}
+            >
+              <span style={{ paddingLeft: "20px" }}> Telecaller Details</span>
             </li>
           </Link>
 
@@ -136,7 +139,7 @@ export default function SideNavigation(props) {
                 path === "/calendar" ? "s-active" : ""
               }`}
             >
-              <span style={{ paddingLeft: "20px" }}>Rider Attendance</span>
+              <span style={{ paddingLeft: "20px" }}>Employee Attendance</span>
             </li>
           </Link>
         </>
@@ -147,14 +150,14 @@ export default function SideNavigation(props) {
         </li>
       </Link> */}
 
-      <Link to="/telecaller" style={{ textDecoration: "none" }}>
+      {/* <Link to="/telecaller" style={{ textDecoration: "none" }}>
         <li
           className={`left-heading ${path === "/telecaller" ? "actived" : ""}`}
           to="/telecaller"
         >
           <span>Telecallers </span>
         </li>
-      </Link>
+      </Link> */}
 
       <Link to="/setup" style={{ textDecoration: "none" }}>
         <li className={`left-heading ${path === "/setup" ? "actived" : ""}`}>

@@ -15,6 +15,9 @@ function AddRiderPopup({ closeModel }) {
   const [CPasswordTouch, setCPasswordTouch] = useState(false);
   const [password, setPassword] = useState("");
   const [UserPic, setUserPic] = useState("");
+  const [NRIC, setNRIC] = useState("");
+  const [Position, setPosition] = useState("");
+  const [Status, setStatus] = useState("");
   const { addToast } = useToasts();
 
   const handleName = (e) => {
@@ -41,12 +44,20 @@ function AddRiderPopup({ closeModel }) {
     data.append("adminId", AdminId);
     data.append("image", UserPic);
 
+    data.append("NRIC", NRIC);
+    data.append("position", Position);
+    data.append("status", Status);
+
     const json = {
       fullName: fullName,
       email: email,
       password: password,
       adminId: AdminId,
+      NRIC: NRIC,
+      Position: Position,
+      Status: Status,
     };
+    console.log(json, "json");
     axios
       .post("/rider/register", data)
       .then((result) => {
@@ -79,10 +90,15 @@ function AddRiderPopup({ closeModel }) {
 
   function handleUpload(event) {
     setUserPic(event.target.files[0]);
-
-    // Add code here to upload file to server
-    // ...
   }
+  const handlePositionChanges = (e) => {
+    const { value } = e.target;
+    setPosition(value);
+  };
+  const handleStatusChanges = (e) => {
+    const { value } = e.target;
+    setStatus(value);
+  };
 
   return (
     <div className="card-background">
@@ -111,6 +127,58 @@ function AddRiderPopup({ closeModel }) {
             value={email}
             onChange={handleEmail}
           />
+          <input
+            type="text"
+            className="input"
+            placeholder="NRIC"
+            value={NRIC}
+            onChange={(e) => setNRIC(e.target.value)}
+          />
+          <div className={"select1"}>
+            {/* <label className={classes.label}>{"Type"}</label> */}
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name=""
+              onChange={handlePositionChanges}
+              required="required"
+              style={{ marginTop: "1rem" }}
+            >
+              <option name="" value="" selected>
+                Position
+              </option>
+              <option name="Feild Rider" value="Feild Rider">
+                Feild Rider
+              </option>
+              <option name="Telecaller" value="Telecaller">
+                Telecaller
+              </option>
+              <option name="Administration" value="Administration">
+                Administration
+              </option>
+            </select>
+          </div>
+          <div className={"select1"}>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              name=""
+              onChange={handleStatusChanges}
+              required="required"
+              style={{ marginTop: "1rem" }}
+            >
+              <option name="" value="" selected>
+                Status
+              </option>
+              <option name="Active" value="Active">
+                Active
+              </option>
+              <option name="Inactive" value="Inactive">
+                Inactive
+              </option>
+            </select>
+          </div>
+         
           <input
             type="password"
             className="input"

@@ -64,6 +64,8 @@ body {
   overflow: auto;
   box-sizing: border-box;
   height: calc(100vh);
+
+  scroll-behavior: smooth;
 }
 /* .content{
     padding: 0rem !important;
