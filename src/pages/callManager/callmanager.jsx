@@ -148,7 +148,7 @@ const useStyles = makeStyles((theme) => ({
     "& tr": {
       // backgroundColor: "red !important",
       "&:hover": {
-        transform: "scale(1.01)",
+        transform: "scale(1.0001)",
         WebkitBoxShadow: "0px 15px 20px -12px rgba(0, 0, 0, 0.75)",
         MozBoxShadow: "0px 15px 20px -12px rgba(0, 0, 0, 0.75)",
         boxShadow: "0px 15px 20px -12px rgba(0, 0, 0, 0.75)",
