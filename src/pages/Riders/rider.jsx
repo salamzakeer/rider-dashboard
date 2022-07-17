@@ -199,14 +199,14 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
     <Layout title="Rider">
       <div className="rider-tble">
         <div className="rider-head-details">
-          <div className="rider-info">Riders Information's</div>
+          <div className="rider-info">Human Resource Information's</div>
           <button
             className="button-cus"
             onClick={() => {
               setOpenModel(true);
             }}
           >
-            Add New Rider
+            Add New
           </button>
         </div>
         <div className="table-rider">

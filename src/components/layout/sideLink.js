@@ -125,13 +125,13 @@ export default function SideNavigation(props) {
               <span style={{ paddingLeft: "20px" }}> Employee Details</span>
             </li>
           </Link>
-          <Link to="/telecaller" style={{ textDecoration: "none" }}>
+          {/* <Link to="/telecaller" style={{ textDecoration: "none" }}>
             <li
               className={`left-heading ${path === "/telecaller" ? "s-active" : ""}`}
             >
               <span style={{ paddingLeft: "20px" }}> Telecaller Details</span>
             </li>
-          </Link>
+          </Link> */}
 
           <Link to="/calendar" style={{ textDecoration: "none" }}>
             <li
@@ -140,6 +140,13 @@ export default function SideNavigation(props) {
               }`}
             >
               <span style={{ paddingLeft: "20px" }}>Employee Attendance</span>
+            </li>
+          </Link>
+          <Link to="#admin" style={{ textDecoration: "none" }}>
+            <li
+              className={`left-heading ${path === "/demo" ? "s-active" : ""}`}
+            >
+              <span style={{ paddingLeft: "20px" }}> Administrator</span>
             </li>
           </Link>
         </>
