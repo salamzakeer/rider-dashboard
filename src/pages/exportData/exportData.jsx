@@ -473,7 +473,7 @@ function Dashboard() {
             </div>
             <div className={style.dataTableMain} >
                 <div className={style.dataTable} >
-                    <Typography variant="h5" > Lnd Data</Typography>
+                    <Typography variant="h5" > Landed Data</Typography>
                     <CsvDownloader filename="LND"
                         extension=".csv"
                         columns={LndCsvDataHeader}
