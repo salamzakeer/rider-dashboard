@@ -198,11 +198,14 @@ function Dashboard() {
     // setUserSelectCategoryCDate(Category.find(item => (item.id == e.target.value))) )
   };
   const leaveType = [
-    { id: "Full day", name: "Full day" },
-    { id: "Half day", name: "Half day" },
-    { id: "Absence", name: "Absence" },
+    { id: "Public holidays", name: "Public holidays" },
+    { id: "Annual Leave", name: "Annual Leave" },
     { id: "Medical Leave", name: "Medical Leave" },
-    { id: "Leave", name: "Leave" },
+    { id: "Maternity Leave", name: "Maternity Leave" },
+    { id: "Paternity leave", name: "Paternity leave" },
+    { id: "Half a day leave", name: "Half a day leave" },
+    { id: "Emergency leave", name: "Emergency leave" },
+    { id: "Optional leave entitlements", name: "Optional leave entitlements" },
   ];
   return (
     <Layout>
