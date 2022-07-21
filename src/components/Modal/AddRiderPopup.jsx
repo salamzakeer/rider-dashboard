@@ -147,14 +147,23 @@ function AddRiderPopup({ closeModel }) {
               <option name="" value="" selected>
                 Position
               </option>
-              <option name="Field Rider" value="Field Rider">
-                Field Rider
+              <option name="Director" value="Director">
+                Director
               </option>
-              <option name="Telecaller" value="Telecaller">
-                Telecaller
+              <option name="CEO/COO" value="CEO/COO">
+                CEO/COO
               </option>
-              <option name="Administration" value="Administration">
-                Administration
+              <option name="Manager" value="Manager">
+                Manager
+              </option>
+              <option name="Call Center Staff" value="Call Center Staff">
+                Call Center Staff
+              </option>
+              <option name="Admin" value="Admin">
+                Admin
+              </option>
+              <option name="Field Visit Staff" value="Field Visit Staff">
+                Field Visit Staff
               </option>
             </select>
           </div>
