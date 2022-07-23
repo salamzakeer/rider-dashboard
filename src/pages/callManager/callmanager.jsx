@@ -343,7 +343,6 @@ function CallManager() {
           </select>
         </div>
         <div className={classes.select1}>
-          {/* <label className={classes.label}>Job Name</label> */}
           <select
             class="form-select"
             aria-label="Default select example"
