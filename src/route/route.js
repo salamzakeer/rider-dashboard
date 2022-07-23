@@ -15,6 +15,7 @@ import SecuirtyP from "../pages/Setup/PolicyS";
 import DataP from "../pages/Setup/PolicyD";
 import NewP from "../pages/Setup/fristPolicy";
 // import UserProfile from "../pages/userProfile/userprofile";
+import SetupNew from "../pages/setupNew/comapanySetup/comapanySetup";
 
 export const publicRoutes = [
   {
@@ -89,7 +90,7 @@ export const publicRoutes = [
   },
   {
     path: "/setup",
-    component: Setup,
+    component: SetupNew,
     exact: true,
   },
   {
