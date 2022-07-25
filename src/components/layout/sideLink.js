@@ -203,11 +203,11 @@ export default function SideNavigation(props) {
         </li>
       </Link> */}
 
-      <Link to="/setup" style={{ textDecoration: "none" }}>
+      {/* <Link to="/setup" style={{ textDecoration: "none" }}>
         <li className={`left-heading ${path === "/setup" ? "actived" : ""}`}>
           <span>Setup</span>
         </li>
-      </Link>
+      </Link> */}
       <div onClick={Logout}>
         <li className={`left-heading`}>
           <span>Logout</span>
