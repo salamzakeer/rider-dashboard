@@ -5,7 +5,7 @@ const useStyles = makeStyles(
   (theme) =>
     createStyles({
       Main: {
-        padding: "6px",
+        padding: "12px 2px",
       },
       i: {
         position: "absolute",
@@ -47,7 +47,7 @@ const useStyles = makeStyles(
         },
       },
       label: {
-        paddingLeft: "40px",
+        paddingLeft: "30px",
         fontSize: "16px",
         color: "#00000",
         opacity: "0.9",
@@ -60,7 +60,7 @@ const useStyles = makeStyles(
 
 function SearchInput(props) {
   const classes = useStyles();
-  const { icon, onChange, value, placeholder, label } = props;
+  const { icon, onChange, value, placeholder, label, name, type } = props;
   return (
     <div className={classes.Main}>
       <label className={classes.label}>{label}</label>
@@ -68,13 +68,16 @@ function SearchInput(props) {
         <div className={classes.i}>{icon}</div>
         <input
           className={classes.Field}
-          type="text"
+          type={type ? type : "text"}
           placeholder={placeholder}
           onChange={onChange}
           value={value}
+          name={name}
         />
       </div>
     </div>
   );
 }
+
+// export handleInputChange;
 export default SearchInput;

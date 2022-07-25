@@ -8,6 +8,7 @@ export default function SideNavigation(props) {
   const path = location.pathname;
   const [open, setOpen] = React.useState(true);
   const [open2, setOpen2] = React.useState(true);
+  const [open3, setOpen3] = React.useState(true);
   const Logout = () => {
     localStorage.removeItem("userInfor");
     localStorage.removeItem("auth");
@@ -147,6 +148,42 @@ export default function SideNavigation(props) {
               className={`left-heading ${path === "/demo" ? "s-active" : ""}`}
             >
               <span style={{ paddingLeft: "20px" }}> Administrator</span>
+            </li>
+          </Link>
+        </>
+      )}
+      <Link
+        to=""
+        style={{ textDecoration: "none" }}
+        onClick={() => setOpen3(!open3)}
+      >
+        <li
+          className={`left-heading ${
+            path === "/setup/comapny" || path === "/setup/policy"
+              ? "actived"
+              : ""
+          }`}
+        >
+          <span>setup</span>
+        </li>
+      </Link>
+      {open3 && (
+        <>
+          <Link to="/setup/comapny" style={{ textDecoration: "none" }}>
+            <li
+              className={`left-heading ${
+                path === "/setup/comapny" ? "s-active" : ""
+              }`}
+            >
+              <span style={{ paddingLeft: "20px" }}> Company</span>
+            </li>
+          </Link>
+
+          <Link to="/setup/policy" style={{ textDecoration: "none" }}>
+            <li
+              className={`left-heading ${path === "/policy" ? "s-active" : ""}`}
+            >
+              <span style={{ paddingLeft: "20px" }}>Policy</span>
             </li>
           </Link>
         </>

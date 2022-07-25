@@ -60,10 +60,11 @@ body {
 }
 .content2 {
   padding: 1rem !important;
-  padding-left: 6rem !important;
+  padding-left: 3rem !important;
+  padding-right: 3rem;
   overflow: auto;
   box-sizing: border-box;
-  height: calc(100vh);
+  height: calc(90vh);
 
   scroll-behavior: smooth;
 }
@@ -102,6 +103,7 @@ body {
   width: 0;
   box-shadow: 5px 5px 55px #0000000d;
 }
+
 @media (orientation: landscape) {
   #left.open,
   #right.open {
@@ -379,4 +381,16 @@ body {
   margin-left: 33px;
   width: 17px;
   height: 17px;
+}
+/* main-content-navbar */
+@media only screen and (min-width: 1100px) {
+  .main-content-navbar {
+    background-color: red !important;
+    display: none !important;
+  }
+}
+.main-content-navbar {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 60px;
 }

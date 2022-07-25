@@ -1,3 +1,20 @@
+const stateValues = {
+    pLen: "",
+    pexp: "",
+    gracePExp: "",
+    pmustnot: "",
+    pexpReminder: "",
+    disableDormat: "",
+    requireStrongP: "",
+    changeP: "",
+    allowP: "",
+    
+    aLockoutAfter: "",
+    sessionTime: "",
+    sessionNoti: "",
+    LockPolicy: "",
+    ReminderLast:""
+};
 const x = {
     "id": 1,
     "adminId": 1,

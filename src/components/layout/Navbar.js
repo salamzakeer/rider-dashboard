@@ -115,6 +115,10 @@ class Layout extends React.Component {
         </div>
 
         <div id="main">
+          <div
+            style={{ width: "100%", backgroundColor: "#fff", height: "60px" }}
+            class="main-content-navbar"
+          ></div>
           {/* <div className="header">
             <h3
               className={`
@@ -138,6 +142,9 @@ class Layout extends React.Component {
           </div>
             </div> */}
           <div className="content2">{this.props.children}</div>
+          <br />
+          <br /> <br />
+          <br />
         </div>
       </div>
     );
