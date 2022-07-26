@@ -228,7 +228,14 @@ body {
   padding-left: 1.5rem;
   color: #9b9b9b;
   font-weight: 400 !important;
+  position: relative;
   /* width: 275px; */
+}
+.icon-arrow-setup{
+  position: absolute;
+  right: 0;
+  padding-right: 10px;
+  
 }
 .left-heading-profile {
   margin: 10px 0px;

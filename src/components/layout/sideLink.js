@@ -2,11 +2,14 @@ import React from "react";
 import "./navbar.css";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
 export default function SideNavigation(props) {
   const location = useLocation();
   const path = location.pathname;
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(true);
   const [open3, setOpen3] = React.useState(true);
   const Logout = () => {
@@ -66,6 +69,12 @@ export default function SideNavigation(props) {
           }`}
         >
           <span>Import Manager</span>
+          <div className="icon-arrow-setup">
+            {open ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+          </div>
+
+          {/*  */}
+          {/* import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; */}
         </li>
       </Link>
       {open && (
@@ -76,6 +85,9 @@ export default function SideNavigation(props) {
                 path === "/import-data" ? "s-active" : ""
               }`}
             >
+              <div>
+                <ArrowRightIcon />
+              </div>
               <span style={{ paddingLeft: "20px" }}>Import Data</span>
             </li>
           </Link>
@@ -94,6 +106,10 @@ export default function SideNavigation(props) {
                 path === "/assigned-data" ? "s-active" : ""
               }`}
             >
+              {" "}
+              <div>
+                <ArrowRightIcon />
+              </div>
               <span style={{ paddingLeft: "20px" }}>Assign Data</span>
             </li>
           </Link>
@@ -115,6 +131,9 @@ export default function SideNavigation(props) {
           }`}
         >
           <span>Human Resource</span>
+          <div className="icon-arrow-setup">
+            {open2 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+          </div>
         </li>
       </Link>
       {open2 && (
@@ -123,6 +142,10 @@ export default function SideNavigation(props) {
             <li
               className={`left-heading ${path === "/rider" ? "s-active" : ""}`}
             >
+              {" "}
+              <div>
+                <ArrowRightIcon />
+              </div>
               <span style={{ paddingLeft: "20px" }}> Employee Details</span>
             </li>
           </Link>
@@ -140,6 +163,10 @@ export default function SideNavigation(props) {
                 path === "/calendar" ? "s-active" : ""
               }`}
             >
+              {" "}
+              <div>
+                <ArrowRightIcon />
+              </div>
               <span style={{ paddingLeft: "20px" }}>Employee Attendance</span>
             </li>
           </Link>
@@ -147,6 +174,10 @@ export default function SideNavigation(props) {
             <li
               className={`left-heading ${path === "/demo" ? "s-active" : ""}`}
             >
+              {" "}
+              <div>
+                <ArrowRightIcon />
+              </div>
               <span style={{ paddingLeft: "20px" }}> Administrator</span>
             </li>
           </Link>
@@ -165,6 +196,9 @@ export default function SideNavigation(props) {
           }`}
         >
           <span>setup</span>
+          <div className="icon-arrow-setup">
+            {open3 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+          </div>
         </li>
       </Link>
       {open3 && (
@@ -175,6 +209,10 @@ export default function SideNavigation(props) {
                 path === "/setup/comapny" ? "s-active" : ""
               }`}
             >
+              {" "}
+              <div>
+                <ArrowRightIcon />
+              </div>
               <span style={{ paddingLeft: "20px" }}> Company</span>
             </li>
           </Link>
@@ -183,6 +221,10 @@ export default function SideNavigation(props) {
             <li
               className={`left-heading ${path === "/policy" ? "s-active" : ""}`}
             >
+              {" "}
+              <div>
+                <ArrowRightIcon />
+              </div>
               <span style={{ paddingLeft: "20px" }}>Policy</span>
             </li>
           </Link>
