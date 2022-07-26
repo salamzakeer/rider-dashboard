@@ -5,7 +5,7 @@ const useStyles = makeStyles(
   (theme) =>
     createStyles({
       Main: {
-        padding: "12px 2px",
+        padding: "12px 5px",
       },
       i: {
         position: "absolute",
