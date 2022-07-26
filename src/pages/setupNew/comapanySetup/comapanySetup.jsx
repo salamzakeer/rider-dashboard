@@ -1,3 +1,4 @@
+import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import Layout from "../../../components/layout/Navbar";
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
@@ -84,6 +85,26 @@ function Dashboard() {
   const post = () => {
     console.log(values, "===");
   };
+  // const HandleEntityClick = () => {};
+
+  const [NutritionArray, setNutritionArray] = useState([{ TypeOfEntity: "" }]);
+
+  const HandleEntityClick = () => {
+    console.log("koko");
+    setNutritionArray([
+      ...NutritionArray,
+      {
+        // newData: "",
+        TypeOfEntity: "",
+      },
+    ]);
+  };
+  const HandleEntityChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...NutritionArray];
+    list[index][name] = value;
+    setNutritionArray(list);
+  };
   return (
     <Layout title="Dashboard">
       <div>
@@ -118,7 +139,7 @@ function Dashboard() {
               value={values.CShortName}
             />
             <Input
-              placeholder="Eg : 2323232323"
+              placeholder="Eg : 201901000005 (1312525-A)"
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
@@ -140,7 +161,7 @@ function Dashboard() {
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Contact :Number -Land Line"
+              label="Contact Number - Land line"
               name="ContactNumberLandLine"
               value={values.ContactNumberLandLine}
             />
@@ -149,7 +170,7 @@ function Dashboard() {
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Contact Number -mobile"
+              label="Contact Number -Mobile"
               name="ContactNumberMobile"
               value={values.ContactNumberMobile}
             />
@@ -165,29 +186,38 @@ function Dashboard() {
           </div>
           <div className={classes.flexInputDivs}>
             <Input
-              placeholder="Eg : asasd"
+              placeholder="23/a, main road, Colombo Sri lanka"
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Address"
+              label="Address 1"
               name="Add1"
               value={values.Add1}
             />
             <Input
-              placeholder="Eg : asasd"
+              placeholder="23/a, main road, Colombo Sri lanka"
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Address"
+              label="Address 2"
               name="Add2"
               value={values.Add2}
             />
             <Input
-              placeholder="Eg : asasd"
+              placeholder="23/a, main road, Colombo Sri lanka"
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Address"
+              label="Address 3"
+              name="Add3"
+              value={values.Add3}
+            />
+            <Input
+              placeholder="23/a, main road, Colombo Sri lanka"
+              type="text"
+              className="input-div-input"
+              onChange={handleInputChange}
+              label="Address 4"
               name="Add3"
               value={values.Add3}
             />
@@ -210,45 +240,50 @@ function Dashboard() {
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Range1"
+              label="Range 1"
               name="range1"
               value={values.range1}
+              icon="%"
             />
             <Input
               placeholder="Eg : 34.3"
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Range2"
+              label="Range 2"
               name="range2"
               value={values.range2}
+              icon="%"
             />
             <Input
               placeholder="Eg : 20.2"
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Range3"
+              label="Range 3"
               name="range3"
               value={values.range3}
+              icon="%"
             />
             <Input
               placeholder="Eg : 11.11"
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Range4"
+              label="Range 4"
               name="range4"
               value={values.range4}
+              icon="%"
             />
             <Input
               placeholder="Eg : 32.2"
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Range5"
+              label="Range 5"
               name="range5"
               value={values.range5}
+              icon="%"
             />
             <div style={{ width: "300px" }}></div>
           </div>
@@ -263,6 +298,9 @@ function Dashboard() {
       <br />
       <div className={classes.MainCardDiv}>
         <div className={classes.Container}>
+          {/* {NutritionArray &&
+            NutritionArray.length > 0 &&
+            NutritionArray.map((item, i) => <div>{item.name}sll</div>)} */}
           <div className={classes.flexInputDivs}>
             <Input
               placeholder="Eg : IWK"
@@ -273,15 +311,23 @@ function Dashboard() {
               name="nameOfPri"
               value={values.nameOfPri}
             />
-            <Input
-              placeholder="Eg : National sewerage comapany"
-              type="text"
-              className="input-div-input"
-              onChange={handleInputChange}
-              label="Type of Entity"
-              name="TypeOfEntity"
-              value={values.TypeOfEntity}
-            />
+            {NutritionArray &&
+              NutritionArray.length > 0 &&
+              NutritionArray.map((item, i) => (
+                <Input
+                  key={i}
+                  placeholder="Eg : National sewerage comapany"
+                  type="text"
+                  className="input-div-input"
+                  onChange={(e) => HandleEntityChange(e, i)}
+                  label="Type of Entity"
+                  name="TypeOfEntity"
+                  value={item.name}
+                  // value={values.TypeOfEntity}
+                  id={"TypeOfEntity"}
+                  icon={<ControlPointIcon onClick={HandleEntityClick} />}
+                />
+              ))}
             <div style={{ width: "300px" }}></div>
           </div>
         </div>
@@ -304,7 +350,7 @@ function Dashboard() {
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Succesfull bill delivered"
+              label="Succesfull Bill Delivered"
               name="succesfulBill"
               value={values.succesfulBill}
             />
@@ -313,7 +359,7 @@ function Dashboard() {
               type="text"
               className="input-div-input"
               onChange={handleInputChange}
-              label="Succesful number collected"
+              label="Succesful Number Collected"
               name="succesfullNumberC"
               value={values.succesfullNumberC}
             />

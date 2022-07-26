@@ -69,7 +69,7 @@ function Dashboard(props) {
         <TableTemplate2
           keys={key3}
           value={value3}
-          // onChange={onChange3}
+          onChange={onChange3}
           name={name3}
           id={id3}
           options={options3}

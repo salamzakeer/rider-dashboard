@@ -195,7 +195,7 @@ export default function SideNavigation(props) {
               : ""
           }`}
         >
-          <span>setup</span>
+          <span>Setup</span>
           <div className="icon-arrow-setup">
             {open3 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
           </div>

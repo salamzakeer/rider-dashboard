@@ -33,6 +33,17 @@ export const Status = [
     name: "Paid",
   },
 ];
+export const RiderStatus = [
+  {
+    id: "1",
+    name: "Update",
+  },
+  {
+    id: "2",
+    name: "Not Update",
+  },
+];
+// RiderStatus
 export const typeofbusinesstype = [
   { id: 2, name: "13 24 HRS SUNDRY SHOP (7 ELEVEN)" },
   { id: 3, name: "28 ACCESSORIES SHOP" },

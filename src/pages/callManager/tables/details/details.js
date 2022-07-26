@@ -9,6 +9,7 @@ import {
   Gender,
   typeofbusinesstype,
   propertyusagetype,
+  RiderStatus,
 } from "../../../../api/detailsApi";
 import { useToasts } from "react-toast-notifications";
 import axios from "../../../../axios";
@@ -176,7 +177,7 @@ function Dashboard(Details) {
             options2={YesNo}
             key3="Arrears"
             value3={values.Arrears || ""}
-            // onChange3={handleInputChange}
+            onChange3={handleInputChange}
             name3="Arrears"
             id3="Arrears"
           />
@@ -189,7 +190,7 @@ function Dashboard(Details) {
             id1="SAN"
             key2="Nationality"
             value2={values.Gender}
-            // onChange2={handleInputChange}
+            onChange2={handleInputChange}
             name2="Nationality"
             id2="Nationality"
             options2={Gender}
@@ -222,35 +223,35 @@ function Dashboard(Details) {
           <TableTrRow
             key1="LA Name"
             value1={values.LAName || ""}
-            // onChange1={handleInputChange}
+            onChange1={handleInputChange}
             name1="LAName"
             id1="LAName"
             key2="Owner's Tel No 2"
             value2={values.OwnertelNos || ""}
-            // onChange2={handleInputChange}
+            onChange2={handleInputChange}
             name2="OwnertelNos"
             id2="OwnertelNos"
-            // key3="Status"
-            // value3={values.status}
-            // onChange3={handleInputChange}
-            // name3="status"
-            // id3="status"
-            // selecte3
+            key3="Rider Status"
+            value3={values.riderStatus || ""}
+            onChange3={handleInputChange}
+            name3="MailName2"
+            id3="status"
+            options3={RiderStatus}
           />{" "}
           {/* 5 */}
           <TableTrRow
             key1="Owner 1"
             value1={values.Owner1 || ""}
-            // onChange1={handleInputChange}
+            onChange1={handleInputChange}
             name1="Owner1"
             id1="Owner1"
             key2="Owner's Tel No 3"
             value2={values.OwnertelNo3 || ""}
-            // onChange2={handleInputChange}
+            onChange2={handleInputChange}
             name2="OwnertelNo3"
             id2="OwnertelNo3"
             // key3="Status"
-            // value3={values.status}
+            value3={""}
             // onChange3={handleInputChange}
             // name3="status"
             // id3="status"
@@ -260,7 +261,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 1"
             value1={values.PropAddr1 || ""}
-            // onChange1={handleInputChange}
+            onChange1={handleInputChange}
             name1="PropAddr1"
             id1="PropAddr1"
             key2="Tanant Phone 1"
@@ -269,7 +270,7 @@ function Dashboard(Details) {
             name2="TanantPhone1"
             id2="TanantPhone1"
             // key3="Status"
-            // value3={values.status}
+            value3={""}
             // onChange3={handleInputChange}
             // name3="status"
             // id3="status"
@@ -279,16 +280,16 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 2"
             value1={values.PropAddr2 || ""}
-            // onChange1={handleInputChange}
+            onChange1={handleInputChange}
             name1="PropAddr2"
             id1="PropAddr2"
-            key2="Tanant Phone 2"
-            value2={values.TanantPhone2 || ""}
-            // onChange2={handleInputChange}
-            name2="TanantPhone2"
-            id2="TanantPhone2"
+            // key2="Tanant Phone 2"
+            value2={""}
+            // // onChange2={handleInputChange}
+            // name2="TanantPhone2"
+            // id2="TanantPhone2"
             // key3="Status"
-            // value3={values.status}
+            value3={""}
             // onChange3={handleInputChange}
             // name3="status"
             // id3="status"
@@ -298,16 +299,16 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 3"
             value1={values.PropAddr3 || ""}
-            // onChange1={handleInputChange}
+            onChange1={handleInputChange}
             name1="PropAddr3"
             id1="PropAddr3"
-            key2="Tanant Phone 3"
-            value2={values.TanantPhone3 || ""}
-            // onChange2={handleInputChange}
-            name2="TanantPhone3"
-            id2="TanantPhone3"
+            // key2="Tanant Phone 3"
+            value2={""}
+            // // onChange2={handleInputChange}
+            // name2="TanantPhone3"
+            // id2="TanantPhone3"
             // key3="Status"
-            // value3={values.status}
+            value3={""}
             // onChange3={handleInputChange}
             // name3="status"
             // id3="status"
@@ -316,16 +317,16 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 4"
             value1={values.PropAddr4 || ""}
-            // onChange1={handleInputChange}
+            onChange1={handleInputChange}
             name1="PropAddr4"
             id1="PropAddr4"
             // key2="Tanant Phone 3"
-            // value2={values.TanantPhone3}
+            value2={""}
             // onChange2={handleInputChange}
             // name2="TanantPhone3"
             // id2="TanantPhone3"
             // key3="Status"
-            // value3={values.status}
+            value3={""}
             // onChange3={handleInputChange}
             // name3="status"
             // id3="status"
@@ -334,10 +335,11 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Arrears Date"
             value1={values.arrearsDate || ""}
-            // onChange1={handleInputChange}
+            onChange1={handleInputChange}
             name1="arrearsDate"
             id1="arrearsDate"
             key2="Property Usage"
+            options2={typeofbusinesstype}
             value2={values.PropertyUsage || ""}
             onChange2={handleInputChange}
             name2="PropertyUsage"
@@ -350,7 +352,7 @@ function Dashboard(Details) {
             // selecte3
           />{" "}
           <TableTrRow
-            key1="Date of visit"
+            key1="Date of Visit"
             // value1={values.visitDate || ""}
             // iiiiiiiiiiiii
             value1={moment(values.visitDate).format("YYYY-MM-DD") || ""}
@@ -371,7 +373,7 @@ function Dashboard(Details) {
             // selecte3
           />{" "}
           <TableTrRow
-            key1="Owner Correct"
+            key1="Owner Correct ?"
             value1={values.OwnernameCorrect || ""}
             onChange1={handleInputChange}
             name1="OwnernameCorrect"
@@ -389,13 +391,13 @@ function Dashboard(Details) {
             // selecte3
           />{" "}
           <TableTrRow
-            key1="Owner / Tenat"
+            key1="Owner / Tenant"
             value1={values.TenantName || ""}
             onChange1={handleInputChange}
             name1="TenantName"
             id1="TenantName"
             // key2="Name of shop/company"
-            // value2={values.nameOfShop}
+            value2={""}
             // onChange2={handleInputChange}
             // name2="nameOfShop1"
             // id2="nameOfShop1"
@@ -409,11 +411,11 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Class[D,C,I,G]"
             value1={values.Class || ""}
-            // onChange1={handleInputChange}
+            onChange1={handleInputChange}
             name1="Class"
             id1="Class"
             // key2="Name of shop/company"
-            // value2={values.nameOfShop}
+            value2={""}
             // onChange2={handleInputChange}
             // name2="nameOfShop1"
             // id2="nameOfShop1"
@@ -433,12 +435,12 @@ function Dashboard(Details) {
             options1={Qrcode}
 
             // key2="Name of shop/company"
-            // value2={values.nameOfShop}
+            value2={""}
             // onChange2={handleInputChange}
             // name2="nameOfShop1"
             // id2="nameOfShop1"
             // key3="Payment"
-            // value3={values.Payment}
+            value3={""}
             // onChange3={handleInputChange}
             // name3="payment"
             // id3="payment"

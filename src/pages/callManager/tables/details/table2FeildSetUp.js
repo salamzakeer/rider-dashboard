@@ -19,6 +19,8 @@ const useStyles = makeStyles(
         backgroundColor: "inherit",
         border: "none",
         outline: "none",
+        width: "100%",
+        padding: "10px",
       },
 
       keys: {

@@ -5,6 +5,7 @@ const useStyles = makeStyles(
   (theme) =>
     createStyles({
       filter: {
+        outline: "none",
         width: "100%",
         margin: "12px",
         border: "1px solid #ccc",
