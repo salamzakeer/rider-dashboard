@@ -161,8 +161,12 @@ const LndCsvDataHeader = [
     displayName: "Customer's Email",
   },
   {
-    id: "OwnerTelephoneNo",
+    id: "OwnerTelephoneNo1",
     displayName: "Owner Telephone No",
+  },
+  {
+    id: "OwnerMobileNo",
+    displayName: "Owner Mobile No",
   },
   {
     id: "OwnerMobileNo",
@@ -290,7 +294,7 @@ const LndCsvDataHeader = [
   },
   {
     id: "CurrentBalance",
-    displayName: "CurrentBalance",
+    displayName: "Current Balance",
   },
   {
     id: "Balance_at_05_03_2022",
@@ -300,6 +304,10 @@ const LndCsvDataHeader = [
   {
     id: "CurrentBalance",
     displayName: "Balance as per copy bill",
+  },
+  {
+    id: "Diff",
+    displayName: "Diff between bal as per copy bill & bal@05/03/2022",
   },
   {
     id: "AdministrationFee",
@@ -321,7 +329,7 @@ const LndCsvDataHeader = [
   // start 2
   // 1st visit-Date of Bill & Notice/LOD was served
   {
-    id: "BATCH",
+    id: "BATCH1",
     displayName: "1st visit-Date of Bill & Notice/LOD was served",
   },
   {
@@ -330,7 +338,7 @@ const LndCsvDataHeader = [
   },
 
   {
-    id: "BATCH",
+    id: "BATCH2",
     displayName: "F/UP-Date of Reminder Notice/LOD was served",
   },
   {
@@ -351,7 +359,7 @@ const LndCsvDataHeader = [
     displayName: "Owner Telephone No",
   },
   {
-    id: "OwnerMobileNo",
+    id: "OwnerMobileNo1",
     displayName: "Owner Mobile No",
   },
   {
@@ -368,11 +376,11 @@ const LndCsvDataHeader = [
     displayName: "Tenant's name",
   },
   {
-    id: "TenantTelephoneNo",
-    displayName: "Tenant's tel no",
+    id: "TenantTelephoneNo1",
+    displayName: "Tenant's Telephone no",
   },
   {
-    id: "TenantMobileNo",
+    id: "TenantMobileNo1",
     displayName: "Tenant's mobile no",
   },
   {
@@ -399,14 +407,18 @@ const LndCsvDataHeader = [
   },
   {
     id: "PropertyUsage",
-    displayName: "PropertyUsage",
+    displayName: "Property Usage",
+  },
+  {
+    id: "PropertyType",
+    displayName: "Property Type",
   },
   {
     id: "NameofShopOrCompany",
     displayName: "Name of shop/company",
   },
   {
-    id: "DRCode",
+    id: "DRCde",
     displayName: "Nature of business",
   },
 
@@ -452,10 +464,10 @@ const LndCsvDataHeader = [
   //   id: "status",
   //   displayName: "status",
   // },
-  {
-    id: "image",
-    displayName: "image",
-  },
+  // {
+  //   id: "image",
+  //   displayName: "image",
+  // },
   // {
   //   id: "created_at",
   //   displayName: "created_at",
