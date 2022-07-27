@@ -23,6 +23,11 @@ const useStyles = makeStyles(
         backgroundColor: "#501abf",
         color: "#fff",
         "&:hover": {
+          "& div": {
+            "& svg": {
+              color: "#501abf !important",
+            },
+          },
           backgroundColor: "#fff",
           color: "#501abf",
           border: "2px solid #501abf",
@@ -33,6 +38,12 @@ const useStyles = makeStyles(
         },
         "& span": {
           color: "#fff !important",
+        },
+
+        "& div": {
+          "& svg": {
+            color: "#fff",
+          },
         },
       },
       Progress: {

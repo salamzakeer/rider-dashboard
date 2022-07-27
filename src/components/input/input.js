@@ -60,7 +60,17 @@ const useStyles = makeStyles(
 
 function SearchInput(props) {
   const classes = useStyles();
-  const { icon, onChange, value, placeholder, label, name, type, id } = props;
+  const {
+    icon,
+    onChange,
+    value,
+    placeholder,
+    label,
+    name,
+    type,
+    id,
+    required,
+  } = props;
   return (
     <div className={classes.Main}>
       <label className={classes.label}>{label}</label>
@@ -74,6 +84,7 @@ function SearchInput(props) {
           value={value}
           name={name}
           id={id}
+          required={required}
         />
       </div>
     </div>

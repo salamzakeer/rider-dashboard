@@ -27,37 +27,6 @@ export default function SideNavigation(props) {
           <span>Dashboard</span>
         </li>
       </Link>
-      {/* <Link to="/extend-search" style={{ textDecoration: "none" }}>
-        <li
-          className={`left-heading ${
-            path === "/extend-search" ? "actived" : ""
-          }`}
-        >
-          <span>Extend Search</span>
-        </li>
-      </Link> */}
-      <Link to="/call-manager" style={{ textDecoration: "none" }}>
-        <li
-          className={`left-heading ${
-            path === "/call-manager" ? "actived" : ""
-          }`}
-        >
-          <span>Call Manager</span>
-        </li>
-      </Link>
-      <Link to="/images" style={{ textDecoration: "none" }}>
-        <li className={`left-heading ${path === "/images" ? "actived" : ""}`}>
-          <span>Images</span>
-        </li>
-      </Link>
-      <Link to="/export-data" style={{ textDecoration: "none" }}>
-        <li
-          className={`left-heading ${path === "/export-data" ? "actived" : ""}`}
-        >
-          <span>Export Data</span>
-        </li>
-      </Link>
-      {/* extend-search */}
       <Link
         to=""
         style={{ textDecoration: "none" }}
@@ -115,6 +84,39 @@ export default function SideNavigation(props) {
           </Link>
         </>
       )}
+       <Link to="/export-data" style={{ textDecoration: "none" }}>
+        <li
+          className={`left-heading ${path === "/export-data" ? "actived" : ""}`}
+        >
+          <span>Export Manager</span>
+        </li>
+      </Link>
+      {/* <Link to="/extend-search" style={{ textDecoration: "none" }}>
+        <li
+          className={`left-heading ${
+            path === "/extend-search" ? "actived" : ""
+          }`}
+        >
+          <span>Extend Search</span>
+        </li>
+      </Link> */}
+      <Link to="/call-manager" style={{ textDecoration: "none" }}>
+        <li
+          className={`left-heading ${
+            path === "/call-manager" ? "actived" : ""
+          }`}
+        >
+          <span>Call Manager</span>
+        </li>
+      </Link>
+      <Link to="/images" style={{ textDecoration: "none" }}>
+        <li className={`left-heading ${path === "/images" ? "actived" : ""}`}>
+          <span>Visual Manager</span>
+        </li>
+      </Link>
+     
+      {/* extend-search */}
+     
       {/* <Link to="/calendar" style={{ textDecoration: "none" }}>
         <li className={`left-heading ${path === "/calendar" ? "actived" : ""}`}>
           <span>Calendar</span>
@@ -130,7 +132,7 @@ export default function SideNavigation(props) {
             path === "/rider" || path === "/calendar" ? "actived" : ""
           }`}
         >
-          <span>Human Resource</span>
+          <span>Human Rescource</span>
           <div className="icon-arrow-setup">
             {open2 ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
           </div>
@@ -190,7 +192,7 @@ export default function SideNavigation(props) {
       >
         <li
           className={`left-heading ${
-            path === "/setup/comapny" || path === "/setup/policy"
+            path === "/setup/company" || path === "/setup/policy"
               ? "actived"
               : ""
           }`}
@@ -203,10 +205,10 @@ export default function SideNavigation(props) {
       </Link>
       {open3 && (
         <>
-          <Link to="/setup/comapny" style={{ textDecoration: "none" }}>
+          <Link to="/setup/company" style={{ textDecoration: "none" }}>
             <li
               className={`left-heading ${
-                path === "/setup/comapny" ? "s-active" : ""
+                path === "/setup/company" ? "s-active" : ""
               }`}
             >
               {" "}

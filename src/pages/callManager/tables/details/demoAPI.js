@@ -1,20 +1,25 @@
-const stateValues = {
-    pLen: "",
-    pexp: "",
-    gracePExp: "",
-    pmustnot: "",
-    pexpReminder: "",
-    disableDormat: "",
-    requireStrongP: "",
-    changeP: "",
-    allowP: "",
-    
-    aLockoutAfter: "",
-    sessionTime: "",
-    sessionNoti: "",
-    LockPolicy: "",
-    ReminderLast:""
-};
+const stateValues ={
+    "id": 1,
+    "adminId": 1,
+    "CompanyName": null,
+    "CompanyShortName": null,
+    "RegistrationNumber": null,
+    "ContactPersonName": null,
+    "ContactNoLandline": null,
+    "ContactNoMobile": null,
+    "Email": "1212@gmail.co",
+    "Address1": null,
+    "Address2": null,
+    "Address3": null,
+    "Address4": null,
+    "Range1": null,
+    "Range2": null,
+    "Range3": null,
+    "Range4": null,
+    "Range5": null,
+    "SuccessfulBillDelivered": null,
+    "SuccessfulNoColleceted": null
+}
 const x = {
     "id": 1,
     "adminId": 1,
