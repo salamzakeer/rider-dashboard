@@ -302,7 +302,7 @@ const LndCsvDataHeader = [
   },
   // recheck again
   {
-    id: "CurrentBalance",
+    id: "CurrentBalance1",
     displayName: "Balance as per copy bill",
   },
   {
