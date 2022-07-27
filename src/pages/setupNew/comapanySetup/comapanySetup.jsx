@@ -95,7 +95,7 @@ function SetUp({ AllData, AllDataArray }) {
     e.preventDefault();
     setDisabled(true);
     const createOrupdateApi = {
-      adminDetailId: AdminId,
+      adminId: AdminId,
       Name: values.Name,
       Type: values.Type,
     };
@@ -142,9 +142,7 @@ function SetUp({ AllData, AllDataArray }) {
   };
 
   const [NutritionArray, setNutritionArray] = useState(
-    AllDataArray
-      ? AllDataArray
-      : [{ Type: "", Name: "", adminDetailId: AdminId }]
+    AllDataArray ? AllDataArray : [{ Type: "", Name: "", adminId: AdminId }]
   );
 
   const HandleEntityClick = () => {
@@ -153,7 +151,7 @@ function SetUp({ AllData, AllDataArray }) {
       {
         Name: "",
         Type: "",
-        adminDetailId: AdminId,
+        adminId: AdminId,
       },
     ]);
   };
