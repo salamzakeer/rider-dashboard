@@ -221,6 +221,25 @@ function CallManager() {
   const onImageClick = (imageurl) => {
     window.open(imageurl ? `${imageurl}` : `${axios.defaults.baseURL}`);
   };
+  const download = (e, QRImage) => {
+    fetch(QRImage, {
+      method: "GET",
+      headers: {},
+    })
+      .then((response) => {
+        response.arrayBuffer().then(function (buffer) {
+          const url = window.URL.createObjectURL(new Blob([buffer]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", "image.png"); //or any other extension
+          document.body.appendChild(link);
+          link.click();
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const DisplayImage = ({ image }) => {
     var single = [];
     var x = changeOption(Option);
@@ -243,7 +262,35 @@ function CallManager() {
           single.length > 0 &&
           single.map((item, i) => (
             <td key={i}>
-              <Avatar
+              <a
+                href={axios.defaults.baseURL + "/" + x + "/" + item}
+                onClick={(e) =>
+                  download(e, axios.defaults.baseURL + "/" + x + "/" + item)
+                }
+                target="_blank"
+                download
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  textTransform: "capitalize",
+                  textAlign: "center",
+                  margin: "0 auto",
+                }}
+              >
+                <img
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    textTransform: "capitalize",
+                    textAlign: "center",
+                    margin: "0 auto",
+                    borderRadius: "50%",
+                  }}
+                  src={axios.defaults.baseURL + "/" + x + "/" + item}
+                />
+              </a>
+
+              {/* <Avatar
                 sx={{
                   width: "40px",
                   height: "40px",
@@ -259,7 +306,7 @@ function CallManager() {
                 alt="user"
               >
                 {item[0]}
-              </Avatar>
+              </Avatar> */}
             </td>
           ))}
         {/* <p>Sdsdsd</p> */}
@@ -270,7 +317,7 @@ function CallManager() {
   return (
     <Layout>
       <div>
-        <div className="rider-info">Images</div>
+        <div className="rider-info">Visual Manager</div>
       </div>
       <br />
       <div className={classes.subDiv}>
@@ -402,18 +449,38 @@ function CallManager() {
                 <td>
                   <Typography variant="body">{data.id}</Typography>
                 </td>
-                <td>
-                  <Typography variant="body">{data.Owner1}</Typography>
+                <td
+                  style={{
+                    textAlign: "left !important",
+                    paddingLeft: "10px !important",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "100%",
+                      textAlign: "left",
+                      paddingLeft: "20px",
+                    }}
+                    variant="body"
+                  >
+                    {data.Owner1}
+                  </div>
                 </td>
                 <td>
                   <Typography variant="body">{data.SAN}</Typography>
                 </td>
 
                 <td>
-                  <Typography variant="body">
-                    {data.PropAddr1} {data.PropAddr2} {data.PropAddr3}
-                    {data.PropAddr4}
-                  </Typography>
+                  <div
+                    style={{
+                      width: "100%",
+                      textAlign: "left",
+                      paddingLeft: "20px",
+                    }}
+                    variant="body"
+                  >
+                    {data.PropAddr2}
+                  </div>
                 </td>
                 <DisplayImage image={data.multiImage} />
               </tr>
@@ -427,7 +494,7 @@ function CallManager() {
           pageCount={pageCount}
           previousLabel="< previous"
           renderOnZeroPageCount={null}
-          pageRangeDisplayed={1}
+          pageRangeDisplayed={3}
           marginPagesDisplayed={3}
           containerClassName={"pagination justify-content-end"}
           pageClassName={"page-item"}

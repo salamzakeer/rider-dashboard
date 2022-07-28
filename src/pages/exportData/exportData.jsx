@@ -748,7 +748,7 @@ function Dashboard() {
 
     axios
       .get(
-        `riderdata/filterByJobnameAndCategory/${Option}/${UserSelectCategory}/2`
+        `imah${Option}/${UserSelectCategory}/2`
       )
       .then((res) => {
         setDisabled(false);

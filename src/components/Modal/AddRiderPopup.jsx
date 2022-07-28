@@ -114,6 +114,7 @@ function AddRiderPopup({ closeModel }) {
 
         <div className="frm">
           <input
+            autocomplete="chrome-off"
             type="text"
             className="input"
             placeholder="Name"
@@ -121,18 +122,23 @@ function AddRiderPopup({ closeModel }) {
             onChange={handleName}
           />
           <input
-            type="text"
+            autocomplete="chrome-off"
+            type="email"
             className="input"
             placeholder="Email"
             value={email}
             onChange={handleEmail}
+            name="email"
           />
           <input
+            autocomplete="chrome-off"
             type="text"
             className="input"
             placeholder="NRIC"
             value={NRIC}
             onChange={(e) => setNRIC(e.target.value)}
+            name="nic"
+            // style={{ WebkitTextSecurity: "disc" }}
           />
           <div className={"select1"}>
             {/* <label className={classes.label}>{"Type"}</label> */}
@@ -187,8 +193,9 @@ function AddRiderPopup({ closeModel }) {
               </option>
             </select>
           </div>
-         
+
           <input
+            autocomplete="chrome-off"
             type="password"
             className="input"
             placeholder="Password"
@@ -196,6 +203,7 @@ function AddRiderPopup({ closeModel }) {
             onChange={handlePassword}
           />
           <input
+            autocomplete="chrome-off"
             type="password"
             className="input"
             placeholder="Confirm Password"

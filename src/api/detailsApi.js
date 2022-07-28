@@ -21,16 +21,72 @@ export const Gender = [
 ];
 export const Status = [
   {
-    id: "1",
+    id: "New",
     name: "New",
   },
   {
-    id: "2",
-    name: "PTP",
+    id: "PAYMENT MADE AFTER DCA CALL",
+    name: "PAYMENT MADE AFTER DCA CALL",
   },
   {
-    id: "3",
-    name: "Paid",
+    id: "PROMISED TO PAY (PTP)",
+    name: "PROMISED TO PAY (PTP)",
+  },
+  {
+    id: "REFUSE TO PAY (RTP)",
+    name: "REFUSE TO PAY (RTP)",
+  },
+  {
+    id: "UNABLE TO PAY (UTP)",
+    name: "UNABLE TO PAY (UTP)",
+  },
+  {
+    id: "FURTHER EXPLANATION & FOLLOW UP REQUIRED",
+    name: "FURTHER EXPLANATION & FOLLOW UP REQUIRED",
+  },
+  {
+    id: "REQUESTED FOR INSTALLMENT PLAN",
+    name: "REQUESTED FOR INSTALLMENT PLAN",
+  },
+  {
+    id: "REQUESTED FOR STATEMENT OF ACCOUNT (SOA)",
+    name: "REQUESTED FOR STATEMENT OF ACCOUNT (SOA)",
+  },
+  {
+    id: "REQUESTED FOR COPY BILL",
+    name: "REQUESTED FOR COPY BILL",
+  },
+  {
+    id: "LEAVE MESSAGE TO CALL",
+    name: "LEAVE MESSAGE TO CALL",
+  },
+  {
+    id: "TENANT CLAIM OWNER TO PAY",
+    name: "TENANT CLAIM OWNER TO PAY",
+  },
+  {
+    id: "TENANT PAID TO OWNER",
+    name: "TENANT PAID TO OWNER",
+  },
+  {
+    id: "NEW TENANT/SAME OWNER",
+    name: "NEW TENANT/SAME OWNER",
+  },
+  {
+    id: "PAYMENT IS OUSTANDING BUT CLAIM PAID",
+    name: "PAYMENT IS OUSTANDING BUT CLAIM PAID",
+  },
+  {
+    id: "Parital Paid",
+    name: "Parital Paid",
+  },
+  {
+    id: "OTHERS",
+    name: "OTHERS",
+  },
+  {
+    id: "Revisit",
+    name: "Revisit",
   },
 ];
 export const RiderStatus = [
@@ -333,8 +389,8 @@ export const drcodetype = [
   },
 ];
 export const occupiertype = [
-  {id: "Tenant",name: "Tenant"},
-  {id: "Vacant",name: "Vacant"},
-  {id: "Closed",name: "Closed"},
-  {id: "Others",name: "Others"},
+  { id: "Tenant", name: "Tenant" },
+  { id: "Vacant", name: "Vacant" },
+  { id: "Closed", name: "Closed" },
+  { id: "Others", name: "Others" },
 ];

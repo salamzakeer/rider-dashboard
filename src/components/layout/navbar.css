@@ -64,7 +64,7 @@ body {
   padding-right: 3rem;
   overflow: auto;
   box-sizing: border-box;
-  height: calc(90vh);
+  height: calc(100vh);
 
   scroll-behavior: smooth;
 }
@@ -230,6 +230,16 @@ body {
   font-weight: 400 !important;
   position: relative;
   /* width: 275px; */
+}
+
+@media only screen and (min-width: 1100px) {
+  .left-heading {
+    margin: 2px 0px;
+    height: 46px;
+  }
+  .left-heading > span {
+    font-size: 12px !important;
+  }
 }
 .left-heading > span {
   text-transform: capitalize;
