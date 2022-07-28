@@ -10,6 +10,8 @@ import {
   typeofbusinesstype,
   propertyusagetype,
   RiderStatus,
+  drcodetype,
+  occupiertype,
 } from "../../../../api/detailsApi";
 import { useToasts } from "react-toast-notifications";
 import axios from "../../../../axios";
@@ -82,6 +84,7 @@ function Dashboard(Details) {
   console.log(values, "values");
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    console.log(value, "val", name, "name");
     setValues({
       ...values,
       [name]: value,
@@ -392,10 +395,11 @@ function Dashboard(Details) {
           />{" "}
           <TableTrRow
             key1="Owner / Tenant"
-            value1={values.TenantName || ""}
+            value1={values.TenantName}
             onChange1={handleInputChange}
             name1="TenantName"
             id1="TenantName"
+            options1={occupiertype}
             // key2="Name of shop/company"
             value2={""}
             // onChange2={handleInputChange}
@@ -428,12 +432,24 @@ function Dashboard(Details) {
           />{" "}
           <TableTrRow
             key1="DR Code"
-            value1={values.DRCode || ""}
+            value1={
+              values.TenantName == "Vacant"
+                ? "6 DR06 VACANT LAND "
+                : values.TenantName == "Closed"
+                ? "22 DR22 CLOSED"
+                : values.DRCode || ""
+            }
             onChange1={handleInputChange}
             name1="DRCode"
             id1="DRCode"
             options1={Qrcode}
-
+            disabled1={
+              values.TenantName == "Vacant"
+                ? true
+                : values.TenantName == "Closed"
+                ? true
+                : false
+            }
             // key2="Name of shop/company"
             value2={""}
             // onChange2={handleInputChange}
@@ -447,6 +463,12 @@ function Dashboard(Details) {
             // selecte3
           />{" "}
         </table>
+        {/* {values.TenantName}
+        asa
+        {JSON.stringify(values.TenantName == "Vacant")}
+        ook
+        <br />
+        {JSON.stringify(values.TenantName)} */}
         <button
           className={classes.btn}
           onClick={(e) => updating(e)}

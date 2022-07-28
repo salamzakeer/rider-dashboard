@@ -44,6 +44,9 @@ function Dashboard(props) {
     options1,
     options2,
     options3,
+    disabled1,
+    disabled2,
+    disabled3,
   } = props;
   // console.log(key1, key2, key3);
 
@@ -57,6 +60,7 @@ function Dashboard(props) {
           name={name1}
           id={id1}
           options={options1}
+          disabled={disabled1}
         />
         <TableTemplate2
           keys={key2}
@@ -65,6 +69,7 @@ function Dashboard(props) {
           name={name2}
           id={id2}
           options={options2}
+          disabled={disabled2}
         />
         <TableTemplate2
           keys={key3}
@@ -73,6 +78,7 @@ function Dashboard(props) {
           name={name3}
           id={id3}
           options={options3}
+          disabled={disabled3}
         />
       </tr>
     </>

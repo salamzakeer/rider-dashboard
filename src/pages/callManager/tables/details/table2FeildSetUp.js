@@ -33,7 +33,7 @@ const useStyles = makeStyles(
         border: "none",
         paddingLeft: "4px !important",
         backgroundPosition: "right 14px center !important",
-        backgroundColor: "inherit",
+        backgroundColor: "inherit !important",
       },
     }),
   { withTheme: true }
@@ -41,7 +41,8 @@ const useStyles = makeStyles(
 
 function Dashboard(props) {
   const classes = useStyles();
-  const { keys, value, onChange, name, id, options, optionsChange } = props;
+  const { keys, value, onChange, name, id, options, optionsChange, disabled } =
+    props;
 
   return (
     <>
@@ -65,6 +66,8 @@ function Dashboard(props) {
               className={`${classes.select} form-select`}
               aria-label="Default select example"
               onChange={onChange}
+              name={name}
+              disabled={disabled}
             >
               <option selected>{value}</option>
               {options.map((item) => (
