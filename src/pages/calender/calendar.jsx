@@ -206,8 +206,6 @@ function Dashboard() {
     { id: "Half a day leave", name: "Half a day leave" },
     { id: "Emergency leave", name: "Emergency leave" },
     { id: "Optional leave entitlements", name: "Optional leave entitlements" },
-
-    
   ];
   return (
     <Layout>

@@ -464,6 +464,28 @@ function CallManager() {
               </td>
             </tr>
           )}
+        
+          {currentItems &&
+            currentItems.length === 0 &&
+            !(!Loading && Disabled) && (
+              <tr
+                style={{
+                  borderCollapse: "collapse",
+                  padding: "0px !important",
+                }}
+              >
+                <td
+                  style={{
+                    textAlign: "center",
+                    verticalAlign: "middle",
+                    padding: "0px !important",
+                  }}
+                  colspan="12"
+                >
+                  <Box sx={{ width: "100%" }}>No Data</Box>
+                </td>
+              </tr>
+            )}
 
           {currentItems &&
             currentItems.length > 0 &&

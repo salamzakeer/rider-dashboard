@@ -1,8 +1,17 @@
+/* react-confirm-alert-overlay */
+.react-confirm-alert-overlay {
+  background: rgba(0, 0, 0, 0.56) !important;
+  /*  rgba(255, 255, 255, 0.5) !important */
+}
 .Ractive {
-  background-color: #32c232;
+  /* rgb(30, 70, 32) */
+  color: #03a9f4;
+  background-color: rgb(229, 246, 253);
+  font-weight: 700;
+  /* color: #fff;
+  background-color: #32c232; */
   padding: 6px;
   border-radius: 12px;
-  color: #fff;
   width: 120px;
   display: flex;
   align-items: center;
@@ -10,17 +19,18 @@
   height: 50;
 }
 .Rinactive {
-  background-color: #e21717;
+  color: rgb(95, 33, 32);
+  background-color: rgb(253, 237, 237);
+  font-weight: 600;
+
   padding: 6px;
   border-radius: 12px;
-  color: #fff;
   width: 120px;
   height: 50;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-,
 .inputContainer i {
   position: absolute;
 }

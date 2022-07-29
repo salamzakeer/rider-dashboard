@@ -57,7 +57,7 @@ function Dashboard() {
       <br />
       <br />
       <div className={classes.MainCardDiv}>
-        <AdminCard title="administration" number="03" />
+        <AdminCard title="Administration" number="03" />
         <AdminCard title="All Rider" number="10 K" />
         <AdminCard title="All Telecaller" number="3K" />
       </div>

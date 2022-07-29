@@ -86,9 +86,13 @@
   margin-top: 34px;
 }
 .card-background .Addrider-card .upload-pic .uploadTxt {
-  margin-top: 6.5px;
-  margin-bottom: 0px;
-  font-size: 1.5rem;
+  /* margin-top: 6.5px;
+  margin-bottom: 0px; */
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
 /* .card-background .Addrider-card .upload-pic .uploadBtn::-webkit-file-upload-button {
