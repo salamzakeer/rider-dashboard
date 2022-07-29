@@ -19,6 +19,16 @@ export const Gender = [
     name: "Female",
   },
 ];
+export const Nationality = [
+  {
+    id: "Malaysian",
+    name: "Malaysian",
+  },
+  {
+    id: "Foreigner",
+    name: "Foreigner",
+  },
+];
 export const Status = [
   {
     id: "New",

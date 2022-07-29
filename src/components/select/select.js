@@ -10,21 +10,30 @@ const colourStyles = {
     width: "100% !important",
     minHeight: "60px !important",
     border: "1px solid #ccc !important",
+    padding: "10px !important",
   }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     // const color = "red";
     return {
       ...styles,
-      backgroundColor: isDisabled ? "#fff" : "#ffff",
+      // backgroundColor: isDisabled ? "red" : "red",
       color: "#5016BF",
       cursor: isDisabled ? "not-allowed" : "default",
       display: "flex",
       alignItems: "center",
       paddingLeft: "30px",
       fontSize: "16px",
-      paddingLeft: "10px",
     };
   },
+  singleValue: (provided) => {
+    const opacity = "0.4 !imporatant";
+    const transition = "opacity 300ms";
+
+    return { ...provided, opacity, transition };
+  },
+  // menu: {
+  //   backgroundColor: "red",
+  // },
 };
 
 const MySelect = (props) => {

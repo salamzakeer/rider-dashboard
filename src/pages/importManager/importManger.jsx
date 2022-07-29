@@ -11,7 +11,7 @@ import "./importManger.css";
 import Layout from "../../components/layout/Navbar";
 import moment from "moment";
 import { makeStyles } from "@material-ui/core";
-import { CircularProgress } from "@mui/material";
+import { Alert, CircularProgress, Snackbar } from "@mui/material";
 
 const Option = (props) => {
   return (
@@ -35,49 +35,56 @@ const MultiValue = (props) => (
 );
 
 const LndArrayOptions = [
-  { value: "DCAFiletype", label: "DCAFiletype", color: "#00B8D9" },
-  { value: "DCAName", label: "DCAName", color: "#0052CC" },
+  { value: "DCAFiletype", label: "DCA Filetype", color: "#00B8D9" },
+  { value: "DCAName", label: "DCA Name", color: "#0052CC" },
+  { value: "DCACode", label: "DCA Code", color: "#0052CC" },
   { value: "State", label: "State", color: "#5243AA" },
-  { value: "Costcode", label: "Costcode", color: "#FF5630" },
+  { value: "Costcode", label: "Cost code", color: "#FF5630" },
   { value: "UO", label: "UO", color: "#00B8D9" },
-  { value: "LAName", label: "LAName", color: "#00B8D9" },
-  { value: "billno", label: "billno", color: "#00B8D9" },
+  { value: "LAName", label: "LA Name", color: "#00B8D9" },
+  { value: "billno", label: "Bill No", color: "#00B8D9" },
   { value: "SAN", label: "SAN", color: "#00B8D9" },
-  { value: "Owner1", label: "Owner1", color: "#00B8D9" },
-  { value: "Owner2", label: "Owner2", color: "#00B8D9" },
-  { value: "Owner1NRIC", label: "Owner1NRIC", color: "#00B8D9" },
-  { value: "Owner2NRIC", label: "Owner2NRIC", color: "#00B8D9" },
-  { value: "PropAddr1", label: "PropAddr1", color: "#00B8D9" },
-  { value: "PropAddr2", label: "PropAddr2", color: "#00B8D9" },
-  { value: "PropAddr3", label: "PropAddr3", color: "#00B8D9" },
-  { value: "PropAddr4", label: "PropAddr4", color: "#00B8D9" },
+  { value: "Owner1", label: "Owner 1", color: "#00B8D9" },
+  { value: "Owner2", label: "Owner 2", color: "#00B8D9" },
+  // {
+  //   value: "specifyCorrectOwnername",
+  //   label: "Specify Correct Owner Name",
+  //   color: "#00B8D9",
+  // },
+  // { value: "OwnernameCorrect", label: "Owner Name Correct", color: "#00B8D9" },
+  { value: "Owner1NRIC", label: "Owner1 NRIC", color: "#00B8D9" },
+  { value: "Owner2NRIC", label: "Owner2 NRIC", color: "#00B8D9" },
+  { value: "PropAddr1", label: "PropAddr 1", color: "#00B8D9" },
+  { value: "PropAddr2", label: "PropAddr 2", color: "#00B8D9" },
+  { value: "PropAddr3", label: "PropAddr 3", color: "#00B8D9" },
+  { value: "PropAddr4", label: "PropAddr 4", color: "#00B8D9" },
   { value: "Roadname", label: "Roadname", color: "#00B8D9" },
   { value: "Taman", label: "Taman", color: "#00B8D9" },
-  { value: "PostCode", label: "PostCode", color: "#00B8D9" },
+  { value: "PostCode", label: "Post Code", color: "#00B8D9" },
   { value: "Suburb", label: "Suburb", color: "#00B8D9" },
-  { value: "MailName1", label: "MailName1", color: "#00B8D9" },
-  { value: "MailName2", label: "MailName2", color: "#00B8D9" },
-  { value: "MailAdd1", label: "MailAdd1", color: "#00B8D9" },
-  { value: "MailAdd2", label: "MailAdd2", color: "#00B8D9" },
-  { value: "MailAdd3", label: "MailAdd3", color: "#00B8D9" },
-  { value: "MailAdd4", label: "MailAdd4", color: "#00B8D9" },
+  { value: "MailName1", label: "MailName 1", color: "#00B8D9" },
+  { value: "MailName2", label: "MailName 2", color: "#00B8D9" },
+  { value: "MailAdd1", label: "MailAdd 1", color: "#00B8D9" },
+  { value: "MailAdd2", label: "MailAdd 2", color: "#00B8D9" },
+  { value: "MailAdd3", label: "MailAdd 3", color: "#00B8D9" },
+  { value: "MailAdd4", label: "MailAdd 4", color: "#00B8D9" },
   { value: "Class", label: "Class", color: "#00B8D9" },
   { value: "Range", label: "Range", color: "#00B8D9" },
   { value: "Arrears", label: "Arrears", color: "#00B8D9" },
-  { value: "CurrentBalance", label: "CurrentBalance", color: "#00B8D9" },
+  { value: "CurrentBalance", label: "Current Balance", color: "#00B8D9" },
   {
-    value: "Balance_at_05_03_2022",
-    label: "Balance_at_05_03_2022",
+    value: "Balance",
+    label: "Balance",
     color: "#00B8D9",
   },
-  { value: "AdministrationFee", label: "AdministrationFee", color: "#00B8D9" },
+  { value: "AdministrationFee", label: "Administration Fee", color: "#00B8D9" },
   { value: "LODFee", label: "LODFee", color: "#00B8D9" },
   {
     value: "TotalPayableAmount",
-    label: "TotalPayableAmount",
+    label: "Total Payable Amount",
     color: "#00B8D9",
   },
-  { value: "BATCH", label: "BATCH", color: "#00B8D9" },
+  { value: "BATCH", label: "  BATCH", color: "#00B8D9" },
 ];
 
 const VacantsArrayOptions = [
@@ -88,6 +95,17 @@ const VacantsArrayOptions = [
 ];
 const animatedComponents = makeAnimated();
 const useStyles = makeStyles((theme) => ({
+  alert: {
+    display: "flex",
+    color: "rgb(30, 70, 32)",
+    background: "rgb(237, 247, 237)",
+    maxWidth: "400px",
+    width: "100%",
+    padding: " 10px 24px 0px 24px",
+    flexDirection: "column",
+    borderRadius: "10px",
+    // opacity: "0.9",
+  },
   Progress: {
     // margin: "9px",
     width: "24px !important",
@@ -126,6 +144,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "16px !important",
     fontWeight: "500 !important",
     width: "300px  !important",
+    margin: "auto",
     "&:hover": {
       color: "#501abf !important",
       fontWeight: "600 !important",
@@ -147,6 +166,9 @@ function Dashboard() {
 
   //upload file
   const [file, setFile] = React.useState("");
+  const [PFile, setPFile] = React.useState("");
+  const [Response, setResponse] = React.useState(false);
+
   const [optionSelected, setOptionSelected] = React.useState(null);
   const [optionSelectedOr, setOptionSelectedOr] = React.useState(null);
   const [Disabled, setDisabled] = React.useState(false);
@@ -157,6 +179,7 @@ function Dashboard() {
   const [ReportDate, setReportDate] = React.useState(new Date("02/22/2021"));
 
   const [CurrentDate, setCurrentDate] = React.useState(new Date("02/22/2021"));
+  const [open, setOpen] = React.useState(true);
 
   // useEffect(() => {
   //     axios.get(`/jobname/${optionSelectedOr}/${AdminId}`)
@@ -177,7 +200,7 @@ function Dashboard() {
 
   function handleUpload(event) {
     setFile(event.target.files[0]);
-
+    setPFile(event.target.files[0]);
     // Add code here to upload file to server
     // ...
   }
@@ -186,7 +209,12 @@ function Dashboard() {
   const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
 
   console.log(AdminId, "AdminId");
-
+  const dialogOpen = () => {
+    setResponse(true);
+    setTimeout(() => {
+      setResponse(false);
+    }, 6000);
+  };
   let handleSubmit = (event) => {
     console.log("======================");
     event.preventDefault();
@@ -230,6 +258,9 @@ function Dashboard() {
             autoDismissTimeout: 2000,
           });
           setDisabled(false);
+          setResponse(true);
+
+          dialogOpen();
         })
         .catch((error) => {
           console.log(error);
@@ -252,10 +283,21 @@ function Dashboard() {
   // console.log('hi')
   // console.log(moment(DueDate).format("DD-MM-YYYY"));
 
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
     <Layout>
       <div className="newFile2">
-        <div className="rider-info">Importing .XL File</div>
+        <div className="rider-info">Import Manager</div>
         <form onSubmit={handleSubmit}>
           <div className={classes.formMain}>
             <div className={classes.formMainDiv}>
@@ -385,7 +427,13 @@ function Dashboard() {
               />
             </div>
           </div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
             <button
               type="submit"
               className={`submit3  ${classes.btn} `}
@@ -397,6 +445,31 @@ function Dashboard() {
                 "Submit"
               )}
             </button>
+            <br />
+            {/* <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}> */}
+            <div style={{ maxWidth: "400px", margin: "0 auto" }}>
+              {PFile && Response && (
+                <div className={classes.alert}>
+                  <>
+                    <div>
+                      {" "}
+                      File Name :<strong>{PFile.name}</strong>{" "}
+                    </div>
+                    <div>
+                      File Size {"  "} :<strong>{PFile.size} KB</strong>
+                      <br />
+                    </div>
+                    <div style={{ textAlign: "center" }}>
+                      <strong> Added</strong>
+                    </div>
+                    <br />
+                  </>
+                </div>
+              )}
+            </div>
+            {/* </Snackbar> */}
+
+            {/* file.name */}
           </div>
         </form>
       </div>

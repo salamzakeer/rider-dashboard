@@ -785,7 +785,7 @@ function Dashboard() {
   return (
     <Layout title="Export">
       <div>
-        <div className="rider-info">Export Data</div>
+        <div className="rider-info">Export Manager</div>
       </div>
       <br />
       <br />

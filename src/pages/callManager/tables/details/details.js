@@ -12,6 +12,7 @@ import {
   RiderStatus,
   drcodetype,
   occupiertype,
+  Nationality,
 } from "../../../../api/detailsApi";
 import { useToasts } from "react-toast-notifications";
 import axios from "../../../../axios";
@@ -114,7 +115,7 @@ function Dashboard(Details) {
     data.append("OccupierNationality", values.OccupierNationality);
     data.append("numberOfVisit", values.numberOfVisit);
     data.append("updateStatus", values.updateStatus);
-
+    // OccupierNationality
     console.log("okoko", Option, values);
     axios
       .put("/" + Option + "/" + values.id, data, {
@@ -172,8 +173,8 @@ function Dashboard(Details) {
             name1="id"
             id1="id"
             // onChange1={handleInputChange}
-            key2="Is Name Correct"
-            value2={values.DCAName || ""}
+            key2="Owner Name Correct ?"
+            value2={values.OwnernameCorrect || ""}
             onChange2={handleInputChange}
             name2="DCAName"
             id2="DCAName"
@@ -192,11 +193,11 @@ function Dashboard(Details) {
             name1="SAN"
             id1="SAN"
             key2="Nationality"
-            value2={values.Gender}
+            value2={values.OccupierNationality}
             onChange2={handleInputChange}
-            name2="Nationality"
-            id2="Nationality"
-            options2={Gender}
+            name2="OccupierNationality"
+            id2="OccupierNationality"
+            options2={Nationality}
             key3="Current Balaance"
             value3={values.CurrentBalance || ""}
             onChange3={handleInputChange}
@@ -216,9 +217,9 @@ function Dashboard(Details) {
             name2="OwnertelNo"
             id2="OwnertelNo"
             key3="Status"
-            value3={values.MailName2 || ""}
+            value3={values.status || ""}
             onChange3={handleInputChange}
-            name3="MailName2"
+            name3="status"
             id3="status"
             options3={Status}
           />
@@ -235,10 +236,10 @@ function Dashboard(Details) {
             name2="OwnertelNos"
             id2="OwnertelNos"
             key3="Rider Status"
-            value3={values.riderStatus || ""}
+            value3={values.updateStatus === 0 ? "Not Update" : "Update" || ""}
             onChange3={handleInputChange}
             name3="MailName2"
-            id3="status"
+            id3="MailName2"
             options3={RiderStatus}
           />{" "}
           {/* 5 */}
@@ -364,10 +365,10 @@ function Dashboard(Details) {
             id1="visitDate"
             key2="Property Type"
             options2={propertyusagetype}
-            value2={values.PropertyUsage1 || ""}
+            value2={values.PropertyType || ""}
             onChange2={handleInputChange}
-            name2="PropertyUsage1"
-            id2="PropertyUsage1"
+            name2="PropertyType"
+            id2="PropertyType"
             key3="Range"
             value3={values.Range || ""}
             onChange3={handleInputChange}
@@ -376,11 +377,12 @@ function Dashboard(Details) {
             // selecte3
           />{" "}
           <TableTrRow
-            key1="Owner Correct ?"
+            key1="Specify Correct Owner Name ?"
             value1={values.OwnernameCorrect || ""}
             onChange1={handleInputChange}
             name1="OwnernameCorrect"
             id1="OwnernameCorrect"
+            options1={YesNo}
             key2="Name of shop/company"
             value2={values.nameOfShop || ""}
             onChange2={handleInputChange}

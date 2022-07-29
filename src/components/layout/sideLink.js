@@ -84,7 +84,7 @@ export default function SideNavigation(props) {
           </Link>
         </>
       )}
-       <Link to="/export-data" style={{ textDecoration: "none" }}>
+      <Link to="/export-data" style={{ textDecoration: "none" }}>
         <li
           className={`left-heading ${path === "/export-data" ? "actived" : ""}`}
         >
@@ -114,9 +114,9 @@ export default function SideNavigation(props) {
           <span>Visual Manager</span>
         </li>
       </Link>
-     
+
       {/* extend-search */}
-     
+
       {/* <Link to="/calendar" style={{ textDecoration: "none" }}>
         <li className={`left-heading ${path === "/calendar" ? "actived" : ""}`}>
           <span>Calendar</span>
@@ -172,7 +172,7 @@ export default function SideNavigation(props) {
               <span style={{ paddingLeft: "20px" }}>Employee Attendance</span>
             </li>
           </Link>
-          <Link to="#admin" style={{ textDecoration: "none" }}>
+          {/* <Link to="#admin" style={{ textDecoration: "none" }}>
             <li
               className={`left-heading ${path === "/demo" ? "s-active" : ""}`}
             >
@@ -182,7 +182,7 @@ export default function SideNavigation(props) {
               </div>
               <span style={{ paddingLeft: "20px" }}> Administrator</span>
             </li>
-          </Link>
+          </Link> */}
         </>
       )}
       <Link

@@ -52,7 +52,7 @@ export default function App(props) {
       <label className={classes.label}>{label}</label>
       <div>
         <DatePick
-          minDate={new Date()}
+          // minDate={new Date()}
           value={value}
           onChange={onChange}
           className={classes.input}
