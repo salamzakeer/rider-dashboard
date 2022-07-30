@@ -122,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   label: {
-    paddingLeft: "40px",
+    paddingLeft: "22px",
     fontSize: "16px",
     color: "#00000A",
     opacity: "0.6",

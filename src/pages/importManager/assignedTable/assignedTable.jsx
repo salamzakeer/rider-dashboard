@@ -170,9 +170,9 @@ function Newrider() {
             className="custom-ui"
             style={{
               background: "#fff",
-              padding: "20px",
-              boxShadow: " 8px 11px 27px 4px #828385",
-              borderRadius: "24px",
+              padding: "2rem",
+              boxShadow: "rgb(130 131 133) 8px 11px 14px 4px",
+              borderRadius: "12px",
             }}
           >
             <h1>Are you sure?</h1>

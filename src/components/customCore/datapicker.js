@@ -8,14 +8,15 @@ const useStyles = makeStyles({
   input: {
     fontFamily: "sans-serif",
     fontSize: "16px",
-    height: "60px",
+    height: "45px",
     // maxWidth: "640px !important",
     width: "100%",
     color: "#ccc",
     "& .react-date-picker__wrapper": {
-      padding: "0 40px",
+      padding: "0 22px",
       borderColor: "#ccc",
       borderRadius: "50px",
+      minWidth: "248px",
     },
     "& .react-date-picker--open": {
       borderColor: "red",
@@ -35,11 +36,12 @@ const useStyles = makeStyles({
     // react-date-picker__button
   },
   label: {
-    paddingLeft: "40px",
+    paddingLeft: "22px",
     fontSize: "16px",
     color: "#00000A",
     opacity: "0.6",
     fontWeight: 600,
+    paddingBottom: "4px",
     // fontWeight: 00,
   },
 });

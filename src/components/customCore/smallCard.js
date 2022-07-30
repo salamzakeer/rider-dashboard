@@ -21,7 +21,7 @@ const useStyles = makeStyles(
         //   "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(80,22,191,1) 0%, rgba(37,148,176,1) 0%, rgba(0,79,101,1) 0%, rgba(0,130,167,1) 60%, rgba(0,128,164,1) 100%, rgba(255,255,0,1) 100%)",
       },
       cardHeading: {
-        fontSize: "1.5rem",
+        fontSize: "1.18rem",
       },
       cardNumber: {},
       [theme.breakpoints.down("md")]: {

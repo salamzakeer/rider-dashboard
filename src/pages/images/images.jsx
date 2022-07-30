@@ -77,11 +77,11 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "4px",
   },
   filter: {
-    width: "300px",
+    width: "200px",
     margin: "12px",
 
     border: "1px solid #ccc",
-    height: "60px",
+    height: "45px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

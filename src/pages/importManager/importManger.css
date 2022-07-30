@@ -17,7 +17,7 @@ body {
 
 .newFile2 {
   max-width: 1000px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .newFile2 form {
@@ -27,7 +27,7 @@ body {
 
 .newFile2 form .input-div-3 {
   width: 100%;
-  height: 60px;
+  height: 45px;
   border: 1px solid #ccc;
   border-radius: 100px;
   padding-left: 44px;
@@ -67,11 +67,11 @@ body {
 
 .newFile2 form .input-div-input {
   width: 100%;
-  height: 60px;
+  height: 45px;
   border: 1px solid #ccc;
   border-radius: 100px;
-  padding-left: 44px;
-  padding-right: 43px;
+  padding-left: 22px;
+  padding-right: 22px;
   line-height: 1;
   box-sizing: border-box;
   outline: none;
@@ -89,10 +89,11 @@ body {
   bottom: 3px;
   border: 0;
   margin: 0;
-  padding-right: 44px;
+  padding-right: 22px;
   border-radius: 100px;
   z-index: 2;
   top: 33.33%;
+  width: 40px;
 }
 
 .newFile2 form .submit3 {

@@ -209,7 +209,7 @@ td {
     margin-top: 50px;
   }
   .newFile2 form .input-div-input {
-    height: 70px;
+    height: 56px;
     border-radius: 35px;
     font: normal 21px Poppins;
     padding-right: 22px;
@@ -240,13 +240,13 @@ td {
 }
 .rider-info {
   color: #501abf;
-  font-size: 2rem;
+  font-size: 1.42rem;
 }
 
 .button-cus {
   color: #501abf;
-  width: 200px;
-  height: 50px;
+  width: 170px;
+  height: 45px;
   border: 1px solid #501abf;
   border-radius: 44px;
   background-color: #ffffff;
