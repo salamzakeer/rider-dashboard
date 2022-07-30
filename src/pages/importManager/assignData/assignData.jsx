@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   label: {
-    paddingLeft: "40px",
+    paddingLeft: "22px",
     fontSize: "16px",
     color: "#00000A",
     opacity: "0.6",
@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    width: "200px !important",
     border: "2px solid #501abf !important",
     outline: "none",
     "&:hover": {

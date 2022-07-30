@@ -143,7 +143,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     fontSize: "16px !important",
     fontWeight: "500 !important",
-    width: "300px  !important",
+    width: "200px  !important",
     margin: "auto",
     "&:hover": {
       color: "#501abf !important",

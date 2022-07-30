@@ -44,7 +44,7 @@ const useStyles = makeStyles(
       subDiv: {
         display: "flex",
         justifyContent: "space-between",
-        maxWidth: "1300px",
+        maxWidth: "750px",
         [theme.breakpoints.down("md")]: {
           // backgroundColor: "green",
           flexDirection: "column",
@@ -57,10 +57,10 @@ const useStyles = makeStyles(
         margin: "12px",
       },
       filter: {
-        width: "150px",
+        width: "120px",
         margin: "12px",
         border: "1px solid #ccc",
-        height: "55px",
+        height: "45px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -747,9 +747,7 @@ function Dashboard() {
     setLoadingAfterJoin(true);
 
     axios
-      .get(
-        `imah${Option}/${UserSelectCategory}/2`
-      )
+      .get(`imah${Option}/${UserSelectCategory}/2`)
       .then((res) => {
         setDisabled(false);
         setLoadingAfterJoin(false);
