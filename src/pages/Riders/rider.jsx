@@ -377,7 +377,7 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                     textAlign: "center",
                     verticalAlign: "middle",
                   }}
-                  colspan="6"
+                  colspan="12"
                 >
                   <Typography variant="body">No data</Typography>
                 </td>
