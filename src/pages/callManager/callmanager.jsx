@@ -18,6 +18,7 @@ import { makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 import SearchInput from "../../components/input/searchInput";
 import { useNavigate } from "react-router-dom";
+import FilterListIcon from "@mui/icons-material/FilterList";
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
@@ -73,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   subDiv: {
     display: "flex",
     justifyContent: "space-between",
-    maxWidth: "1300px",
+    maxWidth: "900px",
     [theme.breakpoints.down("md")]: {
       // backgroundColor: "green",
       flexDirection: "column",
@@ -90,10 +91,10 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "4px",
   },
   filter: {
-    width: "100px",
+    width: "140px",
     margin: "12px",
     border: "1px solid #ccc",
-    height: "55px",
+    height: "45px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -388,7 +389,9 @@ function CallManager() {
           {Disabled ? (
             <CircularProgress className={classes.Progress} />
           ) : (
-            "Filter"
+            <div>
+              <FilterListIcon /> Filter
+            </div>
           )}
         </button>
       </div>

@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { Avatar, makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
+import FilterListIcon from "@mui/icons-material/FilterList";
 
 const useStyles = makeStyles((theme) => ({
   Avatar: {
@@ -77,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "4px",
   },
   filter: {
-    width: "200px",
+    width: "140px",
     margin: "12px",
 
     border: "1px solid #ccc",
@@ -375,7 +376,9 @@ function CallManager() {
           {Disabled ? (
             <CircularProgress className={classes.Progress} />
           ) : (
-            "Filter"
+            <div>
+              <FilterListIcon /> Filter
+            </div>
           )}
         </button>
         {/* <div className={classes.select1}>
