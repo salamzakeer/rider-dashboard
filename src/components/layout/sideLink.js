@@ -34,7 +34,11 @@ export default function SideNavigation(props) {
       >
         <li
           className={`left-heading ${
-            path === "/import-data" || path === "/assign-data" ? "actived" : ""
+            path === "/import-data-table" ||
+            path === "/import-data" ||
+            path === "/assign-data"
+              ? "actived"
+              : ""
           }`}
         >
           <span>Import Manager</span>
@@ -48,10 +52,10 @@ export default function SideNavigation(props) {
       </Link>
       {open && (
         <>
-          <Link to="/import-data" style={{ textDecoration: "none" }}>
+          <Link to="/import-data-table" style={{ textDecoration: "none" }}>
             <li
               className={`left-heading ${
-                path === "/import-data" ? "s-active" : ""
+                path === "/import-data-table" ? "s-active" : ""
               }`}
             >
               <div>

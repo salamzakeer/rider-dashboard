@@ -450,7 +450,7 @@ function CallManager() {
             currentItems.map((data) => (
               <tr>
                 <td>
-                  <Typography variant="body">{data.id}</Typography>
+                  <Typography variant="body">{data.excelId}</Typography>
                 </td>
                 <td
                   style={{

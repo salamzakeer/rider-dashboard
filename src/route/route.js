@@ -6,6 +6,7 @@ import Export from "../pages/exportData/exportData";
 import CallManager from "../pages/callManager/callmanager";
 import ExtendSearch from "../pages/extendSearch/index";
 import ImportManager from "../pages/importManager/importManger";
+import ImportManagerTable from "../pages/importManager/importTable";
 import AssignData from "../pages/importManager/assignData/assignData";
 import AssignedData from "../pages/importManager/assignedTable/assignedTable";
 import Rider from "../pages/Riders/rider";
@@ -56,7 +57,11 @@ export const publicRoutes = [
     component: Calendar,
     exact: true,
   },
-
+  {
+    path: "/import-data-table",
+    component: ImportManagerTable,
+    exact: true,
+  },
   {
     path: "/import-data",
     component: ImportManager,
