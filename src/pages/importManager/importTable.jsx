@@ -281,7 +281,7 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                   <td>
                     <p
                       style={{
-                        textAlign: "left",
+                        textAlign: "center",
                         margin: "0px",
                         paddingLeft: "16px",
                       }}
@@ -300,9 +300,9 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                   <td>
                     <p
                       style={{
-                        textAlign: "left",
+                        textAlign: "center",
                         margin: "0px",
-                        // paddingLeft: "16px",
+                        paddingLeft: "16px",
                       }}
                     >
                       {moment(data.reportDate).format("YYYY/MM/DD")}
@@ -310,8 +310,6 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                       {/* {data.email} */}
                     </p>
                   </td>
-
-                
                 </tr>
               ))}
             {data.length === 0 && Loading && (
