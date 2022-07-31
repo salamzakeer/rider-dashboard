@@ -84,7 +84,14 @@ const LndArrayOptions = [
     label: "Total Payable Amount",
     color: "#00B8D9",
   },
-  { value: "BATCH", label: "  BATCH", color: "#00B8D9" },
+  { value: "BATCH", label: "BATCH", color: "#00B8D9" },
+  { value: "PropertyStatus", label: "Property Status", color: "#00B8D9" },
+  { value: "FirstVisitDate", label: "First Visit Date", color: "#00B8D9" },
+  { value: "TenantMobNo", label: "Tenant Mob No", color: "#00B8D9" },
+  { value: "EbillName", label: "E Bill Name", color: "#00B8D9" },
+  { value: "EbillMobileNo", label: "E Bill Mobile No", color: "#00B8D9" },
+  { value: "EbillLandlineNo", label: "E Bill Landline No", color: "#00B8D9" },
+  { value: "EbillEmail", label: "E Bill Email", color: "#00B8D9" },
 ];
 
 const VacantsArrayOptions = [

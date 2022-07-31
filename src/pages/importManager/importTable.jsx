@@ -17,6 +17,7 @@ import ReactPaginate from "react-paginate";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { Link } from "react-router-dom";
+import moment from "moment";
 const theme = createTheme();
 
 theme.typography.h3 = {
@@ -97,7 +98,7 @@ function Newrider() {
   console.log("rider data", data);
   useEffect(() => {
     axios
-      .get("/ride")
+      .get("/jobname/findAllCounts")
       .then((res) => {
         setData(res.data);
         // console.log("working", res.data);
@@ -268,25 +269,15 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                     <Typography variant="body">{data.id}</Typography>
                   </td>
                   <td>
-                    <Typography variant="body">{data.id}</Typography>
-                  </td>
-                  <td align="center">
-                    <Avatar
-                      sx={{
-                        width: "40px",
-                        height: "40px",
-                        textTransform: "capitalize",
-                        textAlign: "center",
-                        margin: "0 auto",
-                      }}
-                      src={axios.defaults.baseURL + "/images/" + data.image}
-                      alt="user"
-                    >
-                      {data.fullName[0]}
-                    </Avatar>
+                    <Typography variant="body">{data.jobName}</Typography>
                   </td>
 
-                  {/* <td><Typography variant="body">{data.id}</Typography></td> */}
+                  <td>
+                    <Typography variant="body">
+                      {moment(data.createdDate).format("YYYY/MM/DD")}-
+                      {moment(data.dueDate).format("YYYY/MM/DD")}
+                    </Typography>
+                  </td>
                   <td>
                     <p
                       style={{
@@ -295,33 +286,32 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                         paddingLeft: "16px",
                       }}
                     >
-                      {data.fullName}
+                      {data.category}
                     </p>
                   </td>
+                  <td align="center">
+                    {data.lndsCount +
+                      data.commercialsCount +
+                      data.highrisesCount +
+                      data.vacantsCount}
+                  </td>
+
                   {/* style={{ textAlign: "left", margin: "0px", paddingLeft: "8px" }}  */}
                   <td>
                     <p
                       style={{
                         textAlign: "left",
                         margin: "0px",
-                        paddingLeft: "16px",
+                        // paddingLeft: "16px",
                       }}
                     >
-                      {data.email}
+                      {moment(data.reportDate).format("YYYY/MM/DD")}
+
+                      {/* {data.email} */}
                     </p>
                   </td>
 
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.position}
-                    </p>
-                  </td>
+                
                 </tr>
               ))}
             {data.length === 0 && Loading && (

@@ -8,9 +8,9 @@ const colourStyles = {
     backgroundColor: "white",
     borderRadius: "30px !important",
     width: "100% !important",
-    minHeight: "60px !important",
+    minHeight: "45px !important",
     border: "1px solid #ccc !important",
-    padding: "10px !important",
+    padding: "0px 22px !important",
   }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
     // const color = "red";
@@ -21,7 +21,7 @@ const colourStyles = {
       cursor: isDisabled ? "not-allowed" : "default",
       display: "flex",
       alignItems: "center",
-      paddingLeft: "30px",
+      paddingLeft: "22px",
       fontSize: "16px",
     };
   },
