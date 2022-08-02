@@ -1,7 +1,7 @@
 .form-select {
   width: 100%;
   height: 46px;
-  border: 1px solid #ccc;
+  border: 1px solid #afafaf;
   border-radius: 100px;
   padding-left: 22px;
   padding-right: 22px;
@@ -21,7 +21,7 @@
 @media only screen and (max-width: 800px) {
   .form-select {
     width: 100%;
-    height: 56px;
+    height: 45px;
     border: 1px solid #ccc;
     border-radius: 100px;
     padding-left: 40px;

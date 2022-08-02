@@ -8,20 +8,28 @@
 .css-g1d714-ValueContainer {
   /* padding: 12px 8px 0px 30px !important; */
 }
+.filter__dropdown-indicator {
+  padding: 0px !important;
+}
 .filter__value-container {
-  padding: 0px 8px 0px 30px !important;
+  padding: 0px 8px 0px 0px !important;
   font-size: 16px;
 }
+.filter__value-container--is-multi {
+}
+.filter__value-container--has-value {
+  padding: 8px 8px 8px 0px !important;
+}
 .css-319lph-ValueContainer {
-  display: flex !important;
-  padding-left: 22px !important;
+  /* display: flex !important; */
+  /* padding-left: 22px !important; */
 }
 .css-1okebmr-indicatorSeparator {
   display: none;
 }
 .css-tlfecz-indicatorContainer,
 .css-1gtu0rj-indicatorContainer {
-  padding-right: 20px !important;
+  /* padding-right: 20px !important; */
 }
 .css-26l39u-menu {
   background-color: aliceblue !important;

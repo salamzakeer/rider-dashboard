@@ -34,12 +34,12 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("lg")]: {
       // backgroundColor: "green",
       // flexDirection: "column"
-      maxWidth: "500px",
+      maxWidth: "350px",
       width: "100%",
     },
   },
   label: {
-    paddingLeft: "40px",
+    paddingLeft: "20px",
     fontSize: "16px",
     color: "#00000A",
     opacity: "0.6",
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     width: "400px",
-    height: "60px",
+    height: "45px",
     marginTop: "35px",
     background: "#5016BF 0% 0 % no - repeat padding- box",
     backgroundColor: "#5016BF",
