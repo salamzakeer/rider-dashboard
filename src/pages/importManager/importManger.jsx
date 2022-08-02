@@ -284,10 +284,10 @@ function Dashboard() {
   // disabled
   const [JobType, setJobType] = React.useState(null);
   // const [Category, setCategory] = React.useState([]);
-  const [DueDate, setDueDate] = React.useState(new Date("02/22/2021"));
-  const [ReportDate, setReportDate] = React.useState(new Date("02/22/2021"));
+  const [DueDate, setDueDate] = React.useState(new Date());
+  const [ReportDate, setReportDate] = React.useState(new Date());
 
-  const [CurrentDate, setCurrentDate] = React.useState(new Date("02/22/2021"));
+  const [CurrentDate, setCurrentDate] = React.useState(new Date());
   const [open, setOpen] = React.useState(true);
 
   // useEffect(() => {

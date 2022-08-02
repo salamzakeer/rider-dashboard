@@ -101,8 +101,8 @@ function Dashboard() {
   const [LeaveTypeName, setLeaveTypeName] = useState("");
   const [Disabled, setDisabled] = React.useState(false);
 
-  const [fromDate, setfromDate] = React.useState(new Date("02/22/2021"));
-  const [toDate, settoDate] = React.useState(new Date("02/22/2021"));
+  const [fromDate, setfromDate] = React.useState(new Date());
+  const [toDate, settoDate] = React.useState(new Date());
 
   useEffect(() => {
     setDisabled(true);
