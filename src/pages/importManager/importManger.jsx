@@ -35,6 +35,94 @@ const MultiValue = (props) => (
 );
 
 const LndArrayOptions = [
+  { value: "Exclude", label: "Exclude", color: "#00B8D9" },
+  {
+    value: "IWKSpecialInstruction",
+    label: "IWK Special Instruction",
+    color: "#00B8D9",
+  },
+  {
+    value: "CustomerTelephoneNo",
+    label: "Customer TelephoneNo",
+    color: "#00B8D9",
+  },
+  { value: "CustomerMobileNo", label: "Customer Mobile No", color: "#00B8D9" },
+  { value: "CustomerFaxNo", label: "Customer Fax No", color: "#00B8D9" },
+  { value: "CustomerEmail", label: "Customer Email", color: "#00B8D9" },
+  { value: "OwnertelNo", label: "Owner Tel No", color: "#00B8D9" },
+  { value: "OwnerMobNo", label: "Owner Mob No", color: "#00B8D9" },
+  { value: "TenantTelNo", label: "Tenant Tel No", color: "#00B8D9" },
+  { value: "TenantMobNo", label: "Tenant Mob No", color: "#00B8D9" },
+  {
+    value: "CustomerContactDetail",
+    label: "Customer Contact Detail",
+    color: "#00B8D9",
+  },
+  { value: "Building", label: "Building", color: "#00B8D9" },
+  { value: "BuildingID", label: "Building ID", color: "#00B8D9" },
+  {
+    value: "BalanceAsPerCopyBill",
+    label: "Balance As Per Copy Bill",
+    color: "#00B8D9",
+  },
+  {
+    value: "DiffBetweenBalAsPerCopyBill",
+    label: "Diff Between Bal As Per Copy Bill",
+    color: "#00B8D9",
+  },
+  { value: "AgentName", label: "Agent Name", color: "#00B8D9" },
+  { value: "updateReminder", label: "update Reminder", color: "#00B8D9" },
+  { value: "Occupier", label: "Occupier", color: "#00B8D9" },
+  { value: "OwnernameCorrect", label: "Owner Name Correct", color: "#00B8D9" },
+  {
+    value: "specifyCorrectOwnername",
+    label: "Specify Correct Owner Name",
+    color: "#00B8D9",
+  },
+  { value: "OwnerstelNo", label: "Owners Tel No", color: "#00B8D9" },
+  { value: "OwnersMobNo", label: "Owners Mob No", color: "#00B8D9" },
+  { value: "Ownerfaxno", label: "Owner Fax No", color: "#00B8D9" },
+  { value: "OwnerEmail", label: "Owner Email", color: "#00B8D9" },
+  { value: "TenantName", label: "Tenant Name", color: "#00B8D9" },
+  { value: "TenantsTelNo", label: "Tenants Tel No", color: "#00B8D9" },
+  { value: "TenantsMobNo", label: "Tenants Mob No", color: "#00B8D9" },
+  { value: "TenantFaxNo", label: "Tenant Fax No", color: "#00B8D9" },
+  { value: "TenantEmail", label: "Tenant Email", color: "#00B8D9" },
+  {
+    value: "OccupierNationality",
+    label: "Occupier Nationality",
+    color: "#00B8D9",
+  },
+  { value: "numberOfVisit", label: "number Of Visit", color: "#00B8D9" },
+  {
+    value: "Numberoffollowupcalls",
+    label: "Number Of Follow Up Calls",
+    color: "#00B8D9",
+  },
+  { value: "PropertyUsage", label: "Property Usage", color: "#00B8D9" },
+  { value: "PropertyType", label: "Property Type", color: "#00B8D9" },
+  {
+    value: "NameofShopOrCompany",
+    label: "Name Of ShopOrCompany",
+    color: "#00B8D9",
+  },
+  {
+    value: "ReasonCustomerRefuseToPayIWKbill",
+    label: "ReasonCustomerRefuseToPayIWKbill",
+    color: "#00B8D9",
+  },
+  { value: "DRCode", label: "DRCode", color: "#00B8D9" },
+  { value: "Remarks", label: "Remarks", color: "#00B8D9" },
+  { value: "ThirdPartySearch", label: "ThirdPartySearch", color: "#00B8D9" },
+  { value: "SourceofTPS", label: "SourceofTPS", color: "#00B8D9" },
+  {
+    value: "TPSOutcomeOrContactNumber",
+    label: "TPSOutcomeOrContactNumber",
+    color: "#00B8D9",
+  },
+  { value: "RemarksTPS", label: "RemarksTPS", color: "#00B8D9" },
+
+  // Exclude
   { value: "DCAFiletype", label: "DCA Filetype", color: "#00B8D9" },
   { value: "DCAName", label: "DCA Name", color: "#0052CC" },
   { value: "DCACode", label: "DCA Code", color: "#0052CC" },
@@ -58,6 +146,7 @@ const LndArrayOptions = [
   { value: "PropAddr2", label: "PropAddr 2", color: "#00B8D9" },
   { value: "PropAddr3", label: "PropAddr 3", color: "#00B8D9" },
   { value: "PropAddr4", label: "PropAddr 4", color: "#00B8D9" },
+  { value: "PropAddr5", label: "PropAddr 5", color: "#00B8D9" },
   { value: "Roadname", label: "Roadname", color: "#00B8D9" },
   { value: "Taman", label: "Taman", color: "#00B8D9" },
   { value: "PostCode", label: "Post Code", color: "#00B8D9" },
@@ -77,7 +166,11 @@ const LndArrayOptions = [
     label: "Balance",
     color: "#00B8D9",
   },
-  { value: "AdministrationFee", label: "Administration Fee", color: "#00B8D9" },
+  {
+    value: "AdministrationFee",
+    label: "Administration Fee",
+    color: "#00B8D9",
+  },
   { value: "LODFee", label: "LODFee", color: "#00B8D9" },
   {
     value: "TotalPayableAmount",
@@ -166,6 +259,15 @@ const useStyles = makeStyles((theme) => ({
     },
     border: "2px solid #501abf !important",
   },
+  formMainDiv: {
+    width: "350px",
+    [theme.breakpoints.down("md")]: {
+      width: "auto !important",
+    },
+  },
+  // formMainDiv: {
+
+  // },
 }));
 function Dashboard() {
   const { addToast } = useToasts();
@@ -404,6 +506,7 @@ function Dashboard() {
                   />
                 )}
               </div>
+              <br />
             </div>
 
             <div>
