@@ -142,7 +142,11 @@ function SetUp({ AllData, AllDataArray }) {
   };
 
   const [NutritionArray, setNutritionArray] = useState(
-    AllDataArray ? AllDataArray : [{ Type: "", Name: "", adminId: AdminId }]
+    AllDataArray
+      ? AllDataArray.length > 0
+        ? AllDataArray
+        : [{ Type: "", Name: "", adminId: AdminId }]
+      : [{ Type: "", Name: "", adminId: AdminId }]
   );
 
   const HandleEntityClick = () => {
@@ -401,7 +405,6 @@ function SetUp({ AllData, AllDataArray }) {
                     name="Name"
                     value={item.Name}
                   />
-
                   <Input
                     key={i}
                     placeholder="Eg : National sewerage comapany"
@@ -415,7 +418,6 @@ function SetUp({ AllData, AllDataArray }) {
                     id={"Type"}
                     icon={<ControlPointIcon onClick={HandleEntityClick} />}
                   />
-
                   <div style={{ width: "300px" }}></div>
                 </div>
               ))}
