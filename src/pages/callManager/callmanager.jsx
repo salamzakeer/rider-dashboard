@@ -9,6 +9,7 @@ import Layout from "../../components/layout/Navbar";
 import axios from "../../axios";
 import SearchIcon from "@mui/icons-material/Search";
 import {
+  Avatar,
   Box,
   CircularProgress,
   LinearProgress,
@@ -19,7 +20,7 @@ import ReactPaginate from "react-paginate";
 import SearchInput from "../../components/input/searchInput";
 import { useNavigate } from "react-router-dom";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import DRcodeImage from "./drCodeImage";
+import DRcodeImage from "../../components/layout/drCodeImage";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const useStyles = makeStyles((theme) => ({
@@ -444,6 +445,9 @@ function CallManager() {
               <span variant="body">Address</span>{" "}
             </th>
             <th>
+              <span variant="body">Images</span>{" "}
+            </th>
+            <th>
               <span variant="body">Status</span>{" "}
             </th>
           </tr>
@@ -533,6 +537,32 @@ function CallManager() {
                   </a>
                 </td>
                 <td>
+                  {data && data.meterImage && (
+                    <Avatar
+                      sx={{
+                        width: "40px",
+                        height: "40px",
+                        textTransform: "capitalize",
+                        textAlign: "center",
+                        margin: "0 auto",
+                      }}
+                      src={
+                        data && data.meterImage
+                          ? axios.defaults.baseURL +
+                            "/images/" +
+                            data.meterImage
+                          : ""
+                      }
+                      alt="user"
+                    >
+                      {/* {data.fullName[0]} */}
+                    </Avatar>
+                  )}
+                </td>
+                {/* <td>
+                  {axios.defaults.baseURL + "/images/" + data.meterImage || ""}
+                </td> */}
+                <td>
                   <a href="#details" className={classes.atag}>
                     <div
                       className={
@@ -570,7 +600,6 @@ function CallManager() {
           activeClassName={"active"}
         />
       </div>
-      <DRcodeImage />
       <div id="details">
         {GetId !== "" && (
           <>

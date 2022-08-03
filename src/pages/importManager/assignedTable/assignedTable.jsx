@@ -273,7 +273,7 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                     verticalAlign: "middle",
                     padding: "0px !important",
                   }}
-                  colspan="8"
+                  colspan="12"
                 >
                   <Box sx={{ width: "100%" }}>
                     <LinearProgress />
@@ -353,7 +353,7 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                     textAlign: "center",
                     verticalAlign: "middle",
                   }}
-                  colspan="6"
+                  colspan="12"
                 >
                   <Typography variant="body">No data</Typography>
                 </td>

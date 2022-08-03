@@ -1,10 +1,12 @@
-import Layout from "../../components/layout/Navbar";
+import React, { useState, useEffect } from "react";
+import Layout from "./Navbar";
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
-import React, { useState } from "react";
-import AdminCard from "../../components/customCore/smallCard";
+import AdminCard from "../customCore/smallCard";
 import { CircularProgress } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import { Qrcode } from "../../api/qrcode";
+import axios from "../../axios";
 
 const useStyles = makeStyles(
   (theme) =>
@@ -130,7 +132,7 @@ const useStyles = makeStyles(
   { withTheme: true }
 );
 
-function Dashboard() {
+function QRCodeImages() {
   const classes = useStyles();
 
   const [Option, setOption] = useState("");
@@ -152,10 +154,27 @@ function Dashboard() {
     const { value } = e.target;
     setUserSelectCategory(value);
   };
+
+  const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
+  useEffect(() => {
+    setDisabled(true);
+    axios
+      .get(`/jobname/${Option}/${AdminId}`)
+      .then((res) => {
+        setDisabled(false);
+        // console.log(res.data, 'data')
+        setCategory(res.data);
+      })
+      .catch((err) => {
+        setDisabled(false);
+        setCategory([]);
+        // console.log(err, 'error')
+      });
+  }, [Option, AdminId]);
   return (
     <div>
       <div className={classes.mainSearchDiv}>
-        <div className="rider-info">Call Manager</div>
+        <div className="rider-info">QR Code Images</div>
       </div>
       <br />
       <div className={classes.subDiv}>
@@ -212,14 +231,15 @@ function Dashboard() {
             required="required"
           >
             <option name="commercials" value="2" selected>
-              All
+              QR Code
             </option>
-            <option name="" value="1">
-              Update
-            </option>
-            <option name="lnds" value="0">
-              Not Update
-            </option>
+            {Qrcode &&
+              Qrcode.length > 0 &&
+              Qrcode.map((item) => (
+                <option name={item.name} value={item.name}>
+                  {item.name}
+                </option>
+              ))}
           </select>
         </div>
         <button
@@ -233,7 +253,8 @@ function Dashboard() {
             <CircularProgress className={classes.Progress} />
           ) : (
             <div>
-              <FilterListIcon /> Filter
+              {/* <FilterListIcon /> */}
+              Dowload
             </div>
           )}
         </button>
@@ -241,4 +262,4 @@ function Dashboard() {
     </div>
   );
 }
-export default Dashboard;
+export default QRCodeImages;

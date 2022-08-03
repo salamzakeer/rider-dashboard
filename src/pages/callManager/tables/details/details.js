@@ -36,11 +36,11 @@ const useStyles = makeStyles(
       },
       btn: {
         background: "red",
-        width: "300px",
+        width: "160px",
         margin: "12px 0px 0px auto",
 
         border: "1px solid #ccc",
-        height: "60px",
+        height: "45px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

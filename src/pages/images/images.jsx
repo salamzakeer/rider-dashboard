@@ -13,6 +13,7 @@ import {
 import { Avatar, makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import DRcodeImage from "../../components/layout/drCodeImage";
 
 const useStyles = makeStyles((theme) => ({
   Avatar: {
@@ -123,9 +124,8 @@ function CallManager() {
   const [filterByJobnameAndCategorydata, setfilterByJobnameAndCategoryData] =
     useState([]);
 
-  const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
-  // paggnination
-  const itemsPerPage = 10;
+    // paggnination
+    const itemsPerPage = 10;
 
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
@@ -134,7 +134,8 @@ function CallManager() {
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
   const [Loading, setLoading] = useState(false);
-
+  
+  const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
   useEffect(() => {
     setDisabled(true);
     axios
@@ -511,6 +512,7 @@ function CallManager() {
           activeClassName={"active"}
         />
       </div>
+      <DRcodeImage />
     </Layout>
   );
 }

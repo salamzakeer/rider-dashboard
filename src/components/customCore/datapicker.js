@@ -59,6 +59,8 @@ export default function App(props) {
           onChange={onChange}
           className={classes.input}
           required={required}
+          // dateFormayyy="yyyy-mm-dd"
+          format="dd-MM-yyyy"
         />
       </div>
     </div>

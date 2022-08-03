@@ -54,4 +54,8 @@ export const Qrcode = [
   { id: 45, name: "44 DR48 PREMISE OCCUPY BY FOREIGNER-COMMUNICATION ISSUES" },
   { id: 46, name: "45 DR49 OWNER IS IN OVERSEAS" },
   { id: 47, name: "46 DR50 WELFARE SOCIETY-CANT AFFORD TO PAY" },
+  { id: 48, name: "47 DR52 DROP." },
+  { id: 49, name: "48 DR53 PROPERTY SOLD & CURRENT NAME UNDER OLD OWNER." },
+  { id: 50, name: "49 DR54 PROPERTY UNDER GOVERNMENT." },
+  // DR52 DROP.
 ];

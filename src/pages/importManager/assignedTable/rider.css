@@ -13,9 +13,9 @@
 .rider-table {
   overflow-x: auto;
   top: 50px;
-  position: relative;
+  /* position: relative;
   margin-left: 32px;
-  margin-right: 52px;
+  margin-right: 52px; */
 }
 .main-div {
   width: 100% !important;
