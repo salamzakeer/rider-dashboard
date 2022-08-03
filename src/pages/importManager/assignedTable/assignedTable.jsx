@@ -251,6 +251,12 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                 <Typography variant="body">To</Typography>{" "}
               </th>
               <th>
+                <Typography variant="body">Total</Typography>{" "}
+              </th>
+              <th>
+                <Typography variant="body">Complete</Typography>{" "}
+              </th>
+              <th>
                 <Typography variant="body">Action</Typography>{" "}
               </th>
             </tr>
@@ -311,9 +317,22 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                   <td>
                     <Typography variant="body">{data.dataFrom}</Typography>
                   </td>
+
                   <td>
                     <Typography variant="body">{data.dataTo}</Typography>
                   </td>
+
+                  <td>
+                    <Typography variant="body">
+                      {data.dataTo - data.dataFrom + 1}
+                    </Typography>
+                  </td>
+                  <td>
+                    <Typography variant="body">
+                      {data.dataTo - data.dataFrom + 1}
+                    </Typography>
+                  </td>
+
                   <td onClick={() => Deleting(data)}>
                     {/* <img src={DeleteBtn} className="delete" alt="" /> */}
                     <DeleteIcon

@@ -19,7 +19,7 @@ import ReactPaginate from "react-paginate";
 import SearchInput from "../../components/input/searchInput";
 import { useNavigate } from "react-router-dom";
 import FilterListIcon from "@mui/icons-material/FilterList";
-
+import DRcodeImage from "./drCodeImage";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const useStyles = makeStyles((theme) => ({
@@ -570,6 +570,7 @@ function CallManager() {
           activeClassName={"active"}
         />
       </div>
+      <DRcodeImage />
       <div id="details">
         {GetId !== "" && (
           <>
