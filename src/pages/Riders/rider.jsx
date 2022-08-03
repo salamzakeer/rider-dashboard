@@ -16,6 +16,7 @@ import ReactPaginate from "react-paginate";
 // @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import EditIcon from "@mui/icons-material/Edit";
 const theme = createTheme();
 
 theme.typography.h3 = {
@@ -77,10 +78,13 @@ theme.typography.h1 = {
 
 function Newrider() {
   const [openModel, setOpenModel] = useState(false);
+  const [EditId, setEditId] = useState("");
+  const [EditOpenModel, setEditOpenModel] = useState(false);
   const [Loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const Auth = localStorage.getItem("userInfor");
   const message = JSON.parse(Auth);
+  // editId
   // paggnination
   const itemsPerPage = 10;
 
@@ -195,6 +199,14 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
       },
     });
   };
+  const Editing = (e) => {
+    let id = e.id;
+    setEditId(e);
+
+    setEditOpenModel(true);
+
+    // return <AddRider closeModel={setOpenModel} />;
+  };
   return (
     <Layout title="Rider">
       <div className="rider-tble">
@@ -242,6 +254,9 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
               </th>
               <th>
                 <Typography variant="body">Status</Typography>{" "}
+              </th>
+              <th>
+                <Typography variant="body">Edit</Typography>{" "}
               </th>
               <th>
                 <Typography variant="body">Detele</Typography>{" "}
@@ -357,6 +372,18 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                       {data.status ? data.status : "Inactive"}
                     </div>
                   </td>
+
+                  <td onClick={() => Editing(data)}>
+                    {/* <img src={DeleteBtn} className="delete" alt="" /> */}
+                    <EditIcon
+                      sx={{
+                        color: "#008000c2",
+                        opacity: "0.8",
+                        ": &hover": { opacity: "1" },
+                        cursor: "pointer",
+                      }}
+                    />
+                  </td>
                   <td onClick={() => Deleting(data)}>
                     {/* <img src={DeleteBtn} className="delete" alt="" /> */}
                     <DeleteIcon
@@ -408,6 +435,10 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
       </div>
 
       {openModel && <AddRider closeModel={setOpenModel} />}
+      {EditOpenModel && (
+        <AddRider closeModel={setEditOpenModel} edit editId={EditId} />
+      )}
+      {/* EditOpenModel */}
       {/* <Dialog
         open={openModel}
         closeModel={modelClose}

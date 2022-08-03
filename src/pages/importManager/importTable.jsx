@@ -274,19 +274,21 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
 
                   <td>
                     <Typography variant="body">
-                      {moment(data.createdDate).format("YYYY/MM/DD")}-
-                      {moment(data.dueDate).format("YYYY/MM/DD")}
+                      {moment(data.createdDate).format("DD/MM/YYYY")}-
+                      {moment(data.dueDate).format("DD/MM/YYYY")}
                     </Typography>
                   </td>
                   <td>
                     <p
                       style={{
-                        textAlign: "center",
+                        textAlign: "left",
                         margin: "0px",
                         paddingLeft: "16px",
+                        textTransform: "capitalize",
                       }}
                     >
-                      {data.category}
+                      {data.category == "lnds" ? "Landed" : data.category}
+                      {/* {data.category} */}
                     </p>
                   </td>
                   <td align="center">
@@ -305,7 +307,7 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                         paddingLeft: "16px",
                       }}
                     >
-                      {moment(data.reportDate).format("YYYY/MM/DD")}
+                      {moment(data.reportDate).format("DD/MM/YYYY")}
 
                       {/* {data.email} */}
                     </p>

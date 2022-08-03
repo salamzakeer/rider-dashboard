@@ -8,16 +8,17 @@ import CloseIcon from "@mui/icons-material/Close";
 import FileUploader from "../../components/buttons/FileUploader";
 import { useToasts } from "react-toast-notifications";
 
-function AddRiderPopup({ closeModel }) {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
+function AddRiderPopup({ closeModel, edit, editId }) {
+  console.log(editId, "editId");
+  const [fullName, setFullName] = useState(editId ? editId.fullName : "");
+  const [email, setEmail] = useState(editId ? editId.email : "");
   const [CPassword, setCPassword] = useState("");
   const [CPasswordTouch, setCPasswordTouch] = useState(false);
   const [password, setPassword] = useState("");
   const [UserPic, setUserPic] = useState("");
-  const [NRIC, setNRIC] = useState("");
-  const [Position, setPosition] = useState("");
-  const [Status, setStatus] = useState("");
+  const [NRIC, setNRIC] = useState(editId ? editId.NRIC : "");
+  const [Position, setPosition] = useState(editId ? editId.position : "");
+  const [Status, setStatus] = useState(editId ? editId.status : "");
   const { addToast } = useToasts();
 
   const handleName = (e) => {
@@ -33,7 +34,9 @@ function AddRiderPopup({ closeModel }) {
     setCPasswordTouch(true);
     setCPassword(e.target.value);
   };
-
+  const handleUpdateApi = () => {
+    console.log("sds");
+  };
   const handleApi = () => {
     console.log({ fullName, email, password });
     const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
@@ -151,7 +154,7 @@ function AddRiderPopup({ closeModel }) {
               style={{ marginTop: "1rem" }}
             >
               <option name="" value="" selected>
-                Position
+                {editId ? Position : "Position"}
               </option>
               <option name="Director" value="Director">
                 Director
@@ -183,7 +186,7 @@ function AddRiderPopup({ closeModel }) {
               style={{ marginTop: "1rem" }}
             >
               <option name="" value="" selected>
-                Status
+                {editId ? Status : "Status"}
               </option>
               <option name="Active" value="Active">
                 Active
@@ -193,23 +196,26 @@ function AddRiderPopup({ closeModel }) {
               </option>
             </select>
           </div>
-
-          <input
-            autocomplete="chrome-off"
-            type="password"
-            className="input"
-            placeholder="Password"
-            value={password}
-            onChange={handlePassword}
-          />
-          <input
-            autocomplete="chrome-off"
-            type="password"
-            className="input"
-            placeholder="Confirm Password"
-            value={CPassword}
-            onChange={handleCPassword}
-          />
+          {!edit && (
+            <>
+              <input
+                autocomplete="chrome-off"
+                type="password"
+                className="input"
+                placeholder="Password"
+                value={password}
+                onChange={handlePassword}
+              />
+              <input
+                autocomplete="chrome-off"
+                type="password"
+                className="input"
+                placeholder="Confirm Password"
+                value={CPassword}
+                onChange={handleCPassword}
+              />
+            </>
+          )}
           {password !== CPassword && CPasswordTouch && (
             <p
               style={{
@@ -223,21 +229,28 @@ function AddRiderPopup({ closeModel }) {
               You are entering the wrong password
             </p>
           )}
-
-          <div className="upload-pic">
-            <h2 className="uploadTxt">Rider Profile Picture</h2>
-            <FileUploader
-              onChange={handleUpload}
-              placeholder={UserPic.name || "Upload"}
-              type="file"
-              id="upload"
-              className="uploadbtn"
-            />
-          </div>
-
-          <button className="login-submit" onClick={handleApi}>
-            ADD
-          </button>
+          {!edit && (
+            <div className="upload-pic">
+              <h2 className="uploadTxt">Rider Profile Picture</h2>
+              <FileUploader
+                onChange={handleUpload}
+                placeholder={UserPic.name || "Upload"}
+                type="file"
+                id="upload"
+                className="uploadbtn"
+              />
+            </div>
+          )}
+          {!edit && (
+            <button className="login-submit" onClick={handleApi}>
+              ADD
+            </button>
+          )}
+          {edit && (
+            <button className="login-submit" onClick={handleUpdateApi}>
+              Update
+            </button>
+          )}
         </div>
       </div>
     </div>
