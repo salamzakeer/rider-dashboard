@@ -181,7 +181,7 @@ function Dashboard(Details) {
             options2={YesNo}
             key3="Arrears"
             value3={values.Arrears || ""}
-            onChange3={handleInputChange}
+            // onChange3={handleInputChange}
             name3="Arrears"
             id3="Arrears"
           />
@@ -227,7 +227,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="LA Name"
             value1={values.LAName || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="LAName"
             id1="LAName"
             key2="Owner's Tel No 2"
@@ -246,7 +246,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Owner 1"
             value1={values.Owner1 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="Owner1"
             id1="Owner1"
             key2="Owner's Tel No 3"
@@ -265,7 +265,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 1"
             value1={values.PropAddr1 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="PropAddr1"
             id1="PropAddr1"
             key2="Tanant Phone 1"
@@ -284,7 +284,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 2"
             value1={values.PropAddr2 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="PropAddr2"
             id1="PropAddr2"
             // key2="Tanant Phone 2"
@@ -303,7 +303,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 3"
             value1={values.PropAddr3 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="PropAddr3"
             id1="PropAddr3"
             // key2="Tanant Phone 3"
@@ -321,7 +321,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Props Address 4"
             value1={values.PropAddr4 || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="PropAddr4"
             id1="PropAddr4"
             // key2="Tanant Phone 3"
@@ -339,7 +339,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Arrears Date"
             value1={values.arrearsDate || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="arrearsDate"
             id1="arrearsDate"
             key2="Property Usage"
@@ -350,7 +350,7 @@ function Dashboard(Details) {
             id2="PropertyUsage"
             key3="Arrears"
             value3={values.Arrears}
-            onChange3={handleInputChange || ""}
+            // onChange3={handleInputChange || ""}
             name3="Arrears"
             id3="Arrears"
             // selecte3
@@ -371,7 +371,7 @@ function Dashboard(Details) {
             id2="PropertyType"
             key3="Range"
             value3={values.Range || ""}
-            onChange3={handleInputChange}
+            // onChange3={handleInputChange}
             name3="Range"
             id3="RangeRange"
             // selecte3
@@ -390,7 +390,7 @@ function Dashboard(Details) {
             id2="nameOfShop"
             key3="Remark"
             value3={values.Remarks || ""}
-            onChange3={handleInputChange}
+            // onChange3={handleInputChange}
             name3="Remarks"
             id3="Remarks"
             // selecte3
@@ -417,7 +417,7 @@ function Dashboard(Details) {
           <TableTrRow
             key1="Class[D,C,I,G]"
             value1={values.Class || ""}
-            onChange1={handleInputChange}
+            // onChange1={handleInputChange}
             name1="Class"
             id1="Class"
             // key2="Name of shop/company"
@@ -427,7 +427,7 @@ function Dashboard(Details) {
             // id2="nameOfShop1"
             key3="Payment"
             value3={values.Payment || ""}
-            onChange3={handleInputChange}
+            // onChange3={handleInputChange}
             name3="Payment"
             id3="Payment"
             // selecte3

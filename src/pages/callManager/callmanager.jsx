@@ -575,15 +575,14 @@ function CallManager() {
           <>
             <div
               style={{
-                width: "400px",
+                width: "300px",
                 margin: "0 0 2rem auto",
-                height: "4rem",
+                height: "45px",
               }}
               ref={Details}
             >
               <select
                 style={{
-                  width: "370px",
                   height: "100%",
                   color: "#501ABF",
                   border: "1px solid #501ABF",
