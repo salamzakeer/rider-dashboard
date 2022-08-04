@@ -99,7 +99,7 @@ function Dashboard() {
         <div className={classes.Container}>
           <div className={classes.flexInputDivs}>
             <SetupLayout
-              placeholder="4"
+              placeholder="Eg : 4"
               type="text"
               onChange={handleInputChange}
               name="pLen"
@@ -108,7 +108,7 @@ function Dashboard() {
               para="Min 4, Max12"
             />
             <SetupLayout
-              placeholder="365"
+              placeholder="Eg : 365"
               type="text"
               onChange={handleInputChange}
               label="Days"
@@ -118,7 +118,7 @@ function Dashboard() {
               para="Number of days"
             />
             <SetupLayout
-              placeholder="6"
+              placeholder="Eg : 6"
               type="text"
               onChange={handleInputChange}
               label="Times"
@@ -128,7 +128,7 @@ function Dashboard() {
               para="Number of times"
             />
             <SetupLayout
-              placeholder="4"
+              placeholder="Eg : 4"
               type="text"
               onChange={handleInputChange}
               label="Password(s)"
@@ -138,7 +138,7 @@ function Dashboard() {
               para="Number of password"
             />
             <SetupLayout
-              placeholder="4"
+              placeholder="Eg : 4"
               type="text"
               onChange={handleInputChange}
               label="Day before expiry"
@@ -148,7 +148,7 @@ function Dashboard() {
               para="Number of days"
             />
             <SetupLayout
-              placeholder="4"
+              placeholder="Eg : 4"
               type="text"
               onChange={handleInputChange}
               label="Days"
@@ -159,7 +159,7 @@ function Dashboard() {
             />
             <SetupLayout
               toggle
-              placeholder="4"
+              placeholder="Eg : 4"
               type="text"
               onChange={handlToggleChange}
               label="Password(s)"
@@ -169,7 +169,7 @@ function Dashboard() {
             />
             <SetupLayout
               toggle
-              placeholder="4"
+              placeholder="Eg : 4"
               type="text"
               onChange={handlToggleChange}
               label="Password(s)"
@@ -179,7 +179,7 @@ function Dashboard() {
             />
             <SetupLayout
               toggle
-              placeholder="4"
+              placeholder="Eg : 4"
               type="text"
               onChange={handlToggleChange}
               label="Password(s)"
@@ -201,7 +201,7 @@ function Dashboard() {
         <div className={classes.Container}>
           <div className={classes.flexInputDivs}>
             <SetupLayout
-              placeholder="365"
+              placeholder="Eg : 365"
               type="text"
               onChange={handleInputChange}
               name="aLockoutAfter"
@@ -211,7 +211,7 @@ function Dashboard() {
               label="invalid login attempts"
             />
             <SetupLayout
-              placeholder="6"
+              placeholder="Eg : 6"
               type="text"
               onChange={handleInputChange}
               label="Minutes"
@@ -221,7 +221,7 @@ function Dashboard() {
               para="Number of session (Min 1seconds)"
             />
             <SetupLayout
-              placeholder="6"
+              placeholder="Eg : 6"
               type="text"
               onChange={handleInputChange}
               label="Seconds"
@@ -232,7 +232,7 @@ function Dashboard() {
             />
             <SetupLayout
               toggle
-              placeholder="4"
+              placeholder="Eg : 4"
               type="text"
               onChange={handlToggleChange}
               label="Password(s)"
@@ -242,7 +242,7 @@ function Dashboard() {
             />
             <SetupLayout
               toggle
-              placeholder="4"
+              placeholder="Eg : 4"
               type="text"
               onChange={handlToggleChange}
               label="Password(s)"

@@ -124,8 +124,8 @@ function CallManager() {
   const [filterByJobnameAndCategorydata, setfilterByJobnameAndCategoryData] =
     useState([]);
 
-    // paggnination
-    const itemsPerPage = 10;
+  // paggnination
+  const itemsPerPage = 10;
 
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
@@ -134,7 +134,7 @@ function CallManager() {
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
   const [Loading, setLoading] = useState(false);
-  
+
   const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
   useEffect(() => {
     setDisabled(true);
@@ -445,6 +445,27 @@ function CallManager() {
               </td>
             </tr>
           )}
+          {currentItems &&
+            currentItems.length === 0 &&
+            !(!Loading && Disabled) && (
+              <tr
+                style={{
+                  borderCollapse: "collapse",
+                  padding: "0px !important",
+                }}
+              >
+                <td
+                  style={{
+                    textAlign: "center",
+                    verticalAlign: "middle",
+                    padding: "0px !important",
+                  }}
+                  colspan="12"
+                >
+                  <Box sx={{ width: "100%" }}>No Data</Box>
+                </td>
+              </tr>
+            )}
 
           {currentItems &&
             currentItems.length > 0 &&

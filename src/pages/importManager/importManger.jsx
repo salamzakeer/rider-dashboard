@@ -213,8 +213,9 @@ const useStyles = makeStyles((theme) => ({
   },
   formMain: {
     display: "flex",
-    justifyContent: "space-around",
-
+    justifyContent: "space-between",
+    maxWidth: "750px",
+    paddingLeft: "50px",
     // backgroundColor: "red",
     [theme.breakpoints.down("md")]: {
       // backgroundColor: "green",
@@ -231,10 +232,13 @@ const useStyles = makeStyles((theme) => ({
   },
   lnds: {
     // display: "flex"
-    maxWidth: "500px",
+    maxWidth: "750px",
+    minWidth: "350px",
     [theme.breakpoints.down("md")]: {
       // backgroundColor: "red",
       maxWidth: "1500px",
+      minWidth: "250px",
+      // background: "red",
     },
   },
   btn: {
@@ -264,6 +268,13 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       width: "auto !important",
     },
+  },
+  MySelectDiv: {
+    display: "flex",
+    justifyContent: "space-between",
+    maxWidth: "750px",
+    with: "100%",
+    paddingLeft: "50px",
   },
   // formMainDiv: {
 
@@ -360,12 +371,20 @@ function Dashboard() {
           // setProgress("");
           console.log("res.data");
           console.log(res);
+
           console.log(res);
-          addToast("Data add Successfully", {
-            appearance: "success",
-            autoDismiss: "true",
-            autoDismissTimeout: 2000,
-          });
+          addToast(
+            res.data.message.includes("Jobname already exist")
+              ? res.data.message
+              : "Data add Successfully",
+            {
+              appearance: res.data.message.includes("Jobname already exist")
+                ? "error"
+                : "success",
+              autoDismiss: "true",
+              autoDismissTimeout: 2000,
+            }
+          );
           setDisabled(false);
           setResponse(true);
 
@@ -477,36 +496,6 @@ function Dashboard() {
               {/* {optionSelectedOr} */}
               <br />
               <br />
-              <div className={classes.lnds}>
-                {(optionSelectedOr === "lnds" ||
-                  optionSelectedOr === "commercials" ||
-                  optionSelectedOr === "highrises") && (
-                  <MySelect
-                    options={LndArrayOptions}
-                    isMulti
-                    closeMenuOnSelect={false}
-                    hideSelectedOptions={false}
-                    components={{ Option, MultiValue, animatedComponents }}
-                    onChange={selecHandleChange}
-                    allowSelectAll={true}
-                    value={optionSelected}
-                  />
-                )}
-
-                {optionSelectedOr === "vacants" && (
-                  <MySelect
-                    options={VacantsArrayOptions}
-                    isMulti
-                    closeMenuOnSelect={false}
-                    hideSelectedOptions={false}
-                    components={{ Option, MultiValue, animatedComponents }}
-                    onChange={selecHandleChange}
-                    allowSelectAll={true}
-                    value={optionSelected}
-                  />
-                )}
-              </div>
-              <br />
             </div>
 
             <div>
@@ -536,6 +525,39 @@ function Dashboard() {
                 required
               />
             </div>
+          </div>
+          <br />
+          <div className={classes.MySelectDiv}>
+            <div className={classes.lnds}>
+              {(optionSelectedOr === "lnds" ||
+                optionSelectedOr === "commercials" ||
+                optionSelectedOr === "highrises") && (
+                <MySelect
+                  options={LndArrayOptions}
+                  isMulti
+                  closeMenuOnSelect={false}
+                  hideSelectedOptions={false}
+                  components={{ Option, MultiValue, animatedComponents }}
+                  onChange={selecHandleChange}
+                  allowSelectAll={true}
+                  value={optionSelected}
+                />
+              )}
+
+              {optionSelectedOr === "vacants" && (
+                <MySelect
+                  options={VacantsArrayOptions}
+                  isMulti
+                  closeMenuOnSelect={false}
+                  hideSelectedOptions={false}
+                  components={{ Option, MultiValue, animatedComponents }}
+                  onChange={selecHandleChange}
+                  allowSelectAll={true}
+                  value={optionSelected}
+                />
+              )}
+            </div>
+            <br />
           </div>
           <div
             style={{

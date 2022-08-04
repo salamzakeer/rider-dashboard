@@ -32,13 +32,13 @@ const useStyles = makeStyles(
       },
       Field: {
         width: "100%",
-        padding: "10px 60px 10px 40px",
+        padding: "10px 60px 10px 24px",
         fontSize: "1rem",
         fontWeight: 500,
         borderRadius: "3rem",
         outline: "none",
         border: "1px solid #ccc",
-        height: "55px",
+        height: "45px",
         color: " #ccc",
 
         "&:focus": {
@@ -47,7 +47,7 @@ const useStyles = makeStyles(
         },
       },
       label: {
-        paddingLeft: "30px",
+        paddingLeft: "23px",
         fontSize: "16px",
         color: "#00000",
         opacity: "0.9",

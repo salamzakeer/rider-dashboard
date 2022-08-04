@@ -55,13 +55,13 @@ const useStyles = makeStyles(
       },
       Field: {
         width: "100%",
-        padding: "10px 60px 10px 40px",
+        padding: "10px 30px 10px 20px",
         fontSize: "1rem",
         fontWeight: 500,
         borderRadius: "3rem",
         outline: "none",
         border: "1px solid #ccc",
-        height: "55px",
+        height: "45px",
         color: " #ccc",
 
         "&:focus": {
