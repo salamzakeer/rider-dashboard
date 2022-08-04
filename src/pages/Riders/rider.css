@@ -74,6 +74,7 @@ table {
   border-width: 0px;
   border-spacing: 0;
   width: 100%;
+  font-size: 14px;
 }
 
 .headclass {
@@ -270,4 +271,3 @@ td {
 .d-Rinactive {
   background-color: #0983c5;
 }
-

@@ -229,6 +229,10 @@ const useStyles = makeStyles((theme) => ({
     opacity: "0.6",
     fontWeight: 600,
     paddingBottom: "4px",
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "14px !important",
+    },
   },
   lnds: {
     // display: "flex"
@@ -563,7 +567,7 @@ function Dashboard() {
               display: "flex",
               justifyContent: "center",
               flexDirection: "column",
-              maxWidth:"750px"
+              maxWidth: "750px",
             }}
           >
             <button

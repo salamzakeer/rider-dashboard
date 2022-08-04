@@ -4,10 +4,13 @@ import "react-datepicker/dist/react-datepicker.css";
 // import DatePicker from "react-datepicker";
 import { default as DatePick } from "react-date-picker";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   input: {
     fontFamily: "sans-serif",
     fontSize: "16px",
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "14px !important",
+    },
     height: "45px",
     // maxWidth: "640px !important",
     width: "100%",
@@ -42,9 +45,13 @@ const useStyles = makeStyles({
     opacity: "0.6",
     fontWeight: 600,
     paddingBottom: "4px",
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "14px !important",
+    },
     // fontWeight: 00,
   },
-});
+}));
 
 export default function App(props) {
   const classes = useStyles();
