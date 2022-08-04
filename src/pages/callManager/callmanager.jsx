@@ -480,6 +480,8 @@ function CallManager() {
                 style={{
                   borderCollapse: "collapse",
                   padding: "0px !important",
+                  boxShadow: "none",
+                  WebkitBoxShadow: "none",
                 }}
               >
                 <td
@@ -487,6 +489,8 @@ function CallManager() {
                     textAlign: "center",
                     verticalAlign: "middle",
                     padding: "0px !important",
+                    WebkitBoxShadow: "none !important",
+                    boxShadow: "none !important",
                   }}
                   colspan="12"
                 >

@@ -257,3 +257,17 @@ td {
   align-items: center;
   flex-wrap: wrap;
 }
+.dotStatus {
+  width: 12px;
+  height: 12px;
+  padding-left: 10px;
+  border-radius: 50%;
+}
+.d-Ractive {
+  background-color: #64b164;
+}
+
+.d-Rinactive {
+  background-color: #0983c5;
+}
+

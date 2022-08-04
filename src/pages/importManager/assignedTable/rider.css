@@ -216,10 +216,59 @@ td {
   flex-wrap: wrap;
 }
 .btn-custom-style {
-  background-color: #501abf;
+  background-color: #37d454;
   color: #fff;
   border-radius: 12px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.btn-custom-style:hover {
+.btn-custom-style,
+.btn-custom-style-no {
+  width: 100px;
+  outline: none;
+  box-shadow: none;
+}
+.btn-custom-style:hover,
+.btn-custom-style-no:hover {
   color: #fff;
+  outline: none;
+}
+.btn-custom-style:focus,
+.btn-custom-style-no:focus {
+  outline: none;
+  box-shadow: none;
+}
+.btn-custom-style-no {
+  background-color: #ec4545;
+  color: #fff;
+  border-radius: 12px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-custom-new-curve {
+  border-radius: 24px;
+  color: #afafad;
+  box-shadow: none !important;
+}
+.custom-cancel {
+  width: 100px;
+  background-color: #fff;
+  border: 1px solid #afafad;
+}
+.custom-delete {
+  width: 150px;
+  background-color: red;
+  color: #fff !important;
+  margin-left: 44px;
+}
+@media only screen and (max-width: 800px) {
+  .custom-delete {
+    margin-left: 0px;
+  }
 }

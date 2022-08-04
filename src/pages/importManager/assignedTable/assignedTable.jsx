@@ -17,6 +17,7 @@ import { Avatar } from "@mui/material";
 import ReactPaginate from "react-paginate";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import AlertBox from "../../../components/layout/alertBox";
 
 const theme = createTheme();
 
@@ -166,39 +167,12 @@ function Newrider() {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div
-            className="custom-ui"
-            style={{
-              background: "#fff",
-              padding: "2rem",
-              boxShadow: "rgb(130 131 133) 8px 11px 14px 4px",
-              borderRadius: "12px",
+          <AlertBox
+            onClose={onClose}
+            onClick={() => {
+              deleteHandle(e);
             }}
-          >
-            <h1>Are you sure?</h1>
-            <br />
-            {/* <p>You want to delete this file?</p> */}
-            {/* -webkit-box-shadow: 8px 11px 27px 4px #FFFCF2; 
-box-shadow: 8px 11px 27px 4px #FFFCF2; */}
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <button onClick={onClose} className="btn ">
-                No
-              </button>
-              <button
-                onClick={() => {
-                  // console.log(e);
-                  deleteHandle(e);
-                }}
-                className="btn btn-custom-style"
-                style={{
-                  borderRadius: "12px !important",
-                  backgroundColor: "#501abf !important",
-                }}
-              >
-                Yes
-              </button>
-            </div>
-          </div>
+          />
         );
       },
     });

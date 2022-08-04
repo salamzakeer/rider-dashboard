@@ -137,11 +137,22 @@ function Dashboard() {
         headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
-        addToast("Assign Data Successfully", {
-          appearance: "success",
-          autoDismiss: "true",
-          autoDismissTimeout: 2000,
-        });
+        // Some data already assigned to riders
+        // res.data.message
+        addToast(
+          res.data.message.includes("Some data already assigned to riders")
+            ? "Some data already assigned to riders"
+            : "Assign Data Successfully",
+          {
+            appearance: res.data.message.includes(
+              "Some data already assigned to riders"
+            )
+              ? "error"
+              : "success",
+            autoDismiss: "true",
+            autoDismissTimeout: 2000,
+          }
+        );
         setDisabled(false);
       })
       .catch((error) => {

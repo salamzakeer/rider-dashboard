@@ -270,7 +270,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   MySelectDiv: {
-    display: "flex",
     justifyContent: "space-between",
     maxWidth: "750px",
     with: "100%",

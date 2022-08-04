@@ -219,7 +219,10 @@ td {
   background-color: #501abf;
   color: #fff;
   border-radius: 12px;
+  color: green;
+  height: 35px;
 }
+
 .btn-custom-style:hover {
   color: #fff;
 }
