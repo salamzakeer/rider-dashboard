@@ -111,7 +111,7 @@ function Dashboard(Details) {
     data.append("TenantName", values.TenantName);
     data.append("TenantTelNo", values.TenantTelNo);
     data.append("Payment", values.Payment);
-    data.append("status", values.status);
+    data.append("PropertyStatus", values.PropertyStatus);
     data.append("OccupierNationality", values.OccupierNationality);
     data.append("numberOfVisit", values.numberOfVisit);
     data.append("updateStatus", values.updateStatus);
@@ -217,10 +217,10 @@ function Dashboard(Details) {
             name2="OwnertelNo"
             id2="OwnertelNo"
             key3="Status"
-            value3={values.status || ""}
+            value3={values.PropertyStatus || ""}
             onChange3={handleInputChange}
-            name3="status"
-            id3="status"
+            name3="PropertyStatus"
+            id3="PropertyStatus"
             options3={Status}
           />
           {/* 4 */}
@@ -378,10 +378,10 @@ function Dashboard(Details) {
           />{" "}
           <TableTrRow
             key1="Specify Correct Owner Name ?"
-            value1={values.OwnernameCorrect || ""}
+            value1={values.specifyCorrectOwnername || ""}
             onChange1={handleInputChange}
-            name1="OwnernameCorrect"
-            id1="OwnernameCorrect"
+            name1="specifyCorrectOwnername"
+            id1="specifyCorrectOwnername"
             options1={YesNo}
             key2="Name of shop/company"
             value2={values.nameOfShop || ""}

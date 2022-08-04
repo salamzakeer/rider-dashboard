@@ -14,7 +14,7 @@ import { Avatar, makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import DRcodeImage from "../../components/layout/drCodeImage";
-
+import DisplayImage from "../../components/layout/displayImage";
 const useStyles = makeStyles((theme) => ({
   Avatar: {
     cursor: "pointer",
@@ -242,80 +242,7 @@ function CallManager() {
         console.log(err);
       });
   };
-  const DisplayImage = ({ image }) => {
-    var single = [];
-    var x = changeOption(Option);
-    console.log(axios.defaults.baseURL + "/" + x, "xxxx22");
 
-    if (image) {
-      // console.log(image, "===");
-      single = image.split(",");
-    }
-    // if (image.length > 0) {
-    //   single = image.split(",");
-    // } else {
-    //   single = [];
-    // }
-    // console.log(single, image);
-
-    return (
-      <td>
-        {single &&
-          single.length > 0 &&
-          single.map((item, i) => (
-            <td key={i}>
-              <a
-                href={axios.defaults.baseURL + "/" + x + "/" + item}
-                onClick={(e) =>
-                  download(e, axios.defaults.baseURL + "/" + x + "/" + item)
-                }
-                target="_blank"
-                download
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  textTransform: "capitalize",
-                  textAlign: "center",
-                  margin: "0 auto",
-                }}
-              >
-                <img
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    textTransform: "capitalize",
-                    textAlign: "center",
-                    margin: "0 auto",
-                    borderRadius: "50%",
-                  }}
-                  src={axios.defaults.baseURL + "/" + x + "/" + item}
-                />
-              </a>
-
-              {/* <Avatar
-                sx={{
-                  width: "40px",
-                  height: "40px",
-                  textTransform: "capitalize",
-                  textAlign: "center",
-                  margin: "0 auto",
-                }}
-                className={classes.Avatar}
-                onClick={() =>
-                  onImageClick(axios.defaults.baseURL + "/" + x + "/" + item)
-                }
-                src={axios.defaults.baseURL + "/" + x + "/" + item}
-                alt="user"
-              >
-                {item[0]}
-              </Avatar> */}
-            </td>
-          ))}
-        {/* <p>Sdsdsd</p> */}
-        {/* {JSON.stringify(single)} */}
-      </td>
-    );
-  };
   return (
     <Layout>
       <div>
@@ -507,7 +434,7 @@ function CallManager() {
                     {data.PropAddr2}
                   </div>
                 </td>
-                <DisplayImage image={data.multiImage} />
+                <DisplayImage image={data.multiImage} Option={Option} />
               </tr>
             ))}
         </table>

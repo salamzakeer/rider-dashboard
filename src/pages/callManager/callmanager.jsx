@@ -21,6 +21,7 @@ import SearchInput from "../../components/input/searchInput";
 import { useNavigate } from "react-router-dom";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import DRcodeImage from "../../components/layout/drCodeImage";
+import DisplayImage from "../../components/layout/displayImage";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const useStyles = makeStyles((theme) => ({
@@ -541,27 +542,7 @@ function CallManager() {
                   </a>
                 </td>
                 <td>
-                  {data && data.meterImage && (
-                    <Avatar
-                      sx={{
-                        width: "40px",
-                        height: "40px",
-                        textTransform: "capitalize",
-                        textAlign: "center",
-                        margin: "0 auto",
-                      }}
-                      src={
-                        data && data.meterImage
-                          ? axios.defaults.baseURL +
-                            "/images/" +
-                            data.meterImage
-                          : ""
-                      }
-                      alt="user"
-                    >
-                      {/* {data.fullName[0]} */}
-                    </Avatar>
-                  )}
+                  <DisplayImage image={data.multiImage} Option={Option} />
                 </td>
                 {/* <td>
                   {axios.defaults.baseURL + "/images/" + data.meterImage || ""}

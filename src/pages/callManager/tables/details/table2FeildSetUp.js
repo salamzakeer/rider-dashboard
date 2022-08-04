@@ -70,8 +70,17 @@ function Dashboard(props) {
               disabled={disabled}
             >
               <option selected>{value}</option>
-              {options.map((item) => (
-                <option name={item.name} value={item.name}>
+              {options.map((item, i) => (
+                <option
+                  key={i}
+                  name={item.name}
+                  value={item.name}
+                  style={
+                    item.name == value || value == null
+                      ? { display: "none" }
+                      : { display: "block" }
+                  }
+                >
                   {item.name}
                 </option>
               ))}
