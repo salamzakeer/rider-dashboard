@@ -564,6 +564,7 @@ function Dashboard() {
               display: "flex",
               justifyContent: "center",
               flexDirection: "column",
+              maxWidth:"750px"
             }}
           >
             <button

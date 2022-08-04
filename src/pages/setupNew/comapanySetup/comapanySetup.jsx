@@ -30,7 +30,7 @@ const useStyles = makeStyles(
         fontWeight: 500,
       },
       Container: {
-        maxWidth: "1100px",
+        maxWidth: "1000px",
         width: "100%",
         margin: "0 auto",
       },

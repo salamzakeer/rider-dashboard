@@ -56,13 +56,13 @@ const useStyles = makeStyles(
       Field: {
         width: "100%",
         padding: "10px 30px 10px 20px",
-        fontSize: "1rem",
+        fontSize: "14px",
         fontWeight: 500,
         borderRadius: "3rem",
         outline: "none",
         border: "1px solid #ccc",
         height: "45px",
-        color: " #ccc",
+        color: " #afafad",
 
         "&:focus": {
           // background: "blue",
@@ -71,7 +71,7 @@ const useStyles = makeStyles(
       },
       label: {
         paddingLeft: "30px",
-        fontSize: "16px",
+        fontSize: "14px",
         color: "#00000",
         opacity: "0.9",
         fontWeight: 600,
@@ -85,12 +85,12 @@ const useStyles = makeStyles(
         },
       },
       heading: {
-        fontSize: 16,
+        fontSize: 14,
         color: "#00000",
         fontWeight: 600,
       },
       para: {
-        fontSize: 16,
+        fontSize: 14,
         color: "#ccc",
       },
       flexDiv: {

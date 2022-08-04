@@ -10,7 +10,7 @@ const useStyles = makeStyles(
       i: {
         position: "absolute",
         right: 0,
-        margin: "15px 20px 0px 0px",
+        margin: "10px 20px 0px 0px",
         color: "#501abf",
         "& svg": {
           color: "#501abf !important",
@@ -33,14 +33,13 @@ const useStyles = makeStyles(
       Field: {
         width: "100%",
         padding: "10px 60px 10px 24px",
-        fontSize: "1rem",
+        fontSize: "14px",
         fontWeight: 500,
         borderRadius: "3rem",
         outline: "none",
         border: "1px solid #ccc",
         height: "45px",
-        color: " #ccc",
-
+        color: "#afafad",
         "&:focus": {
           // background: "blue",
           border: "1px solid #5016bf",
@@ -48,7 +47,7 @@ const useStyles = makeStyles(
       },
       label: {
         paddingLeft: "23px",
-        fontSize: "16px",
+        fontSize: "14px",
         color: "#00000",
         opacity: "0.9",
         fontWeight: 600,
