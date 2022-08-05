@@ -328,6 +328,8 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
               </tr>
             )}
           </table>
+          <br />
+
           <ReactPaginate
             breakLabel="..."
             nextLabel="next >"

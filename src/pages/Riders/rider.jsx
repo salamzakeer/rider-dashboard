@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
-import axios from "../../axios";
+import axios from "../../axiosHeader";
 import AddRider from "../../components/Modal/AddRiderPopup";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -408,6 +408,8 @@ function Newrider() {
               </tr>
             )}
           </table>
+          <br />
+
           <ReactPaginate
             breakLabel="..."
             nextLabel="next >"

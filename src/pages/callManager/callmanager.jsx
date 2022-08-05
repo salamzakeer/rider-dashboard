@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import DRcodeImage from "../../components/layout/drCodeImage";
 import DisplayImage from "../../components/layout/displayImage";
+import BasicSelect from "../../components/customCore/select";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const useStyles = makeStyles((theme) => ({
@@ -305,6 +306,8 @@ function CallManager() {
   };
   return (
     <Layout>
+      <p>sdsdsds</p>
+      <BasicSelect />
       <div className={classes.mainSearchDiv}>
         <div className="rider-info">Call Manager</div>
         <div className={classes.SearchDiv}>

@@ -302,9 +302,7 @@ function Newrider() {
                     </Typography>
                   </td>
                   <td>
-                    <Typography variant="body">
-                      {data.dataTo - data.dataFrom + 1}
-                    </Typography>
+                    <Typography variant="body">{data.progress}</Typography>
                   </td>
 
                   <td onClick={() => Deleting(data)}>
@@ -334,6 +332,7 @@ function Newrider() {
               </tr>
             )}
           </table>
+          <br />
           <ReactPaginate
             breakLabel="..."
             nextLabel="next >"

@@ -140,7 +140,7 @@ function Dashboard() {
         // Some data already assigned to riders
         // res.data.message
         addToast(
-          res.data.message.includes("Some data already assigned to riders")
+          res.data.errorMessage === true
             ? "Some data already assigned to riders"
             : "Assign Data Successfully",
           {

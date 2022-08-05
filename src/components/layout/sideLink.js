@@ -9,7 +9,7 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 export default function SideNavigation(props) {
   const location = useLocation();
   const path = location.pathname;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [open2, setOpen2] = React.useState(true);
   const [open3, setOpen3] = React.useState(true);
   const Logout = () => {
