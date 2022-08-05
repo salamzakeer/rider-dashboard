@@ -306,8 +306,8 @@ function CallManager() {
   };
   return (
     <Layout>
-      <p>sdsdsds</p>
-      <BasicSelect />
+      {/* <p>sdsdsds</p>
+      <BasicSelect /> */}
       <div className={classes.mainSearchDiv}>
         <div className="rider-info">Call Manager</div>
         <div className={classes.SearchDiv}>

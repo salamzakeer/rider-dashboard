@@ -22,14 +22,23 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexWrap: "wrap",
+    width: "280px !important",
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 100,
+    "& label": {
+      marginTop: "-7px",
+    },
     "& div": {
+      "& .MuiSelect-outlined &.MuiSelect-outlined": {},
+      paddingTop: "18px !important",
+      height: "38px",
+
       "& fieldset": {
         height: "45px",
+        borderRadius: "100px",
       },
     },
   },
@@ -37,11 +46,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   menu: {
-    width: 100,
+    width: 300,
     "& div": {
-      background: "red !important",
       background: "blue",
-      top: "124px !important",
+      top: "110px !important",
+      left: "294 !important",
     },
   },
 }));
