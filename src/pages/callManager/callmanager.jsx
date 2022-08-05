@@ -519,12 +519,28 @@ function CallManager() {
                 </td>
                 <td>
                   <a href="#details" className={classes.atag}>
-                    <Typography variant="body">{data.DCAName}</Typography>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.DCAName}
+                    </p>
                   </a>
                 </td>
                 <td>
                   <a href="#details" className={classes.atag}>
-                    <Typography variant="body">{data.Owner1}</Typography>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.Owner1}
+                    </p>
                   </a>
                 </td>
                 <td>

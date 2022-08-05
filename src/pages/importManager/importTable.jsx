@@ -269,12 +269,20 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                     <Typography variant="body">{data.id}</Typography>
                   </td>
                   <td>
-                    <Typography variant="body">{data.jobName}</Typography>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.jobName}
+                    </p>
                   </td>
 
                   <td>
                     <Typography variant="body">
-                      {moment(data.createdDate).format("DD/MM/YYYY")}-
+                      {moment(data.createdDate).format("DD/MM/YYYY")} -{" "}
                       {moment(data.dueDate).format("DD/MM/YYYY")}
                     </Typography>
                   </td>

@@ -231,7 +231,7 @@ function QRCodeImages() {
             required="required"
           >
             <option name="commercials" value="2" selected>
-              QR Code
+              DR Code
             </option>
             {Qrcode &&
               Qrcode.length > 0 &&

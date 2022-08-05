@@ -51,14 +51,14 @@ function AddRiderPopup({ closeModel, edit, editId }) {
     const json = {
       fullName: fullName,
       email: email,
-        adminId: AdminId,
+      adminId: AdminId,
       NRIC: NRIC,
       Position: Position,
       Status: Status,
     };
     console.log(json, "json");
     axios
-      .put("/rider/register", data)
+      .put("/rider/" + editId.id, json)
       .then((result) => {
         // console.log(result)
         // if(result.errorMessage == false){
@@ -69,7 +69,7 @@ function AddRiderPopup({ closeModel, edit, editId }) {
           autoDismissTimeout: 2000,
         });
         // closeModel(false)
-        window.location.reload(false);
+        // window.location.reload(false);
 
         // window.location = "/dashboard"
         // }else{
@@ -78,7 +78,7 @@ function AddRiderPopup({ closeModel, edit, editId }) {
       })
       .catch((error) => {
         console.log(error);
-        addToast("username or password is incorrcet", {
+        addToast("Username Already Fxists", {
           appearance: "error",
           autoDismiss: "true",
           autoDismissTimeout: 2000,

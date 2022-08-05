@@ -133,8 +133,6 @@ function Newrider() {
   };
 
   const deleteHandle = (e) => {
-    let id = e.id;
-    console.log(id);
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -145,7 +143,7 @@ function Newrider() {
     // headers.append("Authorization", "Bearer " + token)
     // console.log(headers, "header")
     axios
-      .delete(`/riderdata/${id}`, {
+      .delete(`/riderdata/${e.id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -163,7 +161,7 @@ function Newrider() {
   };
   const Deleting = (e) => {
     let id = e.id;
-    console.log(id, "idddd");
+    console.log(e, "idddd");
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
@@ -279,14 +277,38 @@ function Newrider() {
                     </Avatar>
                   </td>
                   <td>
-                    <Typography variant="body">{data.fullName}</Typography>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.fullName}
+                    </p>
                   </td>
                   <td>
-                    <Typography variant="body">{data.category}</Typography>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.category}
+                    </p>
                   </td>
 
                   <td>
-                    <Typography variant="body">{data.jobName}</Typography>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.jobName}
+                    </p>
                   </td>
                   <td>
                     <Typography variant="body">{data.dataFrom}</Typography>

@@ -144,11 +144,7 @@ function Dashboard() {
             ? "Some data already assigned to riders"
             : "Assign Data Successfully",
           {
-            appearance: res.data.message.includes(
-              "Some data already assigned to riders"
-            )
-              ? "error"
-              : "success",
+            appearance: res.data.errorMessage === true ? "error" : "success",
             autoDismiss: "true",
             autoDismissTimeout: 2000,
           }
