@@ -6,6 +6,7 @@ const useStyles = makeStyles(
     createStyles({
       Main: {
         padding: "12px 5px",
+        marginLeft: "20px",
       },
       i: {
         position: "absolute",

@@ -8,6 +8,9 @@ export const YesNo = [
     name: "No",
   },
 ];
+export const NoOption = [{
+  id:"No Option"
+}]
 
 export const Gender = [
   {
@@ -403,4 +406,21 @@ export const occupiertype = [
   { id: "Vacant", name: "Vacant" },
   { id: "Closed", name: "Closed" },
   { id: "Others", name: "Others" },
+];
+export var categoryType = [
+  {
+    id: "lnds",
+    name: "lnds",
+    value: "lnds",
+  },
+  {
+    id: "commercials",
+    name: "commercials",
+    value: "commercials",
+  },
+  {
+    id: "highrises",
+    name: "highrises",
+    value: "highrises",
+  },
 ];

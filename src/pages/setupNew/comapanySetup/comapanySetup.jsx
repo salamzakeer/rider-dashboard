@@ -36,7 +36,7 @@ const useStyles = makeStyles(
       },
       flexInputDivs: {
         display: "flex",
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
         alignItems: "center",
         flexWrap: "wrap",
       },

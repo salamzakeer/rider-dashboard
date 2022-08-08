@@ -106,8 +106,8 @@ function AddRiderPopup({ closeModel, edit, editId }) {
       password: password,
       adminId: AdminId,
       NRIC: NRIC,
-      Position: Position,
-      Status: Status,
+      position: Position,
+      status: Status,
     };
     console.log(json, "json");
     axios

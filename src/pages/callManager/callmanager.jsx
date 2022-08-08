@@ -23,6 +23,8 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import DRcodeImage from "../../components/layout/drCodeImage";
 import DisplayImage from "../../components/layout/displayImage";
 import BasicSelect from "../../components/customCore/select";
+import { Qrcode } from "../../api/qrcode";
+import { categoryType, YesNo } from "../../api/detailsApi";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const useStyles = makeStyles((theme) => ({
@@ -63,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   select1: {
-    width: "300px",
+    width: "100%",
     margin: "12px",
   },
   select3: {
@@ -304,10 +306,21 @@ function CallManager() {
       // filterByJobnameAndCategoryData,
     );
   };
+  const onSelectValue = (value, event) => {
+    alert(value);
+  };
   return (
     <Layout>
-      {/* <p>sdsdsds</p>
-      <BasicSelect /> */}
+      <p>sdsdsds</p>
+      <div style={{ width: "300px" }}>
+        {/* <BasicSelect
+          width="250"
+          options={YesNo}
+          value
+          onSelectValue={onSelectValue}
+        /> */}
+      </div>
+      <br />
       <div className={classes.mainSearchDiv}>
         <div className="rider-info">Call Manager</div>
         <div className={classes.SearchDiv}>
@@ -323,8 +336,13 @@ function CallManager() {
       <div className={classes.subDiv}>
         {/* subDiv */}
         <div className={classes.select1}>
-          {/* <label className={classes.label}>{"Type"}</label> */}
-          <select
+          <BasicSelect
+            options={categoryType}
+            value
+            onSelectValue={onSelectValue}
+            width="250"
+          />
+          {/* <select
             class="form-select"
             aria-label="Default select example"
             name=""
@@ -337,20 +355,22 @@ function CallManager() {
             <option name="lnds" value="lnds">
               LANDED
             </option>
-            {/* <option name="vacants" value="vacants">
-              VACANTS
-            </option> */}
-            {/* lnds same data to comercial and highrises commercials  */}
             <option name="commercials" value="commercials">
               COMMERCIAL
             </option>
             <option name="highrises" value="highrises">
               HIGHRISES
             </option>
-          </select>
+          </select> */}
         </div>
         <div className={classes.select1}>
-          <select
+          <BasicSelect
+            options={Category && Category.length > 0 ? Category : YesNo}
+            value
+            onSelectValue={onSelectValue}
+            // width="250"
+          />
+          {/* <select
             class="form-select"
             aria-label="Default select example"
             onChange={handleCategoryChange}
@@ -363,7 +383,7 @@ function CallManager() {
                   {item.jobName}
                 </option>
               ))}
-          </select>
+          </select> */}
         </div>
         <div className={classes.select3}>
           <select

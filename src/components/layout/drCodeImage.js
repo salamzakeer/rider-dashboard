@@ -174,7 +174,7 @@ function QRCodeImages() {
   return (
     <div>
       <div className={classes.mainSearchDiv}>
-        <div className="rider-info">DR Code </div>
+        <div className="rider-info">DR Code Images </div>
       </div>
       <br />
       <div className={classes.subDiv}>
