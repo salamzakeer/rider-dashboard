@@ -8,7 +8,7 @@ const useStyles = makeStyles(
   (theme) =>
     createStyles({
       dropbtn2: {
-        width: (props) => (props.width ? props.width : 300),
+        width: 300,
         "&:hover > div": {
           // display: (props) =>
           //   props.Open === true ? "block !important" : "block !important",
