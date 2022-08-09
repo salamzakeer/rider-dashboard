@@ -23,8 +23,9 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import DRcodeImage from "../../components/layout/drCodeImage";
 import DisplayImage from "../../components/layout/displayImage";
 import BasicSelect from "../../components/customCore/select";
+import BasicSelect2 from "../../components/customCore/jobNameDroupDown";
 import { Qrcode } from "../../api/qrcode";
-import { categoryType, YesNo } from "../../api/detailsApi";
+import { categoryType, UpdateType, YesNo } from "../../api/detailsApi";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   select1: {
-    width: "100%",
+    // width: "100%",
     margin: "12px",
   },
   select3: {
@@ -307,11 +308,20 @@ function CallManager() {
     );
   };
   const onSelectValue = (value, event) => {
-    alert(value);
+    setOption(value);
+    // alert(value);
   };
+  const onSelectValue2 = (value, event) => {
+    setUserSelectCategory(value);
+    // alert(value);
+  };
+  const onSelectValue3 = (value, event) => {
+    setUpdateValue(value);
+    // alert(value);
+  };
+
   return (
     <Layout>
-      <p>sdsdsds</p>
       <div style={{ width: "300px" }}>
         {/* <BasicSelect
           width="250"
@@ -364,10 +374,10 @@ function CallManager() {
           </select> */}
         </div>
         <div className={classes.select1}>
-          <BasicSelect
-            options={Category && Category.length > 0 ? Category : YesNo}
+          <BasicSelect2
+            options={Category}
             value
-            onSelectValue={onSelectValue}
+            onSelectValue={onSelectValue2}
             // width="250"
           />
           {/* <select
@@ -386,7 +396,13 @@ function CallManager() {
           </select> */}
         </div>
         <div className={classes.select3}>
-          <select
+          <BasicSelect
+            options={UpdateType}
+            value
+            onSelectValue={onSelectValue3}
+            // width="250"
+          />
+          {/* <select
             class="form-select"
             aria-label="Default select example"
             name=""
@@ -402,7 +418,7 @@ function CallManager() {
             <option name="lnds" value="0">
               Not Update
             </option>
-          </select>
+          </select> */}
         </div>
         <button
           type="submit"

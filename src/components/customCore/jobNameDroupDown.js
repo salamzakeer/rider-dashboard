@@ -8,7 +8,7 @@ const useStyles = makeStyles(
   (theme) =>
     createStyles({
       dropbtn2: {
-        width: 180,
+        width: 300,
         "&:hover > div": {
           // display: (props) =>
           //   props.Open === true ? "block !important" : "block !important",
@@ -28,8 +28,8 @@ const useStyles = makeStyles(
         },
         //
         // transform: rotate(0.5turn);
-        "& .dropdown-content1": {
-          width: 180,
+        "& .dropbtn1": {
+          // background: "blue !important",
         },
       },
     }),
@@ -44,13 +44,17 @@ function App(props) {
 
   const dropdownListClick = (index, e) => {
     setdropdown(index);
-    props.onSelectValue(options[dropdown].value, e);
+    props.onSelectValue(options[dropdown].jobName, e);
   };
+
   useEffect(() => {
-    // if (options && options.length > 0) {
-    props.onSelectValue(options[dropdown].value);
-    // }
-  }, [props, dropdown]);
+    // alert(1);
+    console.log(1);
+    if (options && options.length > 0) {
+      props.onSelectValue(options[dropdown].id);
+    }
+  }, [props]);
+
   const handleKeyDown = (index) => (e) => {
     switch (e.key) {
       case " ":
@@ -64,6 +68,18 @@ function App(props) {
         break;
     }
   };
+  console.log(
+    options && options.length > 0
+      ? options[dropdown] &&
+          (options[dropdown].jobName.length < 16
+            ? options[dropdown].jobName
+            : options[dropdown].jobName.replace(
+                /^(.{19}[^\s]*).*/,
+                "$1" + "..."
+              ))
+      : //
+        "Select"
+  );
   return (
     <>
       <div
@@ -72,15 +88,24 @@ function App(props) {
       >
         {/* {JSON.stringify(options)} */}
         <button class={`dropbtn1 ${classes.dropbtn1}`}>
-          {options.length > 0 && options[dropdown].name.length < 16
-            ? options[dropdown].name
-            : options[dropdown].name.replace(
-                /^(.{19}[^\s]*).*/,
-                "$1" + "..."
-              ) || "Dropdown"}
+          {options && options.length > 0
+            ? options[dropdown] &&
+              (options[dropdown].jobName.length < 16
+                ? options[dropdown].jobName
+                : options[dropdown].jobName.replace(
+                    /^(.{19}[^\s]*).*/,
+                    "$1" + "..."
+                  ))
+            : //
+              "Select"}
           <img src={DownArrow} class="img-down" />
         </button>
-        <div class={`dropdown-content1 ${classes.dropdownContent1} `}>
+        <div class={`dropdown-content1`}>
+          {/* <a
+            style={options ? {display:"none"}:{display:"block"}}
+          >
+            Select
+          </a> */}
           {options &&
             options.length > 0 &&
             options.map((value, index) => (
@@ -90,7 +115,7 @@ function App(props) {
                 name={value}
                 onKeyDown={handleKeyDown(index)}
               >
-                {value.name}
+                {value.jobName}
               </a>
             ))}
         </div>

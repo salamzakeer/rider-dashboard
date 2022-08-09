@@ -8,9 +8,11 @@ export const YesNo = [
     name: "No",
   },
 ];
-export const NoOption = [{
-  id:"No Option"
-}]
+export const NoOption = [
+  {
+    id: "No Option",
+  },
+];
 
 export const Gender = [
   {
@@ -409,18 +411,40 @@ export const occupiertype = [
 ];
 export var categoryType = [
   {
+    id: "Select",
+    name: "Select",
+    value: "Select",
+  },
+  {
     id: "lnds",
-    name: "lnds",
+    name: "Landed",
     value: "lnds",
   },
   {
     id: "commercials",
-    name: "commercials",
+    name: "Commercials",
     value: "commercials",
   },
   {
     id: "highrises",
-    name: "highrises",
+    name: "Highrises",
     value: "highrises",
+  },
+];
+export const UpdateType = [
+  {
+    id: "2",
+    name: "All",
+    value: "2",
+  },
+  {
+    id: "Update",
+    name: "Update",
+    value: "1",
+  },
+  {
+    id: "Not Update",
+    name: "Not Update",
+    value: "0",
   },
 ];
