@@ -296,7 +296,7 @@ function Dashboard(Details) {
             key2="Owner 2"
             id2="Owner2"
             // key3="Status"
-            value3={values.owner1nric || ""}
+            value3={values.Owner1NRIC || ""}
             // onChange3={handleInputChange}
             name3="Owner 1 NRIC"
             id3="Owner 1 NRIC"
@@ -311,7 +311,7 @@ function Dashboard(Details) {
             name1="PropAddr3"
             id1="PropAddr3"
             // key2="Owner's Mobile Number"
-            value2={values.owner2nric || ""}
+            value2={values.Owner2NRIC || ""}
             // // onChange2={handleInputChange}
             name2="Owner 2 NRIC"
             id2="Owner 2 NRIC"
@@ -339,7 +339,7 @@ function Dashboard(Details) {
             key2="Exclude"
             id2="Exclude"
             // key3="Status"
-            value3={""}
+            value3={values.IWKSpecialInstruction || ""}
             // onChange3={handleInputChange}
             name3="IWK"
             key3="IWK's Special Instruction"
@@ -413,7 +413,7 @@ function Dashboard(Details) {
             id1="TenantName"
             options1={occupiertype}
             // key2="Name of shop/company"
-            value2={""}
+            value2={values.BalanceAsPerCopyBill || ""}
             // onChange2={handleInputChange}
             name2="Balance As Received Date"
             id2="Balance As Received Date"
@@ -432,7 +432,7 @@ function Dashboard(Details) {
             name1="Class"
             id1="Class"
             // key2="Name of shop/company"
-            value2={""}
+            value2={values.AdministrationFee || ""}
             // onChange2={handleInputChange}
             name2="AdministrationFee"
             key2="3% Administration Fee"
@@ -466,11 +466,12 @@ function Dashboard(Details) {
             }
             // key2="Name of shop/company"
             // onChange2={handleInputChange}
+            value2={values.LODFee || ""}
             name2="LOD Fee"
             key2="LOD Fee"
             id2="LOD Fee"
             // key3="Payment"
-            value2={values.AgentName || ""}
+            value3={values.AgentName || ""}
             // onChange3={handleInputChange}
             name3="Agent's Name"
             key3="Agent's Name"
@@ -495,8 +496,8 @@ function Dashboard(Details) {
             // selecte3
           />
           <TableTrRow
-            key1="1st visit-Date of Bill & Notice/LOD was served"
-            value1={values.stvisit_date || ""}
+            key1="1st Visit-Date of Bill & Notice/LOD was served"
+            value1={values.FirstVisitDate || ""}
             name1="1st visit-Date of"
             id1="1st visit-Date of"
             key2="Reason customer refuse to pay IWK billr"
