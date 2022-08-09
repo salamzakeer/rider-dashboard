@@ -160,7 +160,6 @@ function Newrider() {
             <td>
               <p variant="body">{row.Status}</p>
             </td>
-
             <td>
               <p variant="body">{row.remark}</p>
             </td>

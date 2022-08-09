@@ -35,7 +35,7 @@ const useStyles = makeStyles(
     }),
   { withTheme: true }
 );
-function App(props) {
+function BasicSelect(props) {
   const { options } = props;
   const [dropdown, setdropdown] = useState(0);
   const [Open, setOpen] = useState(false);
@@ -126,4 +126,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default BasicSelect;

@@ -7,6 +7,9 @@ import { CircularProgress } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { Qrcode } from "../../api/qrcode";
 import axios from "../../axios";
+import BasicSelect2 from "../customCore/jobNameDroupDown";
+import BasicSelect from "../customCore/select";
+import { categoryType } from "../../api/detailsApi";
 
 const useStyles = makeStyles(
   (theme) =>
@@ -171,6 +174,18 @@ function QRCodeImages() {
         // console.log(err, 'error')
       });
   }, [Option, AdminId]);
+  const onSelectValue = (value, event) => {
+    setOption(value);
+    // alert(value);
+  };
+  const onSelectValue2 = (value, event) => {
+    setUserSelectCategory(value);
+    // alert(value);
+  };
+  const onSelectValue3 = (value, event) => {
+    // setUpdateValue(value);
+    // alert(value);
+  };
   return (
     <div>
       <div className={classes.mainSearchDiv}>
@@ -181,7 +196,13 @@ function QRCodeImages() {
         {/* subDiv */}
         <div className={classes.select1}>
           {/* <label className={classes.label}>{"Type"}</label> */}
-          <select
+          <BasicSelect
+            options={categoryType}
+            value
+            onSelectValue={onSelectValue}
+            width="250"
+          />
+          {/* <select
             class="form-select"
             aria-label="Default select example"
             name=""
@@ -196,18 +217,24 @@ function QRCodeImages() {
             </option>
             {/* <option name="vacants" value="vacants">
               VACANTS
-            </option> */}
-            {/* lnds same data to comercial and highrises commercials  */}
+            </option> 
+            {/* lnds same data to comercial and highrises commercials  
             <option name="commercials" value="commercials">
               COMMERCIAL
             </option>
             <option name="highrises" value="highrises">
               HIGHRISES
             </option>
-          </select>
+          </select> */}
         </div>
         <div className={classes.select1}>
-          <select
+          <BasicSelect2
+            options={Category}
+            value
+            onSelectValue={onSelectValue2}
+            // width="250"
+          />
+          {/* <select
             class="form-select"
             aria-label="Default select example"
             onChange={handleCategoryChange}
@@ -220,27 +247,15 @@ function QRCodeImages() {
                   {item.jobName}
                 </option>
               ))}
-          </select>
+          </select> */}
         </div>
         <div className={classes.select3}>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            name=""
-            onChange={handleUpdateChanges}
-            required="required"
-          >
-            <option name="commercials" value="2" selected>
-              DR Code
-            </option>
-            {Qrcode &&
-              Qrcode.length > 0 &&
-              Qrcode.map((item) => (
-                <option name={item.name} value={item.name}>
-                  {item.name}
-                </option>
-              ))}
-          </select>
+          <BasicSelect
+            options={Qrcode}
+            value
+            onSelectValue={onSelectValue}
+            width="250"
+          />
         </div>
         <button
           type="submit"
@@ -259,6 +274,16 @@ function QRCodeImages() {
           )}
         </button>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

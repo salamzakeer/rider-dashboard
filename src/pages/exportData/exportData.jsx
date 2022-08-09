@@ -7,6 +7,9 @@ import Typography from "@mui/material/Typography";
 import CsvDownloader from "react-csv-downloader";
 import axios from "../../axios";
 import CircularProgress from "@mui/material/CircularProgress";
+import BasicSelect from "../../components/customCore/select";
+import { categoryType } from "../../api/detailsApi";
+import BasicSelect2 from "../../components/customCore/jobNameDroupDown";
 
 const useStyles = makeStyles(
   (theme) =>
@@ -780,6 +783,14 @@ function Dashboard() {
         // console.log(err, 'error')
       });
   };
+  const onSelectValue = (value, event) => {
+    setOption(value);
+    // alert(value);
+  };
+  const onSelectValue2 = (value, event) => {
+    setUserSelectCategory(value);
+    // alert(value);
+  };
   return (
     <Layout title="Export">
       <div>
@@ -792,7 +803,13 @@ function Dashboard() {
         {/* subDiv */}
         <div className={style.select1}>
           {/* <label className={style.label}>{"Type"}</label> */}
-          <select
+          <BasicSelect
+            options={categoryType}
+            value
+            onSelectValue={onSelectValue}
+            width="250"
+          />
+          {/* <select
             class="form-select"
             aria-label="Default select example"
             name=""
@@ -814,10 +831,16 @@ function Dashboard() {
             <option name="highrises" value="highrises">
               HIGHRISES
             </option>
-          </select>
+          </select> */}
         </div>
         <div className={style.select1}>
-          <select
+          <BasicSelect2
+            options={Category}
+            value
+            onSelectValue={onSelectValue2}
+            // width="250"
+          />
+          {/* <select
             class="form-select"
             aria-label="Default select example"
             onChange={handleCategoryChange}
@@ -830,7 +853,7 @@ function Dashboard() {
                   {item.jobName}
                 </option>
               ))}
-          </select>
+          </select> */}
         </div>
         <button
           type="submit"

@@ -15,6 +15,10 @@ import ReactPaginate from "react-paginate";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import DRcodeImage from "../../components/layout/drCodeImage";
 import DisplayImage from "../../components/layout/displayImage";
+import { categoryType } from "../../api/detailsApi";
+import BasicSelect from "../../components/customCore/select";
+import BasicSelect2 from "../../components/customCore/jobNameDroupDown";
+
 const useStyles = makeStyles((theme) => ({
   Avatar: {
     cursor: "pointer",
@@ -55,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   select1: {
-    width: "300px",
+    // width: "300px",
     margin: "12px",
   },
   subDiv: {
@@ -242,7 +246,18 @@ function CallManager() {
         console.log(err);
       });
   };
-
+  const onSelectValue = (value, event) => {
+    setOption(value);
+    // alert(value);
+  };
+  const onSelectValue2 = (value, event) => {
+    setUserSelectCategory(value);
+    // alert(value);
+  };
+  const onSelectValue3 = (value, event) => {
+    // setUpdateValue(value);
+    // alert(value);
+  };
   return (
     <Layout>
       <div>
@@ -253,47 +268,21 @@ function CallManager() {
         {/* subDiv */}
         <div className={classes.select1}>
           {/* <label className={classes.label}>{"Type"}</label> */}
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            name=""
-            onChange={handleInputChanges}
-            required="required"
-          >
-            <option name="" value="" selected>
-              Type
-            </option>
-            <option name="lnds" value="lnds">
-              LANDED
-            </option>
-            <option name="vacants" value="vacants">
-              VACANTS
-            </option>
-            {/* lnds same data to comercial and highrises commercials  */}
-            <option name="commercials" value="commercials">
-              COMMERCIAL
-            </option>
-            <option name="highrises" value="highrises">
-              HIGHRISES
-            </option>
-          </select>
+          <BasicSelect
+            options={categoryType}
+            value
+            onSelectValue={onSelectValue}
+            width="250"
+          />
         </div>
         <div className={classes.select1}>
           {/* <label className={classes.label}>Job Name</label> */}
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            onChange={handleCategoryChange}
-          >
-            <option selected>Select</option>
-            {Category &&
-              Category.length > 0 &&
-              Category.map((item) => (
-                <option name={item.createdAt} value={item.id}>
-                  {item.jobName}
-                </option>
-              ))}
-          </select>
+          <BasicSelect2
+            options={Category}
+            value
+            onSelectValue={onSelectValue2}
+            // width="250"
+          />
         </div>
         <button
           type="submit"
