@@ -12,16 +12,11 @@ const useStyles = makeStyles(
         alignItems: "center",
         justifyContent: "center",
         margin: "12px",
-
-        //     padding: "12px 2px",
       },
       MainToggle: {
         display: "flex",
         alignItems: "center",
-        // justifyContent: "center",
         margin: "12px",
-        display: "flex",
-
         width: "380px",
         paddingLeft: "8px",
         [theme.breakpoints.down("sm")]: {

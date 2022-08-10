@@ -3,7 +3,7 @@ import axios from "axios";
 // if (localStorage.getItem("userInfor")) {
 const Auth = localStorage.getItem("userInfor");
 const message = JSON.parse(Auth);
-const token = message.message.token;
+const token = message !== null ? message.message.token : "";
 // }
 
 const instance = axios.create({

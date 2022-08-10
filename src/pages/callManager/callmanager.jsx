@@ -202,18 +202,20 @@ function CallManager() {
 
   useEffect(() => {
     setDisabled(true);
-    axios
-      .get(`/jobname/${Option}/${AdminId}`)
-      .then((res) => {
-        setDisabled(false);
-        // console.log(res.data, 'data')
-        setCategory(res.data);
-      })
-      .catch((err) => {
-        setDisabled(false);
-        setCategory([]);
-        // console.log(err, 'error')
-      });
+    if (Option) {
+      axios
+        .get(`/jobname/${Option}/${AdminId}`)
+        .then((res) => {
+          setDisabled(false);
+          // console.log(res.data, 'data')
+          setCategory(res.data);
+        })
+        .catch((err) => {
+          setDisabled(false);
+          setCategory([]);
+          // console.log(err, 'error')
+        });
+    }
   }, [Option, AdminId]);
   const handleInputChanges = (e) => {
     const { value } = e.target;
@@ -350,7 +352,7 @@ function CallManager() {
             options={categoryType}
             value
             onSelectValue={onSelectValue}
-            width="250"
+            width="180px"
           />
           {/* <select
             className="form-select"
@@ -451,77 +453,54 @@ function CallManager() {
           }}
           className={classes.table}
         >
-          <tr
-            style={{
-              pointerEvents: "none",
-            }}
-          >
-            <th
-              style={{
-                textAlign: "left",
-                padding: "10px !important",
-                width: "100px",
-              }}
-            >
-              {" "}
-              <Typography variant="body">ID</Typography>{" "}
-            </th>
-            <th>
-              <span variant="body">Account Number</span>{" "}
-            </th>
-            <th>
-              <span variant="body">DCA Name</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Debtor Name</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Range</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Arrears</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Address</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Images</span>{" "}
-            </th>
-            <th>
-              <span variant="body">Status</span>{" "}
-            </th>
-          </tr>
-          {!Loading && Disabled && (
+          <tbody>
             <tr
               style={{
-                borderCollapse: "collapse",
-                padding: "0px !important",
+                pointerEvents: "none",
               }}
             >
-              <td
+              <th
                 style={{
-                  textAlign: "center",
-                  verticalAlign: "middle",
-                  padding: "0px !important",
+                  textAlign: "left",
+                  padding: "10px !important",
+                  width: "100px",
                 }}
-                colspan="12"
               >
-                <Box sx={{ width: "100%" }}>
-                  <LinearProgress />
-                </Box>
-              </td>
+                {" "}
+                <Typography variant="body">ID</Typography>{" "}
+              </th>
+              <th>
+                <span variant="body">Account Number</span>{" "}
+              </th>
+              <th>
+                <span variant="body">DCA Name</span>{" "}
+              </th>
+              <th>
+                <span variant="body">Debtor Name</span>{" "}
+              </th>
+              <th>
+                <span variant="body">Range</span>{" "}
+              </th>
+              <th>
+                <span variant="body">Arrears</span>{" "}
+              </th>
+              <th>
+                <span variant="body">Address</span>{" "}
+              </th>
+              <th>
+                <span variant="body">Images</span>{" "}
+              </th>
+              <th>
+                <span variant="body">Status</span>{" "}
+              </th>
             </tr>
-          )}
-
-          {currentItems &&
-            currentItems.length === 0 &&
-            !(!Loading && Disabled) && (
+          </tbody>
+          <tbody>
+            {!Loading && Disabled && (
               <tr
                 style={{
                   borderCollapse: "collapse",
                   padding: "0px !important",
-                  boxShadow: "none",
-                  WebkitBoxShadow: "none",
                 }}
               >
                 <td
@@ -529,94 +508,119 @@ function CallManager() {
                     textAlign: "center",
                     verticalAlign: "middle",
                     padding: "0px !important",
-                    WebkitBoxShadow: "none !important",
-                    boxShadow: "none !important",
                   }}
-                  colspan="12"
+                  colSpan="12"
                 >
-                  <Box sx={{ width: "100%" }}>No Data</Box>
+                  <Box sx={{ width: "100%" }}>
+                    <LinearProgress />
+                  </Box>
                 </td>
               </tr>
             )}
-
-          {currentItems &&
-            currentItems.length > 0 &&
-            currentItems.map((data) => (
-              <tr onClick={() => findUser(data)}>
-                <td>
-                  <a href="#details" className={classes.atag}>
-                    <Typography variant="body">{data.id}</Typography>
-                  </a>
-                </td>
-                <td>
-                  <a href="#details" className={classes.atag}>
-                    <Typography variant="body">{data.SAN}</Typography>
-                  </a>
-                </td>
-                <td>
-                  <a href="#details" className={classes.atag}>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.DCAName}
-                    </p>
-                  </a>
-                </td>
-                <td>
-                  <a href="#details" className={classes.atag}>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.Owner1}
-                    </p>
-                  </a>
-                </td>
-                <td>
-                  <a href="#details" className={classes.atag}>
-                    <Typography variant="body">{data.Range}</Typography>
-                  </a>
-                </td>
-                <td>
-                  <a href="#details" className={classes.atag}>
-                    <Typography variant="body">{data.Arrears}</Typography>
-                  </a>
-                </td>
-                <td>
-                  <a href="#details" className={classes.atag}>
-                    <Typography variant="body">
-                      {data.MailAdd1} {data.MailAdd2}
-                    </Typography>
-                  </a>
-                </td>
-                <td>
+          </tbody>
+          <tbody>
+            {currentItems &&
+              currentItems.length === 0 &&
+              !(!Loading && Disabled) && (
+                <tr
+                  style={{
+                    borderCollapse: "collapse",
+                    padding: "0px !important",
+                    boxShadow: "none",
+                    WebkitBoxShadow: "none",
+                  }}
+                >
+                  <td
+                    style={{
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                      padding: "0px !important",
+                      WebkitBoxShadow: "none !important",
+                      boxShadow: "none !important",
+                    }}
+                    colSpan="12"
+                  >
+                    <Box sx={{ width: "100%" }}>No Data</Box>
+                  </td>
+                </tr>
+              )}
+          </tbody>
+          <tbody>
+            {currentItems &&
+              currentItems.length > 0 &&
+              currentItems.map((data, i) => (
+                <tr onClick={() => findUser(data)} key={i}>
+                  <td>
+                    <a href="#details" className={classes.atag}>
+                      <Typography variant="body">{data.id}</Typography>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#details" className={classes.atag}>
+                      <Typography variant="body">{data.SAN}</Typography>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#details" className={classes.atag}>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.DCAName}
+                      </p>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#details" className={classes.atag}>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.Owner1}
+                      </p>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#details" className={classes.atag}>
+                      <Typography variant="body">{data.Range}</Typography>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#details" className={classes.atag}>
+                      <Typography variant="body">{data.Arrears}</Typography>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#details" className={classes.atag}>
+                      <Typography variant="body">
+                        {data.MailAdd1} {data.MailAdd2}
+                      </Typography>
+                    </a>
+                  </td>
                   <DisplayImage image={data.multiImage} Option={Option} />
-                </td>
-                {/* <td>
-                  {axios.defaults.baseURL + "/images/" + data.meterImage || ""}
-                </td> */}
-                <td>
-                  <a href="#details" className={classes.atag}>
-                    <div
-                      className={
-                        data.updateStatus === 0
-                          ? classes.notupdate
-                          : classes.update
-                      }
-                    >
-                      {data.updateStatus === 0 ? "Not Updated" : "Updated"}
-                    </div>
-                  </a>
-                </td>
-              </tr>
-            ))}
+
+                  <td>
+                    <a href="#details" className={classes.atag}>
+                      <div
+                        className={
+                          data.updateStatus === 0
+                            ? classes.notupdate
+                            : classes.update
+                        }
+                      >
+                        {data.updateStatus === 0 ? "Not Updated" : "Updated"}
+                      </div>
+                    </a>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
         </table>
         <br />
         <ReactPaginate

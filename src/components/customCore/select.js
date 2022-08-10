@@ -9,6 +9,8 @@ const useStyles = makeStyles(
     createStyles({
       dropbtn2: {
         width: 180,
+
+        // width: (props) => (props.width ? 300 : 300),
         "&:hover > div": {
           // display: (props) =>
           //   props.Open === true ? "block !important" : "block !important",
@@ -18,7 +20,6 @@ const useStyles = makeStyles(
         "&:hover > .dropbtn1": {
           borderBottom: "none !important",
           borderRadius: "24px 24px  0px 0px  !important",
-
         },
         "&:hover > button .img-down": {
           transform: "rotate(0.5turn)",
@@ -37,11 +38,11 @@ const useStyles = makeStyles(
   { withTheme: true }
 );
 function BasicSelect(props) {
-  const { options } = props;
+  const { options, width } = props;
   const [dropdown, setdropdown] = useState(0);
   const [Open, setOpen] = useState(false);
 
-  const classes = useStyles({ Open });
+  const classes = useStyles(width, { Open });
 
   const dropdownListClick = (index, e) => {
     setdropdown(index);

@@ -3,15 +3,11 @@ import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
 import axios from "../../axios";
 import AddRider from "../../components/Modal/AddRiderPopup";
-import DeleteIcon from "@mui/icons-material/Delete";
 
-import ProfilePic from "../../assets/user.png";
-import DeleteBtn from "../../assets/delete.png";
 import Layout from "../../components/layout/Navbar";
 // import "./rider.css";
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
-import { Avatar } from "@mui/material";
 import ReactPaginate from "react-paginate";
 // @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 import { confirmAlert } from "react-confirm-alert"; // Import
@@ -95,7 +91,7 @@ function Newrider() {
 
   const token = message.message.token;
   // console.log(token, "token");
-  console.log("rider data", data);
+  // console.log("rider data", data);
   useEffect(() => {
     axios
       .get("/jobname/findAllCounts")
@@ -129,30 +125,17 @@ function Newrider() {
 
   const deleteHandle = (e) => {
     let id = e.id;
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
 
-    // console.log(config, bodyParameters)
-
-    // var headers = new Headers();
-    // headers.append("Authorization", "Bearer " + token)
-    // console.log(headers, "header")
     axios
       .delete(`/rider/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        // setData(res.data)
-        // console.log("working", res.data);
         setLoading(true);
-        // window.reload()
       })
       .catch((error) => {
-        // console.log(error);
         setLoading(true);
       });
-    // console.log(e);
   };
   const Deleting = (e) => {
     let id = e.id;
@@ -217,124 +200,132 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
               borderSpacing: 0,
             }}
           >
-            <tr>
-              <th>
-                <Typography variant="body">Seq</Typography>{" "}
-              </th>
-              <th>
-                {" "}
-                <Typography variant="body"> Job Id</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Job Period</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Job Type</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Total Records</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Report Submission Date</Typography>{" "}
-              </th>
-            </tr>
+            <tbody>
+              <tr>
+                <th>
+                  <Typography variant="body">Seq</Typography>{" "}
+                </th>
+                <th>
+                  {" "}
+                  <Typography variant="body"> Job Id</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Job Period</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Job Type</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Total Records</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Report Submission Date</Typography>{" "}
+                </th>
+              </tr>
+            </tbody>
 
-            {!Loading && (
-              <tr
-                style={{
-                  borderCollapse: "collapse",
-                  padding: "0px !important",
-                }}
-              >
-                <td
+            <tbody>
+              {!Loading && (
+                <tr
                   style={{
-                    textAlign: "center",
-                    verticalAlign: "middle",
+                    borderCollapse: "collapse",
                     padding: "0px !important",
                   }}
-                  colspan="12"
                 >
-                  <Box sx={{ width: "100%" }}>
-                    <LinearProgress />
-                  </Box>
-                </td>
-              </tr>
-            )}
-
-            {currentItems &&
-              currentItems.length > 0 &&
-              currentItems.map((data) => (
-                <tr>
-                  <td>
-                    <Typography variant="body">{data.id}</Typography>
-                  </td>
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.jobName}
-                    </p>
-                  </td>
-
-                  <td>
-                    <Typography variant="body">
-                      {moment(data.createdDate).format("DD/MM/YYYY")} -{" "}
-                      {moment(data.dueDate).format("DD/MM/YYYY")}
-                    </Typography>
-                  </td>
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                        textTransform: "capitalize",
-                      }}
-                    >
-                      {data.category == "lnds" ? "Landed" : data.category}
-                      {/* {data.category} */}
-                    </p>
-                  </td>
-                  <td align="center">
-                    {data.lndsCount +
-                      data.commercialsCount +
-                      data.highrisesCount +
-                      data.vacantsCount}
-                  </td>
-
-                  {/* style={{ textAlign: "left", margin: "0px", paddingLeft: "8px" }}  */}
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "center",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {moment(data.reportDate).format("DD/MM/YYYY")}
-
-                      {/* {data.email} */}
-                    </p>
+                  <td
+                    style={{
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                      padding: "0px !important",
+                    }}
+                    colspan="12"
+                  >
+                    <Box sx={{ width: "100%" }}>
+                      <LinearProgress />
+                    </Box>
                   </td>
                 </tr>
-              ))}
-            {data.length === 0 && Loading && (
-              <tr style={{ borderCollapse: "collapse" }}>
-                <td
-                  style={{
-                    textAlign: "center",
-                    verticalAlign: "middle",
-                  }}
-                  colspan="12"
-                >
-                  <Typography variant="body">No data</Typography>
-                </td>
-              </tr>
-            )}
+              )}
+            </tbody>
+
+            <tbody>
+              {currentItems &&
+                currentItems.length > 0 &&
+                currentItems.map((data, i) => (
+                  <tr key={i}>
+                    <td>
+                      <Typography variant="body">{data.id}</Typography>
+                    </td>
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.jobName}
+                      </p>
+                    </td>
+
+                    <td>
+                      <Typography variant="body">
+                        {moment(data.createdDate).format("DD/MM/YYYY")} -{" "}
+                        {moment(data.dueDate).format("DD/MM/YYYY")}
+                      </Typography>
+                    </td>
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        {data.category == "lnds" ? "Landed" : data.category}
+                        {/* {data.category} */}
+                      </p>
+                    </td>
+                    <td align="center">
+                      {data.lndsCount +
+                        data.commercialsCount +
+                        data.highrisesCount +
+                        data.vacantsCount}
+                    </td>
+
+                    {/* style={{ textAlign: "left", margin: "0px", paddingLeft: "8px" }}  */}
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "center",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {moment(data.reportDate).format("DD/MM/YYYY")}
+
+                        {/* {data.email} */}
+                      </p>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+            <tbody>
+              {data.length === 0 && Loading && (
+                <tr style={{ borderCollapse: "collapse" }}>
+                  <td
+                    style={{
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                    }}
+                    colspan="12"
+                  >
+                    <Typography variant="body">No data</Typography>
+                  </td>
+                </tr>
+              )}
+            </tbody>
           </table>
           <br />
 

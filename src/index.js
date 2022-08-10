@@ -9,12 +9,11 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
-  <div>
-    {/* <AuthProvider initialState={initialState} reducer={reducer}> */}
-    {/* <ToastProvider> */}
-    <p>Asasas</p>
-    {/* <App /> */}
-    {/* </ToastProvider> */}
-    {/* </AuthProvider> */}
-  </div>
+  <React.StrictMode>
+    <AuthProvider initialState={initialState} reducer={reducer}>
+      <ToastProvider>
+        <App />
+      </ToastProvider>
+    </AuthProvider>
+  </React.StrictMode>
 );

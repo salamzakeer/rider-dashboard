@@ -331,7 +331,6 @@ function Dashboard() {
   //end-upload file
   const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
 
-  console.log(AdminId, "AdminId");
   const dialogOpen = () => {
     setResponse(true);
     setTimeout(() => {
@@ -339,15 +338,10 @@ function Dashboard() {
     }, 6000);
   };
   let handleSubmit = (event) => {
-    console.log("======================");
     event.preventDefault();
-    console.log("form submit", optionSelectedOr);
     if (optionSelectedOr !== "" && optionSelectedOr !== "Type") {
       setDisabled(true);
-      console.log("form submit2", optionSelectedOr);
-
       event.preventDefault();
-
       var array = [];
       optionSelected.map((item) => array.push(item.value));
       data.append("data", file);
@@ -372,10 +366,6 @@ function Dashboard() {
         .then((res) => {
           // var id = res.id;
           // setProgress("");
-          console.log("res.data");
-          console.log(res);
-
-          console.log(res);
           addToast(
             res.data.message.includes("Jobname already exist")
               ? res.data.message
@@ -394,7 +384,6 @@ function Dashboard() {
           dialogOpen();
         })
         .catch((error) => {
-          console.log(error);
           addToast("please select correct file", {
             appearance: "error",
             autoDismiss: "true",

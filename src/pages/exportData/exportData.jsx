@@ -47,7 +47,7 @@ const useStyles = makeStyles(
       subDiv: {
         display: "flex",
         justifyContent: "space-between",
-        maxWidth: "750px",
+        maxWidth: "830px",
         [theme.breakpoints.down("md")]: {
           // backgroundColor: "green",
           flexDirection: "column",
@@ -582,18 +582,20 @@ function Dashboard() {
 
   useEffect(() => {
     setDisabled(true);
-    axios
-      .get(`/jobname/${Option}/${AdminId}`)
-      .then((res) => {
-        setDisabled(false);
-        // console.log(res.data, 'data')
-        setCategory(res.data);
-      })
-      .catch((err) => {
-        setDisabled(false);
-        setCategory([]);
-        // console.log(err, 'error')
-      });
+    if (Option) {
+      axios
+        .get(`/jobname/${Option}/${AdminId}`)
+        .then((res) => {
+          setDisabled(false);
+          // console.log(res.data, 'data')
+          setCategory(res.data);
+        })
+        .catch((err) => {
+          setDisabled(false);
+          setCategory([]);
+          // console.log(err, 'error')
+        });
+    }
   }, [Option, AdminId]);
   //   useEffect(() => {
   //     // console.log(axios.defaults.baseURL)

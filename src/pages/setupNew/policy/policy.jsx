@@ -2,7 +2,6 @@ import Layout from "../../../components/layout/Navbar";
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
 import React, { useState } from "react";
-import Input from "../../../components/input/input";
 import LoadButton from "../../../components/buttons/loaderButton";
 import SetupLayout from "./layoutInput";
 const useStyles = makeStyles(
@@ -76,7 +75,7 @@ function Dashboard() {
     });
   };
   const handlToggleChange = (e) => {
-    const { name, value, checked } = e.target;
+    const { name, checked } = e.target;
     setValues({
       ...values,
       [name]: !checked,

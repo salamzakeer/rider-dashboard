@@ -6,8 +6,6 @@ import AddRider from "../../../components/Modal/AddRiderPopup";
 import ConformDialogBox from "../../../components/Modal/dialogBox";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import ProfilePic from "../../../assets/user.png";
-import DeleteBtn from "../../../assets/delete.png";
 import Layout from "../../../components/layout/Navbar";
 import "./rider.css";
 import Box from "@mui/material/Box";
@@ -110,7 +108,6 @@ function Newrider() {
           setLoading(true);
         })
         .catch((error) => {
-          console.log(error);
           setLoading(true);
         });
     }
@@ -119,29 +116,18 @@ function Newrider() {
   useEffect(() => {
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(data.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(data.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, data]);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % data.length;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    );
+
     setItemOffset(newOffset);
   };
 
   const deleteHandle = (e) => {
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-
-    // console.log(config, bodyParameters)
-
-    // var headers = new Headers();
-    // headers.append("Authorization", "Bearer " + token)
-    // console.log(headers, "header")
     axios
       .delete(`/riderdata/${e.id}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -149,19 +135,14 @@ function Newrider() {
       .then((res) => {
         // setData(res.data)
         window.location.href = "/assigned-data";
-        console.log("working", res.data);
         // setLoading(true)
         // window.reload()
       })
       .catch((error) => {
-        console.log(error);
         setLoading(true);
       });
-    console.log(e);
   };
   const Deleting = (e) => {
-    let id = e.id;
-    console.log(e, "idddd");
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
@@ -198,161 +179,169 @@ function Newrider() {
               borderSpacing: 0,
             }}
           >
-            <tr>
-              <th>
-                <Typography variant="body">#</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Image</Typography>{" "}
-              </th>
+            <tbody>
+              <tr>
+                <th>
+                  <Typography variant="body">#</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Image</Typography>{" "}
+                </th>
 
-              <th>
-                <Typography variant="body">Fullname</Typography>{" "}
-              </th>
-              <th>
-                {" "}
-                <Typography variant="body">Category</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Jobname</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">From</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">To</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Total</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Complete</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Action</Typography>{" "}
-              </th>
-            </tr>
-            {!Loading && (
-              <tr
-                style={{
-                  borderCollapse: "collapse",
-                  padding: "0px !important",
-                }}
-              >
-                <td
+                <th>
+                  <Typography variant="body">Fullname</Typography>{" "}
+                </th>
+                <th>
+                  {" "}
+                  <Typography variant="body">Category</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Jobname</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">From</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">To</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Total</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Complete</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Action</Typography>{" "}
+                </th>
+              </tr>
+            </tbody>
+            <tbody>
+              {!Loading && (
+                <tr
                   style={{
-                    textAlign: "center",
-                    verticalAlign: "middle",
+                    borderCollapse: "collapse",
                     padding: "0px !important",
                   }}
-                  colspan="12"
                 >
-                  <Box sx={{ width: "100%" }}>
-                    <LinearProgress />
-                  </Box>
-                </td>
-              </tr>
-            )}
-
-            {currentItems &&
-              currentItems.length > 0 &&
-              currentItems.map((data, i) => (
-                <tr>
-                  <td>
-                    <Typography variant="body">{i + 1}</Typography>
-                  </td>
-                  <td align="center">
-                    <Avatar
-                      sx={{
-                        width: "40px",
-                        height: "40px",
-                        textTransform: "capitalize",
-                        textAlign: "center",
-                        margin: "0 auto",
-                      }}
-                      src={axios.defaults.baseURL + "/images/" + data.image}
-                      alt="user"
-                    >
-                      {data.fullName[0]}
-                    </Avatar>
-                  </td>
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.fullName}
-                    </p>
-                  </td>
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.category}
-                    </p>
-                  </td>
-
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.jobName}
-                    </p>
-                  </td>
-                  <td>
-                    <Typography variant="body">{data.dataFrom}</Typography>
-                  </td>
-
-                  <td>
-                    <Typography variant="body">{data.dataTo}</Typography>
-                  </td>
-
-                  <td>
-                    <Typography variant="body">
-                      {data.dataTo - data.dataFrom + 1}
-                    </Typography>
-                  </td>
-                  <td>
-                    <Typography variant="body">{data.progress}</Typography>
-                  </td>
-
-                  <td onClick={() => Deleting(data)}>
-                    {/* <img src={DeleteBtn} className="delete" alt="" /> */}
-                    <DeleteIcon
-                      sx={{
-                        color: "red",
-                        opacity: "0.8",
-                        ": &hover": { opacity: "1" },
-                        cursor: "pointer",
-                      }}
-                    />
+                  <td
+                    style={{
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                      padding: "0px !important",
+                    }}
+                    colSpan="12"
+                  >
+                    <Box sx={{ width: "100%" }}>
+                      <LinearProgress />
+                    </Box>
                   </td>
                 </tr>
-              ))}
-            {data.length === 0 && Loading && (
-              <tr style={{ borderCollapse: "collapse" }}>
-                <td
-                  style={{
-                    textAlign: "center",
-                    verticalAlign: "middle",
-                  }}
-                  colspan="12"
-                >
-                  <Typography variant="body">No data</Typography>
-                </td>
-              </tr>
-            )}
+              )}
+            </tbody>
+
+            <tbody>
+              {currentItems &&
+                currentItems.length > 0 &&
+                currentItems.map((data, i) => (
+                  <tr key={i}>
+                    <td>
+                      <Typography variant="body">{i + 1}</Typography>
+                    </td>
+                    <td align="center">
+                      <Avatar
+                        sx={{
+                          width: "40px",
+                          height: "40px",
+                          textTransform: "capitalize",
+                          textAlign: "center",
+                          margin: "0 auto",
+                        }}
+                        src={axios.defaults.baseURL + "/images/" + data.image}
+                        alt="user"
+                      >
+                        {data.fullName[0]}
+                      </Avatar>
+                    </td>
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.fullName}
+                      </p>
+                    </td>
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.category}
+                      </p>
+                    </td>
+
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.jobName}
+                      </p>
+                    </td>
+                    <td>
+                      <Typography variant="body">{data.dataFrom}</Typography>
+                    </td>
+
+                    <td>
+                      <Typography variant="body">{data.dataTo}</Typography>
+                    </td>
+
+                    <td>
+                      <Typography variant="body">
+                        {data.dataTo - data.dataFrom + 1}
+                      </Typography>
+                    </td>
+                    <td>
+                      <Typography variant="body">{data.progress}</Typography>
+                    </td>
+
+                    <td onClick={() => Deleting(data)}>
+                      {/* <img src={DeleteBtn} className="delete" alt="" /> */}
+                      <DeleteIcon
+                        sx={{
+                          color: "red",
+                          opacity: "0.8",
+                          ": &hover": { opacity: "1" },
+                          cursor: "pointer",
+                        }}
+                      />
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+            <tbody>
+              {data.length === 0 && Loading && (
+                <tr style={{ borderCollapse: "collapse" }}>
+                  <td
+                    style={{
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                    }}
+                    colSpan="12"
+                  >
+                    <Typography variant="body">No data</Typography>
+                  </td>
+                </tr>
+              )}
+            </tbody>
           </table>
           <br />
           <ReactPaginate
