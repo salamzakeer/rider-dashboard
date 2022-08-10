@@ -473,21 +473,21 @@ function Dashboard(Details) {
             // key3="Payment"
             value3={values.AgentName || ""}
             // onChange3={handleInputChange}
-            name3="Agent's Name"
+            name3="AgentName"
             key3="Agent's Name"
-            id3="Agent's Name"
+            id3="AgentName"
             // selecte3
           />
           <TableTrRow
             key1="Owner's Mobile Number"
-            value1={values.Owners_mobile_number || ""}
-            name1="Owners_mobile_number"
-            id1="Owners_mobile_number"
+            value1={values.OwnersMobNo || ""}
+            name1="OwnersMobNo"
+            id1="OwnersMobNo"
             key2="Owner's Email Number"
-            value2={values.Owners_email || ""}
+            value2={values.OwnerEmail || ""}
             // onChange2={handleInputChange}
-            name2="Owners_email"
-            id2="Owners_email"
+            name2="OwnerEmail"
+            id2="OwnerEmail"
             key3="State"
             value3={values.State || ""}
             onChange3={handleInputChange}
@@ -498,13 +498,13 @@ function Dashboard(Details) {
           <TableTrRow
             key1="1st Visit-Date of Bill & Notice/LOD was served"
             value1={values.FirstVisitDate || ""}
-            name1="1st visit-Date of"
-            id1="1st visit-Date of"
+            name1="FirstVisitDate"
+            id1="FirstVisitDate"
             key2="Reason customer refuse to pay IWK billr"
-            value2={values.customer_refuse || ""}
+            value2={values.ReasonCustomerRefuseToPayIWKbill || ""}
             // onChange2={handleInputChange}
-            name2="customer_refuse"
-            id2="customer_refuse"
+            name2="ReasonCustomerRefuseToPayIWKbill"
+            id2="ReasonCustomerRefuseToPayIWKbill"
             // key3="Payment"
             // value3={values.Payment || ""}
             // // onChange3={handleInputChange}
@@ -514,169 +514,169 @@ function Dashboard(Details) {
           />
           <TableTrRow
             key1="Customer's Telephone No"
-            value1={values.customerNo || ""}
-            name1="Customer's Telephone No"
-            id1="Customer's Telephone No"
+            value1={values.CustomerTelephoneNo || ""}
+            name1="CustomerTelephoneNo"
+            id1="CustomerTelephoneNo"
             key2="Customer's Mobile No"
-            value2={values.customer_telephone || ""}
+            value2={values.CustomerMobileNo || ""}
             // onChange2={handleInputChange}
-            name2="customer_telephone"
-            id2="customer_telephone"
+            name2="CustomerMobileNo"
+            id2="CustomerMobileNo"
             key3="Customer's Email No"
-            value3={values.Payment || ""}
+            value3={values.CustomerEmail || ""}
             // onChange3={handleInputChange}
-            name3="Payment"
-            id3="Payment"
+            name3="CustomerEmail"
+            id3="CustomerEmail"
           />
           <TableTrRow
             key1="Owner Telephone No"
-            value1={values.telno || ""}
-            name1="Owner Telephone No"
-            id1="Owner Telephone No"
+            value1={values.OwnertelNo || ""}
+            name1="OwnertelNo"
+            id1="OwnertelNo"
             key2="Owner Mobile No"
-            value2={values.owner_telephone || ""}
+            value2={values.OwnerMobNo || ""}
             // onChange2={handleInputChange}
-            name2="customer_telephone"
-            id2="customer_telephone"
+            name2="OwnerMobNo"
+            id2="OwnerMobNo"
             key3="Tenant Telephone No"
-            value3={values.tenant_mob || ""}
+            value3={values.TenantTelNo || ""}
             // onChange3={handleInputChange}
-            name3="tenant_mob"
-            id3="tenant_mob"
+            name3="TenantTelNo"
+            id3="TenantTelNo"
           />
           <TableTrRow
             key1="Tenant Mobile No"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
+            value1={values.TenantMobNo || ""}
+            name1="TenantMobNo"
+            id1="TenantMobNo"
             key2="Ebill Name"
-            value2={values.ebill_name || ""}
+            value2={values.EbillName || ""}
             // onChange2={handleInputChange}
-            name2="ebill_name"
-            id2="ebill_name"
+            name2="EbillName"
+            id2="EbillName"
             key3="Ebill Mobile No"
-            value3={values.EmobileNo || ""}
+            value3={values.EbillMobileNo || ""}
             // onChange3={handleInputChange}
-            name3="EmobileNo"
-            id3="EmobileNo"
+            name3="EbillMobileNo"
+            id3="EbillMobileNo"
           />
           <TableTrRow
             key1="Customer Contack Detail"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
+            value1={values.CustomerContactDetail || ""}
+            name1="CustomerContactDetail"
+            id1="CustomerContactDetail"
             key2="Ebill Land Line No"
-            value2={values.ebill_land_no || ""}
+            value2={values.EbillLandlineNo || ""}
             // onChange2={handleInputChange}
-            name2="ebill_land_no"
-            id2="ebill_land_no"
+            name2="EbillLandlineNo"
+            id2="EbillLandlineNo"
             key3="Ebill Email"
-            value3={values.Emobill_email || ""}
+            value3={values.EbillEmail || ""}
             // onChange3={handleInputChange}
-            name3="Emobill_email"
-            id3="Emobill_email"
+            name3="EbillEmail"
+            id3="EbillEmail"
           />
           <TableTrRow
             key1="Ebill IC Number"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
+            value1={values.EbillIcNumber || ""}
+            name1="EbillIcNumber"
+            id1="EbillIcNumber"
             key2="Balance As Per Copy"
-            value2={values.ebill_land_no || ""}
+            value2={values.BalanceAsPerCopyBill || ""}
             // onChange2={handleInputChange}
-            name2="ebill_land_no"
-            id2="ebill_land_no"
+            name2="BalanceAsPerCopyBill"
+            id2="BalanceAsPerCopyBill"
             key3="Diff Between Bal As Per Copy Bill & Bal"
-            value3={values.Emobill_email || ""}
+            value3={values.DiffBetweenBalAsPerCopyBill || ""}
             // onChange3={handleInputChange}
-            name3="Emobill_email"
-            id3="Emobill_email"
+            name3="DiffBetweenBalAsPerCopyBill"
+            id3="DiffBetweenBalAsPerCopyBill"
           />
           <TableTrRow
             key1="Occupier Nationality"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
+            value1={values.OccupierNationality || ""}
+            name1="OccupierNationality"
+            id1="OccupierNationality"
             key2="Number Of Vistation"
-            value2={values.ebill_land_no || ""}
+            value2={values.numberOfVisit || ""}
             // onChange2={handleInputChange}
-            name2="ebill_land_no"
-            id2="ebill_land_no"
-            key3="Occupier Nationality"
-            value3={values.Emobill_email || ""}
+            name2="numberOfVisit"
+            id2="numberOfVisit"
+            key3="Number Of Followup Calls"
+            value3={values.Numberoffollowupcalls || ""}
             // onChange3={handleInputChange}
-            name3="Emobill_email"
-            id3="Emobill_email"
+            name3="Numberoffollowupcalls"
+            id3="Numberoffollowupcalls"
           />
           <TableTrRow
             key1="Tenant's Name"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
+            value1={values.TenantName || ""}
+            name1="TenantName"
+            id1="TenantName"
             key2="Tenant's Tel No"
-            value2={values.ebill_land_no || ""}
+            value2={values.TenantsTelNo || ""}
             // onChange2={handleInputChange}
-            name2="ebill_land_no"
-            id2="ebill_land_no"
+            name2="TenantsTelNo"
+            id2="TenantsTelNo"
             key3="Tenant's Mobile No"
-            value3={values.Emobill_email || ""}
+            value3={values.TenantsMobNo || ""}
             // onChange3={handleInputChange}
-            name3="Emobill_email"
-            id3="Emobill_email"
+            name3="TenantsMobNo"
+            id3="TenantsMobNo"
           />
           <TableTrRow
             key1="Tenant's Email"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
+            value1={values.TenantEmail || ""}
+            name1="TenantEmail"
+            id1="TenantEmail"
             key2="Property Status"
-            value2={values.ebill_land_no || ""}
+            value2={values.PropertyStatus || ""}
             // onChange2={handleInputChange}
-            name2="ebill_land_no"
-            id2="ebill_land_no"
+            name2="PropertyStatus"
+            id2="PropertyStatus"
             key3="Building"
-            value3={values.Emobill_email || ""}
+            value3={values.Building || ""}
             // onChange3={handleInputChange}
-            name3="Emobill_email"
-            id3="Emobill_email"
+            name3="Building"
+            id3="Building"
           />
           <TableTrRow
             key1="Building ID"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
+            value1={values.BuildingID || ""}
+            name1="BuildingID"
+            id1="BuildingID"
             key2="Road Name"
-            value2={values.ebill_land_no || ""}
+            value2={values.Roadname || ""}
             // onChange2={handleInputChange}
-            name2="ebill_land_no"
-            id2="ebill_land_no"
+            name2="Roadname"
+            id2="Roadname"
             key3="Taman"
-            value3={values.Emobill_email || ""}
+            value3={values.Taman || ""}
             // onChange3={handleInputChange}
-            name3="Emobill_email"
-            id3="Emobill_email"
+            name3="Taman"
+            id3="Taman"
           />
           <TableTrRow
             key1="Post Code"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
+            value1={values.PostCode || ""}
+            name1="PostCode"
+            id1="PostCode"
             key2="Suburb"
-            value2={values.ebill_land_no || ""}
+            value2={values.Suburb || ""}
             // onChange2={handleInputChange}
-            name2="ebill_land_no"
-            id2="ebill_land_no"
+            name2="Suburb"
+            id2="Suburb"
             key3="Current Balance"
-            value3={values.Emobill_email || ""}
+            value3={values.CurrentBalance || ""}
             // onChange3={handleInputChange}
-            name3="Emobill_email"
-            id3="Emobill_email"
+            name3="CurrentBalance"
+            id3="CurrentBalance"
           />
           <TableTrRow
             key1="Total Payable Amount"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
+            value1={values.TotalPayableAmount || ""}
+            name1="TotalPayableAmount"
+            id1="TotalPayableAmount"
             // key2="Suburb"
             // value2={values.ebill_land_no || ""}
             // // onChange2={handleInputChange}
@@ -688,22 +688,7 @@ function Dashboard(Details) {
             // name3="Emobill_email"
             // id3="Emobill_email"
           />
-          <TableTrRow
-            key1="Post Code"
-            value1={values.mobMo || ""}
-            name1="mobMo"
-            id1="mobMo"
-            key2="Suburb"
-            value2={values.ebill_land_no || ""}
-            // onChange2={handleInputChange}
-            name2="ebill_land_no"
-            id2="ebill_land_no"
-            key3="Current Balance"
-            value3={values.Emobill_email || ""}
-            // onChange3={handleInputChange}
-            name3="Emobill_email"
-            id3="Emobill_email"
-          />
+
           {/* update new feild */}
           <TableTrRow
             key1="LA_New IC"
