@@ -44,17 +44,6 @@ function App() {
           : AuthenticationRoutes.map((route, index) =>
               publicRoute(route, index)
             )}
-        {/* <Route path="/" index element={<Login />}></Route> */}
-
-        {/* <Route path="/dashboard" element={<Dashboard />}></Route> 
-      <Route path="/rider" element={<Rider />}></Route>
-      <Route path="/telecaller" element={<Telecaller />}></Route>
-      <Route path="/setup" element={<Setup />}></Route>
-      <Route path="/setup/securitypolicy" element={<SecuirtyP />}></Route>
-      <Route path="/setup/datapolicy" element={<DataP />}></Route>
-      <Route path="/setup/newpolicy" element={<NewP />}></Route>
-      <Route path="/userprofile" element={<UserProfile />}></Route>
-       */}
       </Routes>
     </BrowserRouter>
   );

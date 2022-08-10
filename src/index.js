@@ -10,10 +10,11 @@ const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <AuthProvider initialState={initialState} reducer={reducer}>
-      <ToastProvider>
-        <App />
-      </ToastProvider>
-    </AuthProvider>
+    {/* <AuthProvider initialState={initialState} reducer={reducer}> */}
+      {/* <ToastProvider> */}
+        <p>Asasas</p>
+        {/* <App /> */}
+      {/* </ToastProvider> */}
+    {/* </AuthProvider> */}
   </React.StrictMode>
 );
