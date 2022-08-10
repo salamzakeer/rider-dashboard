@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Layout from "./Navbar";
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
-import AdminCard from "../customCore/smallCard";
 import { CircularProgress } from "@mui/material";
-import FilterListIcon from "@mui/icons-material/FilterList";
 import { Qrcode } from "../../api/qrcode";
 import axios from "../../axios";
 import BasicSelect2 from "../customCore/jobNameDroupDown";
@@ -269,7 +266,7 @@ function QRCodeImages() {
           ) : (
             <div>
               {/* <FilterListIcon /> */}
-              Dowload
+              Download
             </div>
           )}
         </button>

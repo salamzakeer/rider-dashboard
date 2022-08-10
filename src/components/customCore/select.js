@@ -18,6 +18,7 @@ const useStyles = makeStyles(
         "&:hover > .dropbtn1": {
           borderBottom: "none !important",
           borderRadius: "24px 24px  0px 0px  !important",
+           
         },
         "&:hover > button .img-down": {
           transform: "rotate(0.5turn)",

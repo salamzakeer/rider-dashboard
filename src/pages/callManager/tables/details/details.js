@@ -317,7 +317,6 @@ function Dashboard(Details) {
             id2="Owner 2 NRIC"
             key2="Owner 2 NRIC"
             // key3="Status"
-            value3={values.owners_name || ""}
             // onChange3={handleInputChange}
             key3="Arrears Date"
             value3={values.arrearsDate || ""}

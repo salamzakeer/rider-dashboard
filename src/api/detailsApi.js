@@ -411,11 +411,6 @@ export const occupiertype = [
 ];
 export var categoryType = [
   {
-    id: "Select",
-    name: "Select",
-    value: "Select",
-  },
-  {
     id: "lnds",
     name: "Landed",
     value: "lnds",
