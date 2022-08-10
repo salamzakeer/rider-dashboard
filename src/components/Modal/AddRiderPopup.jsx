@@ -156,8 +156,8 @@ function AddRiderPopup({ closeModel, edit, editId }) {
     <div className="card-background">
       <div className="Addrider-card">
         <div className="card-head" style={{ display: "block" }}>
-          {/* <i class="fa fa-times" aria-hidden="true"></i> */}
-          <div class="icon-div" onClick={() => closeModel(false)}>
+          {/* <i className="fa fa-times" aria-hidden="true"></i> */}
+          <div className="icon-div" onClick={() => closeModel(false)}>
             <CloseIcon style={{ color: "#501ABF" }} />
           </div>
           <h1>Add New Rider</h1>
@@ -195,7 +195,7 @@ function AddRiderPopup({ closeModel, edit, editId }) {
           <div className={"select1"}>
             {/* <label className={classes.label}>{"Type"}</label> */}
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
               name=""
               onChange={handlePositionChanges}
@@ -227,7 +227,7 @@ function AddRiderPopup({ closeModel, edit, editId }) {
           </div>
           <div className={"select1"}>
             <select
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
               name=""
               onChange={handleStatusChanges}

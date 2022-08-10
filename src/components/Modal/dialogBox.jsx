@@ -88,8 +88,8 @@ function AddRiderPopup({ closeModel }) {
     <div className="card-background">
       <div className="Addrider-card">
         <div className="card-head" style={{ display: "block" }}>
-          {/* <i class="fa fa-times" aria-hidden="true"></i> */}
-          <div class="icon-div" onClick={() => closeModel(false)}>
+          {/* <i className="fa fa-times" aria-hidden="true"></i> */}
+          <div className="icon-div" onClick={() => closeModel(false)}>
             <CloseIcon style={{ color: "#501ABF" }} />
           </div>
           <h1>Add New Rider</h1>

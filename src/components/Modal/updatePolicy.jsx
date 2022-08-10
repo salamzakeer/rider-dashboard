@@ -25,7 +25,7 @@ function UpdatePolicy({ closeModel }) {
 
         <div className="card-head">
           <h1>Update policy</h1>
-          <div class="icon-div" onClick={() => closeModel(false)}  >
+          <div className="icon-div" onClick={() => closeModel(false)}  >
             <CloseIcon style={{ color: "#501ABF" }} />
           </div>
         </div>

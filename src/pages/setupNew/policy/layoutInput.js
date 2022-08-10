@@ -154,14 +154,14 @@ function SearchInput(props) {
       )}
       {toggle && (
         <div className={classes.MainToggle}>
-          <label class="switch">
+          <label className="switch">
             <input
               type="checkbox"
               onChange={onChange}
               checked={!value}
               name={name}
             />
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
         </div>
       )}

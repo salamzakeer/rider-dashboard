@@ -810,7 +810,7 @@ function Dashboard() {
             width="250"
           />
           {/* <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             name=""
             onChange={handleTypeChanges}
@@ -841,7 +841,7 @@ function Dashboard() {
             // width="250"
           />
           {/* <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             onChange={handleCategoryChange}
           >

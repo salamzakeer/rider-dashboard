@@ -193,7 +193,7 @@ function Dashboard() {
             <div>
               <label className={classes.label}>Category</label>
               <select
-                class="form-select"
+                className="form-select"
                 aria-label="Default select example"
                 name=""
                 onChange={handleInputChange}
@@ -216,7 +216,7 @@ function Dashboard() {
 
               <label className={classes.label}>Job Name</label>
               <select
-                class="form-select"
+                className="form-select"
                 aria-label="Default select example"
                 onChange={handleCategoryChange}
               >
@@ -245,7 +245,7 @@ function Dashboard() {
               <label className={classes.label}>Staff Name</label>
 
               <select
-                class="form-select"
+                className="form-select"
                 aria-label="Default select example"
                 onChange={handleStaffChange}
               >
@@ -267,7 +267,7 @@ function Dashboard() {
             <div>
               <label className={classes.label}> Type Of Task Assign</label>
 
-              <select class="form-select" aria-label="Default select example">
+              <select className="form-select" aria-label="Default select example">
                 <option selected>Select </option>
                 <option>New</option>
                 <option>Replace</option>

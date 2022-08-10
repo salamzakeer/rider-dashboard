@@ -353,7 +353,7 @@ function CallManager() {
             width="250"
           />
           {/* <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             name=""
             onChange={handleInputChanges}
@@ -381,7 +381,7 @@ function CallManager() {
             // width="250"
           />
           {/* <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             onChange={handleCategoryChange}
           >
@@ -403,7 +403,7 @@ function CallManager() {
             // width="250"
           />
           {/* <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             name=""
             onChange={handleUpdateChanges}
@@ -657,7 +657,7 @@ function CallManager() {
                   color: "#501ABF",
                   border: "1px solid #501ABF",
                 }}
-                class="form-select"
+                className="form-select"
                 aria-label="Default select example"
                 name=""
                 onChange={handleInputChange}
@@ -677,7 +677,7 @@ function CallManager() {
               </select>
             </div>
             {/* {JSON.stringify(SelectUserObject)} */}
-            <div class="tab-content" id="pills-tabContent">
+            <div className="tab-content" id="pills-tabContent">
               {SelectInput === "Details" && (
                 <DetailView
                   SelectUserObject={SelectUserObject}

@@ -434,7 +434,7 @@ function Dashboard() {
             <div className={classes.formMainDiv}>
               <label className={classes.label}>{"Type"}</label>
               <select
-                class="form-select"
+                className="form-select"
                 aria-label="Default select example"
                 name=""
                 onChange={handleInputChange}

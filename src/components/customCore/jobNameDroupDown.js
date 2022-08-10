@@ -83,11 +83,11 @@ function BasicSelect2(props) {
   return (
     <>
       <div
-        class={`dropdown1 ${classes.dropbtn2}`}
+        className={`dropdown1 ${classes.dropbtn2}`}
         onClick={() => setOpen(!Open)}
       >
         {/* {JSON.stringify(options)} */}
-        <button class={`dropbtn1 ${classes.dropbtn1}`}>
+        <button className={`dropbtn1 ${classes.dropbtn1}`}>
           {options && options.length > 0
             ? options[dropdown] &&
               (options[dropdown].jobName.length < 16
@@ -98,9 +98,9 @@ function BasicSelect2(props) {
                   ))
             : //
               "Select"}
-          <img src={DownArrow} class="img-down" />
+          <img src={DownArrow} className="img-down" />
         </button>
-        <div class={`dropdown-content1`}>
+        <div className={`dropdown-content1`}>
           {/* <a
             style={options ? {display:"none"}:{display:"block"}}
           >

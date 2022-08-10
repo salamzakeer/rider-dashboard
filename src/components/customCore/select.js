@@ -18,7 +18,7 @@ const useStyles = makeStyles(
         "&:hover > .dropbtn1": {
           borderBottom: "none !important",
           borderRadius: "24px 24px  0px 0px  !important",
-           
+
         },
         "&:hover > button .img-down": {
           transform: "rotate(0.5turn)",
@@ -68,20 +68,20 @@ function BasicSelect(props) {
   return (
     <>
       <div
-        class={`dropdown1 ${classes.dropbtn2}`}
+        className={`dropdown1 ${classes.dropbtn2}`}
         onClick={() => setOpen(!Open)}
       >
         {/* {JSON.stringify(options)} */}
-        <button class={`dropbtn1 ${classes.dropbtn1}`}>
+        <button className={`dropbtn1 ${classes.dropbtn1}`}>
           {options.length > 0 && options[dropdown].name.length < 16
             ? options[dropdown].name
             : options[dropdown].name.replace(
                 /^(.{19}[^\s]*).*/,
                 "$1" + "..."
               ) || "Dropdown"}
-          <img src={DownArrow} class="img-down" />
+          <img src={DownArrow} className="img-down" />
         </button>
-        <div class={`dropdown-content1 ${classes.dropdownContent1} `}>
+        <div className={`dropdown-content1 ${classes.dropdownContent1} `}>
           {options &&
             options.length > 0 &&
             options.map((value, index) => (

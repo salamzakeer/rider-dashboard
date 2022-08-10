@@ -218,7 +218,7 @@ function Dashboard() {
               <label className={classes.label}>{"Staff Name"}</label>
 
               <select
-                class="form-select"
+                className="form-select"
                 aria-label="Default select example"
                 onChange={handleStaffChange}
               >
@@ -235,7 +235,7 @@ function Dashboard() {
               <label className={classes.label}>{"Type Of Leave"}</label>
 
               <select
-                class="form-select"
+                className="form-select"
                 aria-label="Default select example"
                 name=""
                 onChange={handleLeaveTypeChange}

@@ -200,7 +200,7 @@ function QRCodeImages() {
             width="250"
           />
           {/* <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             name=""
             onChange={handleInputChanges}
@@ -232,7 +232,7 @@ function QRCodeImages() {
             // width="250"
           />
           {/* <select
-            class="form-select"
+            className="form-select"
             aria-label="Default select example"
             onChange={handleCategoryChange}
           >

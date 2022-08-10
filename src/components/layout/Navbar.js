@@ -117,7 +117,7 @@ class Layout extends React.Component {
         <div id="main">
           <div
             style={{ width: "100%", backgroundColor: "#fff", height: "60px" }}
-            class="main-content-navbar"
+            className="main-content-navbar"
           ></div>
           {/* <div className="header">
             <h3
