@@ -5,6 +5,7 @@ import { CircularProgress } from "@mui/material";
 import { Qrcode } from "../../api/qrcode";
 import axios from "../../axios";
 import BasicSelect2 from "../customCore/jobNameDroupDown";
+import BasicSelect3 from "../customCore/qrCodeSelect";
 import BasicSelect from "../customCore/select";
 import { categoryType } from "../../api/detailsApi";
 
@@ -112,12 +113,10 @@ const useStyles = makeStyles(
         },
       },
       select1: {
-        width: "300px",
         margin: "12px",
       },
 
       select3: {
-        width: "200px",
         margin: "12px",
         [theme.breakpoints.down("md")]: {
           width: "300px",
@@ -247,7 +246,7 @@ function QRCodeImages() {
           </select> */}
         </div>
         <div className={classes.select3}>
-          <BasicSelect
+          <BasicSelect3
             options={Qrcode}
             value
             onSelectValue={onSelectValue}
@@ -259,6 +258,7 @@ function QRCodeImages() {
           onClick={handleFiltering}
           className={classes.filter}
           disabled={Disabled}
+          style={{ padding: "10px" }}
         >
           {" "}
           {Disabled ? (
