@@ -279,9 +279,10 @@ function Newrider() {
                           textAlign: "left",
                           margin: "0px",
                           paddingLeft: "16px",
+                          textTransform: "capitalize",
                         }}
                       >
-                        {data.category}
+                        {data.category == "lnds" ? "Landed" : data.category}
                       </p>
                     </td>
 

@@ -406,7 +406,7 @@ function Dashboard(Details) {
           />
           <TableTrRow
             key1="Owner / Tenant"
-            value1={values.TenantName}
+            value1={values.TenantName || ""}
             onChange1={handleInputChange}
             name1="TenantName"
             id1="TenantName"
