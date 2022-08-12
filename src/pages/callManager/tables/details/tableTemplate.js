@@ -51,8 +51,8 @@ function Dashboard(props) {
   // console.log(key1, key2, key3);
 
   return (
-    <>
-      <tr>
+    <tbody>
+      <tr key={name1 + name2 + name3}>
         <TableTemplate2
           keys={key1}
           value={value1}
@@ -81,7 +81,7 @@ function Dashboard(props) {
           disabled={disabled3}
         />
       </tr>
-    </>
+    </tbody>
   );
 }
 export default Dashboard;

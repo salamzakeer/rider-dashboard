@@ -109,12 +109,10 @@ function Dashboard() {
     axios
       .get("/rider")
       .then((res) => {
-        // console.log(res.data, 'data=============')
         setRiderData(res.data);
         setDisabled(false);
       })
       .catch((err) => {
-        console.log(err, "error");
         setDisabled(false);
       });
   }, []);
@@ -123,12 +121,10 @@ function Dashboard() {
 
   //end-upload file
 
-  console.log(Option, "Option");
   let handleSubmit = (event) => {
     setDisabled(true);
     event.preventDefault();
     // alert(JSON.stringify(formValues));
-    // console.log(Option, Form, To);
     const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
 
     const jsonData = {
@@ -139,7 +135,6 @@ function Dashboard() {
       adminId: AdminId,
       // "category": Option
     };
-    console.log(jsonData, "jsonData=====");
     // var array = [];
     // optionSelected.map((item) => {
 
@@ -187,9 +182,6 @@ function Dashboard() {
     // console.log(moment(date).format("YYYY-MM-DD"))
     setUserSelectCategory(value);
     setUserSelectCategoryCDate(moment(date).format("YYYY-MM-DD"));
-    console.log(
-      Category.find((item) => item.id == e.target.value).createdDate || ""
-    );
   };
 
   const handleInputChange = (e) => {
@@ -221,12 +213,15 @@ function Dashboard() {
                 className="form-select"
                 aria-label="Default select example"
                 onChange={handleStaffChange}
+                defaultValue="Select"
               >
-                <option selected>Select</option>
+                <option value={"Select"} selected>
+                  Select
+                </option>
                 {RiderData &&
                   RiderData.length > 0 &&
-                  RiderData.map((item) => (
-                    <option name={item.id} value={item.id}>
+                  RiderData.map((item, i) => (
+                    <option key={i + item.id} name={item.id} value={item.id}>
                       {item.fullName}
                     </option>
                   ))}
@@ -239,12 +234,17 @@ function Dashboard() {
                 aria-label="Default select example"
                 name=""
                 onChange={handleLeaveTypeChange}
+                defaultValue="Select"
               >
                 {/* leaveType */}
+                <option value={"Select"} selected>
+                  Select
+                </option>
+
                 {leaveType &&
                   leaveType.length > 0 &&
-                  leaveType.map((item) => (
-                    <option name={item.id} value={item.id}>
+                  leaveType.map((item, i) => (
+                    <option key={i} name={item.id} value={item.id}>
                       {item.name}
                     </option>
                   ))}

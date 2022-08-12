@@ -48,12 +48,10 @@ function BasicSelect2(props) {
   };
 
   useEffect(() => {
-    // alert(1);
-    console.log(1);
     if (options && options.length > 0) {
       props.onSelectValue(options[dropdown].id);
     }
-  }, [props]);
+  }, [props,dropdown,options]);
 
   const handleKeyDown = (index) => (e) => {
     switch (e.key) {
@@ -67,19 +65,24 @@ function BasicSelect2(props) {
       default:
         break;
     }
+
+
+
+
+    
   };
-  console.log(
-    options && options.length > 0
-      ? options[dropdown] &&
-          (options[dropdown].jobName.length < 16
-            ? options[dropdown].jobName
-            : options[dropdown].jobName.replace(
-                /^(.{19}[^\s]*).*/,
-                "$1" + "..."
-              ))
-      : //
-        "Select"
-  );
+  // console.log(
+  //   options && options.length > 0
+  //     ? options[dropdown] &&
+  //         (options[dropdown].jobName.length < 16
+  //           ? options[dropdown].jobName
+  //           : options[dropdown].jobName.replace(
+  //               /^(.{19}[^\s]*).*/,
+  //               "$1" + "..."
+  //             ))
+  //     : //
+  //       "Select"
+  // );
   return (
     <>
       <div
@@ -98,7 +101,7 @@ function BasicSelect2(props) {
                   ))
             : //
               "Select"}
-          <img src={DownArrow} className="img-down" />
+          <img src={DownArrow} className="img-down" alt="down-arrow" />
         </button>
         <div className={`dropdown-content1`}>
           {/* <a

@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "../../axios";
 const changeOption = (url) => {
-  console.log(url, "url");
   if (url === "lnds") {
     return "lnd";
   } else if (url === "vacants") {
@@ -34,7 +33,7 @@ const download = (e, QRImage) => {
     });
 };
 
-const DisplayImage = ({ image,Option }) => {
+const DisplayImage = ({ image, Option }) => {
   var single = [];
   var x = changeOption(Option);
 

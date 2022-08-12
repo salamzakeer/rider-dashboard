@@ -316,54 +316,34 @@ function CallManager() {
             borderSpacing: 0,
           }}
         >
-          <tr>
-            <th
-              style={{
-                textAlign: "left",
-                borderSpacing: "0 50px",
-                width: "100px",
-              }}
-            >
-              <Typography variant="body">ID</Typography>
-            </th>
-            <th>
-              <span variant="body">Owner </span>
-            </th>
-            <th>
-              <span variant="body">Account Number</span>
-            </th>
-
-            <th>
-              <span variant="body">Address</span>
-            </th>
-            <th>
-              <span variant="body">Image</span>
-            </th>
-          </tr>
-          {!Loading && Disabled && (
-            <tr
-              style={{
-                borderCollapse: "collapse",
-                padding: "0px !important",
-              }}
-            >
-              <td
+          <tbody>
+            <tr>
+              <th
                 style={{
-                  textAlign: "center",
-                  verticalAlign: "middle",
-                  padding: "0px !important",
+                  textAlign: "left",
+                  borderSpacing: "0 50px",
+                  width: "100px",
                 }}
-                colspan="12"
               >
-                <Box sx={{ width: "100%" }}>
-                  <LinearProgress />
-                </Box>
-              </td>
+                <Typography variant="body">ID</Typography>
+              </th>
+              <th>
+                <span variant="body">Owner </span>
+              </th>
+              <th>
+                <span variant="body">Account Number</span>
+              </th>
+
+              <th>
+                <span variant="body">Address</span>
+              </th>
+              <th>
+                <span variant="body">Image</span>
+              </th>
             </tr>
-          )}
-          {currentItems &&
-            currentItems.length === 0 &&
-            !(!Loading && Disabled) && (
+          </tbody>
+          <tbody>
+            {!Loading && Disabled && (
               <tr
                 style={{
                   borderCollapse: "collapse",
@@ -376,56 +356,83 @@ function CallManager() {
                     verticalAlign: "middle",
                     padding: "0px !important",
                   }}
-                  colspan="12"
+                  colSpan="12"
                 >
-                  <Box sx={{ width: "100%" }}>No Data</Box>
+                  <Box sx={{ width: "100%" }}>
+                    <LinearProgress />
+                  </Box>
                 </td>
               </tr>
             )}
-
-          {currentItems &&
-            currentItems.length > 0 &&
-            currentItems.map((data) => (
-              <tr>
-                <td>
-                  <Typography variant="body">{data.excelId}</Typography>
-                </td>
-                <td
+          </tbody>
+          <tbody>
+            {currentItems &&
+              currentItems.length === 0 &&
+              !(!Loading && Disabled) && (
+                <tr
                   style={{
-                    textAlign: "left !important",
-                    paddingLeft: "10px !important",
+                    borderCollapse: "collapse",
+                    padding: "0px !important",
                   }}
                 >
-                  <div
+                  <td
                     style={{
-                      width: "100%",
-                      textAlign: "left",
-                      paddingLeft: "20px",
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                      padding: "0px !important",
                     }}
-                    variant="body"
+                    colSpan="12"
                   >
-                    {data.Owner1}
-                  </div>
-                </td>
-                <td>
-                  <Typography variant="body">{data.SAN}</Typography>
-                </td>
+                    <Box sx={{ width: "100%" }}>No Data</Box>
+                  </td>
+                </tr>
+              )}
+          </tbody>
+          <tbody>
+            {currentItems &&
+              currentItems.length > 0 &&
+              currentItems.map((data) => (
+                <tr>
+                  <td>
+                    <Typography variant="body">{data.excelId}</Typography>
+                  </td>
+                  <td
+                    style={{
+                      textAlign: "left !important",
+                      paddingLeft: "10px !important",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "100%",
+                        textAlign: "left",
+                        paddingLeft: "20px",
+                      }}
+                      variant="body"
+                    >
+                      {data.Owner1}
+                    </div>
+                  </td>
+                  <td>
+                    <Typography variant="body">{data.SAN}</Typography>
+                  </td>
 
-                <td>
-                  <div
-                    style={{
-                      width: "100%",
-                      textAlign: "left",
-                      paddingLeft: "20px",
-                    }}
-                    variant="body"
-                  >
-                    {data.PropAddr2}
-                  </div>
-                </td>
-                <DisplayImage image={data.multiImage} Option={Option} />
-              </tr>
-            ))}
+                  <td>
+                    <div
+                      style={{
+                        width: "100%",
+                        textAlign: "left",
+                        paddingLeft: "20px",
+                      }}
+                      variant="body"
+                    >
+                      {data.PropAddr2}
+                    </div>
+                  </td>
+                  <DisplayImage image={data.multiImage} Option={Option} />
+                </tr>
+              ))}
+          </tbody>
         </table>
         <br />
         <ReactPaginate

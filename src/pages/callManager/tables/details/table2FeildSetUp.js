@@ -68,8 +68,11 @@ function Dashboard(props) {
               onChange={onChange}
               name={name}
               disabled={disabled}
+              defaultValue={value}
             >
-              <option selected>{value}</option>
+              <option value={value} disabled>
+                {value}
+              </option>{" "}
               {options.map((item, i) => (
                 <option
                   key={i}

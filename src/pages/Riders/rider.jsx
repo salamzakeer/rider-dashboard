@@ -98,7 +98,6 @@ function Newrider() {
 
   const token = message.message.token;
   // console.log(token, "token");
-  console.log("rider data", data);
   useEffect(() => {
     axios
       .get("/rider")
@@ -204,136 +203,141 @@ function Newrider() {
               borderSpacing: 0,
             }}
           >
-            <tr>
-              <th>
-                <Typography variant="body">#</Typography>{" "}
-              </th>
-              <th>
-                {" "}
-                <Typography variant="body">ID</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Image</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Name</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Email</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Position</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">NRIC</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Status</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Edit</Typography>{" "}
-              </th>
-              <th>
-                <Typography variant="body">Detele</Typography>{" "}
-              </th>
-            </tr>
+            <tbody>
+              <tr>
+                <th>
+                  <Typography variant="body">#</Typography>{" "}
+                </th>
+                <th>
+                  {" "}
+                  <Typography variant="body">ID</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Image</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Name</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Email</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Position</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">NRIC</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Status</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Edit</Typography>{" "}
+                </th>
+                <th>
+                  <Typography variant="body">Detele</Typography>{" "}
+                </th>
+              </tr>
+            </tbody>
 
-            {!Loading && (
-              <tr
-                style={{
-                  borderCollapse: "collapse",
-                  padding: "0px !important",
-                }}
-              >
-                <td
+            <tbody>
+              {!Loading && (
+                <tr
                   style={{
-                    textAlign: "center",
-                    verticalAlign: "middle",
+                    borderCollapse: "collapse",
                     padding: "0px !important",
                   }}
-                  colspan="12"
                 >
-                  <Box sx={{ width: "100%" }}>
-                    <LinearProgress />
-                  </Box>
-                </td>
-              </tr>
-            )}
+                  <td
+                    style={{
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                      padding: "0px !important",
+                    }}
+                    colSpan="12"
+                  >
+                    <Box sx={{ width: "100%" }}>
+                      <LinearProgress />
+                    </Box>
+                  </td>
+                </tr>
+              )}
+            </tbody>
 
-            {currentItems &&
-              currentItems.length > 0 &&
-              currentItems.map((data) => (
-                <tr>
-                  <td>
-                    <Typography variant="body">{data.id}</Typography>
-                  </td>
-                  <td>
-                    <Typography variant="body">{data.id}</Typography>
-                  </td>
-                  <td align="center">
-                    <Avatar
-                      sx={{
-                        width: "40px",
-                        height: "40px",
-                        textTransform: "capitalize",
-                        textAlign: "center",
-                        margin: "0 auto",
-                      }}
-                      src={axios.defaults.baseURL + "/images/" + data.image}
-                      alt="user"
-                    >
-                      {data.fullName[0]}
-                    </Avatar>
-                  </td>
+            <tbody>
+              {currentItems &&
+                currentItems.length > 0 &&
+                currentItems.map((data, i) => (
+                  <tr key={i}>
+                    <td>
+                      <Typography variant="body">{data.id}</Typography>
+                    </td>
+                    <td>
+                      <Typography variant="body">{data.id}</Typography>
+                    </td>
+                    <td align="center">
+                      <Avatar
+                        sx={{
+                          width: "40px",
+                          height: "40px",
+                          textTransform: "capitalize",
+                          textAlign: "center",
+                          margin: "0 auto",
+                        }}
+                        src={axios.defaults.baseURL + "/images/" + data.image}
+                        alt="user"
+                      >
+                        {data.fullName[0]}
+                      </Avatar>
+                    </td>
 
-                  {/* <td><Typography variant="body">{data.id}</Typography></td> */}
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.fullName}
-                    </p>
-                  </td>
-                  {/* style={{ textAlign: "left", margin: "0px", paddingLeft: "8px" }}  */}
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.email}
-                    </p>
-                  </td>
+                    {/* <td><Typography variant="body">{data.id}</Typography></td> */}
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.fullName}
+                      </p>
+                    </td>
+                    {/* style={{ textAlign: "left", margin: "0px", paddingLeft: "8px" }}  */}
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.email}
+                      </p>
+                    </td>
 
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.position}
-                    </p>
-                  </td>
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {data.NRIC}
-                    </p>
-                  </td>
-                  {/* <td>
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.position}
+                      </p>
+                    </td>
+                    <td>
+                      <p
+                        style={{
+                          textAlign: "left",
+                          margin: "0px",
+                          paddingLeft: "16px",
+                        }}
+                      >
+                        {data.NRIC}
+                      </p>
+                    </td>
+                    {/* <td>
                     <div
                       // style={{
                       //   textAlign: "left",
@@ -347,66 +351,71 @@ function Newrider() {
                       {data.status ? data.status : "Inactive"}
                     </div>
                   </td> */}
-                  <td>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                      }}
-                    >
+                    <td>
                       <div
-                        className={` dotStatus ${
-                          data.status === "Active" ? "d-Ractive" : "d-Rinactive"
-                        }`}
-                      ></div>{" "}
-                      <span
                         style={{
-                          paddingLeft: "10px",
+                          display: "flex",
+                          alignItems: "center",
                         }}
                       >
-                        {" "}
-                        {data.status ? data.status : "Inactive"}
-                      </span>
-                    </div>
-                  </td>
+                        <div
+                          className={` dotStatus ${
+                            data.status === "Active"
+                              ? "d-Ractive"
+                              : "d-Rinactive"
+                          }`}
+                        ></div>{" "}
+                        <span
+                          style={{
+                            paddingLeft: "10px",
+                          }}
+                        >
+                          {" "}
+                          {data.status ? data.status : "Inactive"}
+                        </span>
+                      </div>
+                    </td>
 
-                  <td onClick={() => Editing(data)}>
-                    {/* <img src={DeleteBtn} className="delete" alt="" /> */}
-                    <EditIcon
-                      sx={{
-                        color: "#008000c2",
-                        opacity: "0.8",
-                        ": &hover": { opacity: "1" },
-                        cursor: "pointer",
-                      }}
-                    />
-                  </td>
-                  <td onClick={() => Deleting(data)}>
-                    {/* <img src={DeleteBtn} className="delete" alt="" /> */}
-                    <DeleteIcon
-                      sx={{
-                        color: "red",
-                        opacity: "0.8",
-                        ": &hover": { opacity: "1" },
-                        cursor: "pointer",
-                      }}
-                    />
+                    <td onClick={() => Editing(data)}>
+                      {/* <img src={DeleteBtn} className="delete" alt="" /> */}
+                      <EditIcon
+                        sx={{
+                          color: "#008000c2",
+                          opacity: "0.8",
+                          ": &hover": { opacity: "1" },
+                          cursor: "pointer",
+                        }}
+                      />
+                    </td>
+                    <td onClick={() => Deleting(data)}>
+                      {/* <img src={DeleteBtn} className="delete" alt="" /> */}
+                      <DeleteIcon
+                        sx={{
+                          color: "red",
+                          opacity: "0.8",
+                          ": &hover": { opacity: "1" },
+                          cursor: "pointer",
+                        }}
+                      />
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+            <tbody>
+              {data.length === 0 && Loading && (
+                <tr style={{ borderCollapse: "collapse" }}>
+                  <td
+                    style={{
+                      textAlign: "center",
+                      verticalAlign: "middle",
+                    }}
+                    colSpan="12"
+                  >
+                    <Typography variant="body">No data</Typography>
                   </td>
                 </tr>
-              ))}
-            {data.length === 0 && Loading && (
-              <tr style={{ borderCollapse: "collapse" }}>
-                <td
-                  style={{
-                    textAlign: "center",
-                    verticalAlign: "middle",
-                  }}
-                  colspan="12"
-                >
-                  <Typography variant="body">No data</Typography>
-                </td>
-              </tr>
-            )}
+              )}
+            </tbody>
           </table>
           <br />
 

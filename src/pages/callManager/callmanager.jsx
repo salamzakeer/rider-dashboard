@@ -9,7 +9,6 @@ import Layout from "../../components/layout/Navbar";
 import axios from "../../axios";
 import SearchIcon from "@mui/icons-material/Search";
 import {
-  Avatar,
   Box,
   CircularProgress,
   LinearProgress,
@@ -20,13 +19,10 @@ import ReactPaginate from "react-paginate";
 import SearchInput from "../../components/input/searchInput";
 import { useNavigate } from "react-router-dom";
 import FilterListIcon from "@mui/icons-material/FilterList";
-import DRcodeImage from "../../components/layout/drCodeImage";
 import DisplayImage from "../../components/layout/displayImage";
 import BasicSelect from "../../components/customCore/select";
 import BasicSelect2 from "../../components/customCore/jobNameDroupDown";
-import { Qrcode } from "../../api/qrcode";
-import { categoryType, UpdateType, YesNo } from "../../api/detailsApi";
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
+import { categoryType, UpdateType } from "../../api/detailsApi";
 
 const useStyles = makeStyles((theme) => ({
   atag: {
@@ -207,29 +203,17 @@ function CallManager() {
         .get(`/jobname/${Option}/${AdminId}`)
         .then((res) => {
           setDisabled(false);
-          // console.log(res.data, 'data')
           setCategory(res.data);
         })
         .catch((err) => {
           setDisabled(false);
           setCategory([]);
-          // console.log(err, 'error')
         });
     }
   }, [Option, AdminId]);
-  const handleInputChanges = (e) => {
-    const { value } = e.target;
-    setOption(value);
-    // setUserSelectCategoryCDate(Category.find(item => (item.id == e.target.value))) )
-  };
-  const handleUpdateChanges = (e) => {
-    const { value } = e.target;
-    setUpdateValue(value);
-  };
   useEffect(() => {
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
-    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(
       filterByJobnameAndCategorydata.slice(itemOffset, endOffset)
     );
@@ -246,18 +230,6 @@ function CallManager() {
     // );
     setItemOffset(newOffset);
   };
-  const handleCategoryChange = (e) => {
-    const { value } = e.target;
-
-    // const date =
-    //   Category.find((item) => item.id == e.target.value).createdDate || "";
-    // console.log(moment(date).format("YYYY-MM-DD"))
-    setUserSelectCategory(value);
-    // setUserSelectCategoryCDate(moment(date).format("YYYY-MM-DD"));
-    // console.log(
-    //   Category.find((item) => item.id == e.target.value).createdDate || ""
-    // );
-  };
   const handleInputChange = (e) => {
     const { value } = e.target;
     setSelectInput(value);
@@ -267,7 +239,6 @@ function CallManager() {
     setGetId(e.id);
     setSelectUserObject(e);
     navigate("#details");
-    console.log("=======");
   };
   const handleFiltering = () => {
     // Disabled
@@ -280,7 +251,6 @@ function CallManager() {
       )
       .then((res) => {
         setDisabled(false);
-        console.log(res.data, "datadatadatadatadata");
         setfilterByJobnameAndCategoryData(res.data);
         setAllData(res.data);
 
@@ -290,8 +260,6 @@ function CallManager() {
         setDisabled(false);
         setCategory([]);
         setLoading(true);
-
-        // console.log(err, 'error')
       });
   };
   const searchHandle = (e) => {
@@ -303,11 +271,6 @@ function CallManager() {
           String(item.id).startsWith(e.target.value)
       ) || [];
     setfilterByJobnameAndCategoryData(searching);
-    console.log(
-      "search",
-      searching
-      // filterByJobnameAndCategoryData,
-    );
   };
   const onSelectValue = (value, event) => {
     setOption(value);
