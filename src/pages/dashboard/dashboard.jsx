@@ -2,7 +2,9 @@ import Layout from "../../components/layout/Navbar";
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
 import React from "react";
-import AdminCard from "../../components/customCore/smallCard";
+import TotalRecord from "./totalRecord";
+import HumanResource from "./humanResource";
+import JobTable from "./table";
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
@@ -41,6 +43,13 @@ const useStyles = makeStyles(
       MainCardDiv: {
         display: "flex",
         flexWrap: "wrap",
+        justifyContent: "space-between",
+        maxWidth: "1000px",
+      },
+      MainDiv: {
+        display: "flex",
+        maxWidth: "1000px",
+        flexDirection: "column",
       },
     }),
   { withTheme: true }
@@ -52,16 +61,17 @@ function Dashboard() {
     <Layout title="Dashboard">
       {/* <div className={classes.Main}> */}
       <div>
-        <div className="rider-info">Dashboard</div>
+        <div className="rider-info">Productivity Report</div>
       </div>
       <br />
       <br />
-      <div className={classes.MainCardDiv}>
-        <AdminCard title="Administration" number="03" />
-        <AdminCard title="All Rider" number="10 K" />
-        <AdminCard title="All Telecaller" number="3K" />
+      <div className={classes.MainDiv}>
+        <div className={classes.MainCardDiv}>
+          <TotalRecord />
+          <HumanResource />
+        </div>
+        <JobTable />
       </div>
-      {/* </div> */}
     </Layout>
   );
 }
