@@ -10,7 +10,7 @@ import {
   LinearProgress,
   Typography,
 } from "@mui/material";
-import { Avatar, makeStyles } from "@material-ui/core";
+import {  makeStyles } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import DRcodeImage from "../../components/layout/drCodeImage";
@@ -141,25 +141,23 @@ function CallManager() {
 
   const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
   useEffect(() => {
-    setDisabled(true);
-    axios
-      .get(`/jobname/${Option}/${AdminId}`)
-      .then((res) => {
-        setDisabled(false);
-        // console.log(res.data, 'data')
-        setCategory(res.data);
-      })
-      .catch((err) => {
-        setDisabled(false);
-        setCategory([]);
-        // console.log(err, 'error')
-      });
+    if (Option) {
+      setDisabled(true);
+      axios
+        .get(`/jobname/${Option}/${AdminId}`)
+        .then((res) => {
+          setDisabled(false);
+          // console.log(res.data, 'data')
+          setCategory(res.data);
+        })
+        .catch((err) => {
+          setDisabled(false);
+          setCategory([]);
+          // console.log(err, 'error')
+        });
+    }
   }, [Option, AdminId]);
-  const handleInputChanges = (e) => {
-    const { value } = e.target;
-    setOption(value);
-    // setUserSelectCategoryCDate(Category.find(item => (item.id == e.target.value))) )
-  };
+  
   useEffect(() => {
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
@@ -180,11 +178,6 @@ function CallManager() {
     // );
     setItemOffset(newOffset);
   };
-  const handleCategoryChange = (e) => {
-    const { value } = e.target;
-    setUserSelectCategory(value);
-  };
-
   const handleFiltering = () => {
     // Disabled
     setLoading(false);
@@ -210,42 +203,7 @@ function CallManager() {
         // console.log(err, 'error')
       });
   };
-  const changeOption = (url) => {
-    console.log(url, "url");
-    if (url === "lnds") {
-      return "lnd";
-    } else if (url === "vacants") {
-      return "vacant";
-    } else if (url === "commercials") {
-      return "commercial";
-    } else if (url === "highrises") {
-      return "highrise";
-    } else {
-      return url;
-    }
-  };
-  const onImageClick = (imageurl) => {
-    window.open(imageurl ? `${imageurl}` : `${axios.defaults.baseURL}`);
-  };
-  const download = (e, QRImage) => {
-    fetch(QRImage, {
-      method: "GET",
-      headers: {},
-    })
-      .then((response) => {
-        response.arrayBuffer().then(function (buffer) {
-          const url = window.URL.createObjectURL(new Blob([buffer]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", "image.png"); //or any other extension
-          document.body.appendChild(link);
-          link.click();
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+
   const onSelectValue = (value, event) => {
     setOption(value);
     // alert(value);
@@ -254,10 +212,7 @@ function CallManager() {
     setUserSelectCategory(value);
     // alert(value);
   };
-  const onSelectValue3 = (value, event) => {
-    // setUpdateValue(value);
-    // alert(value);
-  };
+
   return (
     <Layout>
       <div>
@@ -391,8 +346,8 @@ function CallManager() {
           <tbody>
             {currentItems &&
               currentItems.length > 0 &&
-              currentItems.map((data) => (
-                <tr>
+              currentItems.map((data, i) => (
+                <tr key={i}>
                   <td>
                     <Typography variant="body">{data.excelId}</Typography>
                   </td>

@@ -1,8 +1,7 @@
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
-import Layout from "../../../components/layout/Navbar";
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Input from "../../../components/input/input";
 import LoadButton from "../../../components/buttons/loaderButton";
 import axios from "../../../axios";
@@ -51,7 +50,6 @@ const useStyles = makeStyles(
 function SetUp({ AllData, AllDataArray }) {
   const classes = useStyles();
   const [Disabled, setDisabled] = useState(false);
-  const [Loading, setLoading] = useState(false);
   const { addToast } = useToasts();
   const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
   // const [AllData, setAllData] = useState([]);
@@ -94,11 +92,11 @@ function SetUp({ AllData, AllDataArray }) {
   const post = (e) => {
     e.preventDefault();
     setDisabled(true);
-    const createOrupdateApi = {
-      adminId: AdminId,
-      Name: values.Name,
-      Type: values.Type,
-    };
+    // const createOrupdateApi = {
+    //   adminId: AdminId,
+    //   Name: values.Name,
+    //   Type: values.Type,
+    // };
     axios
       .put(`admindetails/update/${AdminId}`, values)
       .then((result) => {
@@ -395,7 +393,7 @@ function SetUp({ AllData, AllDataArray }) {
             {NutritionArray &&
               NutritionArray.length > 0 &&
               NutritionArray.map((item, i) => (
-                <div className={classes.flexInputDivs}>
+                <div className={classes.flexInputDivs} key={i}>
                   <Input
                     placeholder="Eg : IWK"
                     type="text"

@@ -9,11 +9,11 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
-  <React.StrictMode>
+  <>
     <AuthProvider initialState={initialState} reducer={reducer}>
       <ToastProvider>
         <App />
       </ToastProvider>
     </AuthProvider>
-  </React.StrictMode>
+  </>
 );

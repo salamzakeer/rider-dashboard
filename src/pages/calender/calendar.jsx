@@ -51,13 +51,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "500px",
   },
   btn: {
-    width: "400px",
     height: "45px",
     marginTop: "35px",
     background: "#5016BF 0% 0 % no - repeat padding- box",
     backgroundColor: "#5016BF",
     borderRadius: "44px",
-    fontSize: "30px",
     font: "normal 600 30px Poppins",
     color: "#FFFFFF",
     fontWeight: "500 !important",
@@ -67,7 +65,6 @@ const useStyles = makeStyles((theme) => ({
     border: "2px solid #501abf !important",
     outline: "none",
     fontSize: "16px !important",
-    fontWeight: "500 !important",
     width: "300px  !important",
     "&:hover": {
       color: "#501abf !important",
@@ -88,21 +85,11 @@ function Dashboard() {
   const classes = useStyles();
 
   //upload file
-  const [Form, setForm] = React.useState("");
-  const [To, setTo] = React.useState("");
   const [RiderId, setRiderId] = React.useState("");
   const [RiderData, setRiderData] = useState([]);
-  const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
-  const [Category, setCategory] = React.useState([]);
-  const [UserSelectCategory, setUserSelectCategory] = React.useState("");
-  const [UserSelectCategoryCDate, setUserSelectCategoryCDate] =
-    React.useState("");
-  const [Option, setOption] = useState("");
   const [LeaveTypeName, setLeaveTypeName] = useState("");
   const [Disabled, setDisabled] = React.useState(false);
-
   const [fromDate, setfromDate] = React.useState(new Date());
-  const [toDate, settoDate] = React.useState(new Date());
 
   useEffect(() => {
     setDisabled(true);
@@ -131,17 +118,8 @@ function Dashboard() {
       typeOfLeave: LeaveTypeName,
       riderId: RiderId,
       createdDate: moment(fromDate).format("YYYY-MM-DD"),
-      // "endDate": moment(toDate).format("YYYY-MM-DD"),
       adminId: AdminId,
-      // "category": Option
     };
-    // var array = [];
-    // optionSelected.map((item) => {
-
-    //     array.push(item.value)
-    // })
-    // data.append("data", file);
-    // data.append("columns", `"${array}"`);
     axios
       // detailIndex
       .post(`/attendances`, jsonData, {
@@ -173,22 +151,6 @@ function Dashboard() {
     setLeaveTypeName(value);
   };
 
-  const handleCategoryChange = (e) => {
-    const { value, name } = e.target;
-    // console.log(e.target, "date")
-    // console.log(name, "date")
-    const date =
-      Category.find((item) => item.id == e.target.value).createdDate || "";
-    // console.log(moment(date).format("YYYY-MM-DD"))
-    setUserSelectCategory(value);
-    setUserSelectCategoryCDate(moment(date).format("YYYY-MM-DD"));
-  };
-
-  const handleInputChange = (e) => {
-    const { value } = e.target;
-    setOption(value);
-    // setUserSelectCategoryCDate(Category.find(item => (item.id == e.target.value))) )
-  };
   const leaveType = [
     { id: "Public holidays", name: "Public holidays" },
     { id: "Annual Leave", name: "Annual Leave" },
@@ -215,7 +177,7 @@ function Dashboard() {
                 onChange={handleStaffChange}
                 defaultValue="Select"
               >
-                <option value={"Select"} selected>
+                <option value={"Select"} disabled>
                   Select
                 </option>
                 {RiderData &&
@@ -237,7 +199,7 @@ function Dashboard() {
                 defaultValue="Select"
               >
                 {/* leaveType */}
-                <option value={"Select"} selected>
+                <option value={"Select"} disabled>
                   Select
                 </option>
 

@@ -9,7 +9,6 @@ import FileUploader from "../../components/buttons/FileUploader";
 import { useToasts } from "react-toast-notifications";
 
 function AddRiderPopup({ closeModel, edit, editId }) {
-  console.log(editId, "editId");
   const [fullName, setFullName] = useState(editId ? editId.fullName : "");
   const [email, setEmail] = useState(editId ? editId.email : "");
   const [CPassword, setCPassword] = useState("");
@@ -35,7 +34,6 @@ function AddRiderPopup({ closeModel, edit, editId }) {
     setCPassword(e.target.value);
   };
   const handleUpdateApi = () => {
-    console.log({ fullName, email, password });
     const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
     const data = new FormData();
     data.append("fullName", fullName);
@@ -56,38 +54,24 @@ function AddRiderPopup({ closeModel, edit, editId }) {
       Position: Position,
       Status: Status,
     };
-    console.log(json, "json");
     axios
       .put("/rider/" + editId.id, json)
       .then((result) => {
-        // console.log(result)
-        // if(result.errorMessage == false){
-        console.log(result);
         addToast("Successfully Login", {
           appearance: "success",
           autoDismiss: "true",
           autoDismissTimeout: 2000,
         });
-        // closeModel(false)
-        // window.location.reload(false);
-
-        // window.location = "/dashboard"
-        // }else{
-        //     console.log("logged error")
-        // }
       })
       .catch((error) => {
-        console.log(error);
         addToast("Username Already Fxists", {
           appearance: "error",
           autoDismiss: "true",
           autoDismissTimeout: 2000,
         });
-        // console.log("not ok")
       });
   };
   const handleApi = () => {
-    console.log({ fullName, email, password });
     const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
     const data = new FormData();
     data.append("fullName", fullName);
@@ -100,43 +84,31 @@ function AddRiderPopup({ closeModel, edit, editId }) {
     data.append("position", Position);
     data.append("status", Status);
 
-    const json = {
-      fullName: fullName,
-      email: email,
-      password: password,
-      adminId: AdminId,
-      NRIC: NRIC,
-      position: Position,
-      status: Status,
-    };
-    console.log(json, "json");
+    // const json = {
+    //   fullName: fullName,
+    //   email: email,
+    //   password: password,
+    //   adminId: AdminId,
+    //   NRIC: NRIC,
+    //   position: Position,
+    //   status: Status,
+    // };
     axios
       .post("/rider/register", data)
       .then((result) => {
-        // console.log(result)
-        // if(result.errorMessage == false){
-        console.log(result);
         addToast("Successfully Login", {
           appearance: "success",
           autoDismiss: "true",
           autoDismissTimeout: 2000,
         });
-        // closeModel(false)
         window.location.reload(false);
-
-        // window.location = "/dashboard"
-        // }else{
-        //     console.log("logged error")
-        // }
       })
       .catch((error) => {
-        console.log(error);
         addToast("username or password is incorrcet", {
           appearance: "error",
           autoDismiss: "true",
           autoDismissTimeout: 2000,
         });
-        // console.log("not ok")
       });
   };
 
@@ -166,7 +138,7 @@ function AddRiderPopup({ closeModel, edit, editId }) {
 
         <div className="frm">
           <input
-            autocomplete="chrome-off"
+            autoComplete="chrome-off"
             type="text"
             className="input"
             placeholder="Name"
@@ -174,7 +146,7 @@ function AddRiderPopup({ closeModel, edit, editId }) {
             onChange={handleName}
           />
           <input
-            autocomplete="chrome-off"
+            autoComplete="chrome-off"
             type="email"
             className="input"
             placeholder="Email"
@@ -183,7 +155,7 @@ function AddRiderPopup({ closeModel, edit, editId }) {
             name="email"
           />
           <input
-            autocomplete="chrome-off"
+            autoComplete="chrome-off"
             type="text"
             className="input"
             placeholder="NRIC"
@@ -201,9 +173,10 @@ function AddRiderPopup({ closeModel, edit, editId }) {
               onChange={handlePositionChanges}
               required="required"
               style={{ marginTop: "1rem" }}
+              defaultValue={editId ? Position : "Select"}
             >
-              <option name="" value="" selected>
-                {editId ? Position : "Position"}
+              <option name="" value={editId ? Position : "Select"} disabled>
+                {editId ? Position : "Select"}
               </option>
               <option name="Director" value="Director">
                 Director
@@ -233,8 +206,9 @@ function AddRiderPopup({ closeModel, edit, editId }) {
               onChange={handleStatusChanges}
               required="required"
               style={{ marginTop: "1rem" }}
+              defaultValue=""
             >
-              <option name="" value="" selected>
+              <option name="" value="" disabled>
                 {editId ? Status : "Status"}
               </option>
               <option name="Active" value="Active">
@@ -248,7 +222,7 @@ function AddRiderPopup({ closeModel, edit, editId }) {
           {!edit && (
             <>
               <input
-                autocomplete="chrome-off"
+                autoComplete="chrome-off"
                 type="password"
                 className="input"
                 placeholder="Password"
@@ -256,7 +230,7 @@ function AddRiderPopup({ closeModel, edit, editId }) {
                 onChange={handlePassword}
               />
               <input
-                autocomplete="chrome-off"
+                autoComplete="chrome-off"
                 type="password"
                 className="input"
                 placeholder="Confirm Password"

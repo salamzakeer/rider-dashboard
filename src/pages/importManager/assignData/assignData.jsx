@@ -87,20 +87,22 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
-    setDisabled(true);
-    axios
-      .get(`/jobname/${Option}/${AdminId}`)
-      .then((res) => {
-        setDisabled(false);
-        // console.log(res.data, 'data')
-        setCategory(res.data);
-      })
-      .catch((err) => {
-        setDisabled(false);
-        setCategory([]);
-        // console.log(err, 'error')
-      });
-  }, [Option]);
+    if (Option) {
+      setDisabled(true);
+      axios
+        .get(`/jobname/${Option}/${AdminId}`)
+        .then((res) => {
+          setDisabled(false);
+          // console.log(res.data, 'data')
+          setCategory(res.data);
+        })
+        .catch((err) => {
+          setDisabled(false);
+          setCategory([]);
+          // console.log(err, 'error')
+        });
+    }
+  }, [Option, AdminId]);
 
   // Handles file upload event and updates state
 
@@ -112,7 +114,7 @@ function Dashboard() {
     event.preventDefault();
     // alert(JSON.stringify(formValues));
     // console.log(Option, Form, To);
-    const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
+    // const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
 
     const jsonData = {
       type: Option,
@@ -165,18 +167,12 @@ function Dashboard() {
     setRiderId(value);
   };
   const handleCategoryChange = (e) => {
-    const { value, name } = e.target;
-    // console.log(e.target, "date")
-    // console.log(name, "date")
+    const { value } = e.target;
     const date =
       Category.find((item) => item.id == e.target.value).createdDate || "";
-    // console.log(moment(date).format("YYYY-MM-DD"))
     setUserSelectCategory(value);
     setUserSelectCategoryCDate(moment(date).format("YYYY-MM-DD"));
-    // console.log(
-    //   Category.find((item) => item.id == e.target.value).createdDate || ""
-    // );
-  };
+    };
 
   const handleInputChange = (e) => {
     const { value } = e.target;
@@ -197,8 +193,11 @@ function Dashboard() {
                 aria-label="Default select example"
                 name=""
                 onChange={handleInputChange}
+                defaultValue=""
               >
-                <option selected>Select</option>
+                <option name="" value="" disabled>
+                  Select
+                </option>
                 <option name="LND" value="lnds">
                   LANDED
                 </option>
@@ -219,12 +218,15 @@ function Dashboard() {
                 className="form-select"
                 aria-label="Default select example"
                 onChange={handleCategoryChange}
+                defaultValue=""
               >
-                <option selected>Select</option>
+                <option name="" value="" disabled>
+                  Select
+                </option>
                 {Category &&
                   Category.length > 0 &&
-                  Category.map((item) => (
-                    <option name={item.createdAt} value={item.id}>
+                  Category.map((item, i) => (
+                    <option key={i} name={item.createdAt} value={item.id}>
                       {item.jobName}
                     </option>
                   ))}
@@ -238,6 +240,7 @@ function Dashboard() {
                   className="input-div-input"
                   placeholder="Date"
                   value={UserSelectCategoryCDate}
+                  onChange={() => null}
                 />
                 {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
               </div>
@@ -248,12 +251,15 @@ function Dashboard() {
                 className="form-select"
                 aria-label="Default select example"
                 onChange={handleStaffChange}
+                defaultValue=""
               >
-                <option selected>Staff Name</option>
+                <option name="" value="" disabled>
+                  Staff Name
+                </option>
                 {RiderData &&
                   RiderData.length > 0 &&
-                  RiderData.map((item) => (
-                    <option name={item.id} value={item.id}>
+                  RiderData.map((item, i) => (
+                    <option key={i} name={item.id} value={item.id}>
                       {item.fullName}
                     </option>
                   ))}
@@ -267,8 +273,14 @@ function Dashboard() {
             <div>
               <label className={classes.label}> Type Of Task Assign</label>
 
-              <select className="form-select" aria-label="Default select example">
-                <option selected>Select </option>
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                defaultValue=""
+              >
+                <option name="" value="" disabled>
+                  Select{" "}
+                </option>
                 <option>New</option>
                 <option>Replace</option>
                 <option>Re Assign(Task Completed)</option>

@@ -11,7 +11,7 @@ import "./importManger.css";
 import Layout from "../../components/layout/Navbar";
 import moment from "moment";
 import { makeStyles } from "@material-ui/core";
-import { Alert, CircularProgress, Snackbar } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 
 const Option = (props) => {
   return (
@@ -52,7 +52,6 @@ const LndArrayOptions = [
   { value: "OwnertelNo", label: "Owner Tel No", color: "#00B8D9" },
   { value: "OwnerMobNo", label: "Owner Mob No", color: "#00B8D9" },
   { value: "TenantTelNo", label: "Tenant Tel No", color: "#00B8D9" },
-  { value: "TenantMobNo", label: "Tenant Mob No", color: "#00B8D9" },
   {
     value: "CustomerContactDetail",
     label: "Customer Contact Detail",
@@ -108,7 +107,7 @@ const LndArrayOptions = [
   },
   {
     value: "ReasonCustomerRefuseToPayIWKbill",
-    label: "ReasonCustomerRefuseToPayIWKbill",
+    label: "Reason Customer Refuse To Pay IWK bill",
     color: "#00B8D9",
   },
   { value: "DRCode", label: "DRCode", color: "#00B8D9" },
@@ -117,10 +116,10 @@ const LndArrayOptions = [
   { value: "SourceofTPS", label: "SourceofTPS", color: "#00B8D9" },
   {
     value: "TPSOutcomeOrContactNumber",
-    label: "TPSOutcomeOrContactNumber",
+    label: "TPS Outcome Or Contact Number",
     color: "#00B8D9",
   },
-  { value: "RemarksTPS", label: "RemarksTPS", color: "#00B8D9" },
+  { value: "RemarksTPS", label: "Remarks TPS", color: "#00B8D9" },
 
   // Exclude
   { value: "DCAFiletype", label: "DCA Filetype", color: "#00B8D9" },
@@ -171,7 +170,7 @@ const LndArrayOptions = [
     label: "Administration Fee",
     color: "#00B8D9",
   },
-  { value: "LODFee", label: "LODFee", color: "#00B8D9" },
+  { value: "LODFee", label: "LOD Fee", color: "#00B8D9" },
   {
     value: "TotalPayableAmount",
     label: "Total Payable Amount",
@@ -185,6 +184,22 @@ const LndArrayOptions = [
   { value: "EbillMobileNo", label: "E Bill Mobile No", color: "#00B8D9" },
   { value: "EbillLandlineNo", label: "E Bill Landline No", color: "#00B8D9" },
   { value: "EbillEmail", label: "E Bill Email", color: "#00B8D9" },
+
+  { value: "LA_Name", label: "LA_Name", color: "#00B8D9" },
+  { value: "LA_Mobile", label: "LA_Mobile", color: "#00B8D9" },
+  { value: "Water_Name", label: "Water_Name", color: "#00B8D9" },
+  { value: "Water_Mobile", label: "Water_Mobile", color: "#00B8D9" },
+  { value: "LA_New IC", label: "LA_New_IC", color: "#00B8D9" },
+  { value: "LA_Other_No", label: "LA_Other No", color: "#00B8D9" },
+  { value: "Water_New_IC", label: "Water_New IC", color: "#00B8D9" },
+  { value: "Water_Other_No1", label: "Water_Other No1", color: "#00B8D9" },
+  { value: "Water_Email_Add", label: "Water_Email Add", color: "#00B8D9" },
+  { value: "LA_Old_IC", label: "LA_Old IC", color: "#00B8D9" },
+  { value: "LA_Email Add", label: "LA_Email Add", color: "#00B8D9" },
+  { value: "Water_Old_IC", label: "Water_Old IC", color: "#00B8D9" },
+  { value: "Water_Other_No2", label: "email", color: "#00B8D9" },
+  { value: "ICNOs", label: "ICNOs ", color: "#00B8D9" },
+  { value: "ArrPhone", label: "ArrPhone", color: "#00B8D9" },
 ];
 
 const VacantsArrayOptions = [
@@ -295,29 +310,15 @@ function Dashboard() {
   const [optionSelected, setOptionSelected] = React.useState(null);
   const [optionSelectedOr, setOptionSelectedOr] = React.useState(null);
   const [Disabled, setDisabled] = React.useState(false);
-  // disabled
-  const [JobType, setJobType] = React.useState(null);
-  // const [Category, setCategory] = React.useState([]);
+  const [JobType, setJobType] = React.useState("");
   const [DueDate, setDueDate] = React.useState(new Date());
   const [ReportDate, setReportDate] = React.useState(new Date());
-
   const [CurrentDate, setCurrentDate] = React.useState(new Date());
-  const [open, setOpen] = React.useState(true);
 
-  // useEffect(() => {
-  //     axios.get(`/jobname/${optionSelectedOr}/${AdminId}`)
-  //         .then((res) => {
-  //             console.log(res.data, 'data')
-  //             setCategory(res.data)
-  //         })
-  //         .catch((err => {
-  //             console.log(err, 'error')
-  //         }))
-  // }, [optionSelectedOr])
-  //
   const selecHandleChange = (selected) => {
     setOptionSelected(selected);
   };
+
   // Handles file upload event and updates state
   const data = new FormData();
 
@@ -403,16 +404,8 @@ function Dashboard() {
   // console.log('hi')
   // console.log(moment(DueDate).format("DD-MM-YYYY"));
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
+  const handleNotChange = () => {
+    return null;
   };
   return (
     <Layout>
@@ -428,8 +421,9 @@ function Dashboard() {
                 name=""
                 onChange={handleInputChange}
                 required="required"
+                defaultValue=""
               >
-                <option name="" value="" selected>
+                <option name="" value="" disabled>
                   Type
                 </option>
                 <option name="lnds" value="lnds">
@@ -450,7 +444,7 @@ function Dashboard() {
               <br />
 
               <label className={classes.label}>{"Upload File"}</label>
-              <div className="input-div" dataText="Select your file">
+              <div className="input-div">
                 <input
                   type="file"
                   className="input-div-3"
@@ -461,7 +455,8 @@ function Dashboard() {
                   type="text"
                   className="input-div-input"
                   placeholder={file.name || "Upload File"}
-                  readonly="readonly"
+                  readOnly={"readOnly"}
+                  onChange={handleNotChange}
                 />
                 <img
                   type="file"

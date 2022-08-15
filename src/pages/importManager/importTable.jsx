@@ -138,7 +138,6 @@ function Newrider() {
       });
   };
   const Deleting = (e) => {
-    let id = e.id;
     // console.log(id, "idddd");
     confirmAlert({
       customUI: ({ onClose }) => {

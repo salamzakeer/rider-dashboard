@@ -28,12 +28,11 @@ const useStyles = makeStyles((theme) => ({
       color: "#ccc",
       fontWeight: "600",
     },
-    "& .react-date-picker__clear-button $svg": {
+    "& .react-date-picker__clear-button svg": {
       color: "#5016BF ",
       stroke: "red !important",
     },
-    "& .react-date-picker__button $svg": {
-      //   color: "#5016BF ",
+    "& .react-date-picker__button svg": {
       stroke: "#5016BF ",
     },
     // react-date-picker__button
@@ -49,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("lg")]: {
       fontSize: "14px !important",
     },
-    // fontWeight: 00,
   },
 }));
 
