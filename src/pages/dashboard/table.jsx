@@ -57,16 +57,21 @@ const useStyles = makeStyles(
       },
       tableMainDiv: {
         marginTop: "2rem",
-        marginBottom: "5rem",
+        // marginBottom: "5rem",
         background: "#FEFEFE 0% 0% no-repeat padding-box",
         boxShadow: "0px 10px 20px #4A4A4A66",
         borderRadius: "20px",
         padding: "20px",
       },
+      tableMainHeading: {
+        fontSize: "28px",
+        margin: "0rem 0rem 0.7rem 0rem",
+        fontWeight: "600",
+      },
     }),
   { withTheme: true }
 );
-function Newrider() {
+function CurrentJobTable() {
   const classes = useStyles();
 
   const [Loading, setLoading] = useState(false);
@@ -81,18 +86,25 @@ function Newrider() {
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
 
+  const Auth = localStorage.getItem("userInfor");
+  const message = JSON.parse(Auth);
+  const AdminId = message.message.id;
+
   useEffect(() => {
-    axios
-      .get("/rider")
-      .then((res) => {
-        setData(res.data);
-        setLoading(true);
-      })
-      .catch((error) => {
-        // console.log(error);
-        setLoading(true);
-      });
-  }, []);
+    if (AdminId) {
+      axios
+        .get("/riderdata/details/" + AdminId)
+        .then((res) => {
+          setData(res.data);
+          setLoading(true);
+          console.log(res.data);
+        })
+        .catch((error) => {
+          // console.log(error);
+          setLoading(true);
+        });
+    }
+  }, [AdminId]);
 
   useEffect(() => {
     // Fetch items from another resources.
@@ -112,6 +124,7 @@ function Newrider() {
 
   return (
     <div className={classes.tableMainDiv}>
+      <div className={classes.tableMainHeading}>Current jobs</div>
       <div className={classes.tableDiv}>
         <table
           style={{
@@ -181,21 +194,7 @@ function Newrider() {
                         paddingLeft: "16px",
                       }}
                     >
-                      {data.NRIC}
-                    </p>
-                  </td>
-                  <td>
-                    <Typography variant="body">{data.id}</Typography>
-                  </td>
-                  <td>
-                    <p
-                      style={{
-                        textAlign: "left",
-                        margin: "0px",
-                        paddingLeft: "16px",
-                      }}
-                    >
-                      {((data.id * 1) / 8) * 10000}
+                      {data.jobName}
                     </p>
                   </td>
                   <td>
@@ -206,7 +205,29 @@ function Newrider() {
                         paddingLeft: "16px",
                       }}
                     >
-                      {data.id}0
+                      {data.category === "lnds" ? "Landed" : data.category}
+                    </p>
+                  </td>
+                  <td>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.totalCount}
+                    </p>
+                  </td>
+                  <td>
+                    <p
+                      style={{
+                        textAlign: "left",
+                        margin: "0px",
+                        paddingLeft: "16px",
+                      }}
+                    >
+                      {data.progress}
                     </p>
                   </td>
 
@@ -218,7 +239,7 @@ function Newrider() {
                         paddingLeft: "16px",
                       }}
                     >
-                      {data.id}0%
+                      {(data.progress / data.totalCount) * 100} %
                     </p>
                   </td>
                   <td>
@@ -229,7 +250,7 @@ function Newrider() {
                         paddingLeft: "16px",
                       }}
                     >
-                      {((data.id * 1) / 8) * 1000}
+                      {data.totalCount - data.progress}
                     </p>
                   </td>
                 </tr>
@@ -271,6 +292,7 @@ function Newrider() {
         nextClassName={"page-item"}
         nextLinkClassName={"page-link"}
         breakClassName={"page-item"}
+        important
         breakLinkClassName={"page-link"}
         activeClassName={"active"}
       />
@@ -278,4 +300,4 @@ function Newrider() {
   );
 }
 
-export default Newrider;
+export default CurrentJobTable;

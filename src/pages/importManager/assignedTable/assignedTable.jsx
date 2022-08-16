@@ -82,7 +82,7 @@ function Newrider() {
   const Auth = localStorage.getItem("userInfor");
   const message = JSON.parse(Auth);
   const token = message.message.token;
-  const riderId = message.message.id;
+  const AdminId = message.message.id;
   // let histoty = usehistory()
   // console.log(message.message.id, "token")
 
@@ -96,9 +96,9 @@ function Newrider() {
   const [itemOffset, setItemOffset] = useState(0);
 
   useEffect(() => {
-    if (riderId) {
+    if (AdminId) {
       axios
-        .get("/riderdata/details/" + riderId)
+        .get("/riderdata/details/" + AdminId)
         .then((res) => {
           setData(res.data);
           // console.log("working", res.data)
@@ -108,7 +108,7 @@ function Newrider() {
           setLoading(true);
         });
     }
-  }, [riderId]);
+  }, [AdminId]);
 
   useEffect(() => {
     // Fetch items from another resources.

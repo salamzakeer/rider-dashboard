@@ -5,6 +5,7 @@ import React from "react";
 import TotalRecord from "./totalRecord";
 import HumanResource from "./humanResource";
 import JobTable from "./table";
+import LocationTable from "./locationTable";
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
@@ -51,6 +52,10 @@ const useStyles = makeStyles(
         maxWidth: "1200px",
         flexDirection: "column",
       },
+      MainHeading: {
+        fontSize: "28px",
+        fontWeight: "700",
+      },
     }),
   { withTheme: true }
 );
@@ -61,7 +66,7 @@ function Dashboard() {
     <Layout title="Dashboard">
       {/* <div className={classes.Main}> */}
       <div>
-        <div className="rider-info">Productivity Report</div>
+        <div className={classes.MainHeading}>Productivity Report</div>
       </div>
       <br />
       <br />
@@ -71,6 +76,7 @@ function Dashboard() {
           <HumanResource />
         </div>
         <JobTable />
+        <LocationTable />
       </div>
     </Layout>
   );
