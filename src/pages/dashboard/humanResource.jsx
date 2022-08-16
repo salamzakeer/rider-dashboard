@@ -27,6 +27,18 @@ const useStyles = makeStyles(
         borderRadius: "20px",
         width: "100%",
       },
+      "@media (max-width: 1050px)": {
+        TotalRecordDiv: {
+          width: "100%",
+          // maxWidth: "1000px",
+          margin: "2rem auto",
+        },
+      },
+      "@media (max-width: 600px)": {
+        TotalRecordDiv: {
+          margin: "2rem 0rem 0rem 0rem",
+        },
+      },
       TotalRecordDivHeading: {
         color: "#5016BF",
         // font: "normal normal medium 18px/27px Poppins",
@@ -62,8 +74,6 @@ const useStyles = makeStyles(
       TotalRecordTableTrNo: {
         color: "#000000",
         fontWeight: "600",
-
-      
       },
     }),
   { withTheme: true }

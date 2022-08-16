@@ -44,11 +44,11 @@ const useStyles = makeStyles(
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-between",
-        maxWidth: "1000px",
+        maxWidth: "1200px",
       },
       MainDiv: {
         display: "flex",
-        maxWidth: "1000px",
+        maxWidth: "1200px",
         flexDirection: "column",
       },
     }),

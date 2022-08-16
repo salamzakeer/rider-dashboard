@@ -50,15 +50,18 @@ const useStyles = makeStyles(
     createStyles({
       tableDiv: {
         overflowX: "auto",
-        maxWidth: "1000px",
-        marginTop: "1rem",
+        maxWidth: "1200px",
         [theme.breakpoints.down("sm")]: {
           width: "90vw",
         },
-        padding: "20px",
+      },
+      tableMainDiv: {
+        marginTop: "2rem",
+        marginBottom: "5rem",
         background: "#FEFEFE 0% 0% no-repeat padding-box",
         boxShadow: "0px 10px 20px #4A4A4A66",
         borderRadius: "20px",
+        padding: "20px",
       },
     }),
   { withTheme: true }
@@ -108,7 +111,7 @@ function Newrider() {
   };
 
   return (
-    <>
+    <div className={classes.tableMainDiv}>
       <div className={classes.tableDiv}>
         <table
           style={{
@@ -248,30 +251,30 @@ function Newrider() {
             )}
           </tbody>
         </table>
-        <br />
-
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="next >"
-          onPageChange={handlePageClick}
-          pageCount={pageCount}
-          previousLabel="< previous"
-          renderOnZeroPageCount={null}
-          pageRangeDisplayed={1}
-          marginPagesDisplayed={1}
-          containerClassName={"pagination justify-content-end"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          breakClassName={"page-item"}
-          breakLinkClassName={"page-link"}
-          activeClassName={"active"}
-        />
       </div>
-    </>
+      <br />
+      <br />
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageCount={pageCount}
+        previousLabel="< previous"
+        renderOnZeroPageCount={null}
+        pageRangeDisplayed={1}
+        marginPagesDisplayed={1}
+        containerClassName={"pagination justify-content-end"}
+        pageClassName={"page-item"}
+        pageLinkClassName={"page-link"}
+        previousClassName={"page-item"}
+        previousLinkClassName={"page-link"}
+        nextClassName={"page-item"}
+        nextLinkClassName={"page-link"}
+        breakClassName={"page-item"}
+        breakLinkClassName={"page-link"}
+        activeClassName={"active"}
+      />
+    </div>
   );
 }
 

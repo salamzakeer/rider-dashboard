@@ -19,12 +19,24 @@ const useStyles = makeStyles(
         },
       },
       TotalRecordDiv: {
-        maxWidth: "600px",
         padding: "20px",
         background: "#FEFEFE 0% 0% no-repeat padding-box",
         boxShadow: "0px 10px 20px #4A4A4A66",
         borderRadius: "20px",
-        width: "100%",
+        width: "60%",
+        marginRight: "4px",
+        minWidth: "300px",
+        // ""
+      },
+      "@media (max-width: 1050px)": {
+        TotalRecordDiv: {
+          width: "95%",
+        },
+      },
+      "@media (max-width: 600px)": {
+        TotalRecordDiv: {
+          width: "80%",
+        },
       },
       TotalRecordDivHeading: {
         color: "#5016BF",
