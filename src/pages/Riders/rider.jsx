@@ -4,16 +4,12 @@ import { createTheme } from "@mui/material/styles";
 import axios from "../../axiosHeader";
 import AddRider from "../../components/Modal/AddRiderPopup";
 import DeleteIcon from "@mui/icons-material/Delete";
-
-import ProfilePic from "../../assets/user.png";
-import DeleteBtn from "../../assets/delete.png";
 import Layout from "../../components/layout/Navbar";
 import "./rider.css";
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
 import { Avatar } from "@mui/material";
 import ReactPaginate from "react-paginate";
-// @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import EditIcon from "@mui/icons-material/Edit";
@@ -131,15 +127,7 @@ function Newrider() {
 
   const deleteHandle = (e) => {
     let id = e.id;
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-
-    // console.log(config, bodyParameters)
-
-    // var headers = new Headers();
-    // headers.append("Authorization", "Bearer " + token)
-    // console.log(headers, "header")
+   
     axios
       .delete(`/rider/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -157,15 +145,12 @@ function Newrider() {
     // console.log(e);
   };
   const Deleting = (e) => {
-    let id = e.id;
-    // console.log(id, "idddd");
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
           <AlertBox
             onClose={onClose}
             onClick={() => {
-              // console.log(e);
               deleteHandle(e);
             }}
           />
@@ -174,12 +159,8 @@ function Newrider() {
     });
   };
   const Editing = (e) => {
-    let id = e.id;
     setEditId(e);
-
     setEditOpenModel(true);
-
-    // return <AddRider closeModel={setOpenModel} />;
   };
   return (
     <Layout title="Rider">

@@ -3,9 +3,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
 import axios from "../../../axios";
 import AddRider from "../../../components/Modal/AddRiderPopup";
-import ConformDialogBox from "../../../components/Modal/dialogBox";
 import DeleteIcon from "@mui/icons-material/Delete";
-
 import Layout from "../../../components/layout/Navbar";
 import "./rider.css";
 import Box from "@mui/material/Box";
@@ -78,7 +76,6 @@ theme.typography.h1 = {
 
 function Newrider() {
   const [openModel, setOpenModel] = useState(false);
-  const [openConform, setopenConform] = useState(false);
   // openConform
   const [Loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
@@ -111,7 +108,7 @@ function Newrider() {
           setLoading(true);
         });
     }
-  }, []);
+  }, [riderId]);
 
   useEffect(() => {
     // Fetch items from another resources.
@@ -282,7 +279,7 @@ function Newrider() {
                           textTransform: "capitalize",
                         }}
                       >
-                        {data.category == "lnds" ? "Landed" : data.category}
+                        {data.category === "lnds" ? "Landed" : data.category}
                       </p>
                     </td>
 
@@ -369,7 +366,6 @@ function Newrider() {
       </div>
 
       {openModel && <AddRider closeModel={setOpenModel} />}
-      {openConform && <ConformDialogBox />}
       {/* <Dialog
         open={openModel}
         closeModel={modelClose}

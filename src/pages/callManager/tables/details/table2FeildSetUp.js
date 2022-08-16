@@ -1,13 +1,13 @@
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
 import React from "react";
-import DownArrow from "../../../../assets/down.svg";
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
       // [theme.breakpoints.down("sm")]: {
       //     fontSize: "1.5rem",
       //   },
+    // return <AddRider closeModel={setOpenModel} />;
       inputDiv: {
         borderBottom: "4px solid #fff",
         "&:n+1": {
@@ -41,7 +41,7 @@ const useStyles = makeStyles(
 
 function Dashboard(props) {
   const classes = useStyles();
-  const { keys, value, onChange, name, id, options, optionsChange, disabled } =
+  const { keys, value, onChange, name, id, options, disabled } =
     props;
 
   return (

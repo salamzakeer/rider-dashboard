@@ -1,22 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { publicRoutes, AuthenticationRoutes } from "./route/route";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { AuthContext } from "./state/Auth";
+// import { actionType } from "./state/Authreducer";
 
-import { AuthContext } from "./state/Auth";
-import { actionType } from "./state/Authreducer";
 function App() {
   const [IsUser, setIsUser] = useState(localStorage.getItem("auth"));
-  const [user, dispatch] = useContext(AuthContext);
+  // const [user, dispatch] = useContext(AuthContext);
   useEffect(() => {
     async function checkUser() {
       if (localStorage.getItem("userInfor")) {
-        const data = await localStorage.getItem("userInfor");
+        // const data = await localStorage.getItem("userInfor");
         setIsUser(true);
-        dispatch({
-          type: actionType.SET_USER,
-          user: JSON.parse(data),
-        });
+        // dispatch({
+        //   type: actionType.SET_USER,
+        //   user: JSON.parse(data),
+        // });
       }
     }
     checkUser();

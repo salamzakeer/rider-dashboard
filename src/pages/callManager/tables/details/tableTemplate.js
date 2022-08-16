@@ -1,30 +1,7 @@
-import { makeStyles } from "@material-ui/core";
-import { createStyles } from "@material-ui/core";
 import React from "react";
 import TableTemplate2 from "./table2FeildSetUp";
 
-const useStyles = makeStyles(
-  (theme) =>
-    createStyles({
-      Main: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        margin: "10rem 0 0 0 ",
-        fontSize: "2rem",
-        fontWeight: 500,
-        [theme.breakpoints.down("sm")]: {
-          // backgroundColor: "red",
-          fontSize: "1.5rem",
-        },
-      },
-    }),
-  { withTheme: true }
-);
-
 function Dashboard(props) {
-  const classes = useStyles();
   const {
     key1,
     value1,

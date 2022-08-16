@@ -8,7 +8,6 @@ import {
   YesNo,
   typeofbusinesstype,
   propertyusagetype,
-  RiderStatus,
   occupiertype,
   Nationality,
 } from "../../../../api/detailsApi";

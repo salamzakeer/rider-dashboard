@@ -133,7 +133,6 @@ const useStyles = makeStyles(
 
 function QRCodeImages() {
   const classes = useStyles();
-
   const [Option, setOption] = useState("");
   const [UpdateValue, setUpdateValue] = useState("2");
   const [UserSelectCategory, setUserSelectCategory] = React.useState("");

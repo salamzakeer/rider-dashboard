@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-// import Dialog from '@mui/material/Dialog';
-
 import Typography from '@mui/material/Typography';
 import { createTheme } from '@mui/material/styles';
-
-import ProfilePic from '../../assets/Mask Group 5.png'
-import DeleteBtn from '../../assets/delete.png'
 import AddRider from '../../components/Modal/AddRiderPopup';
 
 import "./telecaller.css"

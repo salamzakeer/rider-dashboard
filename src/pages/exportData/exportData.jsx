@@ -2,8 +2,6 @@ import Layout from "../../components/layout/Navbar";
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import Typography from "@mui/material/Typography";
-// import Spreadsheet from "react-spreadsheet";
 import CsvDownloader from "react-csv-downloader";
 import axios from "../../axios";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -485,94 +483,13 @@ const LndCsvDataHeader = [
     displayName: "BATCH",
   },
 ];
-const dataVacantArray = [
-  {
-    id: "id",
-    displayName: "id",
-  },
-  {
-    id: "SEWACC",
-    displayName: "SEWACC",
-  },
-  {
-    id: "OWNER_NAME",
-    displayName: "OWNER_NAME",
-  },
-  {
-    id: "PROP_ADD",
-    displayName: "PROP_ADD",
-  },
-  {
-    id: "CURRENT_CLASS",
-    displayName: "CURRENT_CLASS",
-  },
-  {
-    id: "OWNER_NAME",
-    displayName: "OWNER_NAME",
-  },
-  {
-    id: "JobId",
-    displayName: "JobId",
-  },
-  {
-    id: "OccupiedOrVacant",
-    displayName: "OccupiedOrVacant",
-  },
-  {
-    id: "OccupiedOrVacantOthers",
-    displayName: "OccupiedOrVacantOthers",
-  },
 
-  {
-    id: "CommercialOrDomestic",
-    displayName: "CommercialOrDomestic",
-  },
-  {
-    id: "CommercialOrDomesticOthers",
-    displayName: "CommercialOrDomesticOthers",
-  },
-  {
-    id: "MeterConnectedOrNot",
-    displayName: "MeterConnectedOrNot",
-  },
-  {
-    id: "PropertyAddress",
-    displayName: "PropertyAddress",
-  },
-  {
-    id: "CommentbyFO",
-    displayName: "CommentbyFO",
-  },
-  {
-    id: "image",
-    displayName: "image",
-  },
-  {
-    id: "WatermeterNumber",
-    displayName: "WatermeterNumber",
-  },
-];
-// const datas = [{
-//     first: 'foo',
-//     second: 'bar',
-//     image: `=IMAGE("[https://dcaapi.moodfor.codes/images/image_lnd_1653538679063.png]")`
-// }, {
-//     first: 'foobar',
-//     second: 'fooasasbar',
-//     image: `=HYPERLINK("[https://dcaapi.moodfor.codes/images/image_lnd_1653538679063.png]")`
-// }];
 function Dashboard() {
   const style = useStyles();
   const [Loading, setLoading] = useState(false);
 
-  const [LoadingVacant, setLoadingVacant] = useState(false);
   const [LoadingAfterJoin, setLoadingAfterJoin] = useState(false);
-  const [LoadingHighrises, setLoadingHighrises] = useState(false);
-  const [LoadingCommercials, setLoadingCommercials] = useState(false);
   const [data, setData] = useState([]);
-  const [dataVacant, setDataVacant] = useState([]);
-  const [dataHighrises, setDataHighrises] = useState([]);
-  const [dataCommercials, setDataCommercials] = useState([]);
 
   const [UserSelectCategory, setUserSelectCategory] = React.useState("");
   const [Option, setOption] = useState("");
@@ -735,15 +652,6 @@ function Dashboard() {
   //       });
   //   }, []);
 
-  const handleTypeChanges = (e) => {
-    const { value } = e.target;
-    setOption(value);
-    // setUserSelectCategoryCDate(Category.find(item => (item.id == e.target.value))) )
-  };
-  const handleCategoryChange = (e) => {
-    const { value } = e.target;
-    setUserSelectCategory(value);
-  };
   const GetData = () => {
     // Disabled
     setLoading(false);

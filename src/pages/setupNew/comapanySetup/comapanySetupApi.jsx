@@ -1,13 +1,10 @@
-import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import Layout from "../../../components/layout/Navbar";
 import { CircularProgress, makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import Input from "../../../components/input/input";
-import LoadButton from "../../../components/buttons/loaderButton";
 import axios from "../../../axios";
-import { useToasts } from "react-toast-notifications";
 import CompanySetup from "./comapanySetup";
+
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
@@ -15,34 +12,11 @@ const useStyles = makeStyles(
         // backgroundColor: "green",
         flexDirection: "column",
       },
-      MainCardDiv: {
-        display: "flex",
-        flexWrap: "wrap",
-      },
+     
       MainContent: {
         fontSize: "2rem",
         color: "#000",
         fontWeight: 600,
-      },
-      SubContent: {
-        fontSize: "1.5rem",
-        color: "#501abf",
-        fontWeight: 500,
-      },
-      Container: {
-        maxWidth: "1100px",
-        width: "100%",
-        margin: "0 auto",
-      },
-      flexInputDivs: {
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
-      },
-      btnDiv: {
-        margin: "auto",
-        width: "200px",
       },
       center: {
         display: "flex",
@@ -97,7 +71,7 @@ function SetUp() {
         <br />
         <br />
         <br />
-        {(Loading && Loading1) ? (
+        {Loading && Loading1 ? (
           <CompanySetup AllData={AllData} AllDataArray={AllDataArray} />
         ) : (
           <div className={classes.center}>

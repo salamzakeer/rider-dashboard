@@ -10,7 +10,6 @@ import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
 import ReactPaginate from "react-paginate";
 // @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
-import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { Link } from "react-router-dom";
 import moment from "moment";
@@ -77,8 +76,6 @@ function Newrider() {
   const [openModel, setOpenModel] = useState(false);
   const [Loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const Auth = localStorage.getItem("userInfor");
-  const message = JSON.parse(Auth);
   // paggnination
   const itemsPerPage = 10;
 
@@ -89,7 +86,6 @@ function Newrider() {
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
 
-  const token = message.message.token;
   // console.log(token, "token");
   // console.log("rider data", data);
   useEffect(() => {
@@ -123,62 +119,7 @@ function Newrider() {
     setItemOffset(newOffset);
   };
 
-  const deleteHandle = (e) => {
-    let id = e.id;
-
-    axios
-      .delete(`/rider/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        setLoading(true);
-      })
-      .catch((error) => {
-        setLoading(true);
-      });
-  };
-  const Deleting = (e) => {
-    // console.log(id, "idddd");
-    confirmAlert({
-      customUI: ({ onClose }) => {
-        return (
-          <div
-            className="custom-ui"
-            style={{
-              background: "#fff",
-              padding: "2rem",
-              boxShadow: "rgb(130 131 133) 8px 11px 14px 4px",
-              borderRadius: "12px",
-            }}
-          >
-            <h1>Are you sure?</h1>
-            <br />
-            {/* <p>You want to delete this file?</p> */}
-            {/* -webkit-box-shadow: 8px 11px 27px 4px #FFFCF2; 
-box-shadow: 8px 11px 27px 4px #FFFCF2; */}
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <button onClick={onClose} className="btn ">
-                No
-              </button>
-              <button
-                onClick={() => {
-                  // console.log(e);
-                  deleteHandle(e);
-                }}
-                className="btn btn-custom-style"
-                style={{
-                  borderRadius: "12px !important",
-                  backgroundColor: "#501abf !important",
-                }}
-              >
-                Yes
-              </button>
-            </div>
-          </div>
-        );
-      },
-    });
-  };
+ 
   return (
     <Layout title="Rider">
       <div className="rider-tble">
@@ -282,7 +223,7 @@ box-shadow: 8px 11px 27px 4px #FFFCF2; */}
                           textTransform: "capitalize",
                         }}
                       >
-                        {data.category == "lnds" ? "Landed" : data.category}
+                        {data.category === "lnds" ? "Landed" : data.category}
                         {/* {data.category} */}
                       </p>
                     </td>

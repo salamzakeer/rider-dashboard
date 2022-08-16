@@ -72,7 +72,6 @@ const useStyles = makeStyles(
         color: "#000000",
         fontWeight: "600",
         letterSpacing: "1px",
-        fontWeight: 600,
       },
       TotalRecordProgressText: {
         color: "#00000",

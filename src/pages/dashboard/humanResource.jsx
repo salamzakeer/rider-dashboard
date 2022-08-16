@@ -1,8 +1,6 @@
-import Layout from "../../components/layout/Navbar";
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
 import React from "react";
-import AdminCard from "../../components/customCore/smallCard";
 const useStyles = makeStyles(
   (theme) =>
     createStyles({

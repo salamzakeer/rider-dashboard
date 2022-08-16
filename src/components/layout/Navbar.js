@@ -4,13 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Avatar from "@mui/material/Avatar";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SideNavigation from "./sideLink";
-import { Link } from "react-router-dom";
-// import ProfilePic from "../../user.png";
-import ProfilePic from "../../assets/user.png";
-
-// import ProfilePic from "../../assets/Mask Group 5.png";
 import { Tooltip } from "@mui/material";
-// import DownPic from "../../assets/down-filled-triangular-arrow.png";
 
 class Layout extends React.Component {
   constructor(props) {
@@ -28,26 +22,14 @@ class Layout extends React.Component {
     let key = `${event.currentTarget.parentNode.id}Open`;
     this.setState({ [key]: !this.state[key] });
   };
-  componentDidMount() {
-    const adjustScreenSize = (e) => this.setState({ color: "blue" });
-    const adjustScreenSizes = (e) =>
-      this.setState({ color: "blue", leftOpen: false });
-    // window
-    //   .matchMedia("(min-width: 768px)")
-    //   .addEventListener("change", adjustScreenSize);
-    // window
-    //   .matchMedia("(max-width: 840px)")
-    //   .addEventListener("change", adjustScreenSizes);
-  }
 
   render() {
     let leftOpen = this.state.leftOpen ? "open" : "closed";
-    let rightOpen = this.state.rightOpen ? "open" : "closed";
+    // let rightOpen = this.state.rightOpen ? "open" : "closed";
     let color = this.state.color;
 
     const Auth = localStorage.getItem("userInfor");
     const message = JSON.parse(Auth);
-    const token = message.message.token;
     const AdminName = message.message.email;
     return (
       <div id="layout">

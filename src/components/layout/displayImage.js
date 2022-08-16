@@ -60,6 +60,7 @@ const DisplayImage = ({ image, Option }) => {
                 download(e, axios.defaults.baseURL + "/" + x + "/" + item)
               }
               target="_blank"
+              rel="noreferrer" 
               download
               style={{
                 width: "40px",
@@ -78,6 +79,7 @@ const DisplayImage = ({ image, Option }) => {
                   margin: "0 auto",
                   borderRadius: "50%",
                 }}
+                alt="item"
                 src={axios.defaults.baseURL + "/" + x + "/" + item}
               />
             </a>
