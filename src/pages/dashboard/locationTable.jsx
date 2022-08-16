@@ -133,78 +133,8 @@ function LocationTable() {
     // );
     setItemOffset(newOffset);
   };
-  const datas = [
-    {
-      lacation: "samplelocartion",
-      state: "",
-    },
-  ];
-  const locationArray = {
-    Klang_Valley: {
-      name: "Ohio",
-      abbreviation: "OH",
-      cities: {
-        Cleveland: {
-          name: "Cleveland",
-          metroPopulation: "~2.1M",
-        },
-        Columbus: {
-          name: "Columbus",
-          metroPopulation: "~2.0M",
-        },
-      },
-    },
-    MA: {
-      name: "Massachusetts",
-      abbreviation: "MA",
-      cities: {
-        Boston: {
-          name: "Boston",
-          metroPopulation: "~4.6M",
-        },
-      },
-    },
-    TX: {
-      name: "Texas",
-      abbreviation: "TX",
-      cities: {
-        Austin: {
-          name: "Austin",
-          metroPopulation: "~2.1M",
-        },
-        "San Antonio": {
-          name: "San Antonio",
-          metroPopulation: "~2.5M",
-        },
-        Dallas: {
-          name: "Dallas",
-          metroPopulation: "~7.2M",
-        },
-      },
-    },
-    CA: {
-      name: "California",
-      abbreviation: "CA",
-      cities: {
-        "Los Angeles": {
-          name: "Los Angeles",
-          metroPopulation: "~13.1M",
-        },
-        "San Diego": {
-          name: "San Diego",
-          metroPopulation: "~3.3M",
-        },
-        "San Francisco": {
-          name: "San Francisco",
-          metroPopulation: "~4.7M",
-        },
-        Sacramento: {
-          name: "Sacramento",
-          metroPopulation: "~2.1M",
-        },
-      },
-    },
-  };
+ 
+
   const arr = [
     {
       no: "Klang Valley",
@@ -290,51 +220,7 @@ function LocationTable() {
     },
   ];
 
-  let namesArr = {};
-  const rowSpan = arr.reduce((result, item, key) => {
-    if (namesArr[item.name] === undefined) {
-      namesArr[item.name] = key;
-      result[key] = 1;
-    } else {
-      const firstIndex = namesArr[item.name];
-      if (
-        firstIndex === key - 1 ||
-        (item.name === arr[key - 1].name && result[key - 1] === 0)
-      ) {
-        result[firstIndex]++;
-        result[key] = 0;
-      } else {
-        result[key] = 1;
-        namesArr[item.name] = key;
-      }
-    }
-    return result;
-  }, []);
 
-  const tbodies = Object.values(locationArray).map((state, index) => {
-    const cityValues = Object.values(state.cities);
-    const cityRows = cityValues.map((city, i) => {
-      const stateName =
-        i === 0 ? <td rowSpan={cityValues.length + 1}>{state.name}</td> : null;
-      const stateAbbreviation =
-        i === 0 ? (
-          <td rowSpan={cityValues.length + 1}>{state.abbreviation}</td>
-        ) : null;
-      return (
-        <tr key={i}>
-          {stateName}
-          {stateAbbreviation}
-          <td>{city.name}</td>
-          <td>{city.metroPopulation}</td>
-        </tr>
-      );
-    });
-    return (
-      <tbody key={index} className={state.name}>
-        {cityRows}
-      </tbody>
-    );
-  });
 
   return (
     <div className={classes.tableMainDiv}>
