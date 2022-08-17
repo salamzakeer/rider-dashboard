@@ -97,7 +97,6 @@ function CurrentJobTable() {
         .then((res) => {
           setData(res.data);
           setLoading(true);
-          console.log(res.data);
         })
         .catch((error) => {
           // console.log(error);

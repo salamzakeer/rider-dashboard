@@ -1,6 +1,8 @@
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "../../axiosHeader";
+
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
@@ -79,44 +81,71 @@ const useStyles = makeStyles(
 
 export default function HumanResource() {
   const classes = useStyles();
+
+  const [Loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("/rider")
+      .then((res) => {
+        setData(res.data);
+        // console.log("working", res.data);
+        setLoading(true);
+        // console.log(res.data);
+        // window.reload()
+      })
+      .catch((error) => {
+        // console.log(error);
+        setLoading(true);
+      });
+  }, []);
+
   return (
     <>
       <div className={classes.TotalRecordDiv}>
         <p className={classes.TotalRecordDivHeading}>Human Resource</p>
-        <div className={classes.TotalRecordTable}>
-          <div className={classes.TotalRecordTableTr}>
-            <p className={classes.TotalRecordTableTrText}>CEO/COO</p>
-            <p className={classes.TotalRecordTableTrNo}>2</p>
+        {Loading ? (
+          <div className={classes.TotalRecordTable}>
+            <div className={classes.TotalRecordTableTr}>
+              <p className={classes.TotalRecordTableTrText}>CEO/COO</p>
+              <p className={classes.TotalRecordTableTrNo}>2</p>
+            </div>
+            <div className={classes.TotalRecordTableTr}>
+              <p className={classes.TotalRecordTableTrText}>Director</p>
+              <p className={classes.TotalRecordTableTrNo}>2</p>
+            </div>
+            <div className={classes.TotalRecordTableTr}>
+              <p className={classes.TotalRecordTableTrText}>Manager</p>
+              <p className={classes.TotalRecordTableTrNo}>10</p>
+            </div>
+            <div className={classes.TotalRecordTableTr}>
+              <p className={classes.TotalRecordTableTrText}>
+                Field Visit Staffs
+              </p>
+              <p className={classes.TotalRecordTableTrNo}>2</p>
+            </div>
+            <div className={classes.TotalRecordTableTr}>
+              <p className={classes.TotalRecordTableTrText}>Administration</p>
+              <p className={classes.TotalRecordTableTrNo}>20</p>
+            </div>
+            <div className={classes.TotalRecordTableTr}>
+              <p className={classes.TotalRecordTableTrText}>Call Manager</p>
+              <p className={classes.TotalRecordTableTrNo}>250</p>
+            </div>
+            <div className={classes.TotalRecordTableTr}>
+              <p className={classes.TotalRecordTableTrText}>Tellecaller</p>
+              <p className={classes.TotalRecordTableTrNo}>250</p>
+            </div>
+            <div className={classes.TotalRecordTableTr}>
+              <p className={classes.TotalRecordTableTrText}>
+                Field Visit Staffs
+              </p>
+              <p className={classes.TotalRecordTableTrNo}>250</p>
+            </div>
           </div>
-          <div className={classes.TotalRecordTableTr}>
-            <p className={classes.TotalRecordTableTrText}>Director</p>
-            <p className={classes.TotalRecordTableTrNo}>2</p>
-          </div>
-          <div className={classes.TotalRecordTableTr}>
-            <p className={classes.TotalRecordTableTrText}>Manager</p>
-            <p className={classes.TotalRecordTableTrNo}>10</p>
-          </div>
-          <div className={classes.TotalRecordTableTr}>
-            <p className={classes.TotalRecordTableTrText}>Field Visit Staffs</p>
-            <p className={classes.TotalRecordTableTrNo}>2</p>
-          </div>
-          <div className={classes.TotalRecordTableTr}>
-            <p className={classes.TotalRecordTableTrText}>Administration</p>
-            <p className={classes.TotalRecordTableTrNo}>20</p>
-          </div>
-          <div className={classes.TotalRecordTableTr}>
-            <p className={classes.TotalRecordTableTrText}>Call Manager</p>
-            <p className={classes.TotalRecordTableTrNo}>250</p>
-          </div>
-          <div className={classes.TotalRecordTableTr}>
-            <p className={classes.TotalRecordTableTrText}>Tellecaller</p>
-            <p className={classes.TotalRecordTableTrNo}>250</p>
-          </div>
-          <div className={classes.TotalRecordTableTr}>
-            <p className={classes.TotalRecordTableTrText}>Field Visit Staffs</p>
-            <p className={classes.TotalRecordTableTrNo}>250</p>
-          </div>
-        </div>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );
