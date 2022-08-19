@@ -57,8 +57,8 @@ class Layout extends React.Component {
                   <div to="/userprofile">
                     <Avatar
                       sx={{
-                        width: "60px",
-                        height: "60px",
+                        width: "54px",
+                        height: "54px",
                         textTransform: "capitalize",
                       }}
                       // src={ProfilePic}

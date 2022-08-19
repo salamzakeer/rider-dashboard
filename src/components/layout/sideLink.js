@@ -64,15 +64,7 @@ export default function SideNavigation(props) {
               <span style={{ paddingLeft: "20px" }}>Import Data</span>
             </li>
           </Link>
-          {/* <Link to="/assign-data" style={{ textDecoration: "none" }}>
-            <li
-              className={`left-heading ${
-                path === "/assign-data" ? "s-active" : ""
-              }`}
-            >
-              <span style={{ paddingLeft: "20px" }}>Assign Data</span>
-            </li>
-          </Link> */}
+
           <Link to="/assigned-data" style={{ textDecoration: "none" }}>
             <li
               className={`left-heading ${
@@ -84,6 +76,19 @@ export default function SideNavigation(props) {
                 <ArrowRightIcon />
               </div>
               <span style={{ paddingLeft: "20px" }}>Assign Data</span>
+            </li>
+          </Link>
+          <Link to="/payment-list-table" style={{ textDecoration: "none" }}>
+            <li
+              className={`left-heading ${
+                path === "/payment-list-table" ? "s-active" : ""
+              }`}
+            >
+              {" "}
+              <div>
+                <ArrowRightIcon />
+              </div>
+              <span style={{ paddingLeft: "20px" }}>Payment List</span>
             </li>
           </Link>
         </>

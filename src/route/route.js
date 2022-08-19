@@ -7,6 +7,10 @@ import CallManager from "../pages/callManager/callmanager";
 import ExtendSearch from "../pages/extendSearch/index";
 import ImportManager from "../pages/importManager/importManger";
 import ImportManagerTable from "../pages/importManager/importTable";
+
+import ProductManager from "../pages/importManager/product Data/productManger";
+import ProductManagerTable from "../pages/importManager/product Data/productTable";
+
 import AssignData from "../pages/importManager/assignData/assignData";
 import AssignedData from "../pages/importManager/assignedTable/assignedTable";
 import Rider from "../pages/Riders/rider";
@@ -67,6 +71,19 @@ export const publicRoutes = [
     component: ImportManager,
     exact: true,
   },
+
+  // product
+  {
+    path: "/payment-list-table",
+    component: ProductManagerTable,
+    exact: true,
+  },
+  {
+    path: "/payment-list",
+    component: ProductManager,
+    exact: true,
+  },
+
   {
     path: "/assign-data",
     component: AssignData,
