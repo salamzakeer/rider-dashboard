@@ -1,13 +1,14 @@
 import { makeStyles } from "@material-ui/core";
 import { createStyles } from "@material-ui/core";
 import React from "react";
+import Datapicker from "../../../../components/customCore/datapickerCallManger";
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
       // [theme.breakpoints.down("sm")]: {
       //     fontSize: "1.5rem",
       //   },
-    // return <AddRider closeModel={setOpenModel} />;
+      // return <AddRider closeModel={setOpenModel} />;
       inputDiv: {
         borderBottom: "4px solid #fff",
         "&:n+1": {
@@ -41,13 +42,22 @@ const useStyles = makeStyles(
 
 function Dashboard(props) {
   const classes = useStyles();
-  const { keys, value, onChange, name, id, options, disabled } =
-    props;
+  const {
+    keys,
+    value,
+    onChange,
+    name,
+    id,
+    options,
+    disabled,
+    datepicker,
+    datepickerC,
+  } = props;
 
   return (
     <>
       <td className={classes.keys}>{keys}</td>
-      {!options && (
+      {!datepicker && !options && (
         <td className={classes.inputDiv}>
           <input
             value={value}
@@ -58,7 +68,7 @@ function Dashboard(props) {
           ></input>
         </td>
       )}
-      {options && options.length > 0 && (
+      {!datepicker && options && options.length > 0 && (
         <td>
           <div className={classes.select1}>
             {/* <label className={classes.label}>Job Name</label> */}
@@ -91,6 +101,7 @@ function Dashboard(props) {
           </div>
         </td>
       )}
+      {datepicker && <td className={classes.inputDiv}>{datepickerC}</td>}
     </>
   );
 }

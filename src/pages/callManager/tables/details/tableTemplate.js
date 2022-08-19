@@ -8,6 +8,7 @@ function Dashboard(props) {
     onChange1,
     name1,
     id1,
+    datepicker1,
     key2,
     value2,
     onChange2,
@@ -24,11 +25,12 @@ function Dashboard(props) {
     disabled1,
     disabled2,
     disabled3,
+    datepickerC,
   } = props;
   // console.log(key1, key2, key3);
 
   return (
-    <tbody>
+    <tbody key={name1 + id2}>
       <tr key={name1 + name2 + name3}>
         <TableTemplate2
           keys={key1}
@@ -38,6 +40,8 @@ function Dashboard(props) {
           id={id1}
           options={options1}
           disabled={disabled1}
+          datepicker={datepicker1}
+          datepickerC={datepickerC}
         />
         <TableTemplate2
           keys={key2}

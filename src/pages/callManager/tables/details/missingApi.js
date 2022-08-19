@@ -1,4 +1,5 @@
-1st visit-Date of Bill & Notice/LOD was served
-Nature of business
-Third Party Search
-TPS Outcome/Contact Number
+State Reason,
+Scan via DCA Tracking System (Y/N),
+call status,
+Reason customer refuse to pay IWK bill,
+Completed and Submitted the Headcout Declaration (DF) Form (Y/N)

@@ -23,6 +23,7 @@ const colourStyles = {
       alignItems: "center",
       paddingLeft: "22px",
       fontSize: "16px",
+      zIndex: "999",
     };
   },
   singleValue: (provided) => {

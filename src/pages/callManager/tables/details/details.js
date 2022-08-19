@@ -10,10 +10,12 @@ import {
   propertyusagetype,
   occupiertype,
   Nationality,
+  RiderStatus,
 } from "../../../../api/detailsApi";
 import { useToasts } from "react-toast-notifications";
 import axios from "../../../../axios";
 import moment from "moment";
+import Datapicker from "../../../../components/customCore/datapickerCallManger";
 
 const useStyles = makeStyles(
   (theme) =>
@@ -77,18 +79,33 @@ function Dashboard(Details) {
     setValues({});
 
     setValues(SelectUserObject);
+
+    if (SelectUserObject.FirstVisitDate != null) {
+      setCurrentDate(
+        new Date(moment(SelectUserObject.FirstVisitDate).format("YYYY-MM-DD"))
+      );
+    }
   }, [SelectUserObject]);
   const [values, setValues] = useState({});
-  // console.log(values, "values");
+  const [CurrentDate, setCurrentDate] = React.useState(
+    values.FirstVisitDate
+    // moment(values.FirstVisitDate)
+  );
+
   const handleInputChange = (e) => {
-    // console.log("=====");
     const { name, value } = e.target;
-    // console.log(value, "val", name, "name");
     setValues({
       ...values,
       [name]: value,
     });
   };
+  const handleDateChange = (e) => {
+    // setValues({
+    //   ...values,
+    //   FirstVisitDate: "Thu Aug 18 2022 00:00:00 GMT+0530 (India Standard Time)",
+    // });
+  };
+  // handleDateChange
   const classes = useStyles();
   const updating = (e) => {
     setDisabled(true);
@@ -99,22 +116,129 @@ function Dashboard(Details) {
     //   "onSchedule",
     //   JSON.stringify(values.trackType) === "true" ? 1 : 0
     // );
-    data.append("OwnernameCorrect", values.OwnernameCorrect);
-    data.append("specifyCorrectOwnername", values.specifyCorrectOwnername);
-    data.append("OwnertelNo", values.OwnertelNo);
-    data.append("PropertyUsage", values.PropertyUsage);
-    data.append("PropertyType", values.PropertyType);
-    data.append("DRCode", values.DRCode);
-    data.append("Remarks", values.Remarks);
-    data.append("TenantName", values.TenantName);
-    data.append("TenantTelNo", values.TenantTelNo);
-    data.append("Payment", values.Payment);
-    data.append("PropertyStatus", values.PropertyStatus);
-    data.append("OccupierNationality", values.OccupierNationality);
-    data.append("numberOfVisit", values.numberOfVisit);
-    data.append("updateStatus", values.updateStatus);
-    // OccupierNationality
-    // console.log("okoko", Option, values);
+    data.append(
+      "OwnernameCorrect",
+      values.OwnernameCorrect === null ? "" : values.OwnernameCorrect
+    );
+    data.append(
+      "specifyCorrectOwnername",
+      values.specifyCorrectOwnername === null
+        ? ""
+        : values.specifyCorrectOwnername
+    );
+    data.append(
+      "OwnertelNo",
+      values.OwnertelNo === null ? "" : values.OwnertelNo
+    );
+    data.append(
+      "PropertyUsage",
+      values.PropertyUsage === null ? "" : values.PropertyUsage
+    );
+    data.append(
+      "PropertyType",
+      values.PropertyType === null ? "" : values.PropertyType
+    );
+    data.append("DRCode", values.DRCode === null ? "" : values.DRCode);
+    data.append("Remarks", values.Remarks === null ? "" : values.Remarks);
+    data.append(
+      "TenantName",
+      values.TenantName === null ? "" : values.TenantName
+    );
+    data.append(
+      "TenantTelNo",
+      values.TenantTelNo === null ? "" : values.TenantTelNo
+    );
+    data.append("Payment", values.Payment === null ? "" : values.Payment);
+    data.append(
+      "PropertyStatus",
+      values.PropertyStatus === null ? "" : values.PropertyStatus
+    );
+    data.append(
+      "OccupierNationality",
+      values.OccupierNationality === null ? "" : values.OccupierNationality
+    );
+    // FirstVisitDate
+    data.append(
+      "numberOfVisit",
+      values.numberOfVisit === null ? "" : values.numberOfVisit
+    );
+    data.append(
+      "updateStatus",
+      values.updateStatus === null ? "" : values.updateStatus
+    );
+    data.append("FirstVisitDate", moment(CurrentDate).format("YYYY-MM-DD"));
+
+    data.append(
+      "Numberoffollowupcalls",
+      values.Numberoffollowupcalls === null ? "" : values.Numberoffollowupcalls
+    );
+    data.append("AgentName", values.AgentName === null ? "" : values.AgentName);
+    data.append("Occupier", values.Occupier === null ? "" : values.Occupier);
+
+    data.append(
+      "propertyusagetype",
+      values.propertyusagetype === null ? "" : values.propertyusagetype
+    );
+    data.append(
+      "nameOfShop",
+      values.nameOfShop === null ? "" : values.nameOfShop
+    );
+    data.append(
+      "NatureOfBusiness",
+      values.NatureOfBusiness === null ? "" : values.NatureOfBusiness
+    );
+    data.append(
+      "OwnertelNo",
+      values.OwnertelNo === null ? "" : values.OwnertelNo
+    );
+    data.append(
+      "TenantsTelNo",
+      values.TenantsTelNo === null ? "" : values.TenantsTelNo
+    );
+
+    data.append(
+      "OwnersMobNo",
+      values.OwnersMobNo === null ? "" : values.OwnersMobNo
+    );
+    data.append(
+      "TenantsMobNo",
+      values.TenantsMobNo === null ? "" : values.TenantsMobNo
+    );
+    data.append(
+      "ThirdPartySearch",
+      values.ThirdPartySearch === null ? "" : values.ThirdPartySearch
+    );
+    data.append(
+      "OwnerEmail",
+      values.OwnerEmail === null ? "" : values.OwnerEmail
+    );
+    data.append(
+      "TenantEmail",
+      values.TenantEmail === null ? "" : values.TenantEmail
+    );
+    data.append(
+      "Source_of_TPS",
+      values.Source_of_TPS === null ? "" : values.Source_of_TPS
+    );
+
+    data.append(
+      "ReasonCustomerRefuseToPayIWKbill",
+      values.ReasonCustomerRefuseToPayIWKbill === null
+        ? ""
+        : values.ReasonCustomerRefuseToPayIWKbill
+    );
+    data.append(
+      "TPSOutcomeOrContactNumber",
+      values.TPSOutcomeOrContactNumber === null
+        ? ""
+        : values.TPSOutcomeOrContactNumber
+    );
+
+    data.append(
+      "RemarksTPS",
+      values.RemarksTPS === null ? "" : values.RemarksTPS
+    );
+
     axios
       .put("/" + Option + "/" + values.id, data, {
         headers: {
@@ -157,6 +281,25 @@ function Dashboard(Details) {
     return null;
   };
 
+  // console.log(
+  //   values.FirstVisitDate,
+  //   moment(values.FirstVisitDate).format("DD/mm/yyyy"),
+  //   "-----------------"
+  // );
+  const handleCurrentDate = (e) => {
+    setCurrentDate(e);
+  };
+  const DatapickerComponent = () => (
+    <div>
+      <Datapicker
+        name="currentdate"
+        value={CurrentDate}
+        onChange={handleCurrentDate}
+        required
+      />
+    </div>
+  );
+
   const datas = [
     {
       id1: "id",
@@ -176,6 +319,8 @@ function Dashboard(Details) {
       value3: `${values.PropertyStatus || ""}`,
       name3: "PropertyStatus",
       onChange3: handleNotInputChange,
+      // Status
+      options3: RiderStatus,
     },
     // 2
     // todo customer'sMobile
@@ -462,13 +607,13 @@ function Dashboard(Details) {
       value2: `${values.DiffBetweenBalAsPerCopyBill || ""}`,
       onChange2: handleNotInputChange,
 
-      // key3: "Taman",
+      key3: "",
       // id3: "PropertyStatus",
-      // value3: `${values.PropertyStatus || ""}`,
+      value3: ``,
       // name3: "PropertyStatus",
       onChange3: handleNotInputChange,
     },
-    // Update start
+    // yellow start
     {
       id1: "LA_Name",
       key1: "LA_Name",
@@ -550,7 +695,7 @@ function Dashboard(Details) {
       // id1: "Owner2NRIC",
       // key1: "Owner2NRIC",
       // name1: "Owner2NRIC",
-      // value1: `${values.Owner2NRIC || ""}`,
+      value1: ``,
       onChange1: handleNotInputChange,
 
       key2: "Water_Email Add",
@@ -561,123 +706,132 @@ function Dashboard(Details) {
 
       // key3: "PropertyStatus",
       // id3: "PropertyStatus",
-      // value3: `${values.PropertyStatus || ""}`,
+      value3: ``,
       // name3: "PropertyStatus",
       onChange3: handleNotInputChange,
     },
-    // yellow Update End
-    //
+    // yellow  End
+
+    //starting updating feild
     {
       key1: "1st visit-Date of Bill & Notice/LOD was served",
       id1: "FirstVisitDate",
       name1: "FirstVisitDate",
-      value1: `${values.FirstVisitDate || ""}`,
-      onChange1: handleNotInputChange,
+      //
+      value1: `${moment(values.FirstVisitDate).format("YYYY-MM-DD") || "s"}`,
+      onChange1: handleDateChange,
+      datepicker1: "23-03-2022",
+      datepickerC: <DatapickerComponent />,
 
       key2: "Occupier Nationality",
       id2: "OccupierNationality",
       name2: "OccupierNationality",
       value2: `${values.OccupierNationality || ""}`,
-      onChange2: handleNotInputChange,
+      onChange2: handleInputChange,
+      options2: Nationality,
 
-      key3: "Numberoffollowupcalls",
-      id3: "LA_Old_IC",
-      value3: `${values.LA_Old_IC || ""}`,
-      name3: "LA_Old_IC",
-      onChange3: handleNotInputChange,
+      key3: "Number Of Follow Up Calls",
+      id3: "Numberoffollowupcalls",
+      value3: `${values.Numberoffollowupcalls || ""}`,
+      name3: "Numberoffollowupcalls",
+      onChange3: handleInputChange,
     },
     {
       key1: "Agent's Name",
       id1: "AgentName",
       name1: "AgentName",
       value1: `${values.AgentName || ""}`,
-      onChange1: handleNotInputChange,
+      onChange1: handleInputChange,
 
       key2: "Number Of Visitation",
       id2: "numberOfVisit",
       name2: "numberOfVisit",
       value2: `${values.numberOfVisit || ""}`,
-      onChange2: handleNotInputChange,
-      options3: { typeofbusinesstype },
+      onChange2: handleInputChange,
+
+      options3: typeofbusinesstype,
       key3: "Property Usage",
       id3: "PropertyUsage",
       value3: `${values.PropertyUsage || ""}`,
       name3: "PropertyUsage",
-      onChange3: handleNotInputChange,
+      onChange3: handleInputChange,
     },
     {
       key1: "Occupier (Owner/Tenant)",
-      id1: "TenantName",
-      name1: "TenantName",
-      value1: `${values.TenantName || ""}`,
-      onChange1: handleNotInputChange,
+      id1: "Occupier",
+      name1: "Occupier",
+      value1: `${values.Occupier || ""}`,
+      onChange1: handleInputChange,
+      options1: occupiertype,
 
       key2: "Occupier Nationality",
       id2: "OccupierNationality",
       name2: "OccupierNationality",
       value2: `${values.OccupierNationality || ""}`,
-      onChange2: handleNotInputChange,
+      onChange2: handleInputChange,
+      options2: Nationality,
 
       key3: "Property Type",
       id3: "propertyusagetype",
       value3: `${values.propertyusagetype || ""}`,
       name3: "propertyusagetype",
-      onChange3: handleNotInputChange,
+      onChange3: handleInputChange,
+      options3: propertyusagetype,
     },
     {
       key1: "Ownername correct (Yes/No)",
       id1: "OwnernameCorrect",
       name1: "OwnernameCorrect",
       value1: `${values.OwnernameCorrect || ""}`,
-      onChange1: handleNotInputChange,
-      options1: { YesNo },
+      onChange1: handleInputChange,
+      options1: YesNo,
 
       key2: "Number Of Visitation",
       id2: "numberOfVisit",
       name2: "numberOfVisit",
       value2: `${values.numberOfVisit || ""}`,
-      onChange2: handleNotInputChange,
+      onChange2: handleInputChange,
 
       key3: "Name of shop/company",
       id3: "nameOfShop",
       value3: `${values.nameOfShop || ""}`,
       name3: "nameOfShop",
-      onChange3: handleNotInputChange,
+      onChange3: handleInputChange,
     },
     {
       key1: "Please specify correct ownername",
       id1: "specifyCorrectOwnername",
       name1: "specifyCorrectOwnername",
       value1: `${values.specifyCorrectOwnername || ""}`,
-      onChange1: handleNotInputChange,
+      onChange1: handleInputChange,
 
       key2: "Tenant's Name",
       id2: "TenantName",
       name2: "TenantName",
       value2: `${values.TenantName || ""}`,
-      onChange2: handleNotInputChange,
+      onChange2: handleInputChange,
 
       key3: "Nature of business",
-      id3: "LA_Old_IC",
-      value3: `${values.LA_Old_IC || ""}`,
-      name3: "LA_Old_IC",
-      onChange3: handleNotInputChange,
+      id3: "NatureOfBusiness",
+      value3: `${values.NatureOfBusiness || ""}`,
+      name3: "NatureOfBusiness",
+      onChange3: handleInputChange,
     },
     {
       key1: "Owner's tel no",
       id1: "OwnertelNo",
       name1: "OwnertelNo",
       value1: `${values.OwnertelNo || ""}`,
-      onChange1: handleNotInputChange,
+      onChange1: handleInputChange,
 
       key2: "Tenant's tel no",
       id2: "TenantsTelNo",
       name2: "TenantsTelNo",
       value2: `${values.TenantsTelNo || ""}`,
-      onChange2: handleNotInputChange,
+      onChange2: handleInputChange,
 
       key3: "DR Code",
-      id3: "LA_Old_IC",
+      id3: "DRCode",
       value3: `${
         values.TenantName === "Vacant"
           ? "6 DR06 VACANT LAND "
@@ -686,7 +840,8 @@ function Dashboard(Details) {
           : values.DRCode || ""
       }`,
       name3: "DRCode",
-      onChange3: handleNotInputChange,
+      onChange3: handleInputChange,
+      options3: Qrcode,
     },
     // DRCode last changes
     {
@@ -694,59 +849,118 @@ function Dashboard(Details) {
       id1: "OwnersMobNo",
       name1: "OwnersMobNo",
       value1: `${values.OwnersMobNo || ""}`,
-      onChange1: handleNotInputChange,
+      onChange1: handleInputChange,
 
       key2: "Tenant's mobile no",
       id2: "TenantsMobNo",
       name2: "TenantsMobNo",
       value2: `${values.TenantsMobNo || ""}`,
-      onChange2: handleNotInputChange,
+      onChange2: handleInputChange,
 
       key3: "Third Party Search",
-      id3: "LA_Old_IC",
-      value3: `${values.LA_Old_IC || ""}`,
-      name3: "LA_Old_IC",
-      onChange3: handleNotInputChange,
+      id3: "ThirdPartySearch",
+      value3: `${values.ThirdPartySearch || ""}`,
+      name3: "ThirdPartySearch",
+      onChange3: handleInputChange,
     },
     {
       key1: "Owner's Email",
       id1: "OwnerEmail",
       name1: "OwnerEmail",
       value1: `${values.OwnerEmail || ""}`,
-      onChange1: handleNotInputChange,
+      onChange1: handleInputChange,
 
       key2: "Tenant's email",
       id2: "TenantEmail",
       name2: "TenantEmail",
       value2: `${values.TenantEmail || ""}`,
-      onChange2: handleNotInputChange,
+      onChange2: handleInputChange,
 
       key3: "Source of TPS",
       id3: "Source_of_TPS",
       value3: `${values.Source_of_TPS || ""}`,
       name3: "Source_of_TPS",
-      onChange3: handleNotInputChange,
+      onChange3: handleInputChange,
     },
     {
       key1: "Reason customer refuse to pay IWK bill",
       id1: "ReasonCustomerRefuseToPayIWKbill",
       name1: "ReasonCustomerRefuseToPayIWKbill",
       value1: `${values.ReasonCustomerRefuseToPayIWKbill || ""}`,
-      onChange1: handleNotInputChange,
+      onChange1: handleInputChange,
 
       key2: "Remarks",
       id2: "Remarks",
       name2: "Remarks",
       value2: `${values.Remarks || ""}`,
-      onChange2: handleNotInputChange,
+      onChange2: handleInputChange,
 
       key3: "TPS Outcome/Contact Number",
+      id3: "TPSOutcomeOrContactNumber",
+      value3: `${values.TPSOutcomeOrContactNumber || ""}`,
+      name3: "TPSOutcomeOrContactNumber",
+      onChange3: handleInputChange,
+    },
+    // do 2end yello part
+    {
+      key1: "Scan via DCA Tracking System (Y/N)",
+      id1: "ReasonCustomerRefuseToPayIWKbill",
+      name1: "ReasonCustomerRefuseToPayIWKbill",
+      value1: `${values.ReasonCustomerRefuseToPayIWKbill || ""}`,
+      onChange1: handleInputChange,
+
+      key2: "Reason if copy bill not ",
+      id2: "Remarks",
+      name2: "Remarks",
+      value2: `${values.Remarks || ""}`,
+      onChange2: handleInputChange,
+
+      key3: "Completed and Submitted the Headcout Declaration (DF) Form (Y/N)",
       id3: "LA_Old_IC",
       value3: `${values.LA_Old_IC || ""}`,
       name3: "LA_Old_IC",
-      onChange3: handleNotInputChange,
+      onChange3: handleInputChange,
     },
-    // do 2end yello part 
+    {
+      key1: "Reason customer refuse to pay IWK bill",
+      // id1: "ReasonCustomerRefuseToPayIWKbill",
+      // name1: "ReasonCustomerRefuseToPayIWKbill",
+      // value1: `${values.ReasonCustomerRefuseToPayIWKbill || ""}`,
+      // onChange1: handleInputChange,
+
+      // key2: "Remarks",
+      // id2: "Remarks",
+      // name2: "Remarks",
+      // value2: `${values.Remarks || ""}`,
+      // onChange2: handleInputChange,
+
+      key3: "State Reason",
+      id3: "LA_Old_IC",
+      value3: `${values.LA_Old_IC || ""}`,
+      name3: "LA_Old_IC",
+      onChange3: handleInputChange,
+    },
+    {
+      key1: "Call  Status",
+      id1: "ReasonCustomerRefuseToPayIWKbill",
+      name1: "ReasonCustomerRefuseToPayIWKbill",
+      value1: `${values.updateStatus === 0 ? "Not Update" : "Update" || ""}`,
+      onChange1: handleInputChange,
+      options1: RiderStatus,
+
+      key2: "Rider Status",
+      id2: "updateStatus",
+      name2: "updateStatus",
+      value2: `${values.updateStatus === 0 ? "Not Update" : "Update" || ""}`,
+      onChange2: handleInputChange,
+      options2: RiderStatus,
+
+      key3: "Remarks TPS",
+      id3: "RemarksTPS",
+      value3: `${values.RemarksTPS || ""}`,
+      name3: "RemarksTPS",
+      onChange3: handleInputChange,
+    },
   ];
   return (
     <div className="table-view ">
@@ -770,6 +984,12 @@ function Dashboard(Details) {
                   onChange1={item.onChange1}
                   name1={item.name1}
                   id1={item.id1}
+                  datepickerC={item.datepicker1 ? item.datepickerC : false}
+                  datepicker1={item.datepicker1 ? item.datepicker1 : false}
+                  options1={item.options1 ? item.options1 : false}
+                  options2={item.options2 ? item.options2 : false}
+                  options3={item.options3 ? item.options3 : false}
+                  // datepickerC
                   key2={item.key2}
                   value2={item.value2}
                   onChange2={item.onChange2}

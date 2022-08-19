@@ -91,7 +91,7 @@ body {
   margin: 0;
   padding-right: 22px;
   border-radius: 100px;
-  z-index: 2;
+  z-index: 1;
   top: 33.33%;
   width: 40px;
 }

@@ -407,6 +407,10 @@ function Dashboard() {
   const handleNotChange = () => {
     return null;
   };
+  const handleCurrentDate = (e) => {
+    console.log(e);
+    setCurrentDate(e);
+  };
   return (
     <Layout>
       <div className="newFile2">
@@ -490,7 +494,7 @@ function Dashboard() {
                 name="currentdate"
                 value={CurrentDate}
                 label="Current Date"
-                onChange={(e) => setCurrentDate(e)}
+                onChange={handleCurrentDate}
                 required
               />
               <br />
@@ -519,29 +523,35 @@ function Dashboard() {
               {(optionSelectedOr === "lnds" ||
                 optionSelectedOr === "commercials" ||
                 optionSelectedOr === "highrises") && (
-                <MySelect
-                  options={LndArrayOptions}
-                  isMulti
-                  closeMenuOnSelect={false}
-                  hideSelectedOptions={false}
-                  components={{ Option, MultiValue, animatedComponents }}
-                  onChange={selecHandleChange}
-                  allowSelectAll={true}
-                  value={optionSelected}
-                />
+                <div>
+                  <MySelect
+                    menuPosition="fixed"
+                    options={LndArrayOptions}
+                    isMulti
+                    closeMenuOnSelect={false}
+                    hideSelectedOptions={false}
+                    components={{ Option, MultiValue, animatedComponents }}
+                    onChange={selecHandleChange}
+                    allowSelectAll={true}
+                    value={optionSelected}
+                  />
+                </div>
               )}
 
               {optionSelectedOr === "vacants" && (
-                <MySelect
-                  options={VacantsArrayOptions}
-                  isMulti
-                  closeMenuOnSelect={false}
-                  hideSelectedOptions={false}
-                  components={{ Option, MultiValue, animatedComponents }}
-                  onChange={selecHandleChange}
-                  allowSelectAll={true}
-                  value={optionSelected}
-                />
+                <div>
+                  <MySelect
+                    menuPosition="fixed"
+                    options={VacantsArrayOptions}
+                    isMulti
+                    closeMenuOnSelect={false}
+                    hideSelectedOptions={false}
+                    components={{ Option, MultiValue, animatedComponents }}
+                    onChange={selecHandleChange}
+                    allowSelectAll={true}
+                    value={optionSelected}
+                  />
+                </div>
               )}
             </div>
             <br />
