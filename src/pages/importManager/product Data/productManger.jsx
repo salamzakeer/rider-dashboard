@@ -195,26 +195,19 @@ function Dashboard() {
     if (optionSelectedOr !== "" && optionSelectedOr !== "Type") {
       setDisabled(true);
       event.preventDefault();
-      var array = [];
-      optionSelected.map((item) => array.push(item.value));
       data.append("data", file);
-      data.append("dueDate", moment(DueDate).format("YYYY-MM-DD"));
-      data.append("createdDate", moment(CurrentDate).format("YYYY-MM-DD"));
-      data.append("reportDate", moment(CurrentDate).format("YYYY-MM-DD"));
-
-      data.append("jobName", JobType);
-      data.append("columns", `${array}`);
+      data.append("jobName", UserSelectCategory);
       data.append("adminId", AdminId);
-      data.append("category", optionSelectedOr);
 
       axios
         // detailIndex
-        .post(`/${optionSelectedOr}`, data, {
+        .post(`/paymentListHighrises`, data, {
           headers: { "Content-Type": "multipart/form-data" },
-          //   onUploadProgress: (data) => {
-          //     //Set the progress value to show the progress bar
-          //     // setProgress(Math.round((100 * data.loaded) / data.total));
-          //   },
+          onUploadProgress: (data) => {
+            //Set the progress value to show the progress bar
+            // setProgress(Math.round((100 * data.loaded) / data.total));
+            console.time((100 * data.loaded) / data.total);
+          },
         })
         .then((res) => {
           // var id = res.id;
