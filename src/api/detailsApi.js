@@ -426,6 +426,28 @@ export var categoryType = [
     value: "highrises",
   },
 ];
+export const categoryTypeAll = [
+  {
+    id: "lnds",
+    name: "Landed",
+    value: "lnds",
+  },
+  {
+    id: "Vacant",
+    name: "Vacant",
+    value: "vacant",
+  },
+  {
+    id: "commercials",
+    name: "Commercials",
+    value: "commercials",
+  },
+  {
+    id: "highrises",
+    name: "Highrises",
+    value: "highrises",
+  },
+];
 export const UpdateType = [
   {
     id: "2",

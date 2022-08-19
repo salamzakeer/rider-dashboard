@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css"; // import first
 import makeAnimated from "react-select/animated";
 import MySelect from "../../../components/select/select";
@@ -12,7 +12,10 @@ import Layout from "../../../components/layout/Navbar";
 import moment from "moment";
 import { makeStyles } from "@material-ui/core";
 import { CircularProgress } from "@mui/material";
+import { categoryType, categoryTypeAll } from "../../../api/detailsApi";
 
+import BasicSelect from "../../../components/customCore/select";
+import BasicSelect2 from "../../../components/customCore/jobNameDroupDown";
 const Option = (props) => {
   return (
     <div>
@@ -33,181 +36,6 @@ const MultiValue = (props) => (
     <span>{props.data.label}</span>
   </components.MultiValue>
 );
-
-const LndArrayOptions = [
-  { value: "Exclude", label: "Exclude", color: "#00B8D9" },
-  {
-    value: "IWKSpecialInstruction",
-    label: "IWK Special Instruction",
-    color: "#00B8D9",
-  },
-  {
-    value: "CustomerTelephoneNo",
-    label: "Customer TelephoneNo",
-    color: "#00B8D9",
-  },
-  { value: "CustomerMobileNo", label: "Customer Mobile No", color: "#00B8D9" },
-  { value: "CustomerFaxNo", label: "Customer Fax No", color: "#00B8D9" },
-  { value: "CustomerEmail", label: "Customer Email", color: "#00B8D9" },
-  { value: "OwnertelNo", label: "Owner Tel No", color: "#00B8D9" },
-  { value: "OwnerMobNo", label: "Owner Mob No", color: "#00B8D9" },
-  { value: "TenantTelNo", label: "Tenant Tel No", color: "#00B8D9" },
-  {
-    value: "CustomerContactDetail",
-    label: "Customer Contact Detail",
-    color: "#00B8D9",
-  },
-  { value: "Building", label: "Building", color: "#00B8D9" },
-  { value: "BuildingID", label: "Building ID", color: "#00B8D9" },
-  {
-    value: "BalanceAsPerCopyBill",
-    label: "Balance As Per Copy Bill",
-    color: "#00B8D9",
-  },
-  {
-    value: "DiffBetweenBalAsPerCopyBill",
-    label: "Diff Between Bal As Per Copy Bill",
-    color: "#00B8D9",
-  },
-  { value: "AgentName", label: "Agent Name", color: "#00B8D9" },
-  { value: "updateReminder", label: "update Reminder", color: "#00B8D9" },
-  { value: "Occupier", label: "Occupier", color: "#00B8D9" },
-  { value: "OwnernameCorrect", label: "Owner Name Correct", color: "#00B8D9" },
-  {
-    value: "specifyCorrectOwnername",
-    label: "Specify Correct Owner Name",
-    color: "#00B8D9",
-  },
-  { value: "OwnerstelNo", label: "Owners Tel No", color: "#00B8D9" },
-  { value: "OwnersMobNo", label: "Owners Mob No", color: "#00B8D9" },
-  { value: "Ownerfaxno", label: "Owner Fax No", color: "#00B8D9" },
-  { value: "OwnerEmail", label: "Owner Email", color: "#00B8D9" },
-  { value: "TenantName", label: "Tenant Name", color: "#00B8D9" },
-  { value: "TenantsTelNo", label: "Tenants Tel No", color: "#00B8D9" },
-  { value: "TenantsMobNo", label: "Tenants Mob No", color: "#00B8D9" },
-  { value: "TenantFaxNo", label: "Tenant Fax No", color: "#00B8D9" },
-  { value: "TenantEmail", label: "Tenant Email", color: "#00B8D9" },
-  {
-    value: "OccupierNationality",
-    label: "Occupier Nationality",
-    color: "#00B8D9",
-  },
-  { value: "numberOfVisit", label: "number Of Visit", color: "#00B8D9" },
-  {
-    value: "Numberoffollowupcalls",
-    label: "Number Of Follow Up Calls",
-    color: "#00B8D9",
-  },
-  { value: "PropertyUsage", label: "Property Usage", color: "#00B8D9" },
-  { value: "PropertyType", label: "Property Type", color: "#00B8D9" },
-  {
-    value: "NameofShopOrCompany",
-    label: "Name Of ShopOrCompany",
-    color: "#00B8D9",
-  },
-  {
-    value: "ReasonCustomerRefuseToPayIWKbill",
-    label: "Reason Customer Refuse To Pay IWK bill",
-    color: "#00B8D9",
-  },
-  { value: "DRCode", label: "DRCode", color: "#00B8D9" },
-  { value: "Remarks", label: "Remarks", color: "#00B8D9" },
-  { value: "ThirdPartySearch", label: "ThirdPartySearch", color: "#00B8D9" },
-  { value: "SourceofTPS", label: "SourceofTPS", color: "#00B8D9" },
-  {
-    value: "TPSOutcomeOrContactNumber",
-    label: "TPS Outcome Or Contact Number",
-    color: "#00B8D9",
-  },
-  { value: "RemarksTPS", label: "Remarks TPS", color: "#00B8D9" },
-
-  // Exclude
-  { value: "DCAFiletype", label: "DCA Filetype", color: "#00B8D9" },
-  { value: "DCAName", label: "DCA Name", color: "#0052CC" },
-  { value: "DCACode", label: "DCA Code", color: "#0052CC" },
-  { value: "State", label: "State", color: "#5243AA" },
-  { value: "Costcode", label: "Cost code", color: "#FF5630" },
-  { value: "UO", label: "UO", color: "#00B8D9" },
-  { value: "LAName", label: "LA Name", color: "#00B8D9" },
-  { value: "billno", label: "Bill No", color: "#00B8D9" },
-  { value: "SAN", label: "SAN", color: "#00B8D9" },
-  { value: "Owner1", label: "Owner 1", color: "#00B8D9" },
-  { value: "Owner2", label: "Owner 2", color: "#00B8D9" },
-  // {
-  //   value: "specifyCorrectOwnername",
-  //   label: "Specify Correct Owner Name",
-  //   color: "#00B8D9",
-  // },
-  // { value: "OwnernameCorrect", label: "Owner Name Correct", color: "#00B8D9" },
-  { value: "Owner1NRIC", label: "Owner1 NRIC", color: "#00B8D9" },
-  { value: "Owner2NRIC", label: "Owner2 NRIC", color: "#00B8D9" },
-  { value: "PropAddr1", label: "PropAddr 1", color: "#00B8D9" },
-  { value: "PropAddr2", label: "PropAddr 2", color: "#00B8D9" },
-  { value: "PropAddr3", label: "PropAddr 3", color: "#00B8D9" },
-  { value: "PropAddr4", label: "PropAddr 4", color: "#00B8D9" },
-  { value: "PropAddr5", label: "PropAddr 5", color: "#00B8D9" },
-  { value: "Roadname", label: "Roadname", color: "#00B8D9" },
-  { value: "Taman", label: "Taman", color: "#00B8D9" },
-  { value: "PostCode", label: "Post Code", color: "#00B8D9" },
-  { value: "Suburb", label: "Suburb", color: "#00B8D9" },
-  { value: "MailName1", label: "MailName 1", color: "#00B8D9" },
-  { value: "MailName2", label: "MailName 2", color: "#00B8D9" },
-  { value: "MailAdd1", label: "MailAdd 1", color: "#00B8D9" },
-  { value: "MailAdd2", label: "MailAdd 2", color: "#00B8D9" },
-  { value: "MailAdd3", label: "MailAdd 3", color: "#00B8D9" },
-  { value: "MailAdd4", label: "MailAdd 4", color: "#00B8D9" },
-  { value: "Class", label: "Class", color: "#00B8D9" },
-  { value: "Range", label: "Range", color: "#00B8D9" },
-  { value: "Arrears", label: "Arrears", color: "#00B8D9" },
-  { value: "CurrentBalance", label: "Current Balance", color: "#00B8D9" },
-  {
-    value: "Balance",
-    label: "Balance",
-    color: "#00B8D9",
-  },
-  {
-    value: "AdministrationFee",
-    label: "Administration Fee",
-    color: "#00B8D9",
-  },
-  { value: "LODFee", label: "LOD Fee", color: "#00B8D9" },
-  {
-    value: "TotalPayableAmount",
-    label: "Total Payable Amount",
-    color: "#00B8D9",
-  },
-  { value: "BATCH", label: "BATCH", color: "#00B8D9" },
-  { value: "PropertyStatus", label: "Property Status", color: "#00B8D9" },
-  { value: "FirstVisitDate", label: "First Visit Date", color: "#00B8D9" },
-  { value: "TenantMobNo", label: "Tenant Mob No", color: "#00B8D9" },
-  { value: "EbillName", label: "E Bill Name", color: "#00B8D9" },
-  { value: "EbillMobileNo", label: "E Bill Mobile No", color: "#00B8D9" },
-  { value: "EbillLandlineNo", label: "E Bill Landline No", color: "#00B8D9" },
-  { value: "EbillEmail", label: "E Bill Email", color: "#00B8D9" },
-
-  { value: "LA_Name", label: "LA_Name", color: "#00B8D9" },
-  { value: "LA_Mobile", label: "LA_Mobile", color: "#00B8D9" },
-  { value: "Water_Name", label: "Water_Name", color: "#00B8D9" },
-  { value: "Water_Mobile", label: "Water_Mobile", color: "#00B8D9" },
-  { value: "LA_New IC", label: "LA_New_IC", color: "#00B8D9" },
-  { value: "LA_Other_No", label: "LA_Other No", color: "#00B8D9" },
-  { value: "Water_New_IC", label: "Water_New IC", color: "#00B8D9" },
-  { value: "Water_Other_No1", label: "Water_Other No1", color: "#00B8D9" },
-  { value: "Water_Email_Add", label: "Water_Email Add", color: "#00B8D9" },
-  { value: "LA_Old_IC", label: "LA_Old IC", color: "#00B8D9" },
-  { value: "LA_Email Add", label: "LA_Email Add", color: "#00B8D9" },
-  { value: "Water_Old_IC", label: "Water_Old IC", color: "#00B8D9" },
-  { value: "Water_Other_No2", label: "email", color: "#00B8D9" },
-  { value: "ICNOs", label: "ICNOs ", color: "#00B8D9" },
-  { value: "ArrPhone", label: "ArrPhone", color: "#00B8D9" },
-];
-
-const VacantsArrayOptions = [
-  { value: "SEWACC", label: "SEWACC", color: "#00B8D9" },
-  { value: "OWNER_NAME", label: "OWNER NAME", color: "#0052CC" },
-  { value: "PROP_ADD", label: "PROP ADD", color: "#5243AA" },
-  { value: "CURRENT_CLASS", label: "CURRENT CLASS", color: "#FF5630" },
-];
 const animatedComponents = makeAnimated();
 const useStyles = makeStyles((theme) => ({
   alert: {
@@ -294,6 +122,11 @@ const useStyles = makeStyles((theme) => ({
     with: "100%",
     paddingLeft: "50px",
   },
+  select1: {
+    // width: "100%",
+    margin: "12px",
+    marginTop: "2px",
+  },
   // formMainDiv: {
 
   // },
@@ -314,6 +147,26 @@ function Dashboard() {
   const [DueDate, setDueDate] = React.useState(new Date());
   const [ReportDate, setReportDate] = React.useState(new Date());
   const [CurrentDate, setCurrentDate] = React.useState(new Date());
+  const [Option, setOption] = useState("");
+  const [UserSelectCategory, setUserSelectCategory] = React.useState("");
+  const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
+  const [Category, setCategory] = React.useState([]);
+
+  useEffect(() => {
+    setDisabled(true);
+    if (Option) {
+      axios
+        .get(`/jobname/${Option}/${AdminId}`)
+        .then((res) => {
+          setDisabled(false);
+          setCategory(res.data);
+        })
+        .catch((err) => {
+          setDisabled(false);
+          setCategory([]);
+        });
+    }
+  }, [Option, AdminId]);
 
   const selecHandleChange = (selected) => {
     setOptionSelected(selected);
@@ -330,7 +183,6 @@ function Dashboard() {
   }
 
   //end-upload file
-  const AdminId = JSON.parse(localStorage.getItem("auth")).message.id || "";
 
   const dialogOpen = () => {
     setResponse(true);
@@ -411,6 +263,14 @@ function Dashboard() {
     console.log(e);
     setCurrentDate(e);
   };
+  const onSelectValue = (value, event) => {
+    setOption(value);
+    // alert(value);
+  };
+  const onSelectValue2 = (value, event) => {
+    setUserSelectCategory(value);
+    // alert(value);
+  };
   return (
     <Layout>
       <div className="newFile2">
@@ -418,6 +278,27 @@ function Dashboard() {
         <form onSubmit={handleSubmit}>
           <div className={classes.formMain}>
             <div className={classes.formMainDiv}>
+              <label className={classes.label}>{"Type"}</label>
+              <div className={classes.select1}>
+                <BasicSelect
+                  options={categoryTypeAll}
+                  value
+                  onSelectValue={onSelectValue}
+                  width="300px"
+                />
+              </div>
+              <label className={classes.label}>{"Job Name"}</label>
+              <div className={classes.select1}>
+                <BasicSelect2
+                  options={Category}
+                  value
+                  onSelectValue={onSelectValue2}
+                  // width="250"
+                />
+              </div>
+            </div>
+
+            <div>
               <label className={classes.label}>{"Upload File"}</label>
               <div className="input-div">
                 <input
@@ -440,64 +321,10 @@ function Dashboard() {
                   className="input-div-botton"
                 />
               </div>
-
-              {/* {optionSelectedOr} */}
-            </div>
-
-            <div>
-              <label className={classes.label}>{"Job Name"}</label>
-              <div className="input-div">
-                <input
-                  type="text"
-                  className="input-div-input"
-                  placeholder="Job Name"
-                  value={JobType}
-                  required
-                  onChange={(e) => setJobType(e.target.value)}
-                />
-                {/* <img src={AddIcon} alt="" className="input-div-botton" /> */}
-              </div>
             </div>
           </div>
           <br />
-          <div className={classes.MySelectDiv}>
-            <div className={classes.lnds}>
-              {/* {(optionSelectedOr === "lnds" ||
-                optionSelectedOr === "commercials" ||
-                optionSelectedOr === "highrises") && ( */}
-              <div>
-                <MySelect
-                  menuPosition="fixed"
-                  options={LndArrayOptions}
-                  isMulti
-                  closeMenuOnSelect={false}
-                  hideSelectedOptions={false}
-                  components={{ Option, MultiValue, animatedComponents }}
-                  onChange={selecHandleChange}
-                  allowSelectAll={true}
-                  value={optionSelected}
-                />
-              </div>
-              {/* )} */}
 
-              {/* {optionSelectedOr === "vacants" && (
-                <div>
-                  <MySelect
-                    menuPosition="fixed"
-                    options={VacantsArrayOptions}
-                    isMulti
-                    closeMenuOnSelect={false}
-                    hideSelectedOptions={false}
-                    components={{ Option, MultiValue, animatedComponents }}
-                    onChange={selecHandleChange}
-                    allowSelectAll={true}
-                    value={optionSelected}
-                  />
-                </div>
-              )} */}
-            </div>
-            <br />
-          </div>
           <div
             style={{
               display: "flex",

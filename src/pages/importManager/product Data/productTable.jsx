@@ -181,13 +181,7 @@ function Newrider() {
                 <th>
                   <Typography variant="body">#</Typography>{" "}
                 </th>
-                <th>
-                  <Typography variant="body">Image</Typography>{" "}
-                </th>
 
-                <th>
-                  <Typography variant="body">Fullname</Typography>{" "}
-                </th>
                 <th>
                   {" "}
                   <Typography variant="body">Category</Typography>{" "}
@@ -195,18 +189,7 @@ function Newrider() {
                 <th>
                   <Typography variant="body">Jobname</Typography>{" "}
                 </th>
-                {/*<th>
-                 <Typography variant="body">From</Typography>{" "}
-                </th>
-                <th>
-                  <Typography variant="body">To</Typography>{" "}
-                </th>
-                <th>
-                  <Typography variant="body">Total</Typography>{" "}
-                </th>
-                <th>
-                  <Typography variant="body">Complete</Typography>{" "}
-                </th> */}
+
                 <th>
                   <Typography variant="body">Action</Typography>{" "}
                 </th>
@@ -244,32 +227,7 @@ function Newrider() {
                     <td>
                       <Typography variant="body">{i + 1}</Typography>
                     </td>
-                    <td align="center">
-                      <Avatar
-                        sx={{
-                          width: "40px",
-                          height: "40px",
-                          textTransform: "capitalize",
-                          textAlign: "center",
-                          margin: "0 auto",
-                        }}
-                        src={axios.defaults.baseURL + "/images/" + data.image}
-                        alt="user"
-                      >
-                        {data.fullName[0]}
-                      </Avatar>
-                    </td>
-                    <td>
-                      <p
-                        style={{
-                          textAlign: "left",
-                          margin: "0px",
-                          paddingLeft: "16px",
-                        }}
-                      >
-                        {data.fullName}
-                      </p>
-                    </td>
+
                     <td>
                       <p
                         style={{
@@ -294,23 +252,6 @@ function Newrider() {
                         {data.jobName}
                       </p>
                     </td>
-                    {/* <td>
-                      <Typography variant="body">{data.dataFrom}</Typography>
-                    </td>
-
-                    <td>
-                      <Typography variant="body">{data.dataTo}</Typography>
-                    </td>
-
-                    <td>
-                      <Typography variant="body">
-                        {data.dataTo - data.dataFrom + 1}
-                      </Typography>
-                    </td>
-                    <td>
-                      <Typography variant="body">{data.progress}</Typography>
-                    </td> */}
-
                     <td onClick={() => Deleting(data)}>
                       {/* <img src={DeleteBtn} className="delete" alt="" /> */}
                       <DeleteIcon
